@@ -40,9 +40,12 @@ namespace Project
                 observedImage = CvInvoke.Imread(openFileDialog2.FileName);
             }*/
                 
-           imgbox1.Image = modelImage;
+            imgbox1.Image = modelImage;
+            Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
+            imgbox2.Image = ShapeDetection.detectShape(img);
 
-            Emgu.CV.Image<Bgr, Byte> imgBgr = new Image<Bgr, Byte>(openFileDialog1.FileName);
+
+            /*Emgu.CV.Image<Bgr, Byte> imgBgr = new Image<Bgr, Byte>(openFileDialog1.FileName);
 
             CvInvoke.Imshow("Img BGR", imgBgr);
 
@@ -54,7 +57,7 @@ namespace Project
 
             CvInvoke.Imshow("Img HSV", imgHsv);
 
-            Hsv colorHsv = imgHsv[0,0];
+            Hsv colorHsv = imgHsv[0,0];*/
 
             /*   long matchTime;
                Mat result = ImgOps.Draw(modelImage, observedImage, out matchTime);
