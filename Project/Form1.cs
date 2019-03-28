@@ -2,10 +2,12 @@
 using Emgu.CV.CvEnum;
 using Emgu.CV.Structure;
 using Emgu.CV.UI;
+using Emgu.CV.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -41,9 +43,14 @@ namespace Project
             }*/
                 
             imgbox1.Image = modelImage;
-            Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
-            imgbox2.Image = ShapeDetection.detectShape(img);
-
+             try {
+                 Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
+                 imgbox2.Image = ShapeDetection.detectShape(img);
+             }
+             catch(Exception ex) {
+                 MessageBox.Show(ex.Message);
+             }
+           
 
             /*Emgu.CV.Image<Bgr, Byte> imgBgr = new Image<Bgr, Byte>(openFileDialog1.FileName);
 
