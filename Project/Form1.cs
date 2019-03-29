@@ -26,7 +26,7 @@ namespace Project
 
         private void btn_open_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            
             OpenFileDialog openFileDialog2 = new OpenFileDialog();
             openFileDialog1.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*";
             openFileDialog2.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*";
@@ -75,6 +75,15 @@ namespace Project
             }
             l_matchtime.Text = matchTime.ToString() +" ms";
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                imgbox1.Image = CvInvoke.Imread(openFileDialog1.FileName);
+            }
         }
     }
 }
