@@ -37,21 +37,22 @@ namespace Project
             {
                 modelImage = CvInvoke.Imread(openFileDialog1.FileName);
             }
-           /* if (openFileDialog2.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (openFileDialog2.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 observedImage = CvInvoke.Imread(openFileDialog2.FileName);
-            }*/
+            }
                 
-            imgbox1.Image = modelImage;
+            //Shape Detection
+           /* imgbox1.Image = modelImage;
              try {
                  Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
                  imgbox2.Image = ShapeDetection.detectShape(img);
              }
              catch(Exception ex) {
                  MessageBox.Show(ex.Message);
-             }
+             }*/
            
-
+            // RGB to HSV
             /*Emgu.CV.Image<Bgr, Byte> imgBgr = new Image<Bgr, Byte>(openFileDialog1.FileName);
 
             CvInvoke.Imshow("Img BGR", imgBgr);
@@ -65,13 +66,14 @@ namespace Project
             CvInvoke.Imshow("Img HSV", imgHsv);
 
             Hsv colorHsv = imgHsv[0,0];*/
-
-            /*   long matchTime;
-               Mat result = ImgOps.Draw(modelImage, observedImage, out matchTime);
+            
+           // Shape Comparation
+           long matchTime;
+           Mat result = ShapeComparation.Draw(modelImage, observedImage, out matchTime);
 
            imgbox2.Image = observedImage;
            imgbox3.Image = result;
-           l_matchTime.Text = matchTime.ToString();*/
+           l_matchTime.Text = matchTime.ToString();
 
         }
     }

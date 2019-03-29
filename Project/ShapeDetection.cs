@@ -29,7 +29,7 @@ namespace Project
 
                 try
                 {
-                    var temp = imgInput.SmoothGaussian(5).Convert<Gray, byte>().ThresholdBinaryInv(new Gray(230), new Gray(255));
+                    var temp = imgInput.SmoothGaussian(9).Convert<Gray, byte>().ThresholdBinaryInv(new Gray(230), new Gray(255));
 
                     VectorOfVectorOfPoint contours = new VectorOfVectorOfPoint();
                     Mat m = new Mat();
@@ -47,7 +47,7 @@ namespace Project
                         //moments  center of the shape
 
                         var moments = CvInvoke.Moments(contours[i]);
-                        int x = (int)(moments.M10 / moments.M00);
+                        int x = (int)(moments.M10 / moments.M00); 
                         int y = (int)(moments.M01 / moments.M00);
 
                         if (approx.Size == 3)
