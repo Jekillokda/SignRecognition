@@ -33,7 +33,8 @@
             this.imgbox1 = new Emgu.CV.UI.ImageBox();
             this.imgbox2 = new Emgu.CV.UI.ImageBox();
             this.imgbox3 = new Emgu.CV.UI.ImageBox();
-            this.l_matchTime = new System.Windows.Forms.Label();
+            this.l_matchfound = new System.Windows.Forms.Label();
+            this.l_matchtime = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox3)).BeginInit();
@@ -41,9 +42,10 @@
             // 
             // btn_open
             // 
-            this.btn_open.Location = new System.Drawing.Point(1068, 42);
+            this.btn_open.Location = new System.Drawing.Point(801, 34);
+            this.btn_open.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_open.Name = "btn_open";
-            this.btn_open.Size = new System.Drawing.Size(85, 26);
+            this.btn_open.Size = new System.Drawing.Size(64, 21);
             this.btn_open.TabIndex = 2;
             this.btn_open.Text = "OpenImg";
             this.btn_open.UseVisualStyleBackColor = true;
@@ -51,46 +53,62 @@
             // 
             // imgbox1
             // 
-            this.imgbox1.Location = new System.Drawing.Point(12, 12);
+            this.imgbox1.Location = new System.Drawing.Point(9, 10);
+            this.imgbox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.imgbox1.Name = "imgbox1";
-            this.imgbox1.Size = new System.Drawing.Size(336, 323);
+            this.imgbox1.Size = new System.Drawing.Size(252, 262);
             this.imgbox1.TabIndex = 2;
             this.imgbox1.TabStop = false;
             // 
             // imgbox2
             // 
-            this.imgbox2.Location = new System.Drawing.Point(354, 12);
+            this.imgbox2.Location = new System.Drawing.Point(266, 10);
+            this.imgbox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.imgbox2.Name = "imgbox2";
-            this.imgbox2.Size = new System.Drawing.Size(314, 323);
+            this.imgbox2.Size = new System.Drawing.Size(236, 262);
             this.imgbox2.TabIndex = 3;
             this.imgbox2.TabStop = false;
             // 
             // imgbox3
             // 
-            this.imgbox3.Location = new System.Drawing.Point(674, 12);
+            this.imgbox3.Location = new System.Drawing.Point(506, 10);
+            this.imgbox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.imgbox3.Name = "imgbox3";
-            this.imgbox3.Size = new System.Drawing.Size(388, 323);
+            this.imgbox3.Size = new System.Drawing.Size(291, 262);
             this.imgbox3.TabIndex = 4;
             this.imgbox3.TabStop = false;
             // 
-            // l_matchTime
+            // l_matchfound
             // 
-            this.l_matchTime.AutoSize = true;
-            this.l_matchTime.Location = new System.Drawing.Point(1068, 75);
-            this.l_matchTime.Name = "l_matchTime";
-            this.l_matchTime.Size = new System.Drawing.Size(0, 17);
-            this.l_matchTime.TabIndex = 5;
+            this.l_matchfound.AutoSize = true;
+            this.l_matchfound.Location = new System.Drawing.Point(801, 61);
+            this.l_matchfound.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.l_matchfound.Name = "l_matchfound";
+            this.l_matchfound.Size = new System.Drawing.Size(52, 13);
+            this.l_matchfound.TabIndex = 5;
+            this.l_matchfound.Text = "not found";
+            // 
+            // l_matchtime
+            // 
+            this.l_matchtime.AutoSize = true;
+            this.l_matchtime.Location = new System.Drawing.Point(801, 78);
+            this.l_matchtime.Name = "l_matchtime";
+            this.l_matchtime.Size = new System.Drawing.Size(29, 13);
+            this.l_matchtime.TabIndex = 6;
+            this.l_matchtime.Text = "0 ms";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 549);
-            this.Controls.Add(this.l_matchTime);
+            this.ClientSize = new System.Drawing.Size(900, 446);
+            this.Controls.Add(this.l_matchtime);
+            this.Controls.Add(this.l_matchfound);
             this.Controls.Add(this.imgbox3);
             this.Controls.Add(this.imgbox2);
             this.Controls.Add(this.imgbox1);
             this.Controls.Add(this.btn_open);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Proj";
             ((System.ComponentModel.ISupportInitialize)(this.imgbox1)).EndInit();
@@ -106,7 +124,8 @@
         private Emgu.CV.UI.ImageBox imgbox1;
         private Emgu.CV.UI.ImageBox imgbox2;
         private Emgu.CV.UI.ImageBox imgbox3;
-        private System.Windows.Forms.Label l_matchTime;
+        private System.Windows.Forms.Label l_matchfound;
+        private System.Windows.Forms.Label l_matchtime;
     }
 }
 

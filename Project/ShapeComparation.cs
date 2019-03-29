@@ -28,7 +28,7 @@ namespace Project
             out Mat homography)
         {
             int k = 5;
-            double uniquenessThreshold = 0.80; 
+            double uniquenessThreshold = 0.80;
 
             Stopwatch watch;
             homography = null;
@@ -87,7 +87,7 @@ namespace Project
         /// <param name="observedImage">The observed image</param>
         /// <param name="matchTime">The output total time for computing the homography matrix.</param>
         /// <returns>The model image and observed image, the matched features and homography projection.</returns>
-        public static Mat Draw(Mat modelImage, Mat observedImage, out long matchTime)
+        public static Mat Draw(Mat modelImage, Mat observedImage, out long matchTime, ref bool  matchfound)
         {
             Mat homography;
             VectorOfKeyPoint modelKeyPoints;
@@ -105,6 +105,7 @@ namespace Project
 
                 if (homography != null)
                 {
+                    matchfound = true;
                     //draw a rectangle along the projected model
                     Rectangle rect = new Rectangle(Point.Empty, modelImage.Size);
                     PointF[] pts = new PointF[]

@@ -30,50 +30,46 @@ namespace Project
             OpenFileDialog openFileDialog2 = new OpenFileDialog();
             openFileDialog1.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*";
             openFileDialog2.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*";
-            Mat modelImage = new Mat();
-            Mat observedImage = new Mat();
+            Mat image1 = new Mat();
+            Mat image2 = new Mat();
 
+            //open 1st img
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                modelImage = CvInvoke.Imread(openFileDialog1.FileName);
+                image1 = CvInvoke.Imread(openFileDialog1.FileName);
             }
+ 
+            //open 2nd image
             if (openFileDialog2.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                observedImage = CvInvoke.Imread(openFileDialog2.FileName);
+                image2 = CvInvoke.Imread(openFileDialog2.FileName);
             }
-                
+
             //Shape Detection
-           /* imgbox1.Image = modelImage;
-             try {
-                 Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
-                 imgbox2.Image = ShapeDetection.detectShape(img);
-             }
-             catch(Exception ex) {
-                 MessageBox.Show(ex.Message);
-             }*/
-           
-            // RGB to HSV
-            /*Emgu.CV.Image<Bgr, Byte> imgBgr = new Image<Bgr, Byte>(openFileDialog1.FileName);
+            /* imgbox1.Image = image1;
+              try {
+                  Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
+                  imgbox2.Image = ShapeDetection.detectShape(img);
+              }
+              catch(Exception ex) {
+                  MessageBox.Show(ex.Message);
+              }*/
 
-            CvInvoke.Imshow("Img BGR", imgBgr);
+            // Shape Comparation
+            long matchTime;
+            Mat imgHSV1 = ImgOps.RGBtoHSV(image1);
+            Mat imgHSV2 = ImgOps.RGBtoHSV(image2);
+            bool matchfound = false; 
+            Mat result = ShapeComparation.Draw(imgHSV1, imgHSV2, out matchTime, ref matchfound);
 
-            Bgr color = imgBgr[0,0];
-
-            Emgu.CV.Image<Hsv, Byte> imgHsv = new Image<Hsv, Byte>(openFileDialog1.FileName);
-
-            CvInvoke.Resize(imgHsv, imgHsv, new Size(1600,800));
-
-            CvInvoke.Imshow("Img HSV", imgHsv);
-
-            Hsv colorHsv = imgHsv[0,0];*/
-            
-           // Shape Comparation
-           long matchTime;
-           Mat result = ShapeComparation.Draw(modelImage, observedImage, out matchTime);
-
-           imgbox2.Image = observedImage;
-           imgbox3.Image = result;
-           l_matchTime.Text = matchTime.ToString();
+            imgbox1.Image = image2;
+            imgbox2.Image = image1;
+            imgbox3.Image = result;
+            if (matchfound == true)
+            {
+                l_matchfound.Text = "Found";
+            }
+            l_matchtime.Text = matchTime.ToString() +" ms";
 
         }
     }
