@@ -28,7 +28,7 @@ namespace Project
             out Mat homography)
         {
             int k = 5;
-            double uniquenessThreshold = 0.80;
+            double uniquenessThreshold = 0.80; 
 
             Stopwatch watch;
             homography = null;
