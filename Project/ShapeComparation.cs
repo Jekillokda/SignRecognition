@@ -27,7 +27,7 @@ namespace Project
             out Mat mask,
             out Mat homography)
         {
-            int k = 5;
+            int k = 9;
             double uniquenessThreshold = 0.80;
 
             Stopwatch watch;
@@ -51,8 +51,6 @@ namespace Project
                 Mat observedDescriptors = new Mat();
                 featureDetector.DetectAndCompute(uObservedImage, null, observedKeyPoints, observedDescriptors, false);
 
-                // Bruteforce, slower but more accurate
-                // You can use KDTree for faster matching with slight loss in accuracy
                 using (Emgu.CV.Flann.LinearIndexParams ip = new Emgu.CV.Flann.LinearIndexParams())
                 using (Emgu.CV.Flann.SearchParams sp = new SearchParams())
                 using (DescriptorMatcher matcher = new FlannBasedMatcher(ip, sp))

@@ -29,6 +29,22 @@ namespace Project
             return tmp;
             
         }
+        public static Mat RGBtoGrey(Mat img)
+        {
+            Mat tmp = new Mat();
+            try
+            {
+                Emgu.CV.Image<Bgr, Byte> image = img.ToImage<Bgr, Byte>();
+                Image<Gray, Byte> grayImage = image.Convert<Gray, Byte>();
+                tmp = grayImage.Mat;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return tmp;
+
+        }
         public static Mat Resize(Mat img, int h, int w)
         {
             try

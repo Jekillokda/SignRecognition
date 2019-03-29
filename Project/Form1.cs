@@ -59,11 +59,15 @@ namespace Project
             long matchTime;
             Mat imgHSV1 = ImgOps.RGBtoHSV(image1);
             Mat imgHSV2 = ImgOps.RGBtoHSV(image2);
+            Mat imgGrey1 = ImgOps.RGBtoGrey(image1);
+            Mat imgGrey2 = ImgOps.RGBtoGrey(image2);
             bool matchfound = false; 
-            Mat result = ShapeComparation.Draw(imgHSV1, imgHSV2, out matchTime, ref matchfound);
+            Mat result = ShapeComparation.Draw(imgGrey1, imgGrey2, out matchTime, ref matchfound);
 
-            imgbox1.Image = image2;
-            imgbox2.Image = image1;
+            //imgbox1.Image = image2;
+            //imgbox2.Image = image1;
+            imgbox1.Image = imgGrey1;
+            imgbox2.Image = imgGrey2;
             imgbox3.Image = result;
             if (matchfound == true)
             {
