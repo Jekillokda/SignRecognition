@@ -1,17 +1,6 @@
 ﻿using Emgu.CV;
-using Emgu.CV.CvEnum;
 using Emgu.CV.Structure;
-using Emgu.CV.UI;
-using Emgu.CV.Util;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Project
@@ -24,7 +13,6 @@ namespace Project
         public Form1()
         {
             InitializeComponent();
-
         }
 
         private void btn_img1_load_Click(object sender, EventArgs e)
@@ -47,7 +35,6 @@ namespace Project
                 imgOrigin2 = CvInvoke.Imread(openFileDialog2.FileName).ToImage<Bgr, Byte>();
                 imgbox2.Image = imgOrigin2;
             }
-
         }
 
         private void btn_img1_toOrigin_Click(object sender, EventArgs e)
@@ -98,8 +85,6 @@ namespace Project
             {
                 l_matchfound.Text = "Found";
             }
-            
-
             imgbox3.Image = result;
         }
 
@@ -114,8 +99,66 @@ namespace Project
             {
                 MessageBox.Show(ex.Message);
             }
+        }  
+
+        private void btn_detectLines_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
+                imgbox3.Image = ShapeDetection.detectShape2(img, 1);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        
+        private void btn_detectTriangles_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
+                imgbox3.Image = ShapeDetection.detectShape2(img, 2);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btn_detectRectangles_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
+                imgbox3.Image = ShapeDetection.detectShape2(img, 3);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void btn_detectCircles_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
+                imgbox3.Image = ShapeDetection.detectShape2(img, 4);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btn_img1_denoise_Click(object sender, EventArgs e)
+        {
+            UMat pyrDown = new UMat();
+            CvInvoke.PyrDown(imgbox1.Image, pyrDown);
+            Image<Bgr,byte> res = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
+            CvInvoke.PyrUp(pyrDown, res);
+            imgbox1.Image = res;
+        }
     }
 }

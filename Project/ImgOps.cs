@@ -43,7 +43,6 @@ namespace Project
                 MessageBox.Show(ex.Message);
             }
             return tmp;
-
         }
         public static Mat Resize(Mat img, int h, int w)
         {
