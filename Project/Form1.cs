@@ -18,72 +18,104 @@ namespace Project
 {
     public partial class Form1 : Form
     {
+        Image<Bgr, byte> imgOrigin1;
+        Image<Bgr, byte> imgOrigin2;
+
         public Form1()
         {
             InitializeComponent();
 
         }
 
-        private void btn_open_Click(object sender, EventArgs e)
+        private void btn_img1_load_Click(object sender, EventArgs e)
         {
-            
-            OpenFileDialog openFileDialog2 = new OpenFileDialog();
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*";
-            openFileDialog2.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*";
-            Mat image1 = new Mat();
-            Mat image2 = new Mat();
-
-            //open 1st img
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                image1 = CvInvoke.Imread(openFileDialog1.FileName);
+                imgOrigin1 = CvInvoke.Imread(openFileDialog1.FileName).ToImage<Bgr, Byte>();
+                imgbox1.Image = imgOrigin1;
             }
- 
-            //open 2nd image
+        }
+
+        private void btn_img2_load_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog2 = new OpenFileDialog();
+            openFileDialog2.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*";
             if (openFileDialog2.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                image2 = CvInvoke.Imread(openFileDialog2.FileName);
+                imgOrigin2 = CvInvoke.Imread(openFileDialog2.FileName).ToImage<Bgr, Byte>();
+                imgbox2.Image = imgOrigin2;
             }
 
-            //Shape Detection
-            /* imgbox1.Image = image1;
-              try {
-                  Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
-                  imgbox2.Image = ShapeDetection.detectShape(img);
-              }
-              catch(Exception ex) {
-                  MessageBox.Show(ex.Message);
-              }*/
+        }
 
-            // Shape Comparation
+        private void btn_img1_toOrigin_Click(object sender, EventArgs e)
+        {
+            imgbox1.Image = imgOrigin1;
+        }
+
+        private void btn_img2_toOrigin_Click(object sender, EventArgs e)
+        {
+            imgbox2.Image = imgOrigin2;
+        }
+
+        private void btn_img1_tohsv_Click(object sender, EventArgs e)
+        {
+            imgbox1.Image = ImgOps.RGBtoHSV(new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat);
+        }
+
+        private void btn_img2_tohsv_Click(object sender, EventArgs e)
+        {
+            imgbox2.Image = ImgOps.RGBtoHSV(new Image<Bgr, byte>(imgbox2.Image.Bitmap).Mat);
+        }
+
+        private void btn_img1_togrey_Click(object sender, EventArgs e)
+        {
+            imgbox1.Image = ImgOps.RGBtoGrey(new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat);
+        }
+
+        private void btn_img2_togrey_Click(object sender, EventArgs e)
+        {
+            imgbox2.Image = ImgOps.RGBtoGrey(new Image<Bgr, byte>(imgbox2.Image.Bitmap).Mat);
+        }
+
+        private void btn_compare_Click(object sender, EventArgs e)
+        {
+            bool matchfound = false;
             long matchTime;
-            Mat imgHSV1 = ImgOps.RGBtoHSV(image1);
-            Mat imgHSV2 = ImgOps.RGBtoHSV(image2);
-            Mat imgGrey1 = ImgOps.RGBtoGrey(image1);
-            Mat imgGrey2 = ImgOps.RGBtoGrey(image2);
-            bool matchfound = false; 
-            Mat result = ShapeComparation.Draw(imgGrey1, imgGrey2, out matchTime, ref matchfound);
-
-            //imgbox1.Image = image2;
-            //imgbox2.Image = image1;
-            imgbox1.Image = imgGrey1;
-            imgbox2.Image = imgGrey2;
-            imgbox3.Image = result;
+            Mat result = new Mat();
+            if ((imgbox1.Image != null) && (imgbox1.Image != null))
+            {
+                result = ShapeComparation.Draw((new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat), (new Image<Bgr, byte>(imgbox2.Image.Bitmap).Mat), out matchTime, ref matchfound);
+                l_matchtime.Text = matchTime.ToString() + " ms";
+            }
+            else
+            {
+                MessageBox.Show("Load images and try again", "Error");
+            }
             if (matchfound == true)
             {
                 l_matchfound.Text = "Found";
             }
-            l_matchtime.Text = matchTime.ToString() +" ms";
+            
 
+            imgbox3.Image = result;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_detect_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            try
             {
-                imgbox1.Image = CvInvoke.Imread(openFileDialog1.FileName);
+                Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
+                imgbox3.Image = ShapeDetection.detectShape(img);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
+
+        
     }
 }
