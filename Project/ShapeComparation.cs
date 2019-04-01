@@ -73,7 +73,6 @@ namespace Project
                     }
                 }
                 watch.Stop();
-
             }
             matchTime = watch.ElapsedMilliseconds;
         }
@@ -93,13 +92,10 @@ namespace Project
             using (VectorOfVectorOfDMatch matches = new VectorOfVectorOfDMatch())
             {
                 Mat mask;
-                FindMatch(modelImage, observedImage, out matchTime, out modelKeyPoints, out observedKeyPoints, matches,
-                out mask, out homography);
-
+                FindMatch(modelImage, observedImage, out matchTime, out modelKeyPoints, out observedKeyPoints, matches, out mask, out homography);
                 //Draw the matched keypoints
                 Mat result = new Mat();
-                Features2DToolbox.DrawMatches(modelImage, modelKeyPoints, observedImage, observedKeyPoints,
-                matches, result, new MCvScalar(255, 255, 255), new MCvScalar(255, 255, 255), mask);
+                Features2DToolbox.DrawMatches(modelImage, modelKeyPoints, observedImage, observedKeyPoints, matches, result, new MCvScalar(255, 255, 255), new MCvScalar(255, 255, 255), mask);
 
                 if (homography != null)
                 {
@@ -121,12 +117,9 @@ namespace Project
                         CvInvoke.Polylines(result, vp, true, new MCvScalar(255, 0, 0, 255), 5);
                     }
                 }
-
                 return result;
-
             }
         }
-
     }
 }
 

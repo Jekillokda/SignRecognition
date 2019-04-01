@@ -49,6 +49,9 @@
             this.btn_detectLines = new System.Windows.Forms.Button();
             this.btn_detectRectangles = new System.Windows.Forms.Button();
             this.btn_img1_denoise = new System.Windows.Forms.Button();
+            this.btn_img2_denoise = new System.Windows.Forms.Button();
+            this.btn_img1_tobinary = new System.Windows.Forms.Button();
+            this.btn_img2_tobinary = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox3)).BeginInit();
@@ -95,7 +98,7 @@
             // l_matchfound
             // 
             this.l_matchfound.AutoSize = true;
-            this.l_matchfound.Location = new System.Drawing.Point(934, 422);
+            this.l_matchfound.Location = new System.Drawing.Point(896, 418);
             this.l_matchfound.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.l_matchfound.Name = "l_matchfound";
             this.l_matchfound.Size = new System.Drawing.Size(52, 13);
@@ -105,7 +108,7 @@
             // l_matchtime
             // 
             this.l_matchtime.AutoSize = true;
-            this.l_matchtime.Location = new System.Drawing.Point(900, 422);
+            this.l_matchtime.Location = new System.Drawing.Point(1188, 418);
             this.l_matchtime.Name = "l_matchtime";
             this.l_matchtime.Size = new System.Drawing.Size(29, 13);
             this.l_matchtime.TabIndex = 6;
@@ -204,7 +207,7 @@
             // 
             // btn_detectCircles
             // 
-            this.btn_detectCircles.Location = new System.Drawing.Point(1063, 473);
+            this.btn_detectCircles.Location = new System.Drawing.Point(1063, 468);
             this.btn_detectCircles.Margin = new System.Windows.Forms.Padding(2);
             this.btn_detectCircles.Name = "btn_detectCircles";
             this.btn_detectCircles.Size = new System.Drawing.Size(78, 44);
@@ -215,7 +218,7 @@
             // 
             // btn_detectTriangles
             // 
-            this.btn_detectTriangles.Location = new System.Drawing.Point(899, 473);
+            this.btn_detectTriangles.Location = new System.Drawing.Point(899, 468);
             this.btn_detectTriangles.Margin = new System.Windows.Forms.Padding(2);
             this.btn_detectTriangles.Name = "btn_detectTriangles";
             this.btn_detectTriangles.Size = new System.Drawing.Size(78, 44);
@@ -226,7 +229,7 @@
             // 
             // btn_detectLines
             // 
-            this.btn_detectLines.Location = new System.Drawing.Point(817, 473);
+            this.btn_detectLines.Location = new System.Drawing.Point(817, 468);
             this.btn_detectLines.Margin = new System.Windows.Forms.Padding(2);
             this.btn_detectLines.Name = "btn_detectLines";
             this.btn_detectLines.Size = new System.Drawing.Size(78, 44);
@@ -237,7 +240,7 @@
             // 
             // btn_detectRectangles
             // 
-            this.btn_detectRectangles.Location = new System.Drawing.Point(981, 473);
+            this.btn_detectRectangles.Location = new System.Drawing.Point(981, 468);
             this.btn_detectRectangles.Margin = new System.Windows.Forms.Padding(2);
             this.btn_detectRectangles.Name = "btn_detectRectangles";
             this.btn_detectRectangles.Size = new System.Drawing.Size(78, 44);
@@ -248,7 +251,7 @@
             // 
             // btn_img1_denoise
             // 
-            this.btn_img1_denoise.Location = new System.Drawing.Point(9, 531);
+            this.btn_img1_denoise.Location = new System.Drawing.Point(90, 418);
             this.btn_img1_denoise.Name = "btn_img1_denoise";
             this.btn_img1_denoise.Size = new System.Drawing.Size(75, 23);
             this.btn_img1_denoise.TabIndex = 20;
@@ -256,11 +259,44 @@
             this.btn_img1_denoise.UseVisualStyleBackColor = true;
             this.btn_img1_denoise.Click += new System.EventHandler(this.btn_img1_denoise_Click);
             // 
+            // btn_img2_denoise
+            // 
+            this.btn_img2_denoise.Location = new System.Drawing.Point(494, 418);
+            this.btn_img2_denoise.Name = "btn_img2_denoise";
+            this.btn_img2_denoise.Size = new System.Drawing.Size(75, 23);
+            this.btn_img2_denoise.TabIndex = 21;
+            this.btn_img2_denoise.Text = "denoise";
+            this.btn_img2_denoise.UseVisualStyleBackColor = true;
+            this.btn_img2_denoise.Click += new System.EventHandler(this.btn_img2_denoise_Click);
+            // 
+            // btn_img1_tobinary
+            // 
+            this.btn_img1_tobinary.Location = new System.Drawing.Point(9, 531);
+            this.btn_img1_tobinary.Name = "btn_img1_tobinary";
+            this.btn_img1_tobinary.Size = new System.Drawing.Size(75, 23);
+            this.btn_img1_tobinary.TabIndex = 22;
+            this.btn_img1_tobinary.Text = "toBinary";
+            this.btn_img1_tobinary.UseVisualStyleBackColor = true;
+            this.btn_img1_tobinary.Click += new System.EventHandler(this.btn_img1_tobinary_Click);
+            // 
+            // btn_img2_tobinary
+            // 
+            this.btn_img2_tobinary.Location = new System.Drawing.Point(413, 531);
+            this.btn_img2_tobinary.Name = "btn_img2_tobinary";
+            this.btn_img2_tobinary.Size = new System.Drawing.Size(75, 23);
+            this.btn_img2_tobinary.TabIndex = 23;
+            this.btn_img2_tobinary.Text = "toBinary";
+            this.btn_img2_tobinary.UseVisualStyleBackColor = true;
+            this.btn_img2_tobinary.Click += new System.EventHandler(this.btn_img2_tobinary_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1226, 583);
+            this.Controls.Add(this.btn_img2_tobinary);
+            this.Controls.Add(this.btn_img1_tobinary);
+            this.Controls.Add(this.btn_img2_denoise);
             this.Controls.Add(this.btn_img1_denoise);
             this.Controls.Add(this.btn_detectRectangles);
             this.Controls.Add(this.btn_detectLines);
@@ -313,6 +349,9 @@
         private System.Windows.Forms.Button btn_detectLines;
         private System.Windows.Forms.Button btn_detectRectangles;
         private System.Windows.Forms.Button btn_img1_denoise;
+        private System.Windows.Forms.Button btn_img2_denoise;
+        private System.Windows.Forms.Button btn_img1_tobinary;
+        private System.Windows.Forms.Button btn_img2_tobinary;
     }
 }
 

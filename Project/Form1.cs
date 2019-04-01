@@ -160,5 +160,44 @@ namespace Project
             CvInvoke.PyrUp(pyrDown, res);
             imgbox1.Image = res;
         }
+
+        private void btn_img2_denoise_Click(object sender, EventArgs e)
+        {
+            UMat pyrDown = new UMat();
+            CvInvoke.PyrDown(imgbox2.Image, pyrDown);
+            Image<Bgr, byte> res = new Image<Bgr, byte>(imgbox2.Image.Bitmap);
+            CvInvoke.PyrUp(pyrDown, res);
+            imgbox2.Image = res;
+        }
+
+        private void btn_img1_tobinary_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Mat tmp = (new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat);
+                tmp = ImgOps.RGBtoGrey(new Image<Bgr, byte>(tmp.Bitmap).Mat);
+                CvInvoke.Threshold(tmp, tmp, 200, 255, 0);
+                imgbox1.Image = tmp;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btn_img2_tobinary_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Mat tmp = (new Image<Bgr, byte>(imgbox2.Image.Bitmap).Mat);
+                tmp = ImgOps.RGBtoGrey(new Image<Bgr, byte>(tmp.Bitmap).Mat);
+                CvInvoke.Threshold(tmp, tmp, 200, 255, 0);
+                imgbox2.Image = tmp;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

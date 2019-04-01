@@ -116,7 +116,7 @@ namespace Project
          #region circle detection
          double cannyThreshold = 180.0;
          double circleAccumulatorThreshold = 120;
-         CircleF[] circles = CvInvoke.HoughCircles(uimage, HoughType.Gradient, 50, 20.0, cannyThreshold, circleAccumulatorThreshold, 10, 100);
+         CircleF[] circles = CvInvoke.HoughCircles(uimage, HoughType.Gradient, 85, 20.0, cannyThreshold, circleAccumulatorThreshold, 10, 100);
 
          #endregion
 
