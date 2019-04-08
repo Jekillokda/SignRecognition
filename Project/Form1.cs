@@ -71,12 +71,10 @@ namespace Project
         private void btn_compare_Click(object sender, EventArgs e)
         {
             bool matchfound = false;
-            long matchTime;
             Mat result = new Mat();
             if ((imgbox1.Image != null) && (imgbox1.Image != null))
             {
-                result = ShapeComparation.Draw((new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat), (new Image<Bgr, byte>(imgbox2.Image.Bitmap).Mat), out matchTime, ref matchfound);
-                l_matchtime.Text = matchTime.ToString() + " ms";
+                result = ShapeComparation.Draw((new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat), (new Image<Bgr, byte>(imgbox2.Image.Bitmap).Mat), ref matchfound);
             }
             else
             {

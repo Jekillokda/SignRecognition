@@ -34,7 +34,6 @@
             this.imgbox2 = new Emgu.CV.UI.ImageBox();
             this.imgbox3 = new Emgu.CV.UI.ImageBox();
             this.l_matchfound = new System.Windows.Forms.Label();
-            this.l_matchtime = new System.Windows.Forms.Label();
             this.btn_img1_load = new System.Windows.Forms.Button();
             this.btn_img1_tohsv = new System.Windows.Forms.Button();
             this.btn_img2_load = new System.Windows.Forms.Button();
@@ -56,9 +55,6 @@
             this.tb_FindSMax = new System.Windows.Forms.TextBox();
             this.tb_FindHMax = new System.Windows.Forms.TextBox();
             this.tb_FindVMax = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -122,15 +118,6 @@
             this.l_matchfound.Size = new System.Drawing.Size(52, 13);
             this.l_matchfound.TabIndex = 5;
             this.l_matchfound.Text = "not found";
-            // 
-            // l_matchtime
-            // 
-            this.l_matchtime.AutoSize = true;
-            this.l_matchtime.Location = new System.Drawing.Point(1188, 418);
-            this.l_matchtime.Name = "l_matchtime";
-            this.l_matchtime.Size = new System.Drawing.Size(29, 13);
-            this.l_matchtime.TabIndex = 6;
-            this.l_matchtime.Text = "0 ms";
             // 
             // btn_img1_load
             // 
@@ -309,7 +296,7 @@
             // 
             // btn_img1_findColor
             // 
-            this.btn_img1_findColor.Location = new System.Drawing.Point(178, 502);
+            this.btn_img1_findColor.Location = new System.Drawing.Point(218, 502);
             this.btn_img1_findColor.Name = "btn_img1_findColor";
             this.btn_img1_findColor.Size = new System.Drawing.Size(75, 23);
             this.btn_img1_findColor.TabIndex = 24;
@@ -319,7 +306,7 @@
             // 
             // tb_FindSMax
             // 
-            this.tb_FindSMax.Location = new System.Drawing.Point(278, 557);
+            this.tb_FindSMax.Location = new System.Drawing.Point(259, 558);
             this.tb_FindSMax.Name = "tb_FindSMax";
             this.tb_FindSMax.Size = new System.Drawing.Size(100, 20);
             this.tb_FindSMax.TabIndex = 25;
@@ -327,7 +314,7 @@
             // 
             // tb_FindHMax
             // 
-            this.tb_FindHMax.Location = new System.Drawing.Point(278, 531);
+            this.tb_FindHMax.Location = new System.Drawing.Point(259, 531);
             this.tb_FindHMax.Name = "tb_FindHMax";
             this.tb_FindHMax.Size = new System.Drawing.Size(100, 20);
             this.tb_FindHMax.TabIndex = 26;
@@ -335,38 +322,11 @@
             // 
             // tb_FindVMax
             // 
-            this.tb_FindVMax.Location = new System.Drawing.Point(278, 583);
+            this.tb_FindVMax.Location = new System.Drawing.Point(259, 583);
             this.tb_FindVMax.Name = "tb_FindVMax";
             this.tb_FindVMax.Size = new System.Drawing.Size(100, 20);
             this.tb_FindVMax.TabIndex = 27;
             this.tb_FindVMax.Text = "255";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(257, 532);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(15, 13);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "H";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(257, 561);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(14, 13);
-            this.label2.TabIndex = 29;
-            this.label2.Text = "S";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(257, 586);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(14, 13);
-            this.label3.TabIndex = 30;
-            this.label3.Text = "V";
             // 
             // label4
             // 
@@ -431,7 +391,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(275, 517);
+            this.label8.Location = new System.Drawing.Point(332, 515);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(27, 13);
             this.label8.TabIndex = 38;
@@ -483,9 +443,6 @@
             this.Controls.Add(this.tb_FindVMin);
             this.Controls.Add(this.tb_FindHMin);
             this.Controls.Add(this.tb_FindSMin);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.tb_FindVMax);
             this.Controls.Add(this.tb_FindHMax);
             this.Controls.Add(this.tb_FindSMax);
@@ -507,7 +464,6 @@
             this.Controls.Add(this.btn_img2_load);
             this.Controls.Add(this.btn_img1_tohsv);
             this.Controls.Add(this.btn_img1_load);
-            this.Controls.Add(this.l_matchtime);
             this.Controls.Add(this.l_matchfound);
             this.Controls.Add(this.imgbox3);
             this.Controls.Add(this.imgbox2);
@@ -530,7 +486,6 @@
         private Emgu.CV.UI.ImageBox imgbox2;
         private Emgu.CV.UI.ImageBox imgbox3;
         private System.Windows.Forms.Label l_matchfound;
-        private System.Windows.Forms.Label l_matchtime;
         private System.Windows.Forms.Button btn_img1_load;
         private System.Windows.Forms.Button btn_img1_tohsv;
         private System.Windows.Forms.Button btn_img2_load;
@@ -552,9 +507,6 @@
         private System.Windows.Forms.TextBox tb_FindSMax;
         private System.Windows.Forms.TextBox tb_FindHMax;
         private System.Windows.Forms.TextBox tb_FindVMax;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;

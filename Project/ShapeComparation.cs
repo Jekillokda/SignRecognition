@@ -20,7 +20,6 @@ namespace Project
         public static void FindMatch(
             Mat modelImage,
             Mat observedImage,
-            out long matchTime,
             out VectorOfKeyPoint modelKeyPoints,
             out VectorOfKeyPoint observedKeyPoints,
             VectorOfVectorOfDMatch matches,
@@ -74,7 +73,6 @@ namespace Project
                 }
                 watch.Stop();
             }
-            matchTime = watch.ElapsedMilliseconds;
         }
 
         /// <summary>
@@ -84,7 +82,7 @@ namespace Project
         /// <param name="observedImage">The observed image</param>
         /// <param name="matchTime">The output total time for computing the homography matrix.</param>
         /// <returns>The model image and observed image, the matched features and homography projection.</returns>
-        public static Mat Draw(Mat modelImage, Mat observedImage, out long matchTime, ref bool  matchfound)
+        public static Mat Draw(Mat modelImage, Mat observedImage, ref bool  matchfound)
         {
             Mat homography;
             VectorOfKeyPoint modelKeyPoints;
@@ -92,7 +90,7 @@ namespace Project
             using (VectorOfVectorOfDMatch matches = new VectorOfVectorOfDMatch())
             {
                 Mat mask;
-                FindMatch(modelImage, observedImage, out matchTime, out modelKeyPoints, out observedKeyPoints, matches, out mask, out homography);
+                FindMatch(modelImage, observedImage, out modelKeyPoints, out observedKeyPoints, matches, out mask, out homography);
                 //Draw the matched keypoints
                 Mat result = new Mat();
                 Features2DToolbox.DrawMatches(modelImage, modelKeyPoints, observedImage, observedKeyPoints, matches, result, new MCvScalar(255, 255, 255), new MCvScalar(255, 255, 255), mask);
