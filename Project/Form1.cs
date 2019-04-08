@@ -1,6 +1,7 @@
 ﻿using Emgu.CV;
 using Emgu.CV.Structure;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Project
@@ -143,8 +144,10 @@ namespace Project
         {
             try
             {
-                Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
-                imgbox3.Image = ShapeDetection.detectShape2(img, 4);
+                /*Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
+                imgbox3.Image = ShapeDetection.detectShape2(img, 4);*/
+                Image<Bgr, byte> tmp = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
+                imgbox3.Image = ImgOps.findCircles(tmp);
             }
             catch (Exception ex)
             {
@@ -198,6 +201,46 @@ namespace Project
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btn_img1_findColor_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Image<Hsv, byte> tmp = new Image<Hsv, byte>(imgbox1.Image.Bitmap);
+                Image<Gray, Byte> gr;
+                double Rmin = Convert.ToInt32(tb_FindHMin.Text);
+                double Rmax = Convert.ToInt32(tb_FindHMax.Text);
+                double Gmin = Convert.ToInt32(tb_FindSMin.Text);
+                double Gmax = Convert.ToInt32(tb_FindSMax.Text);
+                double Bmin = Convert.ToInt32(tb_FindVMin.Text);
+                double Bmax = Convert.ToInt32(tb_FindVMax.Text);
+                gr = ImgOps.RGBFilter(tmp, Rmin, Rmax, Gmin, Gmax, Bmin, Bmax);
+                //CvInvoke.Threshold(tmp, tmp, 200, 255, 0);
+                imgbox3.Image = gr;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btn_img1_copyimg3_Click(object sender, EventArgs e)
+        {
+            imgbox1.Image = imgbox3.Image;
+        }
+
+        private void btn_img1_makeSmooth_Click(object sender, EventArgs e)
+        {
+            Image<Bgr, byte> tmp = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
+            Size s = new Size(5, 5);
+            imgbox3.Image = ImgOps.makeSmooth(tmp, s, 0, 0);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Image<Bgr, byte> tmp = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
+            imgbox3.Image = ImgOps.cannydetect(tmp);
         }
     }
 }

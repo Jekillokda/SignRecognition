@@ -52,6 +52,24 @@
             this.btn_img2_denoise = new System.Windows.Forms.Button();
             this.btn_img1_tobinary = new System.Windows.Forms.Button();
             this.btn_img2_tobinary = new System.Windows.Forms.Button();
+            this.btn_img1_findColor = new System.Windows.Forms.Button();
+            this.tb_FindSMax = new System.Windows.Forms.TextBox();
+            this.tb_FindHMax = new System.Windows.Forms.TextBox();
+            this.tb_FindVMax = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tb_FindVMin = new System.Windows.Forms.TextBox();
+            this.tb_FindHMin = new System.Windows.Forms.TextBox();
+            this.tb_FindSMin = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btn_img1_copyimg3 = new System.Windows.Forms.Button();
+            this.btn_img1_makeSmooth = new System.Windows.Forms.Button();
+            this.btn_img1_CannyDetect = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox3)).BeginInit();
@@ -289,11 +307,189 @@
             this.btn_img2_tobinary.UseVisualStyleBackColor = true;
             this.btn_img2_tobinary.Click += new System.EventHandler(this.btn_img2_tobinary_Click);
             // 
+            // btn_img1_findColor
+            // 
+            this.btn_img1_findColor.Location = new System.Drawing.Point(178, 502);
+            this.btn_img1_findColor.Name = "btn_img1_findColor";
+            this.btn_img1_findColor.Size = new System.Drawing.Size(75, 23);
+            this.btn_img1_findColor.TabIndex = 24;
+            this.btn_img1_findColor.Text = "FindColor";
+            this.btn_img1_findColor.UseVisualStyleBackColor = true;
+            this.btn_img1_findColor.Click += new System.EventHandler(this.btn_img1_findColor_Click);
+            // 
+            // tb_FindSMax
+            // 
+            this.tb_FindSMax.Location = new System.Drawing.Point(278, 557);
+            this.tb_FindSMax.Name = "tb_FindSMax";
+            this.tb_FindSMax.Size = new System.Drawing.Size(100, 20);
+            this.tb_FindSMax.TabIndex = 25;
+            this.tb_FindSMax.Text = "255";
+            // 
+            // tb_FindHMax
+            // 
+            this.tb_FindHMax.Location = new System.Drawing.Point(278, 531);
+            this.tb_FindHMax.Name = "tb_FindHMax";
+            this.tb_FindHMax.Size = new System.Drawing.Size(100, 20);
+            this.tb_FindHMax.TabIndex = 26;
+            this.tb_FindHMax.Text = "255";
+            // 
+            // tb_FindVMax
+            // 
+            this.tb_FindVMax.Location = new System.Drawing.Point(278, 583);
+            this.tb_FindVMax.Name = "tb_FindVMax";
+            this.tb_FindVMax.Size = new System.Drawing.Size(100, 20);
+            this.tb_FindVMax.TabIndex = 27;
+            this.tb_FindVMax.Text = "255";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(257, 532);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(15, 13);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "H";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(257, 561);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(14, 13);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "S";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(257, 586);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(14, 13);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "V";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(132, 586);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(14, 13);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "V";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(132, 561);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(14, 13);
+            this.label5.TabIndex = 35;
+            this.label5.Text = "S";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(132, 532);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(15, 13);
+            this.label6.TabIndex = 34;
+            this.label6.Text = "H";
+            // 
+            // tb_FindVMin
+            // 
+            this.tb_FindVMin.Location = new System.Drawing.Point(153, 583);
+            this.tb_FindVMin.Name = "tb_FindVMin";
+            this.tb_FindVMin.Size = new System.Drawing.Size(100, 20);
+            this.tb_FindVMin.TabIndex = 33;
+            this.tb_FindVMin.Text = "230";
+            // 
+            // tb_FindHMin
+            // 
+            this.tb_FindHMin.Location = new System.Drawing.Point(153, 531);
+            this.tb_FindHMin.Name = "tb_FindHMin";
+            this.tb_FindHMin.Size = new System.Drawing.Size(100, 20);
+            this.tb_FindHMin.TabIndex = 32;
+            this.tb_FindHMin.Text = "0";
+            // 
+            // tb_FindSMin
+            // 
+            this.tb_FindSMin.Location = new System.Drawing.Point(153, 557);
+            this.tb_FindSMin.Name = "tb_FindSMin";
+            this.tb_FindSMin.Size = new System.Drawing.Size(100, 20);
+            this.tb_FindSMin.TabIndex = 31;
+            this.tb_FindSMin.Text = "50";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(150, 515);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(24, 13);
+            this.label7.TabIndex = 37;
+            this.label7.Text = "Min";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(275, 517);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(27, 13);
+            this.label8.TabIndex = 38;
+            this.label8.Text = "Max";
+            // 
+            // btn_img1_copyimg3
+            // 
+            this.btn_img1_copyimg3.Location = new System.Drawing.Point(9, 560);
+            this.btn_img1_copyimg3.Name = "btn_img1_copyimg3";
+            this.btn_img1_copyimg3.Size = new System.Drawing.Size(75, 39);
+            this.btn_img1_copyimg3.TabIndex = 42;
+            this.btn_img1_copyimg3.Text = "Copy img from img3";
+            this.btn_img1_copyimg3.UseVisualStyleBackColor = true;
+            this.btn_img1_copyimg3.Click += new System.EventHandler(this.btn_img1_copyimg3_Click);
+            // 
+            // btn_img1_makeSmooth
+            // 
+            this.btn_img1_makeSmooth.Location = new System.Drawing.Point(171, 416);
+            this.btn_img1_makeSmooth.Name = "btn_img1_makeSmooth";
+            this.btn_img1_makeSmooth.Size = new System.Drawing.Size(75, 42);
+            this.btn_img1_makeSmooth.TabIndex = 43;
+            this.btn_img1_makeSmooth.Text = "make Smooth";
+            this.btn_img1_makeSmooth.UseVisualStyleBackColor = true;
+            this.btn_img1_makeSmooth.Click += new System.EventHandler(this.btn_img1_makeSmooth_Click);
+            // 
+            // btn_img1_CannyDetect
+            // 
+            this.btn_img1_CannyDetect.Location = new System.Drawing.Point(252, 416);
+            this.btn_img1_CannyDetect.Name = "btn_img1_CannyDetect";
+            this.btn_img1_CannyDetect.Size = new System.Drawing.Size(75, 42);
+            this.btn_img1_CannyDetect.TabIndex = 44;
+            this.btn_img1_CannyDetect.Text = "Canny Detect";
+            this.btn_img1_CannyDetect.UseVisualStyleBackColor = true;
+            this.btn_img1_CannyDetect.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1226, 583);
+            this.ClientSize = new System.Drawing.Size(1226, 611);
+            this.Controls.Add(this.btn_img1_CannyDetect);
+            this.Controls.Add(this.btn_img1_makeSmooth);
+            this.Controls.Add(this.btn_img1_copyimg3);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.tb_FindVMin);
+            this.Controls.Add(this.tb_FindHMin);
+            this.Controls.Add(this.tb_FindSMin);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tb_FindVMax);
+            this.Controls.Add(this.tb_FindHMax);
+            this.Controls.Add(this.tb_FindSMax);
+            this.Controls.Add(this.btn_img1_findColor);
             this.Controls.Add(this.btn_img2_tobinary);
             this.Controls.Add(this.btn_img1_tobinary);
             this.Controls.Add(this.btn_img2_denoise);
@@ -352,6 +548,24 @@
         private System.Windows.Forms.Button btn_img2_denoise;
         private System.Windows.Forms.Button btn_img1_tobinary;
         private System.Windows.Forms.Button btn_img2_tobinary;
+        private System.Windows.Forms.Button btn_img1_findColor;
+        private System.Windows.Forms.TextBox tb_FindSMax;
+        private System.Windows.Forms.TextBox tb_FindHMax;
+        private System.Windows.Forms.TextBox tb_FindVMax;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tb_FindVMin;
+        private System.Windows.Forms.TextBox tb_FindHMin;
+        private System.Windows.Forms.TextBox tb_FindSMin;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btn_img1_copyimg3;
+        private System.Windows.Forms.Button btn_img1_makeSmooth;
+        private System.Windows.Forms.Button btn_img1_CannyDetect;
     }
 }
 
