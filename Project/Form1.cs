@@ -144,10 +144,11 @@ namespace Project
         {
             try
             {
+                //Old realization works bad
                 /*Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
                 imgbox3.Image = ShapeDetection.detectShape2(img, 4);*/
                 Image<Bgr, byte> tmp = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
-                imgbox3.Image = ImgOps.findCircles(tmp);
+                imgbox3.Image = ShapeDetection.findCircles(tmp);
             }
             catch (Exception ex)
             {
@@ -166,11 +167,18 @@ namespace Project
 
         private void btn_img2_denoise_Click(object sender, EventArgs e)
         {
-            UMat pyrDown = new UMat();
-            CvInvoke.PyrDown(imgbox2.Image, pyrDown);
-            Image<Bgr, byte> res = new Image<Bgr, byte>(imgbox2.Image.Bitmap);
-            CvInvoke.PyrUp(pyrDown, res);
-            imgbox2.Image = res;
+            try
+            {
+                UMat pyrDown = new UMat();
+                CvInvoke.PyrDown(imgbox2.Image, pyrDown);
+                Image<Bgr, byte> res = new Image<Bgr, byte>(imgbox2.Image.Bitmap);
+                CvInvoke.PyrUp(pyrDown, res);
+                imgbox2.Image = res;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btn_img1_tobinary_Click(object sender, EventArgs e)

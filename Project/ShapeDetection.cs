@@ -219,5 +219,30 @@ namespace Project
             #endregion*/
          return result;
      }
+    public static Image<Bgr, byte> findCircles(Image<Bgr, byte> img)
+    {
+        UMat grayscale = new UMat();
+        UMat pyrdown = new UMat();
+        UMat canny = new UMat();
+
+        double cannyThreshold = 128;
+
+        CvInvoke.CvtColor(img, grayscale, ColorConversion.Bgr2Gray);
+
+        CvInvoke.PyrDown(grayscale, pyrdown);
+        CvInvoke.PyrUp(pyrdown, grayscale);
+        CvInvoke.Canny(grayscale, canny, cannyThreshold, cannyThreshold * 2);
+
+        Image<Bgr, byte> result = img.Copy();
+
+        VectorOfVectorOfPoint contours = new VectorOfVectorOfPoint();
+        CvInvoke.FindContours(canny, contours, null, RetrType.List, ChainApproxMethod.ChainApproxSimple);
+        for (int i = 0; i < contours.Size; i++)
+        {
+            Ellipse ellipse = new Ellipse(CvInvoke.FitEllipse(contours[i]));
+            result.Draw(ellipse, new Bgr(Color.Green), 5);
+        }
+        return result;
     }
+   }
 }
