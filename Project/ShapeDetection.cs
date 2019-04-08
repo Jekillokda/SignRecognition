@@ -210,13 +210,13 @@ namespace Project
             }
             #endregion
 
-            #region draw circles
+           /* #region draw circles
             if ((drawtag == 4 || (drawtag == 5)))
             {
                 foreach (CircleF circle in circles)
                     result.Draw(circle, new Bgr(Color.Brown), 5);
             }
-            #endregion
+            #endregion*/
          return result;
      }
     }

@@ -95,9 +95,9 @@ namespace Project
                     }
                 }
             }*/
-
-            Image<Gray, byte> result = input.InRange(lowerLimit, upperLimit);
             //Image<Gray, byte> result = new Image<Gray, byte>(b);
+            Image<Gray, byte> result = input.InRange(lowerLimit, upperLimit);
+            
             return result;
         }
 
@@ -125,16 +125,15 @@ namespace Project
             double cannyThreshold = 128;
 
             CvInvoke.CvtColor(img, grayscale, ColorConversion.Bgr2Gray);
-            // remove noise and run edge detection
+
             CvInvoke.PyrDown(grayscale, pyrdown);
             CvInvoke.PyrUp(pyrdown, grayscale);
             CvInvoke.Canny(grayscale, canny, cannyThreshold, cannyThreshold * 2);
 
             Image<Bgr, byte> result = img.Copy();
-            // find and draw circles   
+   
             VectorOfVectorOfPoint contours = new VectorOfVectorOfPoint();
             CvInvoke.FindContours(canny, contours, null, RetrType.List, ChainApproxMethod.ChainApproxSimple);
-            //CvInvoke.DrawContours(result, contours, -1, new MCvScalar(0, 0, 255));
             for (int i = 0; i < contours.Size; i++)
             {
                 Ellipse ellipse = new Ellipse(CvInvoke.FitEllipse(contours[i]));
