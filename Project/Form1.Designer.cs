@@ -66,6 +66,10 @@
             this.btn_img1_copyimg3 = new System.Windows.Forms.Button();
             this.btn_img1_makeSmooth = new System.Windows.Forms.Button();
             this.btn_img1_CannyDetect = new System.Windows.Forms.Button();
+            this.l_rectangles_count = new System.Windows.Forms.Label();
+            this.l_triangles_count = new System.Windows.Forms.Label();
+            this.l_lines_count = new System.Windows.Forms.Label();
+            this.l_circles_count = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox3)).BeginInit();
@@ -318,7 +322,7 @@
             this.tb_FindHMax.Name = "tb_FindHMax";
             this.tb_FindHMax.Size = new System.Drawing.Size(100, 20);
             this.tb_FindHMax.TabIndex = 26;
-            this.tb_FindHMax.Text = "255";
+            this.tb_FindHMax.Text = "179";
             // 
             // tb_FindVMax
             // 
@@ -361,7 +365,7 @@
             this.tb_FindVMin.Name = "tb_FindVMin";
             this.tb_FindVMin.Size = new System.Drawing.Size(100, 20);
             this.tb_FindVMin.TabIndex = 33;
-            this.tb_FindVMin.Text = "230";
+            this.tb_FindVMin.Text = "100";
             // 
             // tb_FindHMin
             // 
@@ -377,7 +381,7 @@
             this.tb_FindSMin.Name = "tb_FindSMin";
             this.tb_FindSMin.Size = new System.Drawing.Size(100, 20);
             this.tb_FindSMin.TabIndex = 31;
-            this.tb_FindSMin.Text = "50";
+            this.tb_FindSMin.Text = "100";
             // 
             // label7
             // 
@@ -427,11 +431,52 @@
             this.btn_img1_CannyDetect.UseVisualStyleBackColor = true;
             this.btn_img1_CannyDetect.Click += new System.EventHandler(this.button1_Click);
             // 
+            // l_rectangles_count
+            // 
+            this.l_rectangles_count.AutoSize = true;
+            this.l_rectangles_count.Location = new System.Drawing.Point(978, 515);
+            this.l_rectangles_count.Name = "l_rectangles_count";
+            this.l_rectangles_count.Size = new System.Drawing.Size(64, 13);
+            this.l_rectangles_count.TabIndex = 45;
+            this.l_rectangles_count.Text = "Rectangles:";
+            // 
+            // l_triangles_count
+            // 
+            this.l_triangles_count.AutoSize = true;
+            this.l_triangles_count.Location = new System.Drawing.Point(896, 514);
+            this.l_triangles_count.Name = "l_triangles_count";
+            this.l_triangles_count.Size = new System.Drawing.Size(53, 13);
+            this.l_triangles_count.TabIndex = 46;
+            this.l_triangles_count.Text = "Triangles:";
+            // 
+            // l_lines_count
+            // 
+            this.l_lines_count.AutoSize = true;
+            this.l_lines_count.Location = new System.Drawing.Point(814, 515);
+            this.l_lines_count.Name = "l_lines_count";
+            this.l_lines_count.Size = new System.Drawing.Size(35, 13);
+            this.l_lines_count.TabIndex = 47;
+            this.l_lines_count.Text = "Lines:";
+            // 
+            // l_circles_count
+            // 
+            this.l_circles_count.AutoSize = true;
+            this.l_circles_count.Location = new System.Drawing.Point(1060, 515);
+            this.l_circles_count.Name = "l_circles_count";
+            this.l_circles_count.Size = new System.Drawing.Size(41, 13);
+            this.l_circles_count.TabIndex = 48;
+            this.l_circles_count.Text = "Circles:";
+            this.l_circles_count.Click += new System.EventHandler(this.label9_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1226, 611);
+            this.Controls.Add(this.l_circles_count);
+            this.Controls.Add(this.l_lines_count);
+            this.Controls.Add(this.l_triangles_count);
+            this.Controls.Add(this.l_rectangles_count);
             this.Controls.Add(this.btn_img1_CannyDetect);
             this.Controls.Add(this.btn_img1_makeSmooth);
             this.Controls.Add(this.btn_img1_copyimg3);
@@ -471,7 +516,7 @@
             this.Controls.Add(this.btn_compare);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
-            this.Text = "SignRecognition";
+            this.Text = "1";
             ((System.ComponentModel.ISupportInitialize)(this.imgbox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox3)).EndInit();
@@ -518,6 +563,10 @@
         private System.Windows.Forms.Button btn_img1_copyimg3;
         private System.Windows.Forms.Button btn_img1_makeSmooth;
         private System.Windows.Forms.Button btn_img1_CannyDetect;
+        private System.Windows.Forms.Label l_rectangles_count;
+        private System.Windows.Forms.Label l_triangles_count;
+        private System.Windows.Forms.Label l_lines_count;
+        private System.Windows.Forms.Label l_circles_count;
     }
 }
 

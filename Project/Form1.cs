@@ -105,7 +105,12 @@ namespace Project
             try
             {
                 Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
-                imgbox3.Image = ShapeDetection.detectShape2(img, 1);
+                int count = 0;
+                imgbox3.Image = ShapeDetection.detectShape2(img, 1, out count);
+                l_lines_count.Text = "lines:"+ count;
+                l_rectangles_count.Text = "rectangles:";
+                l_circles_count.Text = "circles:";
+                l_triangles_count.Text = "triangles:";
             }
             catch (Exception ex)
             {
@@ -117,8 +122,13 @@ namespace Project
         {
             try
             {
+                int count = 0;
                 Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
-                imgbox3.Image = ShapeDetection.detectShape2(img, 2);
+                imgbox3.Image = ShapeDetection.detectShape2(img, 2, out count);
+                l_triangles_count.Text = "triangles:" + count;
+                l_lines_count.Text = "lines:";
+                l_rectangles_count.Text = "rectangles:";
+                l_circles_count.Text = "circles:";
             }
             catch (Exception ex)
             {
@@ -130,8 +140,13 @@ namespace Project
         {
             try
             {
+                int count = 0;
                 Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
-                imgbox3.Image = ShapeDetection.detectShape2(img, 3);
+                imgbox3.Image = ShapeDetection.detectShape2(img, 3, out count);
+                l_rectangles_count.Text = "rectangles:" + count;
+                l_lines_count.Text = "lines:";
+                l_circles_count.Text = "circles:";
+                l_triangles_count.Text = "triangles:";
             }
             catch (Exception ex)
             {
@@ -145,8 +160,13 @@ namespace Project
                 //Old realization works bad
                 /*Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
                 imgbox3.Image = ShapeDetection.detectShape2(img, 4);*/
+                int count = 0;
                 Image<Bgr, byte> tmp = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
-                imgbox3.Image = ShapeDetection.findCircles(tmp);
+                imgbox3.Image = ShapeDetection.findCircles(tmp, out count);
+                l_circles_count.Text = "circles:" + count;
+                l_lines_count.Text = "lines:";
+                l_rectangles_count.Text = "rectangles:";
+                l_triangles_count.Text = "triangles:";
             }
             catch (Exception ex)
             {
@@ -223,7 +243,7 @@ namespace Project
                 double Bmax = Convert.ToInt32(tb_FindVMax.Text);
                 gr = ImgOps.RGBFilter(tmp, Rmin, Rmax, Gmin, Gmax, Bmin, Bmax);
                 //CvInvoke.Threshold(tmp, tmp, 200, 255, 0);
-                imgbox3.Image = gr;
+                imgbox1.Image = gr;
             }
             catch (Exception ex)
             {
@@ -247,6 +267,11 @@ namespace Project
         {
             Image<Bgr, byte> tmp = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
             imgbox3.Image = ImgOps.cannydetect(tmp);
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

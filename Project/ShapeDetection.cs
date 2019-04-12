@@ -101,8 +101,9 @@ namespace Project
             return imgInput;
             }
 
-       static public Image<Bgr,byte> detectShape2(Image<Bgr, byte> imgInput, int drawtag)
-        { 
+       static public Image<Bgr,byte> detectShape2(Image<Bgr, byte> imgInput, int drawtag, out int outcount)
+        {
+         int c = 0;
          //Convert the image to grayscale and filter out the noise
          UMat uimage = new UMat();
          Image<Bgr, byte> result = imgInput;
@@ -189,7 +190,10 @@ namespace Project
             if (drawtag == 1 || (drawtag == 5))
             {
                 foreach (LineSegment2D line in lines)
+                {
                     result.Draw(line, new Bgr(Color.Green), 5);
+                    c++;
+                }
             }
             #endregion
 
@@ -198,7 +202,10 @@ namespace Project
             if ((drawtag == 2 || (drawtag == 5)))
             {
                 foreach (Triangle2DF triangle in triangleList)
-                 result.Draw(triangle, new Bgr(Color.DarkBlue), 5);
+                {
+                    result.Draw(triangle, new Bgr(Color.DarkBlue), 5);
+                    c++;
+                }
             }
             #endregion
 
@@ -206,21 +213,26 @@ namespace Project
             if ((drawtag == 3 || (drawtag == 5)))
             {
                 foreach (RotatedRect box in boxList)
+                {
                     result.Draw(box, new Bgr(Color.DarkOrange), 5);
+                    c++;
+                }
             }
             #endregion
 
-           /* #region draw circles
-            if ((drawtag == 4 || (drawtag == 5)))
-            {
-                foreach (CircleF circle in circles)
-                    result.Draw(circle, new Bgr(Color.Brown), 5);
-            }
-            #endregion*/
+            /* #region draw circles
+             if ((drawtag == 4 || (drawtag == 5)))
+             {
+                 foreach (CircleF circle in circles)
+                     result.Draw(circle, new Bgr(Color.Brown), 5);
+             }
+             #endregion*/
+            outcount = c;
          return result;
      }
-    public static Image<Bgr, byte> findCircles(Image<Bgr, byte> img)
+    public static Image<Bgr, byte> findCircles(Image<Bgr, byte> img, out int count)
     {
+        int c = 0;
         UMat grayscale = new UMat();
         UMat pyrdown = new UMat();
         UMat canny = new UMat();
@@ -241,7 +253,9 @@ namespace Project
         {
             Ellipse ellipse = new Ellipse(CvInvoke.FitEllipse(contours[i]));
             result.Draw(ellipse, new Bgr(Color.Green), 5);
+            c++;
         }
+        count = c;
         return result;
     }
    }
