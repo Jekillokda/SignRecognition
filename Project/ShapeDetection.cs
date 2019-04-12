@@ -232,7 +232,7 @@ namespace Project
      }
     public static Image<Bgr, byte> findCircles(Image<Bgr, byte> img, out int count)
     {
-        int c = 0;
+        int c = 0;// counter
         UMat grayscale = new UMat();
         UMat pyrdown = new UMat();
         UMat canny = new UMat();
@@ -251,10 +251,17 @@ namespace Project
         CvInvoke.FindContours(canny, contours, null, RetrType.List, ChainApproxMethod.ChainApproxSimple);
         for (int i = 0; i < contours.Size; i++)
         {
-            Ellipse ellipse = new Ellipse(CvInvoke.FitEllipse(contours[i]));
-            result.Draw(ellipse, new Bgr(Color.Green), 5);
-            c++;
-        }
+                try
+                {
+                    Ellipse ellipse = new Ellipse(CvInvoke.FitEllipse(contours[i]));
+                    result.Draw(ellipse, new Bgr(Color.Green), 5);
+                    c++;
+                }
+                catch (Exception ex)
+                {
+                    //MessageBox.Show(ex.Message);
+                }
+            }
         count = c;
         return result;
     }
