@@ -70,6 +70,8 @@
             this.l_triangles_count = new System.Windows.Forms.Label();
             this.l_lines_count = new System.Windows.Forms.Label();
             this.l_circles_count = new System.Windows.Forms.Label();
+            this.img1_toBinary_border = new System.Windows.Forms.TextBox();
+            this.img2_toBinary_border = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox3)).BeginInit();
@@ -300,7 +302,7 @@
             // 
             // btn_img1_findColor
             // 
-            this.btn_img1_findColor.Location = new System.Drawing.Point(218, 502);
+            this.btn_img1_findColor.Location = new System.Drawing.Point(261, 489);
             this.btn_img1_findColor.Name = "btn_img1_findColor";
             this.btn_img1_findColor.Size = new System.Drawing.Size(75, 23);
             this.btn_img1_findColor.TabIndex = 24;
@@ -310,7 +312,7 @@
             // 
             // tb_FindSMax
             // 
-            this.tb_FindSMax.Location = new System.Drawing.Point(259, 558);
+            this.tb_FindSMax.Location = new System.Drawing.Point(302, 545);
             this.tb_FindSMax.Name = "tb_FindSMax";
             this.tb_FindSMax.Size = new System.Drawing.Size(100, 20);
             this.tb_FindSMax.TabIndex = 25;
@@ -318,7 +320,7 @@
             // 
             // tb_FindHMax
             // 
-            this.tb_FindHMax.Location = new System.Drawing.Point(259, 531);
+            this.tb_FindHMax.Location = new System.Drawing.Point(302, 518);
             this.tb_FindHMax.Name = "tb_FindHMax";
             this.tb_FindHMax.Size = new System.Drawing.Size(100, 20);
             this.tb_FindHMax.TabIndex = 26;
@@ -326,7 +328,7 @@
             // 
             // tb_FindVMax
             // 
-            this.tb_FindVMax.Location = new System.Drawing.Point(259, 583);
+            this.tb_FindVMax.Location = new System.Drawing.Point(302, 570);
             this.tb_FindVMax.Name = "tb_FindVMax";
             this.tb_FindVMax.Size = new System.Drawing.Size(100, 20);
             this.tb_FindVMax.TabIndex = 27;
@@ -335,7 +337,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(132, 586);
+            this.label4.Location = new System.Drawing.Point(175, 573);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(14, 13);
             this.label4.TabIndex = 36;
@@ -344,7 +346,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(132, 561);
+            this.label5.Location = new System.Drawing.Point(175, 548);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(14, 13);
             this.label5.TabIndex = 35;
@@ -353,7 +355,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(132, 532);
+            this.label6.Location = new System.Drawing.Point(175, 519);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(15, 13);
             this.label6.TabIndex = 34;
@@ -361,7 +363,7 @@
             // 
             // tb_FindVMin
             // 
-            this.tb_FindVMin.Location = new System.Drawing.Point(153, 583);
+            this.tb_FindVMin.Location = new System.Drawing.Point(196, 570);
             this.tb_FindVMin.Name = "tb_FindVMin";
             this.tb_FindVMin.Size = new System.Drawing.Size(100, 20);
             this.tb_FindVMin.TabIndex = 33;
@@ -369,7 +371,7 @@
             // 
             // tb_FindHMin
             // 
-            this.tb_FindHMin.Location = new System.Drawing.Point(153, 531);
+            this.tb_FindHMin.Location = new System.Drawing.Point(196, 518);
             this.tb_FindHMin.Name = "tb_FindHMin";
             this.tb_FindHMin.Size = new System.Drawing.Size(100, 20);
             this.tb_FindHMin.TabIndex = 32;
@@ -377,7 +379,7 @@
             // 
             // tb_FindSMin
             // 
-            this.tb_FindSMin.Location = new System.Drawing.Point(153, 557);
+            this.tb_FindSMin.Location = new System.Drawing.Point(196, 544);
             this.tb_FindSMin.Name = "tb_FindSMin";
             this.tb_FindSMin.Size = new System.Drawing.Size(100, 20);
             this.tb_FindSMin.TabIndex = 31;
@@ -386,7 +388,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(150, 515);
+            this.label7.Location = new System.Drawing.Point(193, 502);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(24, 13);
             this.label7.TabIndex = 37;
@@ -395,7 +397,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(332, 515);
+            this.label8.Location = new System.Drawing.Point(375, 502);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(27, 13);
             this.label8.TabIndex = 38;
@@ -468,11 +470,29 @@
             this.l_circles_count.Text = "Circles:";
             this.l_circles_count.Click += new System.EventHandler(this.label9_Click);
             // 
+            // img1_toBinary_border
+            // 
+            this.img1_toBinary_border.Location = new System.Drawing.Point(89, 534);
+            this.img1_toBinary_border.Name = "img1_toBinary_border";
+            this.img1_toBinary_border.Size = new System.Drawing.Size(38, 20);
+            this.img1_toBinary_border.TabIndex = 49;
+            this.img1_toBinary_border.Text = "180";
+            // 
+            // img2_toBinary_border
+            // 
+            this.img2_toBinary_border.Location = new System.Drawing.Point(494, 534);
+            this.img2_toBinary_border.Name = "img2_toBinary_border";
+            this.img2_toBinary_border.Size = new System.Drawing.Size(38, 20);
+            this.img2_toBinary_border.TabIndex = 50;
+            this.img2_toBinary_border.Text = "180";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1226, 611);
+            this.Controls.Add(this.img2_toBinary_border);
+            this.Controls.Add(this.img1_toBinary_border);
             this.Controls.Add(this.l_circles_count);
             this.Controls.Add(this.l_lines_count);
             this.Controls.Add(this.l_triangles_count);
@@ -567,6 +587,8 @@
         private System.Windows.Forms.Label l_triangles_count;
         private System.Windows.Forms.Label l_lines_count;
         private System.Windows.Forms.Label l_circles_count;
+        private System.Windows.Forms.TextBox img1_toBinary_border;
+        private System.Windows.Forms.TextBox img2_toBinary_border;
     }
 }
 

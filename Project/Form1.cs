@@ -204,8 +204,7 @@ namespace Project
             try
             {
                 Mat tmp = (new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat);
-                tmp = ImgOps.RGBtoGrey(new Image<Bgr, byte>(tmp.Bitmap).Mat);
-                CvInvoke.Threshold(tmp, tmp, 200, 255, 0);
+                tmp = ImgOps.toBinary(tmp, Convert.ToInt32(img1_toBinary_border.Text), 255);
                 imgbox1.Image = tmp;
             }
             catch (Exception ex)
@@ -219,8 +218,7 @@ namespace Project
             try
             {
                 Mat tmp = (new Image<Bgr, byte>(imgbox2.Image.Bitmap).Mat);
-                tmp = ImgOps.RGBtoGrey(new Image<Bgr, byte>(tmp.Bitmap).Mat);
-                CvInvoke.Threshold(tmp, tmp, 200, 255, 0);
+                tmp = ImgOps.toBinary(tmp, Convert.ToInt32(img2_toBinary_border.Text), 255);
                 imgbox2.Image = tmp;
             }
             catch (Exception ex)
@@ -270,6 +268,11 @@ namespace Project
         }
 
         private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb_FindHMax_TextChanged(object sender, EventArgs e)
         {
 
         }

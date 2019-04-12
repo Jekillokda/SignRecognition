@@ -46,6 +46,20 @@ namespace Project
             }
             return tmp;
         }
+        public static Mat toBinary(Mat img, int threshold, int maxValue)
+        {
+            Mat tmp = new Mat();
+            try
+            {
+                tmp = ImgOps.RGBtoGrey(img);
+                CvInvoke.Threshold(tmp, tmp, threshold, maxValue,0);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return tmp;
+        }
         public static Mat Resize(Mat img, int h, int w)
         {
             try
