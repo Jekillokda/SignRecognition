@@ -1,6 +1,7 @@
 ﻿using Emgu.CV;
 using Emgu.CV.Structure;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -22,11 +23,11 @@ namespace Project
 
         private void btn_img1_load_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*";
-            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*";
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                imgOrigin1 = CvInvoke.Imread(openFileDialog1.FileName).ToImage<Bgr, Byte>();
+                imgOrigin1 = CvInvoke.Imread(openFileDialog.FileName).ToImage<Bgr, Byte>();
                 imgbox1.Image = imgOrigin1;
             }
         }
@@ -301,6 +302,25 @@ namespace Project
                 }
             }
              
+        }
+
+        private void btn_Haar_Detect_Click(object sender, EventArgs e)
+        {
+            string path = "";
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "XML Files|*.xml";
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                path = openFileDialog.FileName;
+            }
+           
+            SignsHaarCascade cascade = new SignsHaarCascade(path);
+            Mat img = new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat;
+            img = ImgOps.Resize(img, 50, 50);
+            List<Mat> list = cascade.detectAll((new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat));
+            MessageBox.Show("found " + list.Count);
+            for (int i = 0; i < list.Count; i++)
+                list[i].Save(@"D:\road-video\haarCascade\"+ i + " .jpg");
         }
     }
 }

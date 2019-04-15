@@ -75,6 +75,7 @@
             this.btn_load_videos = new System.Windows.Forms.Button();
             this.btn_convert_videos = new System.Windows.Forms.Button();
             this.l_videos_count = new System.Windows.Forms.Label();
+            this.btn_Haar_Detect = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox3)).BeginInit();
@@ -517,11 +518,22 @@
             this.l_videos_count.Size = new System.Drawing.Size(0, 13);
             this.l_videos_count.TabIndex = 53;
             // 
+            // btn_Haar_Detect
+            // 
+            this.btn_Haar_Detect.Location = new System.Drawing.Point(648, 542);
+            this.btn_Haar_Detect.Name = "btn_Haar_Detect";
+            this.btn_Haar_Detect.Size = new System.Drawing.Size(75, 23);
+            this.btn_Haar_Detect.TabIndex = 54;
+            this.btn_Haar_Detect.Text = "DetectHaar";
+            this.btn_Haar_Detect.UseVisualStyleBackColor = true;
+            this.btn_Haar_Detect.Click += new System.EventHandler(this.btn_Haar_Detect_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1226, 622);
+            this.Controls.Add(this.btn_Haar_Detect);
             this.Controls.Add(this.l_videos_count);
             this.Controls.Add(this.btn_convert_videos);
             this.Controls.Add(this.btn_load_videos);
@@ -626,6 +638,7 @@
         private System.Windows.Forms.Button btn_load_videos;
         private System.Windows.Forms.Button btn_convert_videos;
         private System.Windows.Forms.Label l_videos_count;
+        private System.Windows.Forms.Button btn_Haar_Detect;
     }
 }
 
