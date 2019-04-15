@@ -18,7 +18,7 @@ namespace Project
             this.fps = fps;
         }
 
-      public  bool convert()
+      public bool convert()
         {
             bool isStarted = false;
             try
@@ -26,10 +26,8 @@ namespace Project
                 using (Process myProcess = new Process())
                 {
                     var dbf_File = System.IO.Path.GetFileName(sourcePath);
-                    int i = dbf_File.LastIndexOf(".");
 
-                    string name = dbf_File.Substring(0, i);
-                    string destinationPath = System.IO.Directory.GetParent(sourcePath).FullName + @"\converted_from_" + name;
+                    string destinationPath = System.IO.Directory.GetParent(sourcePath).FullName + @"\converted_from_" + dbf_File.Substring(0, dbf_File.LastIndexOf("."));
 
                     if (!System.IO.Directory.Exists(destinationPath))
                     {
@@ -42,7 +40,6 @@ namespace Project
                     myProcess.StartInfo.Arguments = args;
                     myProcess.StartInfo.CreateNoWindow = false;
                     isStarted = myProcess.Start();
-
                 }
             }
             catch (Exception ex)

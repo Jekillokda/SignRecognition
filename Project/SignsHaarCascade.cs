@@ -7,18 +7,26 @@ using Emgu.CV;
 using Emgu.CV.CvEnum;
 using Emgu.CV.Structure;
 using Emgu.CV.Cvb;
+using System.Drawing;
 
 namespace Project
 {
-    class SignsHaarCascade
+    class SignsHaarCascade 
     {
-        private CascadeClassifier cascadeClassifier;
-        private 
-        SignsHaarCascade(string path = @"cascade.xml") {
+        public CascadeClassifier cascadeClassifier;
+        public SignsHaarCascade(string path = @"cascade.xml")
+        {
             cascadeClassifier = new CascadeClassifier(path);
-    }
-        /*FindObjects
-        Image<Gray, Byte> grayImage = image.Convert<Gray, Byte>();
-        var faces = _cascadeClassifier.DetectMultiScale(grayframe, 1.1, 10, Size.Empty); //the actual face detection happens here*/
+        }
+        public Rectangle[] detect(Image<Gray,Byte> img)
+        {
+            Rectangle[] arr = cascadeClassifier.DetectMultiScale(img);
+            return arr;
+        }
+        public Image<Gray, Byte> drawRects(Image<Gray, Byte> img,Rectangle[] rexct)
+        {
+
+            return img;
+        }
     }
 }
