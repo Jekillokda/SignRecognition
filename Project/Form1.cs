@@ -1,7 +1,9 @@
 ﻿using Emgu.CV;
 using Emgu.CV.Structure;
 using System;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Project
@@ -10,6 +12,8 @@ namespace Project
     {
         Image<Bgr, byte> imgOrigin1;
         Image<Bgr, byte> imgOrigin2;
+        string path = null;
+        string[] videoArray;
 
         public Form1()
         {
@@ -267,14 +271,36 @@ namespace Project
             imgbox3.Image = ImgOps.cannydetect(tmp);
         }
 
-        private void label9_Click(object sender, EventArgs e)
+        private void btn_load_videos_Click(object sender, EventArgs e)
         {
-
+            using (var dialog = new FolderBrowserDialog())
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    path = dialog.SelectedPath;
+                    videoArray = System.IO.Directory.GetFiles(path, "*.mp4");
+                    if (videoArray.Length > 0)
+                    {
+                        l_videos_count.Text = "Found " + videoArray.Length + " videos";
+                        btn_convert_videos.Visible = true;
+                    }
+                    else
+                        l_videos_count.Text = "Videos not found";
+                }
         }
+  
 
-        private void tb_FindHMax_TextChanged(object sender, EventArgs e)
+        private void btn_convert_videos_Click(object sender, EventArgs e)
         {
-
+            foreach (string videopath in videoArray)
+            {
+                    int fps = 5;
+                    ffmpegConverter conv = new ffmpegConverter(videopath, fps);
+                    if (conv.convert() == false)
+                {
+                    MessageBox.Show("Something went wrong with"+ videopath);
+                }
+            }
+             
         }
     }
 }

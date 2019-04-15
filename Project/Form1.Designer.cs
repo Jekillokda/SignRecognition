@@ -72,6 +72,9 @@
             this.l_circles_count = new System.Windows.Forms.Label();
             this.img1_toBinary_border = new System.Windows.Forms.TextBox();
             this.img2_toBinary_border = new System.Windows.Forms.TextBox();
+            this.btn_load_videos = new System.Windows.Forms.Button();
+            this.btn_convert_videos = new System.Windows.Forms.Button();
+            this.l_videos_count = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox3)).BeginInit();
@@ -468,7 +471,6 @@
             this.l_circles_count.Size = new System.Drawing.Size(41, 13);
             this.l_circles_count.TabIndex = 48;
             this.l_circles_count.Text = "Circles:";
-            this.l_circles_count.Click += new System.EventHandler(this.label9_Click);
             // 
             // img1_toBinary_border
             // 
@@ -486,11 +488,43 @@
             this.img2_toBinary_border.TabIndex = 50;
             this.img2_toBinary_border.Text = "180";
             // 
+            // btn_load_videos
+            // 
+            this.btn_load_videos.Location = new System.Drawing.Point(817, 576);
+            this.btn_load_videos.Name = "btn_load_videos";
+            this.btn_load_videos.Size = new System.Drawing.Size(75, 23);
+            this.btn_load_videos.TabIndex = 51;
+            this.btn_load_videos.Text = "Load Videos";
+            this.btn_load_videos.UseVisualStyleBackColor = true;
+            this.btn_load_videos.Click += new System.EventHandler(this.btn_load_videos_Click);
+            // 
+            // btn_convert_videos
+            // 
+            this.btn_convert_videos.Location = new System.Drawing.Point(898, 576);
+            this.btn_convert_videos.Name = "btn_convert_videos";
+            this.btn_convert_videos.Size = new System.Drawing.Size(88, 23);
+            this.btn_convert_videos.TabIndex = 52;
+            this.btn_convert_videos.Text = "Convert+Save";
+            this.btn_convert_videos.UseVisualStyleBackColor = true;
+            this.btn_convert_videos.Visible = false;
+            this.btn_convert_videos.Click += new System.EventHandler(this.btn_convert_videos_Click);
+            // 
+            // l_videos_count
+            // 
+            this.l_videos_count.AutoSize = true;
+            this.l_videos_count.Location = new System.Drawing.Point(814, 560);
+            this.l_videos_count.Name = "l_videos_count";
+            this.l_videos_count.Size = new System.Drawing.Size(0, 13);
+            this.l_videos_count.TabIndex = 53;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1226, 611);
+            this.ClientSize = new System.Drawing.Size(1226, 622);
+            this.Controls.Add(this.l_videos_count);
+            this.Controls.Add(this.btn_convert_videos);
+            this.Controls.Add(this.btn_load_videos);
             this.Controls.Add(this.img2_toBinary_border);
             this.Controls.Add(this.img1_toBinary_border);
             this.Controls.Add(this.l_circles_count);
@@ -589,6 +623,9 @@
         private System.Windows.Forms.Label l_circles_count;
         private System.Windows.Forms.TextBox img1_toBinary_border;
         private System.Windows.Forms.TextBox img2_toBinary_border;
+        private System.Windows.Forms.Button btn_load_videos;
+        private System.Windows.Forms.Button btn_convert_videos;
+        private System.Windows.Forms.Label l_videos_count;
     }
 }
 

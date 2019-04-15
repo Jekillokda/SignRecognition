@@ -156,10 +156,10 @@ namespace Project
                          {
                              Point[] pts = approxContour.ToArray();
                              triangleList.Add(new Triangle2DF(
-                                pts[0],
-                                pts[1],
-                                pts[2]
-                                ));
+                             pts[0],
+                             pts[1],
+                             pts[2]
+                             ));
                          }
                          else if (approxContour.Size == 4) //The contour has 4 vertices.
                          {
@@ -257,7 +257,7 @@ namespace Project
                     result.Draw(ellipse, new Bgr(Color.Green), 5);
                     c++;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     //MessageBox.Show(ex.Message);
                 }
