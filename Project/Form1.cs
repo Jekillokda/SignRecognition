@@ -307,13 +307,13 @@ namespace Project
         private void btn_Haar_Detect_Click(object sender, EventArgs e)
         {
             string path = "";
-            OpenFileDialog openFileDialog = new OpenFileDialog();
+            /*OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "XML Files|*.xml";
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 path = openFileDialog.FileName;
-            }
-           
+            }*/
+            path = @"D:\road-video\pyHaar\cascade.xml";
             SignsHaarCascade cascade = new SignsHaarCascade(path);
             Mat img = new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat;
             img = ImgOps.Resize(img, 50, 50);

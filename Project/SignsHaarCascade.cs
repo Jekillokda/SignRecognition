@@ -20,7 +20,9 @@ namespace Project
         }
         public Rectangle[] detectHaar(Mat img)
         {
-            Rectangle[] arr = cascadeClassifier.DetectMultiScale(img,1.1,3,new Size(50,50), new Size(100,100));
+            double scaleFactor = 1.05;
+            int minNeighbors = 3;
+            Rectangle[] arr = cascadeClassifier.DetectMultiScale(img, scaleFactor, minNeighbors);
             return arr;
         }
         public List<Mat> getListOfROI(Mat img, Rectangle[] rects)
