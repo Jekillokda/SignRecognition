@@ -73,7 +73,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="OpenHaarCascadeFileDialog.cs" />
     <Compile Include="OpenPictureFileDialog.cs" />
+    <Compile Include="OpenVideoFolderFileDialog.cs" />
     <Compile Include="SignsHaarCascade.cs" />
     <Compile Include="ImgOps.cs" />
     <Compile Include="Program.cs" />

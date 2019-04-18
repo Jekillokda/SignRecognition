@@ -271,19 +271,14 @@ namespace Project
 
         private void btn_load_videos_Click(object sender, EventArgs e)
         {
-            using (var dialog = new FolderBrowserDialog())
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    path = dialog.SelectedPath;
-                    videoArray = System.IO.Directory.GetFiles(path, "*.mp4");
-                    if (videoArray.Length > 0)
-                    {
-                        l_videos_count.Text = "Found " + videoArray.Length + " videos";
-                        btn_convert_videos.Visible = true;
-                    }
-                    else
-                        l_videos_count.Text = "Videos not found";
-                }
+            videoArray = OpenVideoFolderFileDialog.openFolder();
+            if (videoArray.Length > 0)
+            {
+                l_videos_count.Text = "Found " + videoArray.Length + " videos";
+                btn_convert_videos.Visible = true;
+            }
+            else
+                l_videos_count.Text = "Videos not found";
         }
   
 
@@ -303,13 +298,8 @@ namespace Project
 
         private void btn_Haar_Detect_Click(object sender, EventArgs e)
         {
-            string path = "";
-            /*OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "XML Files|*.xml";
-            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                path = openFileDialog.FileName;
-            }*/
+            string path = OpenHaarCascadeFileDialog.openCascade();
+            
             path = @"D:\road-video\pyHaar\cascade.xml";
             SignsHaarCascade cascade = new SignsHaarCascade(path);
             if (imgbox1.Image != null)
