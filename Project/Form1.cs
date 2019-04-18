@@ -154,6 +154,7 @@ namespace Project
                 MessageBox.Show(ex.Message);
             }
         }
+
         private void btn_detectCircles_Click(object sender, EventArgs e)
         {
             try
@@ -279,7 +280,6 @@ namespace Project
             else
                 l_videos_count.Text = "Videos not found";
         }
-  
 
         private void btn_convert_videos_Click(object sender, EventArgs e)
         {
