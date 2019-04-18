@@ -13,7 +13,6 @@ namespace Project
     {
         Image<Bgr, byte> imgOrigin1;
         Image<Bgr, byte> imgOrigin2;
-        string path = null;
         string[] videoArray;
 
         public Form1()
@@ -305,7 +304,7 @@ namespace Project
             if (imgbox1.Image != null)
             {
                 Mat img = new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat;
-                img = ImgOps.Resize(img, 50, 50);
+                img = ImgOps.InterpolationResize(img, 50, 50);
                 List<Mat> list = cascade.detectAll((new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat));
                 MessageBox.Show("found " + list.Count);
                 for (int i = 0; i < list.Count; i++)

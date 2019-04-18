@@ -60,17 +60,25 @@ namespace Project
             }
             return tmp;
         }
-        public static Mat Resize(Mat img, int h, int w)
+
+        public static Mat InterpolationResize(Mat img, int h, int w)
         {
             try
             {
-                CvInvoke.Resize(img, img, new Size(h, w));
+                CvInvoke.Resize(img, img, new Size(h, w), (double)Inter.Cubic);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
             return img;
+        }
+
+        public static Mat ContrastAlignment(Mat img)
+        {
+            Mat result = new Mat();
+            CvInvoke.CLAHE(img, 40, new Size(8, 8), result);
+            return result;
         }
 
         public static Hsv GetHSV(Color color)
@@ -93,23 +101,6 @@ namespace Project
             Bitmap b = input.Bitmap;
             Hsv lowerLimit = new Hsv(Hmin, Smin, Vmin);
             Hsv upperLimit = new Hsv(Hmax, Smax, Vmax);
-            /*for (int x = 0; x < input.Width; x++)
-            {
-                for(int y = 0; y < input.Height; y++)
-                {
-                    Color c = b.GetPixel(x, y);
-                    Hsv pix = ImgOps.GetHSV(c);
-                    if ((pix.Hue>Hmin)&& (pix.Hue < Hmax)&& (pix.Satuation > Smin)&& (pix.Satuation < Smax)&& (pix.Value > Vmin)&& (pix.Value < Vmax))
-                    {
-                        b.SetPixel(x, y, Color.White);
-                    }
-                    else
-                    {
-                        b.SetPixel(x, y, Color.Black);
-                    }
-                }
-            }*/
-            //Image<Gray, byte> result = new Image<Gray, byte>(b);
             Image<Gray, byte> result = input.InRange(lowerLimit, upperLimit);
             
             return result;

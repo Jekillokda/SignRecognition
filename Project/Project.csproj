@@ -75,6 +75,7 @@
     </Compile>
     <Compile Include="OpenHaarCascadeFileDialog.cs" />
     <Compile Include="OpenPictureFileDialog.cs" />
+    <Compile Include="OpenPictureFolderFileDialog.cs" />
     <Compile Include="OpenVideoFolderFileDialog.cs" />
     <Compile Include="SignsHaarCascade.cs" />
     <Compile Include="ImgOps.cs" />
