@@ -123,11 +123,9 @@ namespace Project
 
             Mat gray = new Mat();
 
-            // Converting the image from color to Gray
             CvInvoke.CvtColor(src, gray, Emgu.CV.CvEnum.ColorConversion.Bgr2Gray);
             Mat edges = new Mat();
 
-            // Detecting the edges
             CvInvoke.Canny(gray, edges, 60, 60 * 3);
             Image<Bgr, byte> res = new Image<Bgr, byte>(edges.Bitmap);
             return res;
