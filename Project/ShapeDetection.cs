@@ -45,8 +45,6 @@ namespace Project
 
                         CvInvoke.DrawContours(imgInput, contours, i, new MCvScalar(0, 0, 255), 2);
 
-                        //moments  center of the shape
-
                         var moments = CvInvoke.Moments(contours[i]);
                         int x = (int)(moments.M10 / moments.M00); 
                         int y = (int)(moments.M01 / moments.M00);

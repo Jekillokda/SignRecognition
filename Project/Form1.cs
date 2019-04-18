@@ -19,28 +19,25 @@ namespace Project
         public Form1()
         {
             InitializeComponent();
+            //Properties.Settings.Default.is_opened_first_time = true;
+            if (Properties.Settings.Default.is_opened_first_time)
+            {
+                MessageBox.Show("Hello new User");
+                Properties.Settings.Default.is_opened_first_time = false;
+                Properties.Settings.Default.Save();
+            }
         }
 
         private void btn_img1_load_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*";
-            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                imgOrigin1 = CvInvoke.Imread(openFileDialog.FileName).ToImage<Bgr, Byte>();
-                imgbox1.Image = imgOrigin1;
-            }
+            imgOrigin1 = OpenPictureFileDialog.OpenPicture();
+            imgbox1.Image = imgOrigin1;
         }
 
         private void btn_img2_load_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog2 = new OpenFileDialog();
-            openFileDialog2.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*";
-            if (openFileDialog2.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                imgOrigin2 = CvInvoke.Imread(openFileDialog2.FileName).ToImage<Bgr, Byte>();
-                imgbox2.Image = imgOrigin2;
-            }
+            imgOrigin2 = OpenPictureFileDialog.OpenPicture();
+            imgbox2.Image = imgOrigin2;
         }
 
         private void btn_img1_toOrigin_Click(object sender, EventArgs e)
@@ -315,12 +312,19 @@ namespace Project
             }*/
             path = @"D:\road-video\pyHaar\cascade.xml";
             SignsHaarCascade cascade = new SignsHaarCascade(path);
-            Mat img = new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat;
-            img = ImgOps.Resize(img, 50, 50);
-            List<Mat> list = cascade.detectAll((new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat));
-            MessageBox.Show("found " + list.Count);
-            for (int i = 0; i < list.Count; i++)
-                list[i].Save(@"D:\road-video\haarCascade\"+ i + " .jpg");
+            if (imgbox1.Image != null)
+            {
+                Mat img = new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat;
+                img = ImgOps.Resize(img, 50, 50);
+                List<Mat> list = cascade.detectAll((new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat));
+                MessageBox.Show("found " + list.Count);
+                for (int i = 0; i < list.Count; i++)
+                    list[i].Save(@"D:\road-video\haarCascade\" + i + " .jpg");
+            }
+            else
+            {
+                MessageBox.Show("Choose some picture for detection");
+            }
         }
     }
 }

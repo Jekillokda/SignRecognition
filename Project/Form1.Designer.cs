@@ -30,9 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.btn_compare = new System.Windows.Forms.Button();
-            this.imgbox1 = new Emgu.CV.UI.ImageBox();
-            this.imgbox2 = new Emgu.CV.UI.ImageBox();
-            this.imgbox3 = new Emgu.CV.UI.ImageBox();
             this.l_matchfound = new System.Windows.Forms.Label();
             this.btn_img1_load = new System.Windows.Forms.Button();
             this.btn_img1_tohsv = new System.Windows.Forms.Button();
@@ -76,9 +73,16 @@
             this.btn_convert_videos = new System.Windows.Forms.Button();
             this.l_videos_count = new System.Windows.Forms.Label();
             this.btn_Haar_Detect = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.imgbox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgbox2)).BeginInit();
+            this.imgbox3 = new Emgu.CV.UI.ImageBox();
+            this.imgbox2 = new Emgu.CV.UI.ImageBox();
+            this.imgbox1 = new Emgu.CV.UI.ImageBox();
+            this.gb_haar_cascade = new System.Windows.Forms.GroupBox();
+            this.gb_ffmpeg = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgbox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgbox1)).BeginInit();
+            this.gb_haar_cascade.SuspendLayout();
+            this.gb_ffmpeg.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_compare
@@ -91,33 +95,6 @@
             this.btn_compare.Text = "Comparation";
             this.btn_compare.UseVisualStyleBackColor = true;
             this.btn_compare.Click += new System.EventHandler(this.btn_compare_Click);
-            // 
-            // imgbox1
-            // 
-            this.imgbox1.Location = new System.Drawing.Point(9, 11);
-            this.imgbox1.Margin = new System.Windows.Forms.Padding(2);
-            this.imgbox1.Name = "imgbox1";
-            this.imgbox1.Size = new System.Drawing.Size(400, 400);
-            this.imgbox1.TabIndex = 2;
-            this.imgbox1.TabStop = false;
-            // 
-            // imgbox2
-            // 
-            this.imgbox2.Location = new System.Drawing.Point(413, 11);
-            this.imgbox2.Margin = new System.Windows.Forms.Padding(2);
-            this.imgbox2.Name = "imgbox2";
-            this.imgbox2.Size = new System.Drawing.Size(400, 400);
-            this.imgbox2.TabIndex = 3;
-            this.imgbox2.TabStop = false;
-            // 
-            // imgbox3
-            // 
-            this.imgbox3.Location = new System.Drawing.Point(817, 11);
-            this.imgbox3.Margin = new System.Windows.Forms.Padding(2);
-            this.imgbox3.Name = "imgbox3";
-            this.imgbox3.Size = new System.Drawing.Size(400, 400);
-            this.imgbox3.TabIndex = 4;
-            this.imgbox3.TabStop = false;
             // 
             // l_matchfound
             // 
@@ -491,7 +468,7 @@
             // 
             // btn_load_videos
             // 
-            this.btn_load_videos.Location = new System.Drawing.Point(817, 576);
+            this.btn_load_videos.Location = new System.Drawing.Point(6, 17);
             this.btn_load_videos.Name = "btn_load_videos";
             this.btn_load_videos.Size = new System.Drawing.Size(75, 23);
             this.btn_load_videos.TabIndex = 51;
@@ -501,7 +478,7 @@
             // 
             // btn_convert_videos
             // 
-            this.btn_convert_videos.Location = new System.Drawing.Point(898, 576);
+            this.btn_convert_videos.Location = new System.Drawing.Point(6, 46);
             this.btn_convert_videos.Name = "btn_convert_videos";
             this.btn_convert_videos.Size = new System.Drawing.Size(88, 23);
             this.btn_convert_videos.TabIndex = 52;
@@ -520,7 +497,7 @@
             // 
             // btn_Haar_Detect
             // 
-            this.btn_Haar_Detect.Location = new System.Drawing.Point(648, 542);
+            this.btn_Haar_Detect.Location = new System.Drawing.Point(6, 16);
             this.btn_Haar_Detect.Name = "btn_Haar_Detect";
             this.btn_Haar_Detect.Size = new System.Drawing.Size(75, 23);
             this.btn_Haar_Detect.TabIndex = 54;
@@ -528,15 +505,62 @@
             this.btn_Haar_Detect.UseVisualStyleBackColor = true;
             this.btn_Haar_Detect.Click += new System.EventHandler(this.btn_Haar_Detect_Click);
             // 
+            // imgbox3
+            // 
+            this.imgbox3.Location = new System.Drawing.Point(817, 11);
+            this.imgbox3.Margin = new System.Windows.Forms.Padding(2);
+            this.imgbox3.Name = "imgbox3";
+            this.imgbox3.Size = new System.Drawing.Size(400, 400);
+            this.imgbox3.TabIndex = 4;
+            this.imgbox3.TabStop = false;
+            // 
+            // imgbox2
+            // 
+            this.imgbox2.Location = new System.Drawing.Point(413, 11);
+            this.imgbox2.Margin = new System.Windows.Forms.Padding(2);
+            this.imgbox2.Name = "imgbox2";
+            this.imgbox2.Size = new System.Drawing.Size(400, 400);
+            this.imgbox2.TabIndex = 3;
+            this.imgbox2.TabStop = false;
+            // 
+            // imgbox1
+            // 
+            this.imgbox1.Location = new System.Drawing.Point(9, 11);
+            this.imgbox1.Margin = new System.Windows.Forms.Padding(2);
+            this.imgbox1.Name = "imgbox1";
+            this.imgbox1.Size = new System.Drawing.Size(400, 400);
+            this.imgbox1.TabIndex = 2;
+            this.imgbox1.TabStop = false;
+            // 
+            // gb_haar_cascade
+            // 
+            this.gb_haar_cascade.Controls.Add(this.btn_Haar_Detect);
+            this.gb_haar_cascade.Location = new System.Drawing.Point(628, 538);
+            this.gb_haar_cascade.Name = "gb_haar_cascade";
+            this.gb_haar_cascade.Size = new System.Drawing.Size(91, 52);
+            this.gb_haar_cascade.TabIndex = 55;
+            this.gb_haar_cascade.TabStop = false;
+            this.gb_haar_cascade.Text = "Haar";
+            // 
+            // gb_ffmpeg
+            // 
+            this.gb_ffmpeg.Controls.Add(this.btn_load_videos);
+            this.gb_ffmpeg.Controls.Add(this.btn_convert_videos);
+            this.gb_ffmpeg.Location = new System.Drawing.Point(628, 602);
+            this.gb_ffmpeg.Name = "gb_ffmpeg";
+            this.gb_ffmpeg.Size = new System.Drawing.Size(154, 84);
+            this.gb_ffmpeg.TabIndex = 56;
+            this.gb_ffmpeg.TabStop = false;
+            this.gb_ffmpeg.Text = "ffmpeg";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1226, 622);
-            this.Controls.Add(this.btn_Haar_Detect);
+            this.ClientSize = new System.Drawing.Size(1226, 692);
+            this.Controls.Add(this.gb_ffmpeg);
+            this.Controls.Add(this.gb_haar_cascade);
             this.Controls.Add(this.l_videos_count);
-            this.Controls.Add(this.btn_convert_videos);
-            this.Controls.Add(this.btn_load_videos);
             this.Controls.Add(this.img2_toBinary_border);
             this.Controls.Add(this.img1_toBinary_border);
             this.Controls.Add(this.l_circles_count);
@@ -582,10 +606,12 @@
             this.Controls.Add(this.btn_compare);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
-            this.Text = "1";
-            ((System.ComponentModel.ISupportInitialize)(this.imgbox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgbox2)).EndInit();
+            this.Text = "SignRecignitionApp";
             ((System.ComponentModel.ISupportInitialize)(this.imgbox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgbox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgbox1)).EndInit();
+            this.gb_haar_cascade.ResumeLayout(false);
+            this.gb_ffmpeg.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -593,9 +619,6 @@
 
         #endregion
         private System.Windows.Forms.Button btn_compare;
-        private Emgu.CV.UI.ImageBox imgbox1;
-        private Emgu.CV.UI.ImageBox imgbox2;
-        private Emgu.CV.UI.ImageBox imgbox3;
         private System.Windows.Forms.Label l_matchfound;
         private System.Windows.Forms.Button btn_img1_load;
         private System.Windows.Forms.Button btn_img1_tohsv;
@@ -639,6 +662,11 @@
         private System.Windows.Forms.Button btn_convert_videos;
         private System.Windows.Forms.Label l_videos_count;
         private System.Windows.Forms.Button btn_Haar_Detect;
+        private Emgu.CV.UI.ImageBox imgbox3;
+        private Emgu.CV.UI.ImageBox imgbox2;
+        private Emgu.CV.UI.ImageBox imgbox1;
+        private System.Windows.Forms.GroupBox gb_haar_cascade;
+        private System.Windows.Forms.GroupBox gb_ffmpeg;
     }
 }
 
