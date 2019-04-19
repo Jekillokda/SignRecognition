@@ -13,7 +13,8 @@ namespace Project
     {
         Image<Bgr, byte> imgOrigin1;
         Image<Bgr, byte> imgOrigin2;
-        string[] videoArray;
+        VideoFolder vidFolder;
+        ImageFolder ImF;
 
         public Form1()
         {
@@ -271,10 +272,10 @@ namespace Project
 
         private void btn_load_videos_Click(object sender, EventArgs e)
         {
-            videoArray = OpenVideoFolderFileDialog.openFolder();
-            if (videoArray.Length > 0)
+            vidFolder = OpenVideoFolderFileDialog.openFolder();
+            if (vidFolder.count > 0)
             {
-                l_videos_count.Text = "Found " + videoArray.Length + " videos";
+                l_videos_count.Text = "Found " + vidFolder.count + " videos";
                 btn_convert_videos.Visible = true;
             }
             else
@@ -283,13 +284,17 @@ namespace Project
 
         private void btn_convert_videos_Click(object sender, EventArgs e)
         {
-            foreach (string videopath in videoArray)
+            foreach (string videopath in vidFolder.videoArray)
             {
                     int fps = 5;
                     ffmpegConverter conv = new ffmpegConverter(videopath, fps);
-                    if (conv.convert() == false)
+                    if (conv.convertAll() == false)
                 {
                     MessageBox.Show("Something went wrong with"+ videopath);
+                }
+                else
+                {
+                    MessageBox.Show("Converted sucessfully");
                 }
             }
              
@@ -299,8 +304,7 @@ namespace Project
         {
             string path = OpenHaarCascadeFileDialog.openCascade();
             
-            path = @"D:\road-video\pyHaar\cascade.xml";
-            SignsHaarCascade cascade = new SignsHaarCascade(path);
+            SignsHaarCascade cascade = new SignsHaarCascade(@"D:\road-video\pyHaar\cascade.xml");
             if (imgbox1.Image != null)
             {
                 Mat img = new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat;

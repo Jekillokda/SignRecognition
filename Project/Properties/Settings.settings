@@ -2,10 +2,10 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Project.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="last_path_to_videose" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="last_path_to_videos" Type="System.String" Scope="User">
+      <Value Profile="(Default)">""</Value>
     </Setting>
-    <Setting Name="last_path_to_pictures" Type="System.String" Scope="User">
+    <Setting Name="last_path_to_images" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="last_path_to_cascade" Type="System.String" Scope="User">

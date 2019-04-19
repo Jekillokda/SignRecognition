@@ -25,25 +25,25 @@ namespace Project.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string last_path_to_videose {
+        [global::System.Configuration.DefaultSettingValueAttribute("\"\"")]
+        public string last_path_to_videos {
             get {
-                return ((string)(this["last_path_to_videose"]));
+                return ((string)(this["last_path_to_videos"]));
             }
             set {
-                this["last_path_to_videose"] = value;
+                this["last_path_to_videos"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string last_path_to_pictures {
+        public string last_path_to_images {
             get {
-                return ((string)(this["last_path_to_pictures"]));
+                return ((string)(this["last_path_to_images"]));
             }
             set {
-                this["last_path_to_pictures"] = value;
+                this["last_path_to_images"] = value;
             }
         }
         

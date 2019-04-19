@@ -9,15 +9,21 @@ namespace Project
     class SignsHaarCascade 
     {
         public CascadeClassifier cascadeClassifier;
+        string path;
         public SignsHaarCascade(string path)
         {
-            cascadeClassifier = new CascadeClassifier(path);
+            this.path = path;
+            if (path != "")
+            {
+                cascadeClassifier = new CascadeClassifier(this.path);
+            }
         }
         public List<Mat> getListOfROI(Mat img, Rectangle[] rects)
         {
             List<Mat> list = new List<Mat>();
             Mat tmp;
-            foreach (Rectangle rect in rects) {
+            foreach (Rectangle rect in rects)
+            {
                 tmp = new Mat(img, rect);
                 list.Add(tmp);
             }

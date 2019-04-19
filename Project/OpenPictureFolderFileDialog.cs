@@ -4,17 +4,24 @@ namespace Project
 {
     class OpenPictureFolderFileDialog
     {
-        public static string[] openFolder()
+        public static ImageFolder openFolder()
         {
+            ImageFolder ImF = new ImageFolder("");
             string[] arr = new string[0];
-            string path;
+            string path = "";
+            if (Properties.Settings.Default.last_path_to_images != "")
+            {
+                path = Properties.Settings.Default.last_path_to_images;
+            }
             using (var dialog = new FolderBrowserDialog())
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     path = dialog.SelectedPath;
-                    arr = System.IO.Directory.GetFiles(path, "*.jpg,*.png");
+                    ImF = new ImageFolder(path);
+                    Properties.Settings.Default.last_path_to_videos = path;
+                    Properties.Settings.Default.Save();
                 }
-            return arr;
+            return ImF;
         }
     }
 }

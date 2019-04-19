@@ -4,17 +4,25 @@ namespace Project
 {
     class OpenVideoFolderFileDialog
     {
-        public static string[] openFolder()
+        public static VideoFolder openFolder()
         {
+            VideoFolder Vf = new VideoFolder("");
             string[] arr = new string[0];
-            string path; 
-            using (var dialog = new FolderBrowserDialog())
+            string path = "";
+            if (Properties.Settings.Default.last_path_to_videos!= "")
+            {
+                path = Properties.Settings.Default.last_path_to_videos;
+            }
+            var dialog = new FolderBrowserDialog();
+            dialog.SelectedPath = path;
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     path = dialog.SelectedPath;
-                    arr = System.IO.Directory.GetFiles(path, "*.mp4");        
-                }
-            return arr;
+                    Vf = new VideoFolder(path);
+                    Properties.Settings.Default.last_path_to_videos = path;
+                    Properties.Settings.Default.Save();
+            }
+            return Vf;
         }
     }
     
