@@ -72,7 +72,6 @@
             this.img2_toBinary_border = new System.Windows.Forms.TextBox();
             this.btn_load_videos = new System.Windows.Forms.Button();
             this.btn_convert_videos = new System.Windows.Forms.Button();
-            this.l_videos_count = new System.Windows.Forms.Label();
             this.btn_Haar_Detect = new System.Windows.Forms.Button();
             this.imgbox3 = new Emgu.CV.UI.ImageBox();
             this.imgbox2 = new Emgu.CV.UI.ImageBox();
@@ -344,11 +343,6 @@
             this.btn_convert_videos.UseVisualStyleBackColor = true;
             this.btn_convert_videos.Click += new System.EventHandler(this.btn_convert_videos_Click);
             // 
-            // l_videos_count
-            // 
-            resources.ApplyResources(this.l_videos_count, "l_videos_count");
-            this.l_videos_count.Name = "l_videos_count";
-            // 
             // btn_Haar_Detect
             // 
             resources.ApplyResources(this.btn_Haar_Detect, "btn_Haar_Detect");
@@ -376,16 +370,16 @@
             // 
             // gb_haar_cascade
             // 
-            this.gb_haar_cascade.Controls.Add(this.btn_Haar_Detect);
             resources.ApplyResources(this.gb_haar_cascade, "gb_haar_cascade");
+            this.gb_haar_cascade.Controls.Add(this.btn_Haar_Detect);
             this.gb_haar_cascade.Name = "gb_haar_cascade";
             this.gb_haar_cascade.TabStop = false;
             // 
             // gb_ffmpeg
             // 
+            resources.ApplyResources(this.gb_ffmpeg, "gb_ffmpeg");
             this.gb_ffmpeg.Controls.Add(this.btn_load_videos);
             this.gb_ffmpeg.Controls.Add(this.btn_convert_videos);
-            resources.ApplyResources(this.gb_ffmpeg, "gb_ffmpeg");
             this.gb_ffmpeg.Name = "gb_ffmpeg";
             this.gb_ffmpeg.TabStop = false;
             // 
@@ -393,9 +387,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.gb_ffmpeg);
             this.Controls.Add(this.gb_haar_cascade);
-            this.Controls.Add(this.l_videos_count);
             this.Controls.Add(this.img2_toBinary_border);
             this.Controls.Add(this.img1_toBinary_border);
             this.Controls.Add(this.l_circles_count);
@@ -439,6 +431,7 @@
             this.Controls.Add(this.imgbox2);
             this.Controls.Add(this.imgbox1);
             this.Controls.Add(this.btn_compare);
+            this.Controls.Add(this.gb_ffmpeg);
             this.Name = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.imgbox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox2)).EndInit();
@@ -493,7 +486,6 @@
         private System.Windows.Forms.TextBox img2_toBinary_border;
         private System.Windows.Forms.Button btn_load_videos;
         private System.Windows.Forms.Button btn_convert_videos;
-        private System.Windows.Forms.Label l_videos_count;
         private System.Windows.Forms.Button btn_Haar_Detect;
         private Emgu.CV.UI.ImageBox imgbox3;
         private Emgu.CV.UI.ImageBox imgbox2;

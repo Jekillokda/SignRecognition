@@ -19,13 +19,14 @@ namespace Project
         public Form1()
         {
             InitializeComponent();
+
             //Properties.Settings.Default.is_opened_first_time = true;
-            if (Properties.Settings.Default.is_opened_first_time)
+            /*if (Properties.Settings.Default.is_opened_first_time)
             {
                 MessageBox.Show("Hello new User");
                 Properties.Settings.Default.is_opened_first_time = false;
                 Properties.Settings.Default.Save();
-            }
+            }*/
         }
 
         private void btn_img1_load_Click(object sender, EventArgs e)
@@ -275,11 +276,11 @@ namespace Project
             vidFolder = OpenVideoFolderFileDialog.openFolder();
             if (vidFolder.count > 0)
             {
-                l_videos_count.Text = "Found " + vidFolder.count + " videos";
+                gb_ffmpeg.Text = "Found " + vidFolder.count + " videos";
                 btn_convert_videos.Visible = true;
             }
             else
-                l_videos_count.Text = "Videos not found";
+                gb_ffmpeg.Text = "Videos not found";
         }
 
         private void btn_convert_videos_Click(object sender, EventArgs e)
@@ -294,7 +295,7 @@ namespace Project
                 }
                 else
                 {
-                    MessageBox.Show("Converted sucessfully");
+                    MessageBox.Show("Please wait till the end of conversion");
                 }
             }
              
