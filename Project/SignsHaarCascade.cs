@@ -13,7 +13,7 @@ namespace Project
         public SignsHaarCascade(string path)
         {
             this.path = path;
-            if (path != "")
+            if (this.path != "")
             {
                 cascadeClassifier = new CascadeClassifier(this.path);
             }

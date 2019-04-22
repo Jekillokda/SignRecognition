@@ -37,7 +37,8 @@ namespace Project
                         System.IO.Directory.CreateDirectory(destinationPath);
                     }
 
-                    string args = " -i " + sourcePath + " -an -vn -map 0:s -c:s copy -f rawvideo " + destinationPath + @"\subs.txt";
+                    string args = " -i " + sourcePath + " -an -vn -map 0:s -c:s copy -f rawvideo " + destinationPath + @"\subs.txt";
+
                     System.Diagnostics.Debug.WriteLine(args);
                     myProcess.StartInfo.UseShellExecute = false;
                     myProcess.StartInfo.FileName = "ffmpeg";
