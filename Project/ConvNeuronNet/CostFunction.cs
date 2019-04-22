@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Project
 {
-    class ConvolutionalLayer
+    class CostFunction
     {
+
     }
 }

@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Project
 {
-    class InputLayer
+    class ActivationFunction
     {
+        //RELU function
+        //f(x) = max(0,x)
     }
 }
