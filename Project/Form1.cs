@@ -313,14 +313,17 @@ namespace Project
             {
                 path = openFileDialog.FileName;
             }*/
-            path = @"D:\road-video\pyHaar\cascade.xml";
+            path = @"cascade.xml";
             SignsHaarCascade cascade = new SignsHaarCascade(path);
-            Mat img = new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat;
-            img = ImgOps.Resize(img, 50, 50);
-            List<Mat> list = cascade.detectAll((new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat));
-            MessageBox.Show("found " + list.Count);
-            for (int i = 0; i < list.Count; i++)
-                list[i].Save(@"D:\road-video\haarCascade\"+ i + " .jpg");
+            if (imgbox1.Image != null)
+            {
+                Mat img = new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat;
+                img = ImgOps.Resize(img, 50, 50);
+                List<Mat> list = cascade.detectAll((new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat));
+                MessageBox.Show("found " + list.Count);
+                for (int i = 0; i < list.Count; i++)
+                    list[i].Save(@"D:\road-video\haarCascade\" + i + " .jpg");
+            }
         }
     }
 }
