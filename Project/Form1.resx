@@ -117,4 +117,1261 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btn_img1_findColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_CannyDetect.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="gb_haar_cascade.Location" type="System.Drawing.Point, System.Drawing">
+    <value>628, 538</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_findColor.Name" xml:space="preserve">
+    <value>btn_img1_findColor</value>
+  </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_copyimg3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;img2_toBinary_border.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;l_circles_count.Name" xml:space="preserve">
+    <value>l_circles_count</value>
+  </data>
+  <data name="&gt;&gt;tb_FindSMin.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btn_img1_denoise.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="btn_img1_load.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="&gt;&gt;img1_toBinary_border.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_img2_load.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tb_FindSMax.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="btn_detectCircles.Text" xml:space="preserve">
+    <value>Detect Circles</value>
+  </data>
+  <data name="&gt;&gt;btn_img2_togrey.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="&gt;&gt;l_circles_count.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btn_img1_tohsv.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="&gt;&gt;tb_FindSMax.Name" xml:space="preserve">
+    <value>tb_FindSMax</value>
+  </data>
+  <data name="btn_img1_findColor.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="tb_FindVMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>302, 570</value>
+  </data>
+  <data name="&gt;&gt;btn_img2_tobinary.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_img2_togrey.ZOrder" xml:space="preserve">
+    <value>32</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_tobinary.Name" xml:space="preserve">
+    <value>btn_img1_tobinary</value>
+  </data>
+  <data name="&gt;&gt;btn_convert_videos.Name" xml:space="preserve">
+    <value>btn_convert_videos</value>
+  </data>
+  <data name="gb_ffmpeg.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 84</value>
+  </data>
+  <data name="&gt;&gt;label8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gb_ffmpeg.Name" xml:space="preserve">
+    <value>gb_ffmpeg</value>
+  </data>
+  <data name="&gt;&gt;tb_FindHMax.Name" xml:space="preserve">
+    <value>tb_FindHMax</value>
+  </data>
+  <data name="l_lines_count.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;img2_toBinary_border.Name" xml:space="preserve">
+    <value>img2_toBinary_border</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Min</value>
+  </data>
+  <data name="btn_img1_toOrigin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_load.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="l_rectangles_count.Location" type="System.Drawing.Point, System.Drawing">
+    <value>978, 515</value>
+  </data>
+  <data name="&gt;&gt;imgbox3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gb_ffmpeg.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;imgbox3.ZOrder" xml:space="preserve">
+    <value>40</value>
+  </data>
+  <data name="tb_FindHMax.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;tb_FindVMin.Name" xml:space="preserve">
+    <value>tb_FindVMin</value>
+  </data>
+  <data name="gb_ffmpeg.TabIndex" type="System.Int32, mscorlib">
+    <value>56</value>
+  </data>
+  <data name="&gt;&gt;l_lines_count.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_makeSmooth.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;l_videos_count.Name" xml:space="preserve">
+    <value>l_videos_count</value>
+  </data>
+  <data name="&gt;&gt;btn_detectRectangles.ZOrder" xml:space="preserve">
+    <value>26</value>
+  </data>
+  <data name="l_matchfound.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btn_detect.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="tb_FindSMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>302, 545</value>
+  </data>
+  <data name="l_videos_count.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="tb_FindVMax.Text" xml:space="preserve">
+    <value>255</value>
+  </data>
+  <data name="&gt;&gt;btn_img2_toOrigin.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="imgbox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 400</value>
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>175, 519</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_toOrigin.ZOrder" xml:space="preserve">
+    <value>31</value>
+  </data>
+  <data name="imgbox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>817, 11</value>
+  </data>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_img2_load.Name" xml:space="preserve">
+    <value>btn_img2_load</value>
+  </data>
+  <data name="&gt;&gt;btn_Haar_Detect.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btn_img2_denoise.Location" type="System.Drawing.Point, System.Drawing">
+    <value>494, 418</value>
+  </data>
+  <data name="btn_img1_tobinary.Text" xml:space="preserve">
+    <value>toBinary</value>
+  </data>
+  <data name="&gt;&gt;btn_Haar_Detect.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tb_FindVMax.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_detectCircles.Name" xml:space="preserve">
+    <value>btn_detectCircles</value>
+  </data>
+  <data name="&gt;&gt;btn_convert_videos.Parent" xml:space="preserve">
+    <value>gb_ffmpeg</value>
+  </data>
+  <data name="btn_img2_load.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="l_videos_count.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 13</value>
+  </data>
+  <data name="btn_img2_tobinary.Location" type="System.Drawing.Point, System.Drawing">
+    <value>413, 531</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_togrey.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btn_detectRectangles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>981, 468</value>
+  </data>
+  <data name="&gt;&gt;l_triangles_count.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="tb_FindVMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="&gt;&gt;btn_detectTriangles.ZOrder" xml:space="preserve">
+    <value>28</value>
+  </data>
+  <data name="gb_haar_cascade.TabIndex" type="System.Int32, mscorlib">
+    <value>55</value>
+  </data>
+  <data name="btn_img2_togrey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="img1_toBinary_border.Text" xml:space="preserve">
+    <value>180</value>
+  </data>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_makeSmooth.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="btn_img1_tohsv.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 473</value>
+  </data>
+  <data name="btn_Haar_Detect.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 16</value>
+  </data>
+  <data name="btn_img2_load.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;tb_FindVMax.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="tb_FindHMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="btn_img2_tohsv.Location" type="System.Drawing.Point, System.Drawing">
+    <value>413, 473</value>
+  </data>
+  <data name="img2_toBinary_border.TabIndex" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_CannyDetect.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;l_matchfound.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btn_detectLines.Location" type="System.Drawing.Point, System.Drawing">
+    <value>817, 468</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_tohsv.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="l_videos_count.Location" type="System.Drawing.Point, System.Drawing">
+    <value>814, 560</value>
+  </data>
+  <data name="btn_img1_togrey.Text" xml:space="preserve">
+    <value>toGrey</value>
+  </data>
+  <data name="l_matchfound.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 13</value>
+  </data>
+  <data name="btn_img1_load.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_toOrigin.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;img2_toBinary_border.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tb_FindHMin.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="l_circles_count.Text" xml:space="preserve">
+    <value>Circles:</value>
+  </data>
+  <data name="img1_toBinary_border.TabIndex" type="System.Int32, mscorlib">
+    <value>49</value>
+  </data>
+  <data name="btn_img1_CannyDetect.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 42</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_denoise.Name" xml:space="preserve">
+    <value>btn_img1_denoise</value>
+  </data>
+  <data name="btn_convert_videos.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>14, 13</value>
+  </data>
+  <data name="btn_load_videos.TabIndex" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btn_detectTriangles.Text" xml:space="preserve">
+    <value>Detect Triangles</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="btn_img1_findColor.Text" xml:space="preserve">
+    <value>FindColor</value>
+  </data>
+  <data name="tb_FindHMin.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="img2_toBinary_border.Size" type="System.Drawing.Size, System.Drawing">
+    <value>38, 20</value>
+  </data>
+  <data name="imgbox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 400</value>
+  </data>
+  <data name="&gt;&gt;tb_FindHMin.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="btn_img2_load.Location" type="System.Drawing.Point, System.Drawing">
+    <value>413, 416</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_tobinary.ZOrder" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;btn_img2_load.ZOrder" xml:space="preserve">
+    <value>36</value>
+  </data>
+  <data name="imgbox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 400</value>
+  </data>
+  <data name="&gt;&gt;imgbox1.ZOrder" xml:space="preserve">
+    <value>42</value>
+  </data>
+  <data name="&gt;&gt;btn_detect.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btn_compare.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 21</value>
+  </data>
+  <data name="btn_img1_makeSmooth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>171, 416</value>
+  </data>
+  <data name="&gt;&gt;l_rectangles_count.Name" xml:space="preserve">
+    <value>l_rectangles_count</value>
+  </data>
+  <data name="l_videos_count.TabIndex" type="System.Int32, mscorlib">
+    <value>53</value>
+  </data>
+  <data name="tb_FindSMax.Text" xml:space="preserve">
+    <value>255</value>
+  </data>
+  <data name="tb_FindHMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>302, 518</value>
+  </data>
+  <data name="&gt;&gt;gb_haar_cascade.Name" xml:space="preserve">
+    <value>gb_haar_cascade</value>
+  </data>
+  <data name="btn_detect.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 21</value>
+  </data>
+  <data name="&gt;&gt;btn_img2_denoise.ZOrder" xml:space="preserve">
+    <value>24</value>
+  </data>
+  <data name="&gt;&gt;btn_compare.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btn_img2_load.Text" xml:space="preserve">
+    <value>Load</value>
+  </data>
+  <data name="&gt;&gt;l_lines_count.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="l_lines_count.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 13</value>
+  </data>
+  <data name="l_matchfound.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>V</value>
+  </data>
+  <data name="label8.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;btn_img2_togrey.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btn_img1_denoise.Text" xml:space="preserve">
+    <value>denoise</value>
+  </data>
+  <data name="&gt;&gt;l_lines_count.Name" xml:space="preserve">
+    <value>l_lines_count</value>
+  </data>
+  <data name="&gt;&gt;tb_FindHMax.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btn_detectCircles.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;btn_img2_denoise.Name" xml:space="preserve">
+    <value>btn_img2_denoise</value>
+  </data>
+  <data name="&gt;&gt;tb_FindSMin.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="gb_ffmpeg.Location" type="System.Drawing.Point, System.Drawing">
+    <value>628, 602</value>
+  </data>
+  <data name="&gt;&gt;btn_load_videos.Name" xml:space="preserve">
+    <value>btn_load_videos</value>
+  </data>
+  <data name="imgbox3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="btn_img2_tobinary.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;btn_detectTriangles.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_compare.Name" xml:space="preserve">
+    <value>btn_compare</value>
+  </data>
+  <data name="&gt;&gt;btn_detectRectangles.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="l_rectangles_count.TabIndex" type="System.Int32, mscorlib">
+    <value>45</value>
+  </data>
+  <data name="&gt;&gt;label8.Name" xml:space="preserve">
+    <value>label8</value>
+  </data>
+  <data name="btn_detect.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;btn_load_videos.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tb_FindHMax.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;btn_detectLines.ZOrder" xml:space="preserve">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_denoise.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_copyimg3.Name" xml:space="preserve">
+    <value>btn_img1_copyimg3</value>
+  </data>
+  <data name="btn_img1_copyimg3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 560</value>
+  </data>
+  <data name="&gt;&gt;btn_detectCircles.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btn_load_videos.Text" xml:space="preserve">
+    <value>Load Videos</value>
+  </data>
+  <data name="btn_img2_tobinary.Text" xml:space="preserve">
+    <value>toBinary</value>
+  </data>
+  <data name="btn_detectTriangles.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="btn_img2_togrey.Location" type="System.Drawing.Point, System.Drawing">
+    <value>413, 502</value>
+  </data>
+  <data name="&gt;&gt;tb_FindSMax.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label7.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
+  </data>
+  <data name="&gt;&gt;tb_FindSMax.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="btn_img1_CannyDetect.Location" type="System.Drawing.Point, System.Drawing">
+    <value>252, 416</value>
+  </data>
+  <data name="l_circles_count.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="l_circles_count.TabIndex" type="System.Int32, mscorlib">
+    <value>48</value>
+  </data>
+  <data name="btn_img1_denoise.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="&gt;&gt;l_rectangles_count.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;img1_toBinary_border.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btn_img1_tohsv.Text" xml:space="preserve">
+    <value>toHSV</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 13</value>
+  </data>
+  <data name="l_circles_count.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 13</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_copyimg3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="l_circles_count.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1060, 515</value>
+  </data>
+  <data name="l_triangles_count.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 13</value>
+  </data>
+  <data name="btn_img2_togrey.Text" xml:space="preserve">
+    <value>toGrey</value>
+  </data>
+  <data name="&gt;&gt;btn_Haar_Detect.Name" xml:space="preserve">
+    <value>btn_Haar_Detect</value>
+  </data>
+  <data name="&gt;&gt;tb_FindVMax.Name" xml:space="preserve">
+    <value>tb_FindVMax</value>
+  </data>
+  <data name="tb_FindVMin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>196, 570</value>
+  </data>
+  <data name="btn_Haar_Detect.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="btn_img1_CannyDetect.Text" xml:space="preserve">
+    <value>Canny Detect</value>
+  </data>
+  <data name="imgbox2.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btn_detectRectangles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 44</value>
+  </data>
+  <data name="btn_convert_videos.Text" xml:space="preserve">
+    <value>Convert+Save</value>
+  </data>
+  <data name="&gt;&gt;btn_detectRectangles.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_img2_tohsv.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;l_rectangles_count.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_detect.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_Haar_Detect.Parent" xml:space="preserve">
+    <value>gb_haar_cascade</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 13</value>
+  </data>
+  <data name="btn_img1_makeSmooth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 42</value>
+  </data>
+  <data name="&gt;&gt;btn_detectRectangles.Name" xml:space="preserve">
+    <value>btn_detectRectangles</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_denoise.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="l_triangles_count.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="imgbox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>413, 11</value>
+  </data>
+  <data name="btn_detectLines.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="btn_img1_tobinary.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="btn_img2_tohsv.Text" xml:space="preserve">
+    <value>toHSV</value>
+  </data>
+  <data name="btn_compare.Text" xml:space="preserve">
+    <value>Comparation</value>
+  </data>
+  <data name="l_lines_count.Text" xml:space="preserve">
+    <value>Lines:</value>
+  </data>
+  <data name="&gt;&gt;l_triangles_count.Name" xml:space="preserve">
+    <value>l_triangles_count</value>
+  </data>
+  <data name="tb_FindSMin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>196, 544</value>
+  </data>
+  <data name="btn_detectCircles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 44</value>
+  </data>
+  <data name="tb_FindVMin.Text" xml:space="preserve">
+    <value>100</value>
+  </data>
+  <data name="&gt;&gt;btn_detect.Name" xml:space="preserve">
+    <value>btn_detect</value>
+  </data>
+  <data name="&gt;&gt;btn_img2_tohsv.ZOrder" xml:space="preserve">
+    <value>35</value>
+  </data>
+  <data name="imgbox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="&gt;&gt;imgbox2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btn_img1_makeSmooth.Text" xml:space="preserve">
+    <value>make Smooth</value>
+  </data>
+  <data name="&gt;&gt;btn_img2_load.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btn_img2_tobinary.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_togrey.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btn_img1_toOrigin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 444</value>
+  </data>
+  <data name="tb_FindHMin.Text" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;imgbox3.Type" xml:space="preserve">
+    <value>Emgu.CV.UI.ImageBox, Emgu.CV.UI, Version=4.0.1.3373, Culture=neutral, PublicKeyToken=7281126722ab4438</value>
+  </data>
+  <data name="&gt;&gt;img2_toBinary_border.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Max</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_CannyDetect.Name" xml:space="preserve">
+    <value>btn_img1_CannyDetect</value>
+  </data>
+  <data name="btn_detectCircles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1063, 468</value>
+  </data>
+  <data name="&gt;&gt;l_triangles_count.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btn_img1_togrey.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="btn_img1_toOrigin.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;l_circles_count.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_detectLines.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tb_FindVMax.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;btn_load_videos.Parent" xml:space="preserve">
+    <value>gb_ffmpeg</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_CannyDetect.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;imgbox2.Type" xml:space="preserve">
+    <value>Emgu.CV.UI.ImageBox, Emgu.CV.UI, Version=4.0.1.3373, Culture=neutral, PublicKeyToken=7281126722ab4438</value>
+  </data>
+  <data name="label8.TabIndex" type="System.Int32, mscorlib">
+    <value>38</value>
+  </data>
+  <data name="btn_compare.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btn_img1_tobinary.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 531</value>
+  </data>
+  <data name="&gt;&gt;tb_FindVMin.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;btn_compare.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_findColor.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="l_rectangles_count.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 13</value>
+  </data>
+  <data name="&gt;&gt;btn_img2_toOrigin.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_tohsv.Name" xml:space="preserve">
+    <value>btn_img1_tohsv</value>
+  </data>
+  <data name="&gt;&gt;btn_detectCircles.ZOrder" xml:space="preserve">
+    <value>29</value>
+  </data>
+  <data name="&gt;&gt;l_lines_count.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btn_detect.Location" type="System.Drawing.Point, System.Drawing">
+    <value>817, 443</value>
+  </data>
+  <data name="btn_img1_load.Text" xml:space="preserve">
+    <value>Load</value>
+  </data>
+  <data name="imgbox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="imgbox1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;l_videos_count.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btn_img1_togrey.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 502</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_load.Name" xml:space="preserve">
+    <value>btn_img1_load</value>
+  </data>
+  <data name="&gt;&gt;tb_FindHMax.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gb_ffmpeg.ZOrder" xml:space="preserve">
+    <value>44</value>
+  </data>
+  <data name="btn_img1_tobinary.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btn_img1_toOrigin.Text" xml:space="preserve">
+    <value>toOrigin</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_load.ZOrder" xml:space="preserve">
+    <value>38</value>
+  </data>
+  <data name="tb_FindVMin.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="btn_img1_denoise.Location" type="System.Drawing.Point, System.Drawing">
+    <value>90, 418</value>
+  </data>
+  <data name="btn_img2_toOrigin.Text" xml:space="preserve">
+    <value>toOrigin</value>
+  </data>
+  <data name="btn_img2_denoise.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Form1</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_makeSmooth.Name" xml:space="preserve">
+    <value>btn_img1_makeSmooth</value>
+  </data>
+  <data name="btn_compare.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="&gt;&gt;btn_detectLines.Name" xml:space="preserve">
+    <value>btn_detectLines</value>
+  </data>
+  <data name="btn_img2_denoise.Text" xml:space="preserve">
+    <value>denoise</value>
+  </data>
+  <data name="btn_detectLines.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 44</value>
+  </data>
+  <data name="btn_convert_videos.TabIndex" type="System.Int32, mscorlib">
+    <value>52</value>
+  </data>
+  <data name="tb_FindVMin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="&gt;&gt;tb_FindSMin.Name" xml:space="preserve">
+    <value>tb_FindSMin</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_tobinary.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="btn_convert_videos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 23</value>
+  </data>
+  <data name="btn_detectCircles.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="btn_load_videos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 17</value>
+  </data>
+  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;btn_img2_tobinary.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 13</value>
+  </data>
+  <data name="img1_toBinary_border.Location" type="System.Drawing.Point, System.Drawing">
+    <value>89, 534</value>
+  </data>
+  <data name="&gt;&gt;img1_toBinary_border.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;l_matchfound.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="l_triangles_count.Location" type="System.Drawing.Point, System.Drawing">
+    <value>896, 514</value>
+  </data>
+  <data name="&gt;&gt;imgbox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="img2_toBinary_border.Location" type="System.Drawing.Point, System.Drawing">
+    <value>494, 534</value>
+  </data>
+  <data name="imgbox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 11</value>
+  </data>
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btn_img2_toOrigin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>413, 445</value>
+  </data>
+  <data name="btn_img1_load.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 416</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_togrey.ZOrder" xml:space="preserve">
+    <value>33</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_toOrigin.Name" xml:space="preserve">
+    <value>btn_img1_toOrigin</value>
+  </data>
+  <data name="btn_detectRectangles.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_toOrigin.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="l_lines_count.TabIndex" type="System.Int32, mscorlib">
+    <value>47</value>
+  </data>
+  <data name="&gt;&gt;img1_toBinary_border.Name" xml:space="preserve">
+    <value>img1_toBinary_border</value>
+  </data>
+  <data name="&gt;&gt;tb_FindSMax.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_img2_tohsv.Name" xml:space="preserve">
+    <value>btn_img2_tohsv</value>
+  </data>
+  <data name="btn_load_videos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>H</value>
+  </data>
+  <data name="btn_img2_toOrigin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="l_lines_count.Location" type="System.Drawing.Point, System.Drawing">
+    <value>814, 515</value>
+  </data>
+  <data name="&gt;&gt;btn_img2_tohsv.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="gb_haar_cascade.Text" xml:space="preserve">
+    <value>Haar</value>
+  </data>
+  <data name="&gt;&gt;imgbox1.Type" xml:space="preserve">
+    <value>Emgu.CV.UI.ImageBox, Emgu.CV.UI, Version=4.0.1.3373, Culture=neutral, PublicKeyToken=7281126722ab4438</value>
+  </data>
+  <data name="&gt;&gt;tb_FindVMin.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;l_videos_count.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_denoise.ZOrder" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="btn_detect.Text" xml:space="preserve">
+    <value>Detection</value>
+  </data>
+  <data name="&gt;&gt;imgbox3.Name" xml:space="preserve">
+    <value>imgbox3</value>
+  </data>
+  <data name="tb_FindHMax.Text" xml:space="preserve">
+    <value>179</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_togrey.Name" xml:space="preserve">
+    <value>btn_img1_togrey</value>
+  </data>
+  <data name="img1_toBinary_border.Size" type="System.Drawing.Size, System.Drawing">
+    <value>38, 20</value>
+  </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>375, 502</value>
+  </data>
+  <data name="btn_img2_togrey.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;btn_detectTriangles.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;l_matchfound.ZOrder" xml:space="preserve">
+    <value>39</value>
+  </data>
+  <data name="label7.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btn_compare.Location" type="System.Drawing.Point, System.Drawing">
+    <value>817, 418</value>
+  </data>
+  <data name="&gt;&gt;imgbox2.Name" xml:space="preserve">
+    <value>imgbox2</value>
+  </data>
+  <data name="tb_FindSMin.Text" xml:space="preserve">
+    <value>100</value>
+  </data>
+  <data name="btn_detectTriangles.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="&gt;&gt;tb_FindVMax.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tb_FindHMin.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tb_FindHMin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gb_ffmpeg.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btn_img1_copyimg3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 39</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>175, 548</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="l_triangles_count.TabIndex" type="System.Int32, mscorlib">
+    <value>46</value>
+  </data>
+  <data name="img2_toBinary_border.Text" xml:space="preserve">
+    <value>180</value>
+  </data>
+  <data name="&gt;&gt;gb_haar_cascade.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_detectLines.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;l_circles_count.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_findColor.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="tb_FindSMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="&gt;&gt;btn_detectCircles.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="l_matchfound.Location" type="System.Drawing.Point, System.Drawing">
+    <value>896, 418</value>
+  </data>
+  <data name="tb_FindHMin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>196, 518</value>
+  </data>
+  <data name="tb_FindSMin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="&gt;&gt;tb_FindHMin.Name" xml:space="preserve">
+    <value>tb_FindHMin</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_findColor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="l_matchfound.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btn_detectTriangles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 44</value>
+  </data>
+  <data name="btn_detectRectangles.Text" xml:space="preserve">
+    <value>Detect Rectangles</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>14, 13</value>
+  </data>
+  <data name="tb_FindSMin.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1226, 692</value>
+  </data>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_tohsv.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="gb_ffmpeg.Text" xml:space="preserve">
+    <value>ffmpeg</value>
+  </data>
+  <data name="btn_detectLines.Text" xml:space="preserve">
+    <value>Detect   Lines</value>
+  </data>
+  <data name="&gt;&gt;btn_load_videos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_convert_videos.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>SignRecignitionApp</value>
+  </data>
+  <data name="&gt;&gt;btn_detectTriangles.Name" xml:space="preserve">
+    <value>btn_detectTriangles</value>
+  </data>
+  <data name="btn_img1_findColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>261, 489</value>
+  </data>
+  <data name="imgbox3.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;l_videos_count.Parent" xml:space="preserve">
+    <value>gb_ffmpeg</value>
+  </data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <data name="&gt;&gt;btn_img2_denoise.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_compare.ZOrder" xml:space="preserve">
+    <value>43</value>
+  </data>
+  <data name="&gt;&gt;btn_convert_videos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_img2_denoise.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="l_rectangles_count.Text" xml:space="preserve">
+    <value>Rectangles:</value>
+  </data>
+  <data name="&gt;&gt;gb_haar_cascade.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_tobinary.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btn_Haar_Detect.TabIndex" type="System.Int32, mscorlib">
+    <value>54</value>
+  </data>
+  <data name="&gt;&gt;btn_img2_toOrigin.ZOrder" xml:space="preserve">
+    <value>30</value>
+  </data>
+  <data name="&gt;&gt;l_triangles_count.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tb_FindSMin.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btn_Haar_Detect.Text" xml:space="preserve">
+    <value>DetectHaar</value>
+  </data>
+  <data name="&gt;&gt;btn_img2_togrey.Name" xml:space="preserve">
+    <value>btn_img2_togrey</value>
+  </data>
+  <data name="&gt;&gt;tb_FindVMin.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>175, 573</value>
+  </data>
+  <data name="btn_convert_videos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 46</value>
+  </data>
+  <data name="l_matchfound.Text" xml:space="preserve">
+    <value>not found</value>
+  </data>
+  <data name="&gt;&gt;gb_haar_cascade.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btn_img1_copyimg3.TabIndex" type="System.Int32, mscorlib">
+    <value>42</value>
+  </data>
+  <data name="btn_detectRectangles.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_tohsv.ZOrder" xml:space="preserve">
+    <value>37</value>
+  </data>
+  <data name="&gt;&gt;l_rectangles_count.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="btn_detectTriangles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>899, 468</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_copyimg3.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="btn_img2_tohsv.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btn_img1_tohsv.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;imgbox2.ZOrder" xml:space="preserve">
+    <value>41</value>
+  </data>
+  <data name="l_rectangles_count.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;btn_img2_tobinary.Name" xml:space="preserve">
+    <value>btn_img2_tobinary</value>
+  </data>
+  <data name="btn_img1_CannyDetect.TabIndex" type="System.Int32, mscorlib">
+    <value>44</value>
+  </data>
+  <data name="&gt;&gt;btn_img2_toOrigin.Name" xml:space="preserve">
+    <value>btn_img2_toOrigin</value>
+  </data>
+  <data name="btn_img1_togrey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btn_img2_toOrigin.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="btn_img1_makeSmooth.TabIndex" type="System.Int32, mscorlib">
+    <value>43</value>
+  </data>
+  <data name="btn_img2_denoise.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>193, 502</value>
+  </data>
+  <data name="&gt;&gt;btn_detect.ZOrder" xml:space="preserve">
+    <value>34</value>
+  </data>
+  <data name="l_triangles_count.Text" xml:space="preserve">
+    <value>Triangles:</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_load.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;imgbox1.Name" xml:space="preserve">
+    <value>imgbox1</value>
+  </data>
+  <data name="btn_img2_tohsv.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;btn_img2_tobinary.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;l_matchfound.Name" xml:space="preserve">
+    <value>l_matchfound</value>
+  </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="btn_detectLines.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="btn_img1_copyimg3.Text" xml:space="preserve">
+    <value>Copy img from img3</value>
+  </data>
+  <data name="gb_haar_cascade.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 52</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_makeSmooth.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en</value>
+  </metadata>
 </root>

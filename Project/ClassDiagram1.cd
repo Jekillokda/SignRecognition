@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Project.ffmpegConverter">
+    <Position X="8.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAABAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>ffmpegConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Form1">
+    <Position X="18" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CicARAgCgmLE2BckAEjiAlECMQGIYgLBZUpgACAgAiU=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.ImgOps">
+    <Position X="14.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAiIAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAECIAA=</HashCode>
+      <FileName>ImgOps.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Program">
+    <Position X="10.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.ShapeComparation">
+    <Position X="10.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ShapeComparation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.ShapeDetection">
+    <Position X="12.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ShapeDetection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.SignsHaarCascade">
+    <Position X="16" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAIAAEAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>SignsHaarCascade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Properties.Resources">
+    <Position X="12.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Project.Properties.Settings">
+    <Position X="16" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

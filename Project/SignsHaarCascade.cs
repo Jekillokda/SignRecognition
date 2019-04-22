@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Emgu.CV;
-using Emgu.CV.CvEnum;
-using Emgu.CV.Structure;
-using Emgu.CV.Cvb;
+
 using System.Drawing;
 
 namespace Project
@@ -14,22 +9,21 @@ namespace Project
     class SignsHaarCascade 
     {
         public CascadeClassifier cascadeClassifier;
+        string path;
         public SignsHaarCascade(string path)
         {
-            cascadeClassifier = new CascadeClassifier(path);
-        }
-        public Rectangle[] detectHaar(Mat img)
-        {
-            double scaleFactor = 1.05;
-            int minNeighbors = 3;
-            Rectangle[] arr = cascadeClassifier.DetectMultiScale(img, scaleFactor, minNeighbors);
-            return arr;
+            this.path = path;
+            if (path != "")
+            {
+                cascadeClassifier = new CascadeClassifier(this.path);
+            }
         }
         public List<Mat> getListOfROI(Mat img, Rectangle[] rects)
         {
             List<Mat> list = new List<Mat>();
             Mat tmp;
-            foreach (Rectangle rect in rects) {
+            foreach (Rectangle rect in rects)
+            {
                 tmp = new Mat(img, rect);
                 list.Add(tmp);
             }
