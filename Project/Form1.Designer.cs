@@ -45,7 +45,6 @@
             this.btn_detectTriangles = new System.Windows.Forms.Button();
             this.btn_detectLines = new System.Windows.Forms.Button();
             this.btn_detectRectangles = new System.Windows.Forms.Button();
-            this.btn_img1_denoise = new System.Windows.Forms.Button();
             this.btn_img2_denoise = new System.Windows.Forms.Button();
             this.btn_img1_tobinary = new System.Windows.Forms.Button();
             this.btn_img2_tobinary = new System.Windows.Forms.Button();
@@ -59,11 +58,8 @@
             this.tb_FindVMin = new System.Windows.Forms.TextBox();
             this.tb_FindHMin = new System.Windows.Forms.TextBox();
             this.tb_FindSMin = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.btn_img1_copyimg3 = new System.Windows.Forms.Button();
-            this.btn_img1_makeSmooth = new System.Windows.Forms.Button();
-            this.btn_img1_CannyDetect = new System.Windows.Forms.Button();
             this.l_rectangles_count = new System.Windows.Forms.Label();
             this.l_triangles_count = new System.Windows.Forms.Label();
             this.l_lines_count = new System.Windows.Forms.Label();
@@ -78,6 +74,15 @@
             this.imgbox1 = new Emgu.CV.UI.ImageBox();
             this.gb_haar_cascade = new System.Windows.Forms.GroupBox();
             this.gb_ffmpeg = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btn_img1_denoise = new System.Windows.Forms.Button();
+            this.btn_img1_CannyDetect = new System.Windows.Forms.Button();
+            this.btn_img1_makeSmooth = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btn_img1_resize = new System.Windows.Forms.Button();
+            this.tb_resize_y = new System.Windows.Forms.TextBox();
+            this.tb_resize_x = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox1)).BeginInit();
@@ -188,13 +193,6 @@
             this.btn_detectRectangles.UseVisualStyleBackColor = true;
             this.btn_detectRectangles.Click += new System.EventHandler(this.btn_detectRectangles_Click);
             // 
-            // btn_img1_denoise
-            // 
-            resources.ApplyResources(this.btn_img1_denoise, "btn_img1_denoise");
-            this.btn_img1_denoise.Name = "btn_img1_denoise";
-            this.btn_img1_denoise.UseVisualStyleBackColor = true;
-            this.btn_img1_denoise.Click += new System.EventHandler(this.btn_img1_denoise_Click);
-            // 
             // btn_img2_denoise
             // 
             resources.ApplyResources(this.btn_img2_denoise, "btn_img2_denoise");
@@ -268,11 +266,6 @@
             resources.ApplyResources(this.tb_FindSMin, "tb_FindSMin");
             this.tb_FindSMin.Name = "tb_FindSMin";
             // 
-            // label7
-            // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.Name = "label7";
-            // 
             // label8
             // 
             resources.ApplyResources(this.label8, "label8");
@@ -284,20 +277,6 @@
             this.btn_img1_copyimg3.Name = "btn_img1_copyimg3";
             this.btn_img1_copyimg3.UseVisualStyleBackColor = true;
             this.btn_img1_copyimg3.Click += new System.EventHandler(this.btn_img1_copyimg3_Click);
-            // 
-            // btn_img1_makeSmooth
-            // 
-            resources.ApplyResources(this.btn_img1_makeSmooth, "btn_img1_makeSmooth");
-            this.btn_img1_makeSmooth.Name = "btn_img1_makeSmooth";
-            this.btn_img1_makeSmooth.UseVisualStyleBackColor = true;
-            this.btn_img1_makeSmooth.Click += new System.EventHandler(this.btn_img1_makeSmooth_Click);
-            // 
-            // btn_img1_CannyDetect
-            // 
-            resources.ApplyResources(this.btn_img1_CannyDetect, "btn_img1_CannyDetect");
-            this.btn_img1_CannyDetect.Name = "btn_img1_CannyDetect";
-            this.btn_img1_CannyDetect.UseVisualStyleBackColor = true;
-            this.btn_img1_CannyDetect.Click += new System.EventHandler(this.button1_Click);
             // 
             // l_rectangles_count
             // 
@@ -370,23 +349,81 @@
             // 
             // gb_haar_cascade
             // 
-            resources.ApplyResources(this.gb_haar_cascade, "gb_haar_cascade");
             this.gb_haar_cascade.Controls.Add(this.btn_Haar_Detect);
+            resources.ApplyResources(this.gb_haar_cascade, "gb_haar_cascade");
             this.gb_haar_cascade.Name = "gb_haar_cascade";
             this.gb_haar_cascade.TabStop = false;
             // 
             // gb_ffmpeg
             // 
-            resources.ApplyResources(this.gb_ffmpeg, "gb_ffmpeg");
             this.gb_ffmpeg.Controls.Add(this.btn_load_videos);
             this.gb_ffmpeg.Controls.Add(this.btn_convert_videos);
+            resources.ApplyResources(this.gb_ffmpeg, "gb_ffmpeg");
             this.gb_ffmpeg.Name = "gb_ffmpeg";
             this.gb_ffmpeg.TabStop = false;
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
+            // 
+            // btn_img1_denoise
+            // 
+            resources.ApplyResources(this.btn_img1_denoise, "btn_img1_denoise");
+            this.btn_img1_denoise.Name = "btn_img1_denoise";
+            this.btn_img1_denoise.UseVisualStyleBackColor = true;
+            this.btn_img1_denoise.Click += new System.EventHandler(this.btn_img1_denoise_Click);
+            // 
+            // btn_img1_CannyDetect
+            // 
+            resources.ApplyResources(this.btn_img1_CannyDetect, "btn_img1_CannyDetect");
+            this.btn_img1_CannyDetect.Name = "btn_img1_CannyDetect";
+            this.btn_img1_CannyDetect.UseVisualStyleBackColor = true;
+            this.btn_img1_CannyDetect.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btn_img1_makeSmooth
+            // 
+            resources.ApplyResources(this.btn_img1_makeSmooth, "btn_img1_makeSmooth");
+            this.btn_img1_makeSmooth.Name = "btn_img1_makeSmooth";
+            this.btn_img1_makeSmooth.UseVisualStyleBackColor = true;
+            this.btn_img1_makeSmooth.Click += new System.EventHandler(this.btn_img1_makeSmooth_Click);
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
+            // btn_img1_resize
+            // 
+            resources.ApplyResources(this.btn_img1_resize, "btn_img1_resize");
+            this.btn_img1_resize.Name = "btn_img1_resize";
+            this.btn_img1_resize.UseVisualStyleBackColor = true;
+            this.btn_img1_resize.Click += new System.EventHandler(this.btn_img1_resize_Click);
+            // 
+            // tb_resize_y
+            // 
+            resources.ApplyResources(this.tb_resize_y, "tb_resize_y");
+            this.tb_resize_y.Name = "tb_resize_y";
+            // 
+            // tb_resize_x
+            // 
+            resources.ApplyResources(this.tb_resize_x, "tb_resize_x");
+            this.tb_resize_x.Name = "tb_resize_x";
             // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btn_img1_resize);
+            this.Controls.Add(this.tb_resize_y);
+            this.Controls.Add(this.tb_resize_x);
             this.Controls.Add(this.gb_haar_cascade);
             this.Controls.Add(this.img2_toBinary_border);
             this.Controls.Add(this.img1_toBinary_border);
@@ -459,7 +496,6 @@
         private System.Windows.Forms.Button btn_detectTriangles;
         private System.Windows.Forms.Button btn_detectLines;
         private System.Windows.Forms.Button btn_detectRectangles;
-        private System.Windows.Forms.Button btn_img1_denoise;
         private System.Windows.Forms.Button btn_img2_denoise;
         private System.Windows.Forms.Button btn_img1_tobinary;
         private System.Windows.Forms.Button btn_img2_tobinary;
@@ -473,11 +509,8 @@
         private System.Windows.Forms.TextBox tb_FindVMin;
         private System.Windows.Forms.TextBox tb_FindHMin;
         private System.Windows.Forms.TextBox tb_FindSMin;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_img1_copyimg3;
-        private System.Windows.Forms.Button btn_img1_makeSmooth;
-        private System.Windows.Forms.Button btn_img1_CannyDetect;
         private System.Windows.Forms.Label l_rectangles_count;
         private System.Windows.Forms.Label l_triangles_count;
         private System.Windows.Forms.Label l_lines_count;
@@ -492,6 +525,15 @@
         private Emgu.CV.UI.ImageBox imgbox1;
         private System.Windows.Forms.GroupBox gb_haar_cascade;
         private System.Windows.Forms.GroupBox gb_ffmpeg;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btn_img1_denoise;
+        private System.Windows.Forms.Button btn_img1_CannyDetect;
+        private System.Windows.Forms.Button btn_img1_makeSmooth;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_img1_resize;
+        private System.Windows.Forms.TextBox tb_resize_y;
+        private System.Windows.Forms.TextBox tb_resize_x;
     }
 }
 

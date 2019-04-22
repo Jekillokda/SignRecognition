@@ -118,7 +118,59 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btn_img1_findColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>336, 572</value>
+  </data>
+  <data name="tb_FindSMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>391, 641</value>
+  </data>
+  <data name="tb_FindHMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>391, 608</value>
+  </data>
+  <data name="tb_FindVMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>391, 672</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>221, 675</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>221, 644</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>221, 609</value>
+  </data>
+  <data name="tb_FindVMin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>249, 672</value>
+  </data>
+  <data name="tb_FindHMin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>249, 608</value>
+  </data>
+  <data name="tb_FindSMin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>249, 640</value>
+  </data>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>488, 588</value>
+  </data>
   <data name="gb_ffmpeg.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 84</value>
+    <value>307, 103</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>245, 588</value>
+  </data>
+  <data name="btn_img1_denoise.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btn_img1_CannyDetect.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btn_img1_makeSmooth.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btn_img1_makeSmooth.Text" xml:space="preserve">
+    <value>Make Smooth</value>
   </data>
 </root>

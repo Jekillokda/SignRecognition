@@ -57,11 +57,11 @@ namespace Project
             return tmp;
         }
 
-        public static Mat InterpolationResize(Mat img, int h, int w)
+        public static Mat InterpolationResize(Mat img, int w, int h)
         {
             try
             {
-                CvInvoke.Resize(img, img, new Size(h, w), (double)Inter.Cubic);
+                CvInvoke.Resize(img, img, new Size(w, h), (double)Inter.Cubic);
             }
             catch (Exception ex)
             {

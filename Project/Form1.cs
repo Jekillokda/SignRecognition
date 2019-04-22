@@ -288,7 +288,7 @@ namespace Project
             foreach (string videopath in vidFolder.videoArray)
             {
                     int fps = 5;
-                    ffmpegConverter conv = new ffmpegConverter(videopath, fps);
+                    FFMPEGConverter conv = new FFMPEGConverter(videopath, fps);
                     if (conv.convertAll() == false)
                 {
                     MessageBox.Show("Something went wrong with"+ videopath);
@@ -318,6 +318,20 @@ namespace Project
             else
             {
                 MessageBox.Show("Choose some picture for detection");
+            }
+        }
+
+        private void btn_img1_resize_Click(object sender, EventArgs e)
+        {
+            if (imgbox1.Image != null)
+            {
+                int w = Convert.ToInt32(tb_resize_x.Text);
+                int h = Convert.ToInt32(tb_resize_y.Text);
+                imgbox3.Image = ImgOps.InterpolationResize(new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat, w, h);
+            }
+            else
+            {
+                MessageBox.Show("Plz load img1");
             }
         }
     }
