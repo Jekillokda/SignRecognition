@@ -20,7 +20,7 @@ namespace Project
                     path = dialog.SelectedPath;
                     Vf = new VideoFolder(path);
                     Properties.Settings.Default.last_path_to_videos = path;
-                    Properties.Settings.Default.Save();
+                    Properties.Settings.Default.Save(); 
             }
             return Vf;
         }
