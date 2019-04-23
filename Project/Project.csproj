@@ -106,12 +106,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConvNeuronNet\ActivationFunction.cs" />
     <Compile Include="ConvNeuronNet\CNN.cs" />
     <Compile Include="ConvNeuronNet\ConvolutionalLayer.cs" />
-    <Compile Include="ConvNeuronNet\CostFunction.cs" />
     <Compile Include="ConvNeuronNet\Enums.cs" />
     <Compile Include="ConvNeuronNet\Neuron.cs" />
+    <Compile Include="ConvNeuronNet\OutputLayer.cs" />
+    <Compile Include="ConvNeuronNet\SoftmaxLayer.cs" />
+    <Compile Include="ConvNeuronNet\SubsamplingLayer.cs" />
+    <Compile Include="DB_Export\Result.cs" />
+    <Compile Include="DB_Export\ResultExport.cs" />
     <Compile Include="Utils\FFMPEGConverter.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -149,6 +152,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ClassDiagram2.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

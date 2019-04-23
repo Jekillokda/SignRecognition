@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project
+namespace Project.ConvNeuronNet
 {
-    class ActivationFunction
+    class SoftmaxLayer
     {
-        //RELU function
-        //f(x) = max(0,x)
     }
 }

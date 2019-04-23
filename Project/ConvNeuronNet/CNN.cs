@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.CNN
+namespace Project.ConvNeuronNet
 {
     class CNN
     {
@@ -13,8 +13,8 @@ namespace Project.CNN
         //все слои сети
         private InputLayer input_layer = null;
         public ConvolutionalLayer conv_layer1 = new ConvolutionalLayer(70, 15, NeuronType.Convolutional, nameof(conv_layer1));
-        public ConvolutionalLayer hidden_layer2 = new ConvolutionalLayer(30, 70, NeuronType.Convolutional, nameof(hidden_layer2));
-        //public OutputLayer output_layer = new OutputLayer(10, 30, NeuronType.Output, nameof(output_layer));
+        public ConvolutionalLayer conv_layer2 = new ConvolutionalLayer(30, 70, NeuronType.Convolutional, nameof(conv_layer2));
+        public OutputLayer output_layer = new OutputLayer(10, 30, NeuronType.Output, nameof(output_layer));
         //массив для хранения выхода сети
         public double[] fact = new double[10];
         //непосредственно обучение
@@ -35,27 +35,27 @@ namespace Project.CNN
                     }
                     //обратный проход и коррекция весов
                     double[] temp_gsums1 = net.output_layer.BackwardPass(errors);
-                    double[] temp_gsums2 = net.hidden_layer2.BackwardPass(temp_gsums1);
-                    net.hidden_layer1.BackwardPass(temp_gsums2);
+                    double[] temp_gsums2 = net.conv_layer2.BackwardPass(temp_gsums1);
+                    net.conv_layer1.BackwardPass(temp_gsums2);
                 }
             }
 
             //загрузка скорректированных весов в "память"
-            net.hidden_layer1.WeightInitialize(MemoryMode.SET, nameof(hidden_layer1));
-            net.hidden_layer2.WeightInitialize(MemoryMode.SET, nameof(hidden_layer2));
-            net.output_layer.WeightInitialize(MemoryMode.SET, nameof(output_layer));
+            net.conv_layer1.WeightInitialize(XMLAccessMode.SET, nameof(conv_layer1));
+            net.conv_layer2.WeightInitialize(XMLAccessMode.SET, nameof(conv_layer2));
+            net.output_layer.WeightInitialize(XMLAccessMode.SET, nameof(output_layer));
         }
         //тестирование сети
-        public void Test(Network net)
+        public void Test(CNN net)
         {
             for (int i = 0; i < net.input_layer.Testset.Length; ++i)
                 ForwardPass(net, net.input_layer.Testset[i]);
         }
-        public void ForwardPass(Network net, double[] netInput)
+        public void ForwardPass(CNN net, double[] netInput)
         {
-            net.hidden_layer1.Data = netInput;
-            net.hidden_layer1.Recognize(null, net.hidden_layer2);
-            net.hidden_layer2.Recognize(null, net.output_layer);
+            net.conv_layer1.Data = netInput;
+            net.conv_layer1.Recognize(null, net.conv_layer2);
+            net.conv_layer2.Recognize(null, net.output_layer);
             net.output_layer.Recognize(net, null);
         }
     }

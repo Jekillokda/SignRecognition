@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project
 {
-    class CostFunction
+    class Result
     {
-
     }
 }

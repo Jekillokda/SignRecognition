@@ -1,6 +1,6 @@
-﻿namespace Project.CNN
+﻿namespace Project.ConvNeuronNet
 {
-    enum MemoryMode
+    enum XMLAccessMode
     {
         GET,
         SET
@@ -9,12 +9,13 @@
     {
         Convolutional,
         Fullyconnected,
+        Subsampling,
         Output
     }
     enum NetworkMode
     {
         Train,
         Test,
-        Demo
+        Work
     }
 }

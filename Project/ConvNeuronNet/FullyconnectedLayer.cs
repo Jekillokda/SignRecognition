@@ -1,15 +1,14 @@
-﻿using Project.CNN;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.CNN
+namespace Project.ConvNeuronNet
 {
     class FullyconnectedLayer : Layer
     {
-        public FullyconnectedLayer(int non, int nopn, CNN.NeuronType nt, string type) : base(non, nopn, nt, type) { }
+        public FullyconnectedLayer(int non, int nopn, NeuronType nt, string type) : base(non, nopn, nt, type) { }
         public override void Recognize(CNN net, Layer nextLayer)
         {
             /*double[] hidden_out = new double[Neurons.Length];

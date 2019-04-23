@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Project.ConvNeuronNet
 {
-    class ConvolutionalLayer : Layer
+    class SubsamplingLayer : Layer
     {
-        public ConvolutionalLayer(int non, int nopn, NeuronType nt, string type) : base(non, nopn, nt, type) { }
+        public SubsamplingLayer(int non, int nopn, NeuronType nt, string type) : base(non, nopn, nt, type) { }
         public override void Recognize(CNN net, Layer nextLayer)
         {
-            double[] conv_out = new double[Neurons.Length];
+            double[] subs_out = new double[Neurons.Length];
             /*for (int i = 0; i < Neurons.Length; ++i)
                 hidden_out[i] = Neurons[i].Output;*/
-                //вычисление свёртки
-            nextLayer.Data = conv_out;
+            //вычисление свёртки
+            nextLayer.Data = subs_out;
         }
         public override double[] BackwardPass(double[] gr_sums)
         {

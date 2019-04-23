@@ -21,7 +21,7 @@ namespace Project
             public ShapeDetection()
             {}
 
-            static public Image<Bgr,byte> detectShape(Image<Bgr, byte> imgInput)
+            static public Image<Bgr,byte> detectShapes(Image<Bgr, byte> imgInput)
             {
                 if (imgInput == null)
                 {
@@ -99,7 +99,7 @@ namespace Project
             return imgInput;
             }
 
-       static public Image<Bgr,byte> detectShape2(Image<Bgr, byte> imgInput, int drawtag, out int outcount)
+       static public Image<Bgr,byte> detectShape(Image<Bgr, byte> imgInput, int drawtag, out int outcount)
         {
          int c = 0;
          //Convert the image to grayscale and filter out the noise

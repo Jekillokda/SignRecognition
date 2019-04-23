@@ -95,7 +95,7 @@ namespace Project
             try
             {
                 Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
-                imgbox3.Image = ShapeDetection.detectShape(img);
+                imgbox3.Image = ShapeDetection.detectShapes(img);
             }
             catch (Exception ex)
             {
@@ -109,7 +109,7 @@ namespace Project
             {
                 Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
                 int count = 0;
-                imgbox3.Image = ShapeDetection.detectShape2(img, 1, out count);
+                imgbox3.Image = ShapeDetection.detectShape(img, 1, out count);
                 l_lines_count.Text = "lines:"+ count;
                 l_rectangles_count.Text = "rectangles:";
                 l_circles_count.Text = "circles:";
@@ -127,7 +127,7 @@ namespace Project
             {
                 int count = 0;
                 Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
-                imgbox3.Image = ShapeDetection.detectShape2(img, 2, out count);
+                imgbox3.Image = ShapeDetection.detectShape(img, 2, out count);
                 l_triangles_count.Text = "triangles:" + count;
                 l_lines_count.Text = "lines:";
                 l_rectangles_count.Text = "rectangles:";
@@ -145,7 +145,7 @@ namespace Project
             {
                 int count = 0;
                 Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
-                imgbox3.Image = ShapeDetection.detectShape2(img, 3, out count);
+                imgbox3.Image = ShapeDetection.detectShape(img, 3, out count);
                 l_rectangles_count.Text = "rectangles:" + count;
                 l_lines_count.Text = "lines:";
                 l_circles_count.Text = "circles:";
