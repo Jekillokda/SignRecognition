@@ -15,7 +15,7 @@ namespace Project.ConvNeuronNet
             for (int i = 0; i < Neurons.Length; ++i)
                 e_sum += Neurons[i].Output;
             for (int i = 0; i < Neurons.Length; ++i)
-                net.fact[i] = Neurons[i].Output / e_sum;
+                net.Results[i] = Neurons[i].Output / e_sum;
         }
         public override double[] BackwardPass(double[] errors)
         {

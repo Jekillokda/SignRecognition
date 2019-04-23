@@ -8,8 +8,8 @@ namespace Project
 {
     class VideoFolder
     {
-        public string path { get; set; }
-        public int count { get; set; }
+        private string path { get; set; }
+        private int count { get; set; }
         public string[] videoArray;
         public VideoFolder(string path)
         {
@@ -19,6 +19,10 @@ namespace Project
                 videoArray = System.IO.Directory.GetFiles(this.path, "*.mp4");
                 count = videoArray.Length;
             }
+        }
+        public int getCount()
+        {
+            return this.count;
         }
     }
 }

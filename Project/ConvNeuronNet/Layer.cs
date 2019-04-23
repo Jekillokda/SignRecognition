@@ -31,16 +31,14 @@ namespace Project.ConvNeuronNet
         protected double[,] lastdeltaweights;//веса предыдущей итерации обучения
         Neuron[] neurons;
         public Neuron[] Neurons { get => neurons; set => neurons = value; }
-        public double[] Data//я подал null на входы нейронов, так как
-        {//сначала нужно будет преобразовать информацию
-            set//(видео, изображения, etc.)
-            {//а загружать input'ы нейронов слоя надо не сразу,
+        public double[] Data { set
+            {
                 for (int i = 0; i < Neurons.Length; ++i)
                 {
                     Neurons[i].Inputs = value;
                     Neurons[i].Activator(Neurons[i].Inputs, Neurons[i].Weights);
                 }
-            }//а только после вычисления выходов предыдущего слоя
+            }
         }
         public double[,] WeightInitialize(XMLAccessMode accMode, string type)
         {

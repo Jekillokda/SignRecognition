@@ -8,5 +8,10 @@ namespace Project.ConvNeuronNet
 {
     class SoftmaxLayer
     {
+        Dictionary<int,string> pairs;
+        public string FindPair()
+        {
+            return "";
+        }
     }
 }

@@ -8,5 +8,12 @@ namespace Project
 {
     class Result
     {
+        private int id;
+        private int signClass;
+        private string lattitude;
+        private string longitude;
+        private DateTime date;
+        private int roadId;
+        private double roadKM;
     }
 }

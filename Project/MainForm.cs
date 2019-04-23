@@ -9,14 +9,14 @@ using System.Windows.Forms;
 
 namespace Project
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         Image<Bgr, byte> imgOrigin1;
         Image<Bgr, byte> imgOrigin2;
         VideoFolder vidFolder;
         ImageFolder ImF;
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
 
@@ -274,9 +274,9 @@ namespace Project
         private void btn_load_videos_Click(object sender, EventArgs e)
         {
             vidFolder = OpenVideoFolderFileDialog.openFolder();
-            if (vidFolder.count > 0)
+            if (vidFolder.getCount() > 0)
             {
-                gb_ffmpeg.Text = "Found " + vidFolder.count + " videos";
+                gb_ffmpeg.Text = "Found " + vidFolder.getCount() + " videos";
                 btn_convert_videos.Visible = true;
             }
             else

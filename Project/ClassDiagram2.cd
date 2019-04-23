@@ -3,7 +3,7 @@
   <Class Name="Project.ConvNeuronNet.CNN">
     <Position X="9.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAgAAAQAAIAAAAAAAAAAAAAAAAACTAAAAAACAAAAAA=</HashCode>
+      <HashCode>AAAgAAAQAAIAAAAAAAAAAAAACAAAATAAAAAACAAAAAA=</HashCode>
       <FileName>ConvNeuronNet\CNN.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -11,7 +11,7 @@
     <Position X="2.25" Y="5.5" Width="1.5" />
     <InheritanceLine Type="Project.ConvNeuronNet.Layer" ManuallyRouted="true">
       <Path>
-        <Point X="5.75" Y="4.238" />
+        <Point X="5.75" Y="1.062" />
         <Point X="5.75" Y="4.602" />
         <Point X="3" Y="4.602" />
         <Point X="3" Y="5.5" />
@@ -36,7 +36,7 @@
       <FileName>ConvNeuronNet\InputLayer.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Project.ConvNeuronNet.Layer">
+  <Class Name="Project.ConvNeuronNet.Layer" Collapsed="true">
     <Position X="5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAAgAAAAIAAgAAJAAAAAAAAAAAAAAhAAAyAAAAAAAAA=</HashCode>
@@ -60,7 +60,7 @@
   <Class Name="Project.ConvNeuronNet.SoftmaxLayer" Collapsed="true">
     <Position X="2.25" Y="8" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAABAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ConvNeuronNet\SoftmaxLayer.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -68,7 +68,7 @@
     <Position X="7.75" Y="5.5" Width="1.5" />
     <InheritanceLine Type="Project.ConvNeuronNet.Layer" ManuallyRouted="true">
       <Path>
-        <Point X="5.75" Y="4.238" />
+        <Point X="5.75" Y="1.062" />
         <Point X="5.75" Y="4.619" />
         <Point X="8.5" Y="4.619" />
         <Point X="8.5" Y="5.5" />
@@ -82,7 +82,7 @@
   <Class Name="Project.Result" Collapsed="true">
     <Position X="16.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAQCAAAAAEAAAAAAAAAAABAAAAAAAAAAAAAQAAIgA=</HashCode>
       <FileName>DB_Export\Result.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -100,24 +100,24 @@
       <FileName>DetectionHaar\SignsHaarCascade.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Project.Form1" Collapsed="true">
-    <Position X="14.5" Y="0.5" Width="1.5" />
+  <Class Name="Project.MainForm">
+    <Position X="19" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CicARAiSgmLE2BYkAEjgAlECMQGMYwLBZUpgACAgAiU=</HashCode>
-      <FileName>Form1.cs</FileName>
+      <FileName>MainForm.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Project.ImageFolder" Collapsed="true">
     <Position X="16.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAABAACAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAABAACAAAAAAAAAAAAIAAAAAAEAAA=</HashCode>
       <FileName>MediaFolders\ImageFolder.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Project.VideoFolder" Collapsed="true">
     <Position X="11" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAQAAABAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAQAAABAACAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>MediaFolders\VideoFolder.cs</FileName>
     </TypeIdentifier>
   </Class>

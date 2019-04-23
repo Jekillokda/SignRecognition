@@ -14,7 +14,7 @@ namespace Project
             this.fps = fps;
         }
 
-        public bool convertAll()
+      public bool convertAll()
         {
             bool isOk = true;
             this.convertVidToImages();

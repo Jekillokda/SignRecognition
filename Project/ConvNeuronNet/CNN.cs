@@ -16,7 +16,7 @@ namespace Project.ConvNeuronNet
         public ConvolutionalLayer conv_layer2 = new ConvolutionalLayer(30, 70, NeuronType.Convolutional, nameof(conv_layer2));
         public OutputLayer output_layer = new OutputLayer(10, 30, NeuronType.Output, nameof(output_layer));
         //массив для хранения выхода сети
-        public double[] fact = new double[10];
+        public double[] Results = new double[10];
         //непосредственно обучение
         public void Train(CNN net)//backpropagation method
         {
@@ -28,10 +28,10 @@ namespace Project.ConvNeuronNet
                     //прямой проход
                     ForwardPass(net, net.input_layer.Trainset[i].Item1);
                     //вычисление ошибки по итерации
-                    double[] errors = new double[net.fact.Length];
+                    double[] errors = new double[net.Results.Length];
                     for (int x = 0; x < errors.Length; ++x)
                     {
-                        errors[x] = (x == net.input_layer.Trainset[i].Item2) ? -(net.fact[x] - 1.0d) : -net.fact[x];
+                        errors[x] = (x == net.input_layer.Trainset[i].Item2) ? -(net.Results[x] - 1.0d) : -net.Results[x];
                     }
                     //обратный проход и коррекция весов
                     double[] temp_gsums1 = net.output_layer.BackwardPass(errors);
