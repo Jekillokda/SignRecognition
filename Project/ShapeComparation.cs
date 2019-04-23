@@ -75,13 +75,6 @@ namespace Project
             }
         }
 
-        /// <summary>
-        /// Draw the model image and observed image, the matched features and homography projection.
-        /// </summary>
-        /// <param name="modelImage">The model image</param>
-        /// <param name="observedImage">The observed image</param>
-        /// <param name="matchTime">The output total time for computing the homography matrix.</param>
-        /// <returns>The model image and observed image, the matched features and homography projection.</returns>
         public static Mat Draw(Mat modelImage, Mat observedImage, ref bool  matchfound)
         {
             Mat homography;
