@@ -5,8 +5,8 @@ namespace Project
 {
    public class FFMPEGConverter
    {
-        string sourcePath;
-        int fps;
+        private string sourcePath;
+        private int fps;
 
     public FFMPEGConverter(string spath, int fps)
         {
@@ -54,8 +54,7 @@ namespace Project
 
             return isStarted;
         }
-
-        public bool convertVidToImages()
+      public bool convertVidToImages()
         {
             bool isStarted = false;
             try

@@ -8,9 +8,9 @@ namespace Project
 {
     class ImageFolder
     {
-        private string path { get; set; }
-        private int count { get; set; }
-        string[] imageArray;
+        private string path;
+        private int count;
+        private string[] imageArray;
 
         public ImageFolder(string path)
         {
@@ -21,6 +21,18 @@ namespace Project
         public int getCount()
         {
             return this.count;
+        }
+        public string getPath()
+        {
+            return this.path;
+        }
+        public string[] getAllImgs()
+        {
+            return this.imageArray;
+        }
+        public string getImg(int n)
+        {
+            return this.imageArray[n];
         }
     }
 }

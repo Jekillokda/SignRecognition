@@ -14,7 +14,6 @@ namespace Project
         Image<Bgr, byte> imgOrigin1;
         Image<Bgr, byte> imgOrigin2;
         VideoFolder vidFolder;
-        ImageFolder ImF;
 
         public MainForm()
         {
@@ -303,9 +302,8 @@ namespace Project
 
         private void btn_Haar_Detect_Click(object sender, EventArgs e)
         {
-            string path = OpenHaarCascadeFileDialog.openCascade();
             
-            SignsHaarCascade cascade = new SignsHaarCascade(@"D:\road-video\pyHaar\cascade.xml");
+            SignsHaarCascade cascade = OpenHaarCascadeFileDialog.openCascade(); //new SignsHaarCascade(@"D:\road-video\pyHaar\cascade.xml");
             if (imgbox1.Image != null)
             {
                 Mat img = new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat;
@@ -333,6 +331,22 @@ namespace Project
             {
                 MessageBox.Show("Plz load img1");
             }
+        }
+
+        private void btn_img1_conv_Click(object sender, EventArgs e)
+        {
+            Mat tmp = new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat;
+            float[,] orig = new float[32,32];
+            ConvolutionKernelF kernel = new ConvolutionKernelF(5, 5);
+            for (int i = 0; i < tmp.Width; i++)
+            {
+                //for
+            }
+        }
+
+        private void btn_img1_clahe_Click(object sender, EventArgs e)
+        { 
+            imgbox1.Image = ImgOps.ContrastAlignment(new Image<Gray, byte>(imgbox1.Image.Bitmap));
         }
     }
 }

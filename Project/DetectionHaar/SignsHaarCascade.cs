@@ -9,7 +9,7 @@ namespace Project
     class SignsHaarCascade 
     {
         public CascadeClassifier cascadeClassifier;
-        string path;
+        private string path;
         public SignsHaarCascade(string path)
         {
             this.path = path;
@@ -34,6 +34,10 @@ namespace Project
             Rectangle[] arr = cascadeClassifier.DetectMultiScale(img);
             List<Mat> detectList = getListOfROI(img, arr);
             return detectList;
+        }
+        public string getPath()
+        {
+            return this.path;
         }
     }
 }

@@ -4,22 +4,31 @@ namespace Project
 {
     class OpenHaarCascadeFileDialog
     {
-        public static string openCascade()
+        static SignsHaarCascade cascade;
+        public static SignsHaarCascade openCascade(string defPath = "")
         {
             string path = "";
-            if (Properties.Settings.Default.last_path_to_cascade != "")
+            if (defPath == "")
             {
-                path = Properties.Settings.Default.last_path_to_cascade;
+                if (Properties.Settings.Default.last_path_to_cascade != "")
+                {
+                    path = Properties.Settings.Default.last_path_to_cascade;
+                }
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "XML Files|*.xml";
+                if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    path = openFileDialog.FileName;
+                    cascade = new SignsHaarCascade(path);
+                    Properties.Settings.Default.last_path_to_cascade = path;
+                    Properties.Settings.Default.Save();
+                }
             }
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "XML Files|*.xml";
-            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            else
             {
-                path = openFileDialog.FileName;
-                Properties.Settings.Default.last_path_to_cascade = path;
-                Properties.Settings.Default.Save();
+                cascade = new SignsHaarCascade(defPath);
             }
-            return path;
+            return cascade;
         }
     }
 }

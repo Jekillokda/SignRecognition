@@ -27,27 +27,27 @@ namespace Project
             return tmp;
 
         }
-        public static Mat RGBtoGrey(Mat img)
+        public static Image<Gray, Byte> RGBtoGrey(Mat img)
         {
-            Mat tmp = new Mat();
+            Image<Gray, Byte> grayImage = new Image<Gray, byte>(new Size(0,0));
             try
             {
                 Emgu.CV.Image<Bgr, Byte> image = img.ToImage<Bgr, Byte>();
-                Image<Gray, Byte> grayImage = image.Convert<Gray, Byte>();
-                tmp = grayImage.Mat;
+                grayImage = image.Convert<Gray, Byte>();
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            return tmp;
+            return grayImage;
         }
         public static Mat toBinary(Mat img, int threshold, int maxValue)
         {
             Mat tmp = new Mat();
             try
             {
-                tmp = ImgOps.RGBtoGrey(img);
+                tmp = ImgOps.RGBtoGrey(img).Mat;
                 CvInvoke.Threshold(tmp, tmp, threshold, maxValue,0);
             }
             catch (Exception ex)
@@ -70,26 +70,11 @@ namespace Project
             return img;
         }
 
-        public static Mat ContrastAlignment(Mat img)
+        public static Mat ContrastAlignment(Image<Gray, Byte> img)
         {
             Mat result = new Mat();
-            CvInvoke.CLAHE(img, 40, new Size(8, 8), result);
+            CvInvoke.CLAHE(img, 4, new Size(16, 16), result);
             return result;
-        }
-
-        public static Hsv GetHSV(Color color)
-        {
-            Hsv res = new Hsv();
-
-            int max = Math.Max(color.R, Math.Max(color.G, color.B));
-            int min = Math.Min(color.R, Math.Min(color.G, color.B));
-
-            res.Hue = Math.Round(color.GetHue(), 2);
-            res.Satuation = ((max == 0) ? 0 : 1d - (1d * min / max)) * 100;
-            res.Satuation = Math.Round(res.Satuation, 2);
-            res.Value = Math.Round(((max / 255d) * 100), 2);
-
-            return res;
         }
 
         public static Image<Gray, Byte> RGBFilter(Image<Hsv, Byte> input, double Hmin, double Hmax, double Smin, double Smax, double Vmin, double Vmax)

@@ -8,8 +8,8 @@ namespace Project
 {
     class VideoFolder
     {
-        private string path { get; set; }
-        private int count { get; set; }
+        private string path;
+        private int count;
         public string[] videoArray;
         public VideoFolder(string path)
         {
@@ -23,6 +23,10 @@ namespace Project
         public int getCount()
         {
             return this.count;
+        }
+        public string getPath()
+        {
+            return this.path;
         }
     }
 }

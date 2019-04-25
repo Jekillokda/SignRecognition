@@ -119,14 +119,14 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btn_compare.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1089, 514</value>
+    <value>817, 418</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btn_compare.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="btn_compare.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 26</value>
+    <value>78, 21</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btn_compare.TabIndex" type="System.Int32, mscorlib">
@@ -145,16 +145,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_compare.ZOrder" xml:space="preserve">
-    <value>48</value>
+    <value>50</value>
   </data>
   <data name="l_matchfound.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="l_matchfound.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1195, 514</value>
+    <value>896, 418</value>
+  </data>
+  <data name="l_matchfound.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="l_matchfound.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 17</value>
+    <value>52, 13</value>
   </data>
   <data name="l_matchfound.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -172,16 +175,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;l_matchfound.ZOrder" xml:space="preserve">
-    <value>44</value>
+    <value>46</value>
   </data>
   <data name="btn_img1_load.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 512</value>
-  </data>
-  <data name="btn_img1_load.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>9, 416</value>
   </data>
   <data name="btn_img1_load.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 28</value>
+    <value>75, 23</value>
   </data>
   <data name="btn_img1_load.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -199,16 +199,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_img1_load.ZOrder" xml:space="preserve">
-    <value>43</value>
+    <value>45</value>
   </data>
   <data name="btn_img1_tohsv.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 582</value>
-  </data>
-  <data name="btn_img1_tohsv.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>9, 473</value>
   </data>
   <data name="btn_img1_tohsv.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 28</value>
+    <value>75, 23</value>
   </data>
   <data name="btn_img1_tohsv.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -226,16 +223,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_img1_tohsv.ZOrder" xml:space="preserve">
-    <value>42</value>
+    <value>44</value>
   </data>
   <data name="btn_img2_load.Location" type="System.Drawing.Point, System.Drawing">
-    <value>551, 512</value>
-  </data>
-  <data name="btn_img2_load.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>413, 416</value>
   </data>
   <data name="btn_img2_load.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 28</value>
+    <value>75, 23</value>
   </data>
   <data name="btn_img2_load.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -253,16 +247,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_img2_load.ZOrder" xml:space="preserve">
-    <value>41</value>
+    <value>43</value>
   </data>
   <data name="btn_img2_tohsv.Location" type="System.Drawing.Point, System.Drawing">
-    <value>551, 582</value>
-  </data>
-  <data name="btn_img2_tohsv.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>413, 473</value>
   </data>
   <data name="btn_img2_tohsv.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 28</value>
+    <value>75, 23</value>
   </data>
   <data name="btn_img2_tohsv.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -280,16 +271,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_img2_tohsv.ZOrder" xml:space="preserve">
-    <value>40</value>
+    <value>42</value>
   </data>
   <data name="btn_detect.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1089, 545</value>
+    <value>817, 443</value>
   </data>
   <data name="btn_detect.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="btn_detect.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 26</value>
+    <value>78, 21</value>
   </data>
   <data name="btn_detect.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -307,16 +298,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_detect.ZOrder" xml:space="preserve">
-    <value>39</value>
+    <value>41</value>
   </data>
   <data name="btn_img1_togrey.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 618</value>
-  </data>
-  <data name="btn_img1_togrey.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>9, 502</value>
   </data>
   <data name="btn_img1_togrey.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 28</value>
+    <value>75, 23</value>
   </data>
   <data name="btn_img1_togrey.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -334,16 +322,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_img1_togrey.ZOrder" xml:space="preserve">
-    <value>38</value>
+    <value>40</value>
   </data>
   <data name="btn_img2_togrey.Location" type="System.Drawing.Point, System.Drawing">
-    <value>551, 618</value>
-  </data>
-  <data name="btn_img2_togrey.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>413, 502</value>
   </data>
   <data name="btn_img2_togrey.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 28</value>
+    <value>75, 23</value>
   </data>
   <data name="btn_img2_togrey.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -361,16 +346,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_img2_togrey.ZOrder" xml:space="preserve">
-    <value>37</value>
+    <value>39</value>
   </data>
   <data name="btn_img1_toOrigin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 546</value>
-  </data>
-  <data name="btn_img1_toOrigin.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>9, 444</value>
   </data>
   <data name="btn_img1_toOrigin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 28</value>
+    <value>75, 23</value>
   </data>
   <data name="btn_img1_toOrigin.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -388,16 +370,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_img1_toOrigin.ZOrder" xml:space="preserve">
-    <value>36</value>
+    <value>38</value>
   </data>
   <data name="btn_img2_toOrigin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>551, 548</value>
-  </data>
-  <data name="btn_img2_toOrigin.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>413, 445</value>
   </data>
   <data name="btn_img2_toOrigin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 28</value>
+    <value>75, 23</value>
   </data>
   <data name="btn_img2_toOrigin.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -415,16 +394,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_img2_toOrigin.ZOrder" xml:space="preserve">
-    <value>35</value>
+    <value>37</value>
   </data>
   <data name="btn_detectCircles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1417, 576</value>
+    <value>1063, 468</value>
   </data>
   <data name="btn_detectCircles.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="btn_detectCircles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 54</value>
+    <value>78, 44</value>
   </data>
   <data name="btn_detectCircles.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -442,16 +421,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_detectCircles.ZOrder" xml:space="preserve">
-    <value>34</value>
+    <value>36</value>
   </data>
   <data name="btn_detectTriangles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1199, 576</value>
+    <value>899, 468</value>
   </data>
   <data name="btn_detectTriangles.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="btn_detectTriangles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 54</value>
+    <value>78, 44</value>
   </data>
   <data name="btn_detectTriangles.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -469,16 +448,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_detectTriangles.ZOrder" xml:space="preserve">
-    <value>33</value>
+    <value>35</value>
   </data>
   <data name="btn_detectLines.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1089, 576</value>
+    <value>817, 468</value>
   </data>
   <data name="btn_detectLines.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="btn_detectLines.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 54</value>
+    <value>78, 44</value>
   </data>
   <data name="btn_detectLines.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -496,16 +475,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_detectLines.ZOrder" xml:space="preserve">
-    <value>32</value>
+    <value>34</value>
   </data>
   <data name="btn_detectRectangles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1308, 576</value>
+    <value>981, 468</value>
   </data>
   <data name="btn_detectRectangles.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="btn_detectRectangles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 54</value>
+    <value>78, 44</value>
   </data>
   <data name="btn_detectRectangles.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -523,16 +502,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_detectRectangles.ZOrder" xml:space="preserve">
-    <value>31</value>
+    <value>33</value>
   </data>
   <data name="btn_img2_denoise.Location" type="System.Drawing.Point, System.Drawing">
-    <value>659, 514</value>
-  </data>
-  <data name="btn_img2_denoise.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>494, 418</value>
   </data>
   <data name="btn_img2_denoise.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 28</value>
+    <value>75, 23</value>
   </data>
   <data name="btn_img2_denoise.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
@@ -550,16 +526,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_img2_denoise.ZOrder" xml:space="preserve">
-    <value>29</value>
+    <value>31</value>
   </data>
   <data name="btn_img1_tobinary.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 654</value>
-  </data>
-  <data name="btn_img1_tobinary.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>9, 531</value>
   </data>
   <data name="btn_img1_tobinary.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 28</value>
+    <value>75, 23</value>
   </data>
   <data name="btn_img1_tobinary.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
@@ -577,16 +550,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_img1_tobinary.ZOrder" xml:space="preserve">
-    <value>28</value>
+    <value>30</value>
   </data>
   <data name="btn_img2_tobinary.Location" type="System.Drawing.Point, System.Drawing">
-    <value>551, 654</value>
-  </data>
-  <data name="btn_img2_tobinary.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>413, 531</value>
   </data>
   <data name="btn_img2_tobinary.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 28</value>
+    <value>75, 23</value>
   </data>
   <data name="btn_img2_tobinary.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -604,16 +574,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_img2_tobinary.ZOrder" xml:space="preserve">
-    <value>27</value>
+    <value>29</value>
   </data>
   <data name="btn_img1_findColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>348, 602</value>
-  </data>
-  <data name="btn_img1_findColor.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>261, 489</value>
   </data>
   <data name="btn_img1_findColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 28</value>
+    <value>75, 23</value>
   </data>
   <data name="btn_img1_findColor.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
@@ -631,16 +598,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_img1_findColor.ZOrder" xml:space="preserve">
-    <value>26</value>
+    <value>28</value>
   </data>
   <data name="tb_FindSMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>403, 671</value>
-  </data>
-  <data name="tb_FindSMax.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>302, 545</value>
   </data>
   <data name="tb_FindSMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 22</value>
+    <value>100, 20</value>
   </data>
   <data name="tb_FindSMax.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -658,16 +622,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tb_FindSMax.ZOrder" xml:space="preserve">
-    <value>25</value>
+    <value>27</value>
   </data>
   <data name="tb_FindHMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>403, 638</value>
-  </data>
-  <data name="tb_FindHMax.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>302, 518</value>
   </data>
   <data name="tb_FindHMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 22</value>
+    <value>100, 20</value>
   </data>
   <data name="tb_FindHMax.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -685,16 +646,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tb_FindHMax.ZOrder" xml:space="preserve">
-    <value>24</value>
+    <value>26</value>
   </data>
   <data name="tb_FindVMax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>403, 702</value>
-  </data>
-  <data name="tb_FindVMax.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>302, 570</value>
   </data>
   <data name="tb_FindVMax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 22</value>
+    <value>100, 20</value>
   </data>
   <data name="tb_FindVMax.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -712,19 +670,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tb_FindVMax.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>25</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>233, 705</value>
-  </data>
-  <data name="label4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>175, 573</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>17, 17</value>
+    <value>14, 13</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>36</value>
@@ -742,19 +697,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>19</value>
   </data>
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>233, 674</value>
-  </data>
-  <data name="label5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>175, 548</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>17, 17</value>
+    <value>14, 13</value>
   </data>
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>35</value>
@@ -772,19 +724,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>20</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>233, 639</value>
-  </data>
-  <data name="label6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>175, 519</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>18, 17</value>
+    <value>15, 13</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>34</value>
@@ -802,16 +751,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>21</value>
   </data>
   <data name="tb_FindVMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>261, 702</value>
-  </data>
-  <data name="tb_FindVMin.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>196, 570</value>
   </data>
   <data name="tb_FindVMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 22</value>
+    <value>100, 20</value>
   </data>
   <data name="tb_FindVMin.TabIndex" type="System.Int32, mscorlib">
     <value>33</value>
@@ -829,16 +775,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tb_FindVMin.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>22</value>
   </data>
   <data name="tb_FindHMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>261, 638</value>
-  </data>
-  <data name="tb_FindHMin.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>196, 518</value>
   </data>
   <data name="tb_FindHMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 22</value>
+    <value>100, 20</value>
   </data>
   <data name="tb_FindHMin.TabIndex" type="System.Int32, mscorlib">
     <value>32</value>
@@ -856,16 +799,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tb_FindHMin.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>23</value>
   </data>
   <data name="tb_FindSMin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>261, 670</value>
-  </data>
-  <data name="tb_FindSMin.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>196, 544</value>
   </data>
   <data name="tb_FindSMin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 22</value>
+    <value>100, 20</value>
   </data>
   <data name="tb_FindSMin.TabIndex" type="System.Int32, mscorlib">
     <value>31</value>
@@ -883,19 +823,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tb_FindSMin.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>24</value>
   </data>
   <data name="label8.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>500, 618</value>
-  </data>
-  <data name="label8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>375, 502</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 17</value>
+    <value>27, 13</value>
   </data>
   <data name="label8.TabIndex" type="System.Int32, mscorlib">
     <value>38</value>
@@ -913,16 +850,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>17</value>
   </data>
   <data name="btn_img1_copyimg3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 689</value>
-  </data>
-  <data name="btn_img1_copyimg3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>9, 560</value>
   </data>
   <data name="btn_img1_copyimg3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 48</value>
+    <value>75, 39</value>
   </data>
   <data name="btn_img1_copyimg3.TabIndex" type="System.Int32, mscorlib">
     <value>42</value>
@@ -940,19 +874,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_img1_copyimg3.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>16</value>
   </data>
   <data name="l_rectangles_count.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="l_rectangles_count.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1304, 634</value>
-  </data>
-  <data name="l_rectangles_count.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>978, 515</value>
   </data>
   <data name="l_rectangles_count.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 17</value>
+    <value>64, 13</value>
   </data>
   <data name="l_rectangles_count.TabIndex" type="System.Int32, mscorlib">
     <value>45</value>
@@ -970,19 +901,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;l_rectangles_count.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>13</value>
   </data>
   <data name="l_triangles_count.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="l_triangles_count.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1195, 633</value>
-  </data>
-  <data name="l_triangles_count.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>896, 514</value>
   </data>
   <data name="l_triangles_count.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 17</value>
+    <value>53, 13</value>
   </data>
   <data name="l_triangles_count.TabIndex" type="System.Int32, mscorlib">
     <value>46</value>
@@ -1000,19 +928,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;l_triangles_count.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="l_lines_count.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="l_lines_count.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1085, 634</value>
-  </data>
-  <data name="l_lines_count.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>814, 515</value>
   </data>
   <data name="l_lines_count.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 17</value>
+    <value>35, 13</value>
   </data>
   <data name="l_lines_count.TabIndex" type="System.Int32, mscorlib">
     <value>47</value>
@@ -1030,19 +955,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;l_lines_count.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="l_circles_count.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="l_circles_count.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1413, 634</value>
-  </data>
-  <data name="l_circles_count.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>1060, 515</value>
   </data>
   <data name="l_circles_count.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 17</value>
+    <value>41, 13</value>
   </data>
   <data name="l_circles_count.TabIndex" type="System.Int32, mscorlib">
     <value>48</value>
@@ -1060,16 +982,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;l_circles_count.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="img1_toBinary_border.Location" type="System.Drawing.Point, System.Drawing">
-    <value>119, 657</value>
-  </data>
-  <data name="img1_toBinary_border.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>89, 534</value>
   </data>
   <data name="img1_toBinary_border.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 22</value>
+    <value>38, 20</value>
   </data>
   <data name="img1_toBinary_border.TabIndex" type="System.Int32, mscorlib">
     <value>49</value>
@@ -1087,16 +1006,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;img1_toBinary_border.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="img2_toBinary_border.Location" type="System.Drawing.Point, System.Drawing">
-    <value>659, 657</value>
-  </data>
-  <data name="img2_toBinary_border.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>494, 534</value>
   </data>
   <data name="img2_toBinary_border.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 22</value>
+    <value>38, 20</value>
   </data>
   <data name="img2_toBinary_border.TabIndex" type="System.Int32, mscorlib">
     <value>50</value>
@@ -1114,16 +1030,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;img2_toBinary_border.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="btn_load_videos.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 21</value>
-  </data>
-  <data name="btn_load_videos.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>6, 17</value>
   </data>
   <data name="btn_load_videos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 28</value>
+    <value>75, 23</value>
   </data>
   <data name="btn_load_videos.TabIndex" type="System.Int32, mscorlib">
     <value>51</value>
@@ -1144,13 +1057,10 @@
     <value>0</value>
   </data>
   <data name="btn_convert_videos.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 57</value>
-  </data>
-  <data name="btn_convert_videos.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>6, 46</value>
   </data>
   <data name="btn_convert_videos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>117, 28</value>
+    <value>88, 23</value>
   </data>
   <data name="btn_convert_videos.TabIndex" type="System.Int32, mscorlib">
     <value>52</value>
@@ -1174,13 +1084,10 @@
     <value>1</value>
   </data>
   <data name="btn_Haar_Detect.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 20</value>
-  </data>
-  <data name="btn_Haar_Detect.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>6, 16</value>
   </data>
   <data name="btn_Haar_Detect.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 28</value>
+    <value>75, 23</value>
   </data>
   <data name="btn_Haar_Detect.TabIndex" type="System.Int32, mscorlib">
     <value>54</value>
@@ -1201,13 +1108,13 @@
     <value>0</value>
   </data>
   <data name="imgbox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1089, 14</value>
+    <value>817, 11</value>
   </data>
   <data name="imgbox3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="imgbox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>533, 492</value>
+    <value>400, 400</value>
   </data>
   <data name="imgbox3.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1222,16 +1129,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;imgbox3.ZOrder" xml:space="preserve">
-    <value>45</value>
+    <value>47</value>
   </data>
   <data name="imgbox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>551, 14</value>
+    <value>413, 11</value>
   </data>
   <data name="imgbox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="imgbox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>533, 492</value>
+    <value>400, 400</value>
   </data>
   <data name="imgbox2.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1246,16 +1153,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;imgbox2.ZOrder" xml:space="preserve">
-    <value>46</value>
+    <value>48</value>
   </data>
   <data name="imgbox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 14</value>
+    <value>9, 11</value>
   </data>
   <data name="imgbox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="imgbox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>533, 492</value>
+    <value>400, 400</value>
   </data>
   <data name="imgbox1.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1270,19 +1177,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;imgbox1.ZOrder" xml:space="preserve">
-    <value>47</value>
+    <value>49</value>
   </data>
   <data name="gb_haar_cascade.Location" type="System.Drawing.Point, System.Drawing">
-    <value>837, 662</value>
-  </data>
-  <data name="gb_haar_cascade.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="gb_haar_cascade.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>628, 538</value>
   </data>
   <data name="gb_haar_cascade.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 64</value>
+    <value>91, 52</value>
   </data>
   <data name="gb_haar_cascade.TabIndex" type="System.Int32, mscorlib">
     <value>55</value>
@@ -1300,19 +1201,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gb_haar_cascade.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="gb_ffmpeg.Location" type="System.Drawing.Point, System.Drawing">
-    <value>837, 741</value>
-  </data>
-  <data name="gb_ffmpeg.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="gb_ffmpeg.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>628, 602</value>
   </data>
   <data name="gb_ffmpeg.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 103</value>
+    <value>154, 84</value>
   </data>
   <data name="gb_ffmpeg.TabIndex" type="System.Int32, mscorlib">
     <value>56</value>
@@ -1330,19 +1225,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gb_ffmpeg.ZOrder" xml:space="preserve">
-    <value>49</value>
+    <value>51</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>257, 618</value>
-  </data>
-  <data name="label7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>193, 502</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 17</value>
+    <value>24, 13</value>
   </data>
   <data name="label7.TabIndex" type="System.Int32, mscorlib">
     <value>37</value>
@@ -1360,16 +1252,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>18</value>
   </data>
   <data name="btn_img1_denoise.Location" type="System.Drawing.Point, System.Drawing">
-    <value>120, 514</value>
-  </data>
-  <data name="btn_img1_denoise.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>90, 418</value>
   </data>
   <data name="btn_img1_denoise.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 28</value>
+    <value>75, 23</value>
   </data>
   <data name="btn_img1_denoise.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -1387,16 +1276,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_img1_denoise.ZOrder" xml:space="preserve">
-    <value>30</value>
+    <value>32</value>
   </data>
   <data name="btn_img1_CannyDetect.Location" type="System.Drawing.Point, System.Drawing">
-    <value>336, 512</value>
-  </data>
-  <data name="btn_img1_CannyDetect.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>252, 416</value>
   </data>
   <data name="btn_img1_CannyDetect.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 52</value>
+    <value>75, 42</value>
   </data>
   <data name="btn_img1_CannyDetect.TabIndex" type="System.Int32, mscorlib">
     <value>44</value>
@@ -1414,16 +1300,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_img1_CannyDetect.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>14</value>
   </data>
   <data name="btn_img1_makeSmooth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>228, 512</value>
-  </data>
-  <data name="btn_img1_makeSmooth.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>171, 416</value>
   </data>
   <data name="btn_img1_makeSmooth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 52</value>
+    <value>75, 42</value>
   </data>
   <data name="btn_img1_makeSmooth.TabIndex" type="System.Int32, mscorlib">
     <value>43</value>
@@ -1441,7 +1324,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_img1_makeSmooth.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>15</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1450,13 +1333,10 @@
     <value>NoControl</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>398, 731</value>
-  </data>
-  <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>298, 594</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>17, 17</value>
+    <value>14, 13</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>69</value>
@@ -1474,7 +1354,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1483,13 +1363,10 @@
     <value>NoControl</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>261, 731</value>
-  </data>
-  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>196, 594</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>17, 17</value>
+    <value>14, 13</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>68</value>
@@ -1507,19 +1384,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="btn_img1_resize.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="btn_img1_resize.Location" type="System.Drawing.Point, System.Drawing">
-    <value>153, 746</value>
-  </data>
-  <data name="btn_img1_resize.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>115, 606</value>
   </data>
   <data name="btn_img1_resize.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 28</value>
+    <value>75, 23</value>
   </data>
   <data name="btn_img1_resize.TabIndex" type="System.Int32, mscorlib">
     <value>67</value>
@@ -1537,16 +1411,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_img1_resize.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="tb_resize_y.Location" type="System.Drawing.Point, System.Drawing">
-    <value>401, 752</value>
-  </data>
-  <data name="tb_resize_y.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>301, 611</value>
   </data>
   <data name="tb_resize_y.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 22</value>
+    <value>100, 20</value>
   </data>
   <data name="tb_resize_y.TabIndex" type="System.Int32, mscorlib">
     <value>66</value>
@@ -1564,16 +1435,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tb_resize_y.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="tb_resize_x.Location" type="System.Drawing.Point, System.Drawing">
-    <value>261, 752</value>
-  </data>
-  <data name="tb_resize_x.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>196, 611</value>
   </data>
   <data name="tb_resize_x.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 22</value>
+    <value>100, 20</value>
   </data>
   <data name="tb_resize_x.TabIndex" type="System.Int32, mscorlib">
     <value>65</value>
@@ -1591,25 +1459,73 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tb_resize_x.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
+  </data>
+  <data name="btn_img1_conv.Location" type="System.Drawing.Point, System.Drawing">
+    <value>114, 635</value>
+  </data>
+  <data name="btn_img1_conv.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btn_img1_conv.TabIndex" type="System.Int32, mscorlib">
+    <value>70</value>
+  </data>
+  <data name="btn_img1_conv.Text" xml:space="preserve">
+    <value>Conv</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_conv.Name" xml:space="preserve">
+    <value>btn_img1_conv</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_conv.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_conv.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_conv.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btn_img1_clahe.Location" type="System.Drawing.Point, System.Drawing">
+    <value>115, 665</value>
+  </data>
+  <data name="btn_img1_clahe.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btn_img1_clahe.TabIndex" type="System.Int32, mscorlib">
+    <value>71</value>
+  </data>
+  <data name="btn_img1_clahe.Text" xml:space="preserve">
+    <value>CLAHE</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_clahe.Name" xml:space="preserve">
+    <value>btn_img1_clahe</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_clahe.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_clahe.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_img1_clahe.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
+    <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1635, 852</value>
+    <value>1226, 692</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>SignRecignitionApp</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Form1</value>
+    <value>MainForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

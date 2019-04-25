@@ -7,13 +7,9 @@ namespace Project
 {
     class OpenPictureFileDialog
     {
-        OpenPictureFileDialog()
-        {
-        }
-
+        static Image<Bgr, byte> img;
         public static Image<Bgr, byte> OpenPicture()
         {
-            Image<Bgr, byte> img = new Image<Bgr, byte>(1,1);
             try {
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 openFileDialog.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*";

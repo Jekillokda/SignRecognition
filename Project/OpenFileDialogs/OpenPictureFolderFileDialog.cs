@@ -4,9 +4,9 @@ namespace Project
 {
     class OpenPictureFolderFileDialog
     {
+        static ImageFolder ImF = new ImageFolder("");
         public static ImageFolder openFolder()
         {
-            ImageFolder ImF = new ImageFolder("");
             string[] arr = new string[0];
             string path = "";
             if (Properties.Settings.Default.last_path_to_images != "")

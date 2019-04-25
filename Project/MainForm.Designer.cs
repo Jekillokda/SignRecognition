@@ -83,6 +83,8 @@
             this.btn_img1_resize = new System.Windows.Forms.Button();
             this.tb_resize_y = new System.Windows.Forms.TextBox();
             this.tb_resize_x = new System.Windows.Forms.TextBox();
+            this.btn_img1_conv = new System.Windows.Forms.Button();
+            this.btn_img1_clahe = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox1)).BeginInit();
@@ -415,10 +417,26 @@
             resources.ApplyResources(this.tb_resize_x, "tb_resize_x");
             this.tb_resize_x.Name = "tb_resize_x";
             // 
-            // Form1
+            // btn_img1_conv
+            // 
+            resources.ApplyResources(this.btn_img1_conv, "btn_img1_conv");
+            this.btn_img1_conv.Name = "btn_img1_conv";
+            this.btn_img1_conv.UseVisualStyleBackColor = true;
+            this.btn_img1_conv.Click += new System.EventHandler(this.btn_img1_conv_Click);
+            // 
+            // btn_img1_clahe
+            // 
+            resources.ApplyResources(this.btn_img1_clahe, "btn_img1_clahe");
+            this.btn_img1_clahe.Name = "btn_img1_clahe";
+            this.btn_img1_clahe.UseVisualStyleBackColor = true;
+            this.btn_img1_clahe.Click += new System.EventHandler(this.btn_img1_clahe_Click);
+            // 
+            // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_img1_clahe);
+            this.Controls.Add(this.btn_img1_conv);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_img1_resize);
@@ -469,7 +487,7 @@
             this.Controls.Add(this.imgbox1);
             this.Controls.Add(this.btn_compare);
             this.Controls.Add(this.gb_ffmpeg);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             ((System.ComponentModel.ISupportInitialize)(this.imgbox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgbox1)).EndInit();
@@ -534,6 +552,8 @@
         private System.Windows.Forms.Button btn_img1_resize;
         private System.Windows.Forms.TextBox tb_resize_y;
         private System.Windows.Forms.TextBox tb_resize_x;
+        private System.Windows.Forms.Button btn_img1_conv;
+        private System.Windows.Forms.Button btn_img1_clahe;
     }
 }
 

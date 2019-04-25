@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Project.ConvNeuronNet
 {
-    class SoftmaxLayer
+    class DropoutLayer
     {
-        Dictionary<int,string> pairs;
-        public string FindPair(int key)
+        private float q;
+        public void dropout()
         {
-            return key.ToString();
+
         }
     }
 }

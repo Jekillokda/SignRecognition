@@ -4,9 +4,9 @@ namespace Project
 {
     class OpenVideoFolderFileDialog
     {
+        static VideoFolder Vf = new VideoFolder("");
         public static VideoFolder openFolder()
         {
-            VideoFolder Vf = new VideoFolder("");
             string[] arr = new string[0];
             string path = "";
             if (Properties.Settings.Default.last_path_to_videos!= "")
