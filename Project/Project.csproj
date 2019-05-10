@@ -69,6 +69,15 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ConvNetSharp.Core, Version=0.4.11.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cognitio.ConvNetSharp.Core.0.4.11-alpha\lib\net45\ConvNetSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ConvNetSharp.Flow, Version=0.4.11.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cognitio.ConvNetSharp.Flow.0.4.11-alpha\lib\net45\ConvNetSharp.Flow.dll</HintPath>
+    </Reference>
+    <Reference Include="ConvNetSharp.Volume, Version=0.4.11.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cognitio.ConvNetSharp.Volume.0.4.11-alpha\lib\net45\ConvNetSharp.Volume.dll</HintPath>
+    </Reference>
     <Reference Include="Emgu.CV.UI, Version=4.0.1.3373, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
       <HintPath>..\packages\EMGU.CV.4.0.1.3373\lib\net35\Emgu.CV.UI.dll</HintPath>
     </Reference>
@@ -80,6 +89,9 @@
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Oracle.ManagedDataAccess, Version=4.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
       <HintPath>..\packages\Oracle.ManagedDataAccess.18.6.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
@@ -105,13 +117,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConvNeuronNet\CNN.cs" />
-    <Compile Include="ConvNeuronNet\ConvolutionalLayer.cs" />
-    <Compile Include="ConvNeuronNet\DropoutLayer.cs" />
-    <Compile Include="ConvNeuronNet\Enums.cs" />
-    <Compile Include="ConvNeuronNet\Neuron.cs" />
-    <Compile Include="ConvNeuronNet\OutputLayer.cs" />
-    <Compile Include="ConvNeuronNet\SoftmaxLayer.cs" />
-    <Compile Include="ConvNeuronNet\SubsamplingLayer.cs" />
     <Compile Include="DB_Export\Result.cs" />
     <Compile Include="DB_Export\ResultExport.cs" />
     <Compile Include="Utils\FFMPEGConverter.cs" />
@@ -121,10 +126,7 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConvNeuronNet\FullyconnectedLayer.cs" />
     <Compile Include="MediaFolders\ImageFolder.cs" />
-    <Compile Include="ConvNeuronNet\InputLayer.cs" />
-    <Compile Include="ConvNeuronNet\Layer.cs" />
     <Compile Include="OpenFileDialogs\OpenHaarCascadeFileDialog.cs" />
     <Compile Include="OpenFileDialogs\OpenPictureFileDialog.cs" />
     <Compile Include="OpenFileDialogs\OpenPictureFolderFileDialog.cs" />
