@@ -116,7 +116,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConvNeuronNet\CircularBuffer.cs" />
     <Compile Include="ConvNeuronNet\CNN.cs" />
+    <Compile Include="ConvNeuronNet\DataSet.cs" />
+    <Compile Include="ConvNeuronNet\DataSets.cs" />
+    <Compile Include="ConvNeuronNet\ImageEntry.cs" />
+    <Compile Include="ConvNeuronNet\ImageReader.cs" />
     <Compile Include="DB_Export\Result.cs" />
     <Compile Include="DB_Export\ResultExport.cs" />
     <Compile Include="Utils\FFMPEGConverter.cs" />

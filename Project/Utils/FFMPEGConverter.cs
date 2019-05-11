@@ -30,7 +30,7 @@ namespace Project
                 {
                     var dbf_File = System.IO.Path.GetFileName(sourcePath);
 
-                    string destinationPath = System.IO.Directory.GetParent(sourcePath).FullName + @"\converted_from_" + dbf_File.Substring(0, dbf_File.LastIndexOf("."));
+                    string destinationPath = System.IO.Directory.GetParent(sourcePath).FullName + @"\convertedFrom" + dbf_File.Substring(0, dbf_File.LastIndexOf("."));
 
                     if (!System.IO.Directory.Exists(destinationPath))
                     {
@@ -63,7 +63,7 @@ namespace Project
                 {
                     var dbf_File = System.IO.Path.GetFileName(sourcePath);
 
-                    string destinationPath = System.IO.Directory.GetParent(sourcePath).FullName + @"\converted_from_" + dbf_File.Substring(0, dbf_File.LastIndexOf("."));
+                    string destinationPath = System.IO.Directory.GetParent(sourcePath).FullName + @"\convertedFrom" + dbf_File.Substring(0, dbf_File.LastIndexOf("."));
 
                     if (!System.IO.Directory.Exists(destinationPath))
                     {

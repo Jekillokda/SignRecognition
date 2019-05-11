@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,10 +15,15 @@ namespace Project
 
         public ImageFolder(string path)
         {
+
             this.path = path;
-            imageArray = System.IO.Directory.GetFiles(path, "*.png|*.jpg");
-            count = imageArray.Length;
+            if (path != "")
+            {
+                imageArray = System.IO.Directory.GetFiles(path, "*.jpg");
+                count = imageArray.Length;
+            }            
         }
+
         public int getCount()
         {
             return this.count;

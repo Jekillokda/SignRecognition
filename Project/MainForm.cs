@@ -1,5 +1,8 @@
-﻿using Emgu.CV;
+﻿using ConvNetSharp.Volume;
+using ConvNetSharp.Volume.Double;
+using Emgu.CV;
 using Emgu.CV.Structure;
+using Project.ConvNeuronNet;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,14 +14,25 @@ namespace Project
 {
     public partial class MainForm : Form
     {
-        Image<Bgr, byte> imgOrigin1;
-        Image<Bgr, byte> imgOrigin2;
         VideoFolder vidFolder;
+        ImageFolder learnFolder;
+        ImageFolder testFolder;
+
+        CNN network = new CNN();
 
         public MainForm()
         {
             InitializeComponent();
-
+            if (Properties.Settings.Default.last_path_to_learn_pictures != "")
+            {
+                learnFolder = new ImageFolder(Properties.Settings.Default.last_path_to_learn_pictures);
+                lLearn.Text = "Found " + learnFolder.getCount();
+            }
+            if (Properties.Settings.Default.last_path_to_test_pictures != "")
+            {
+                testFolder = new ImageFolder(Properties.Settings.Default.last_path_to_test_pictures);
+                lTest.Text = "Found " + testFolder.getCount();
+            }
             //Properties.Settings.Default.is_opened_first_time = true;
             /*if (Properties.Settings.Default.is_opened_first_time)
             {
@@ -26,248 +40,6 @@ namespace Project
                 Properties.Settings.Default.is_opened_first_time = false;
                 Properties.Settings.Default.Save();
             }*/
-        }
-
-        private void btn_img1_load_Click(object sender, EventArgs e)
-        {
-            imgOrigin1 = OpenPictureFileDialog.OpenPicture();
-            imgbox1.Image = imgOrigin1;
-        }
-
-        private void btn_img2_load_Click(object sender, EventArgs e)
-        {
-            imgOrigin2 = OpenPictureFileDialog.OpenPicture();
-            imgbox2.Image = imgOrigin2;
-        }
-
-        private void btn_img1_toOrigin_Click(object sender, EventArgs e)
-        {
-            imgbox1.Image = imgOrigin1;
-        }
-
-        private void btn_img2_toOrigin_Click(object sender, EventArgs e)
-        {
-            imgbox2.Image = imgOrigin2;
-        }
-
-        private void btn_img1_tohsv_Click(object sender, EventArgs e)
-        {
-            imgbox1.Image = ImgOps.RGBtoHSV(new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat);
-        }
-
-        private void btn_img2_tohsv_Click(object sender, EventArgs e)
-        {
-            imgbox2.Image = ImgOps.RGBtoHSV(new Image<Bgr, byte>(imgbox2.Image.Bitmap).Mat);
-        }
-
-        private void btn_img1_togrey_Click(object sender, EventArgs e)
-        {
-            imgbox1.Image = ImgOps.RGBtoGrey(new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat);
-        }
-
-        private void btn_img2_togrey_Click(object sender, EventArgs e)
-        {
-            imgbox2.Image = ImgOps.RGBtoGrey(new Image<Bgr, byte>(imgbox2.Image.Bitmap).Mat);
-        }
-
-        private void btn_compare_Click(object sender, EventArgs e)
-        {
-            bool matchfound = false;
-            Mat result = new Mat();
-            if ((imgbox1.Image != null) && (imgbox1.Image != null))
-            {
-                result = ShapeComparation.Draw((new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat), (new Image<Bgr, byte>(imgbox2.Image.Bitmap).Mat), ref matchfound);
-            }
-            else
-            {
-                MessageBox.Show("Load images and try again", "Error");
-            }
-            if (matchfound == true)
-            {
-                l_matchfound.Text = "Found";
-            }
-            imgbox3.Image = result;
-        }
-
-        private void btn_detect_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
-                imgbox3.Image = ShapeDetection.detectShapes(img);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }  
-
-        private void btn_detectLines_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
-                int count = 0;
-                imgbox3.Image = ShapeDetection.detectShape(img, 1, out count);
-                l_lines_count.Text = "lines:"+ count;
-                l_rectangles_count.Text = "rectangles:";
-                l_circles_count.Text = "circles:";
-                l_triangles_count.Text = "triangles:";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void btn_detectTriangles_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int count = 0;
-                Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
-                imgbox3.Image = ShapeDetection.detectShape(img, 2, out count);
-                l_triangles_count.Text = "triangles:" + count;
-                l_lines_count.Text = "lines:";
-                l_rectangles_count.Text = "rectangles:";
-                l_circles_count.Text = "circles:";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void btn_detectRectangles_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int count = 0;
-                Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
-                imgbox3.Image = ShapeDetection.detectShape(img, 3, out count);
-                l_rectangles_count.Text = "rectangles:" + count;
-                l_lines_count.Text = "lines:";
-                l_circles_count.Text = "circles:";
-                l_triangles_count.Text = "triangles:";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void btn_detectCircles_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //Old realization works bad
-                /*Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
-                imgbox3.Image = ShapeDetection.detectShape2(img, 4);*/
-                int count = 0;
-                Image<Bgr, byte> tmp = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
-                imgbox3.Image = ShapeDetection.findCircles(tmp, out count);
-                l_circles_count.Text = "circles:" + count;
-                l_lines_count.Text = "lines:";
-                l_rectangles_count.Text = "rectangles:";
-                l_triangles_count.Text = "triangles:";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void btn_img1_denoise_Click(object sender, EventArgs e)
-        {
-            UMat pyrDown = new UMat();
-            CvInvoke.PyrDown(imgbox1.Image, pyrDown);
-            Image<Bgr,byte> res = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
-            CvInvoke.PyrUp(pyrDown, res);
-            imgbox1.Image = res;
-        }
-
-        private void btn_img2_denoise_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                UMat pyrDown = new UMat();
-                CvInvoke.PyrDown(imgbox2.Image, pyrDown);
-                Image<Bgr, byte> res = new Image<Bgr, byte>(imgbox2.Image.Bitmap);
-                CvInvoke.PyrUp(pyrDown, res);
-                imgbox2.Image = res;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void btn_img1_tobinary_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Mat tmp = (new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat);
-                tmp = ImgOps.toBinary(tmp, Convert.ToInt32(img1_toBinary_border.Text), 255);
-                imgbox1.Image = tmp;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void btn_img2_tobinary_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Mat tmp = (new Image<Bgr, byte>(imgbox2.Image.Bitmap).Mat);
-                tmp = ImgOps.toBinary(tmp, Convert.ToInt32(img2_toBinary_border.Text), 255);
-                imgbox2.Image = tmp;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void btn_img1_findColor_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Image<Hsv, byte> tmp = new Image<Hsv, byte>(imgbox1.Image.Bitmap);
-                Image<Gray, Byte> gr;
-                double Rmin = Convert.ToInt32(tb_FindHMin.Text);
-                double Rmax = Convert.ToInt32(tb_FindHMax.Text);
-                double Gmin = Convert.ToInt32(tb_FindSMin.Text);
-                double Gmax = Convert.ToInt32(tb_FindSMax.Text);
-                double Bmin = Convert.ToInt32(tb_FindVMin.Text);
-                double Bmax = Convert.ToInt32(tb_FindVMax.Text);
-                gr = ImgOps.RGBFilter(tmp, Rmin, Rmax, Gmin, Gmax, Bmin, Bmax);
-                //CvInvoke.Threshold(tmp, tmp, 200, 255, 0);
-                imgbox1.Image = gr;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void btn_img1_copyimg3_Click(object sender, EventArgs e)
-        {
-            imgbox1.Image = imgbox3.Image;
-        }
-
-        private void btn_img1_makeSmooth_Click(object sender, EventArgs e)
-        {
-            Image<Bgr, byte> tmp = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
-            Size s = new Size(5, 5);
-            imgbox3.Image = ImgOps.makeSmooth(tmp, s, 0, 0);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Image<Bgr, byte> tmp = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
-            imgbox3.Image = ImgOps.cannydetect(tmp);
         }
 
         private void btn_load_videos_Click(object sender, EventArgs e)
@@ -284,6 +56,7 @@ namespace Project
 
         private void btn_convert_videos_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Please wait till the end of conversion");
             foreach (string videopath in vidFolder.videoArray)
             {
                     int fps = 5;
@@ -291,10 +64,6 @@ namespace Project
                     if (conv.convertAll() == false)
                 {
                     MessageBox.Show("Something went wrong with"+ videopath);
-                }
-                else
-                {
-                    MessageBox.Show("Please wait till the end of conversion");
                 }
             }
              
@@ -304,7 +73,7 @@ namespace Project
         {
             
             SignsHaarCascade cascade = OpenHaarCascadeFileDialog.openCascade(); //new SignsHaarCascade(@"D:\road-video\pyHaar\cascade.xml");
-            if (imgbox1.Image != null)
+           /* if (imgbox1.Image != null)
             {
                 Mat img = new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat;
                 img = ImgOps.InterpolationResize(img, 50, 50);
@@ -312,41 +81,341 @@ namespace Project
                 MessageBox.Show("found " + list.Count);
                 for (int i = 0; i < list.Count; i++)
                     list[i].Save(@"D:\road-video\haarCascade\" + i + " .jpg");
-            }
+           }
             else
-            {
+            {*/
                 MessageBox.Show("Choose some picture for detection");
-            }
+            //}
         }
 
         private void btn_img1_resize_Click(object sender, EventArgs e)
         {
-            if (imgbox1.Image != null)
-            {
-                int w = Convert.ToInt32(tb_resize_x.Text);
-                int h = Convert.ToInt32(tb_resize_y.Text);
-                imgbox3.Image = ImgOps.InterpolationResize(new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat, w, h);
-            }
-            else
-            {
-                MessageBox.Show("Plz load img1");
-            }
-        }
-
-        private void btn_img1_conv_Click(object sender, EventArgs e)
-        {
-            Mat tmp = new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat;
-            float[,] orig = new float[32,32];
-            ConvolutionKernelF kernel = new ConvolutionKernelF(5, 5);
-            for (int i = 0; i < tmp.Width; i++)
-            {
-                //for
-            }
+        //    if (imgbox1.Image != null)
+        //    {
+        //        int w = Convert.ToInt32(tb_resize_x.Text);
+        //        int h = Convert.ToInt32(tb_resize_y.Text);
+        //        imgbox3.Image = ImgOps.InterpolationResize(new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat, w, h);
+        //    }
+        //    else
+        //    {
+                MessageBox.Show("Plz load img");
+        //    }
         }
 
         private void btn_img1_clahe_Click(object sender, EventArgs e)
-        { 
-            imgbox1.Image = ImgOps.ContrastAlignment(new Image<Gray, byte>(imgbox1.Image.Bitmap));
+        {
+            MessageBox.Show("Plz load img");
+            //imgbox1.Image = ImgOps.ContrastAlignment(new Image<Gray, byte>(imgbox1.Image.Bitmap));
+        }
+
+        private void btn_CNN_create_Click(object sender, EventArgs e)
+        {
+            int c = network.createCNN(32, 32, 1);
+            MessageBox.Show("Created " + c + " layers network");
+        }
+
+        private void btn_CNN_learn_Click(object sender, EventArgs e)
+        {
+            double d = network.teachCNN(learnFolder.getPath(),testFolder.getPath());
+            if (d!=-1)
+                MessageBox.Show("Loss= " + d);
+            else
+                MessageBox.Show("Please add layers and try again");
+        }
+
+        private void btn_CNN_recognize_Click(object sender, EventArgs e)
+        {
+            Volume<double> x = BuilderInstance.Volume.From(new[] { 0.3, -0.5 }, new Shape(2));
+            double d = network.recognize(x);
+            MessageBox.Show(d.ToString());
+        }
+
+        private void btn_CNN_load_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine(network.loadCNN());
+        }
+
+        private void btn_CNN_save_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine(network.saveCNN());
+            MessageBox.Show("Saved");
+        }
+
+        private void btn_load_learn_Click(object sender, EventArgs e)
+        {
+            learnFolder = OpenPictureFolderFileDialog.openFolder();
+            if (learnFolder.getCount() > 0)
+            {
+                lLearn.Text = "Found " + learnFolder.getCount();
+                Properties.Settings.Default.last_path_to_learn_pictures = learnFolder.getPath();
+                Properties.Settings.Default.Save();
+                Properties.Settings.Default.Upgrade();
+            }
+            else
+                lLearn.Text = "Not found";
+        }
+
+        private void btn_load_test_Click(object sender, EventArgs e)
+        {
+            testFolder = OpenPictureFolderFileDialog.openFolder();
+            if (testFolder.getCount() > 0)
+            {
+                lTest.Text = "Found " + testFolder.getCount();
+                Properties.Settings.Default.last_path_to_test_pictures = testFolder.getPath();
+                Properties.Settings.Default.Save();
+                Properties.Settings.Default.Upgrade();
+            }
+            else
+                lTest.Text = "Not found";
+        }
+
+        private void btn_autoCompleteAll_Click(object sender, EventArgs e)
+        {
+
         }
     }
+
+
 }
+
+//private void btn_img1_load_Click(object sender, EventArgs e)
+//{
+//    imgOrigin1 = OpenPictureFileDialog.OpenPicture();
+//    imgbox1.Image = imgOrigin1;
+//}
+
+//private void btn_img2_load_Click(object sender, EventArgs e)
+//{
+//    imgOrigin2 = OpenPictureFileDialog.OpenPicture();
+//    imgbox2.Image = imgOrigin2;
+//}
+
+//private void btn_img1_toOrigin_Click(object sender, EventArgs e)
+//{
+//    imgbox1.Image = imgOrigin1;
+//}
+
+//private void btn_img2_toOrigin_Click(object sender, EventArgs e)
+//{
+//    imgbox2.Image = imgOrigin2;
+//}
+
+//private void btn_img1_tohsv_Click(object sender, EventArgs e)
+//{
+//    imgbox1.Image = ImgOps.RGBtoHSV(new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat);
+//}
+
+//private void btn_img2_tohsv_Click(object sender, EventArgs e)
+//{
+//    imgbox2.Image = ImgOps.RGBtoHSV(new Image<Bgr, byte>(imgbox2.Image.Bitmap).Mat);
+//}
+
+//private void btn_img1_togrey_Click(object sender, EventArgs e)
+//{
+//    imgbox1.Image = ImgOps.RGBtoGrey(new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat);
+//}
+
+//private void btn_img2_togrey_Click(object sender, EventArgs e)
+//{
+//    imgbox2.Image = ImgOps.RGBtoGrey(new Image<Bgr, byte>(imgbox2.Image.Bitmap).Mat);
+//}
+
+//private void btn_compare_Click(object sender, EventArgs e)
+//{
+//    bool matchfound = false;
+//    Mat result = new Mat();
+//    if ((imgbox1.Image != null) && (imgbox1.Image != null))
+//    {
+//        result = ShapeComparation.Draw((new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat), (new Image<Bgr, byte>(imgbox2.Image.Bitmap).Mat), ref matchfound);
+//    }
+//    else
+//    {
+//        MessageBox.Show("Load images and try again", "Error");
+//    }
+//    if (matchfound == true)
+//    {
+//        l_matchfound.Text = "Found";
+//    }
+//    imgbox3.Image = result;
+//}
+
+//private void btn_detect_Click(object sender, EventArgs e)
+//{
+//    try
+//    {
+//        Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
+//        imgbox3.Image = ShapeDetection.detectShapes(img);
+//    }
+//    catch (Exception ex)
+//    {
+//        MessageBox.Show(ex.Message);
+//    }
+//}  
+
+//private void btn_detectLines_Click(object sender, EventArgs e)
+//{
+//    try
+//    {
+//        Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
+//        int count = 0;
+//        imgbox3.Image = ShapeDetection.detectShape(img, 1, out count);
+//        l_lines_count.Text = "lines:"+ count;
+//        l_rectangles_count.Text = "rectangles:";
+//        l_circles_count.Text = "circles:";
+//        l_triangles_count.Text = "triangles:";
+//    }
+//    catch (Exception ex)
+//    {
+//        MessageBox.Show(ex.Message);
+//    }
+//}
+
+//private void btn_detectTriangles_Click(object sender, EventArgs e)
+//{
+//    try
+//    {
+//        int count = 0;
+//        Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
+//        imgbox3.Image = ShapeDetection.detectShape(img, 2, out count);
+//        l_triangles_count.Text = "triangles:" + count;
+//        l_lines_count.Text = "lines:";
+//        l_rectangles_count.Text = "rectangles:";
+//        l_circles_count.Text = "circles:";
+//    }
+//    catch (Exception ex)
+//    {
+//        MessageBox.Show(ex.Message);
+//    }
+//}
+
+//private void btn_detectRectangles_Click(object sender, EventArgs e)
+//{
+//    try
+//    {
+//        int count = 0;
+//        Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
+//        imgbox3.Image = ShapeDetection.detectShape(img, 3, out count);
+//        l_rectangles_count.Text = "rectangles:" + count;
+//        l_lines_count.Text = "lines:";
+//        l_circles_count.Text = "circles:";
+//        l_triangles_count.Text = "triangles:";
+//    }
+//    catch (Exception ex)
+//    {
+//        MessageBox.Show(ex.Message);
+//    }
+//}
+
+//private void btn_detectCircles_Click(object sender, EventArgs e)
+//{
+//    try
+//    {
+//        //Old realization works bad
+//        /*Image<Bgr, byte> img = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
+//        imgbox3.Image = ShapeDetection.detectShape2(img, 4);*/
+//        int count = 0;
+//        Image<Bgr, byte> tmp = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
+//        imgbox3.Image = ShapeDetection.findCircles(tmp, out count);
+//        l_circles_count.Text = "circles:" + count;
+//        l_lines_count.Text = "lines:";
+//        l_rectangles_count.Text = "rectangles:";
+//        l_triangles_count.Text = "triangles:";
+//    }
+//    catch (Exception ex)
+//    {
+//        MessageBox.Show(ex.Message);
+//    }
+//}
+
+//private void btn_img1_denoise_Click(object sender, EventArgs e)
+//{
+//    UMat pyrDown = new UMat();
+//    CvInvoke.PyrDown(imgbox1.Image, pyrDown);
+//    Image<Bgr,byte> res = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
+//    CvInvoke.PyrUp(pyrDown, res);
+//    imgbox1.Image = res;
+//}
+
+//private void btn_img2_denoise_Click(object sender, EventArgs e)
+//{
+//    try
+//    {
+//        UMat pyrDown = new UMat();
+//        CvInvoke.PyrDown(imgbox2.Image, pyrDown);
+//        Image<Bgr, byte> res = new Image<Bgr, byte>(imgbox2.Image.Bitmap);
+//        CvInvoke.PyrUp(pyrDown, res);
+//        imgbox2.Image = res;
+//    }
+//    catch (Exception ex)
+//    {
+//        MessageBox.Show(ex.Message);
+//    }
+//}
+
+//private void btn_img1_tobinary_Click(object sender, EventArgs e)
+//{
+//    try
+//    {
+//        Mat tmp = (new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat);
+//        tmp = ImgOps.toBinary(tmp, Convert.ToInt32(img1_toBinary_border.Text), 255);
+//        imgbox1.Image = tmp;
+//    }
+//    catch (Exception ex)
+//    {
+//        MessageBox.Show(ex.Message);
+//    }
+//}
+
+//private void btn_img2_tobinary_Click(object sender, EventArgs e)
+//{
+//    try
+//    {
+//        Mat tmp = (new Image<Bgr, byte>(imgbox2.Image.Bitmap).Mat);
+//        tmp = ImgOps.toBinary(tmp, Convert.ToInt32(img2_toBinary_border.Text), 255);
+//        imgbox2.Image = tmp;
+//    }
+//    catch (Exception ex)
+//    {
+//        MessageBox.Show(ex.Message);
+//    }
+//}
+
+//private void btn_img1_findColor_Click(object sender, EventArgs e)
+//{
+//    try
+//    {
+//        Image<Hsv, byte> tmp = new Image<Hsv, byte>(imgbox1.Image.Bitmap);
+//        Image<Gray, Byte> gr;
+//        double Rmin = Convert.ToInt32(tb_FindHMin.Text);
+//        double Rmax = Convert.ToInt32(tb_FindHMax.Text);
+//        double Gmin = Convert.ToInt32(tb_FindSMin.Text);
+//        double Gmax = Convert.ToInt32(tb_FindSMax.Text);
+//        double Bmin = Convert.ToInt32(tb_FindVMin.Text);
+//        double Bmax = Convert.ToInt32(tb_FindVMax.Text);
+//        gr = ImgOps.RGBFilter(tmp, Rmin, Rmax, Gmin, Gmax, Bmin, Bmax);
+//        //CvInvoke.Threshold(tmp, tmp, 200, 255, 0);
+//        imgbox1.Image = gr;
+//    }
+//    catch (Exception ex)
+//    {
+//        MessageBox.Show(ex.Message);
+//    }
+//}
+
+//private void btn_img1_copyimg3_Click(object sender, EventArgs e)
+//{
+//    imgbox1.Image = imgbox3.Image;
+//}
+
+//private void btn_img1_makeSmooth_Click(object sender, EventArgs e)
+//{
+//    Image<Bgr, byte> tmp = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
+//    Size s = new Size(5, 5);
+//    imgbox3.Image = ImgOps.makeSmooth(tmp, s, 0, 0);
+//}
+
+//private void button1_Click(object sender, EventArgs e)
+//{
+//    Image<Bgr, byte> tmp = new Image<Bgr, byte>(imgbox1.Image.Bitmap);
+//    imgbox3.Image = ImgOps.cannydetect(tmp);
+//}

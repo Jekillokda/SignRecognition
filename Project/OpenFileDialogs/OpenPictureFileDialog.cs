@@ -7,23 +7,21 @@ namespace Project
 {
     class OpenPictureFileDialog
     {
-        static Image<Bgr, byte> img;
-        public static Image<Bgr, byte> OpenPicture()
-        {
-            try {
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*";
-                if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    img = CvInvoke.Imread(openFileDialog.FileName).ToImage<Bgr, Byte>();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+        static ImageFolder Imf = new ImageFolder("");
 
-            return img;
+        public static ImageFolder openFolder()
+        {
+
+            string[] arr = new string[0];
+            string path = "";
+            var dialog = new FolderBrowserDialog();
+            dialog.SelectedPath = path;
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                path = dialog.SelectedPath;
+                Imf = new ImageFolder(path);
+            }
+            return Imf;
         }
     }
 }

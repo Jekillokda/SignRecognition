@@ -91,5 +91,29 @@ namespace Project.Properties {
                 this["is_opened_first_time"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\"\"")]
+        public string last_path_to_learn_pictures {
+            get {
+                return ((string)(this["last_path_to_learn_pictures"]));
+            }
+            set {
+                this["last_path_to_learn_pictures"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\"\"")]
+        public string last_path_to_test_pictures {
+            get {
+                return ((string)(this["last_path_to_test_pictures"]));
+            }
+            set {
+                this["last_path_to_test_pictures"] = value;
+            }
+        }
     }
 }
