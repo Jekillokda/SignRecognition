@@ -22,9 +22,9 @@ namespace Project.ConvNeuronNet
 
         public Tuple<Volume<double>, Volume<double>, int[]> NextBatch(int batchSize)
         {
-            const int w = 28;
-            const int h = 28;
-            const int numClasses = 10;
+            const int w = 32;
+            const int h = 32;
+            const int numClasses = 22;
 
             var dataShape = new Shape(w, h, 1, batchSize);
             var labelShape = new Shape(1, 1, numClasses, batchSize);

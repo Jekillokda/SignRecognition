@@ -50,10 +50,11 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_resize = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btn_autoCompleteAll = new System.Windows.Forms.Button();
+            this.btn_learn_resize = new System.Windows.Forms.Button();
             this.gb_haar_cascade.SuspendLayout();
             this.gb_ffmpeg.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -121,6 +122,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btn_learn_resize);
             this.groupBox1.Controls.Add(this.lTest);
             this.groupBox1.Controls.Add(this.lLearn);
             this.groupBox1.Controls.Add(this.btn_load_test);
@@ -208,16 +210,16 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button2);
+            this.groupBox3.Controls.Add(this.btn_resize);
             resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
             // 
-            // button2
+            // btn_resize
             // 
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.btn_resize, "btn_resize");
+            this.btn_resize.Name = "btn_resize";
+            this.btn_resize.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
@@ -239,6 +241,13 @@
             this.btn_autoCompleteAll.Name = "btn_autoCompleteAll";
             this.btn_autoCompleteAll.UseVisualStyleBackColor = true;
             this.btn_autoCompleteAll.Click += new System.EventHandler(this.btn_autoCompleteAll_Click);
+            // 
+            // btn_learn_resize
+            // 
+            resources.ApplyResources(this.btn_learn_resize, "btn_learn_resize");
+            this.btn_learn_resize.Name = "btn_learn_resize";
+            this.btn_learn_resize.UseVisualStyleBackColor = true;
+            this.btn_learn_resize.Click += new System.EventHandler(this.btn_learn_resize_Click);
             // 
             // MainForm
             // 
@@ -283,13 +292,14 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_resize;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btn_autoCompleteAll;
         private System.Windows.Forms.Button btn_load_test;
         private System.Windows.Forms.Button btn_load_learn;
         private System.Windows.Forms.Label lTest;
         private System.Windows.Forms.Label lLearn;
+        private System.Windows.Forms.Button btn_learn_resize;
     }
 }
 

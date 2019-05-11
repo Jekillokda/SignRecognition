@@ -5,21 +5,15 @@ namespace Project.ConvNeuronNet
 {
     internal class DataSets
     {
-        private const string urlMnist = @"http://yann.lecun.com/exdb/mnist/";
         private const string Folder = @"..\Images\";
-        private const string trainingLabelFile = "train-labels-idx1-ubyte.gz";
-        private const string trainingImageFile = "train-images-idx3-ubyte.gz";
-        private const string testingLabelFile = "t10k-labels-idx1-ubyte.gz";
-        private const string testingImageFile = "t10k-images-idx3-ubyte.gz";
+        private const string TrainLabelsPath = "TRlbls.txt";
+        private const string trainingFolderPathI = "TrImageFolder";
+        private const string TestLabelsPath = "TSTlbls.txt";
+        private const string testingFolderPathI = "TstImageFolder";
 
         public DataSets(string pathL, string pathT)
         {
-            //var train_images = ImageReader.Load(trainingLabelFilePath, trainingImageFilePath);
-            //var testing_images = ImageReader.Load(testingLabelFilePath, testingImageFilePath);
-            //var valiation_images = train_images.GetRange(train_images.Count - validationSize, validationSize);
-            //Train = new DataSet(train_images);
-            //Validation = new DataSet(valiation_images);
-            //Test = new DataSet(testing_images);
+            
         }
 
         public DataSet Train { get; set; }
@@ -47,34 +41,27 @@ namespace Project.ConvNeuronNet
             }
         }
 
-        public bool Load(int validationSize = 1000)
+        public bool Load(int validationSize = 10)
         {
             Directory.CreateDirectory(Folder);
 
-            var trainingLabelFilePath = Path.Combine(Folder, trainingLabelFile);
-            var trainingImageFilePath = Path.Combine(Folder, trainingImageFile);
-            var testingLabelFilePath = Path.Combine(Folder, testingLabelFile);
-            var testingImageFilePath = Path.Combine(Folder, testingImageFile);
-
-            // Download Mnist files if needed
-            Console.WriteLine("Downloading Mnist training files...");
-            DownloadFile(urlMnist + trainingLabelFile, trainingLabelFilePath);
-            DownloadFile(urlMnist + trainingImageFile, trainingImageFilePath);
-            Console.WriteLine("Downloading Mnist testing files...");
-            DownloadFile(urlMnist + testingLabelFile, testingLabelFilePath);
-            DownloadFile(urlMnist + testingImageFile, testingImageFilePath);
-
+            var trainingLabelPath = Path.Combine(Folder, TrainLabelsPath);
+            var trainingImageFilePath = Path.Combine(Folder, trainingFolderPathI);
+            var testingLabelPath = Path.Combine(Folder, TestLabelsPath);
+            var testingImageFilePath = Path.Combine(Folder, testingFolderPathI);
+            Directory.CreateDirectory(trainingImageFilePath);
+            Directory.CreateDirectory(testingImageFilePath);
             // Load data
             Console.WriteLine("Loading the datasets...");
-            var train_images = ImageReader.Load(trainingLabelFilePath, trainingImageFilePath);
-            var testing_images = ImageReader.Load(testingLabelFilePath, testingImageFilePath);
-
+            var train_images = ImageReader.Load(trainingLabelPath, trainingImageFilePath);
+            var testing_images = ImageReader.Load(testingLabelPath, testingImageFilePath);
             var valiation_images = train_images.GetRange(train_images.Count - validationSize, validationSize);
+
             train_images = train_images.GetRange(0, train_images.Count - validationSize);
 
             if (train_images.Count == 0 || valiation_images.Count == 0 || testing_images.Count == 0)
             {
-                Console.WriteLine("Missing Mnist training/testing files.");
+                Console.WriteLine("Missing training/testing files.");
                 Console.ReadKey();
                 return false;
             }

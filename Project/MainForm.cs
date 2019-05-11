@@ -15,7 +15,7 @@ namespace Project
     public partial class MainForm : Form
     {
         VideoFolder vidFolder;
-        ImageFolder learnFolder;
+        ImageFolder trainFolder;
         ImageFolder testFolder;
 
         CNN network = new CNN();
@@ -25,8 +25,8 @@ namespace Project
             InitializeComponent();
             if (Properties.Settings.Default.last_path_to_learn_pictures != "")
             {
-                learnFolder = new ImageFolder(Properties.Settings.Default.last_path_to_learn_pictures);
-                lLearn.Text = "Found " + learnFolder.getCount();
+                trainFolder = new ImageFolder(Properties.Settings.Default.last_path_to_learn_pictures);
+                lLearn.Text = "Found " + trainFolder.getCount();
             }
             if (Properties.Settings.Default.last_path_to_test_pictures != "")
             {
@@ -116,7 +116,7 @@ namespace Project
 
         private void btn_CNN_learn_Click(object sender, EventArgs e)
         {
-            double d = network.teachCNN(learnFolder.getPath(),testFolder.getPath());
+            double d = network.teachCNN(trainFolder.getPath(),testFolder.getPath());
             if (d!=-1)
                 MessageBox.Show("Loss= " + d);
             else
@@ -143,11 +143,11 @@ namespace Project
 
         private void btn_load_learn_Click(object sender, EventArgs e)
         {
-            learnFolder = OpenPictureFolderFileDialog.openFolder();
-            if (learnFolder.getCount() > 0)
+            trainFolder = OpenPictureFolderFileDialog.openFolder();
+            if (trainFolder.getCount() > 0)
             {
-                lLearn.Text = "Found " + learnFolder.getCount();
-                Properties.Settings.Default.last_path_to_learn_pictures = learnFolder.getPath();
+                lLearn.Text = "Found " + trainFolder.getCount();
+                Properties.Settings.Default.last_path_to_learn_pictures = trainFolder.getPath();
                 Properties.Settings.Default.Save();
                 Properties.Settings.Default.Upgrade();
             }
@@ -172,6 +172,16 @@ namespace Project
         private void btn_autoCompleteAll_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_learn_resize_Click(object sender, EventArgs e)
+        {
+            foreach (string imgpath in trainFolder.getAllImgs())
+            {
+                Mat tmp = new Mat(imgpath);
+                tmp = ImgOps.InterpolationResize(tmp, 32, 32);
+                tmp = ImgOps.RGBtoGrey(tmp).Mat;
+            }
         }
     }
 

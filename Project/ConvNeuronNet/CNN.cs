@@ -1,14 +1,9 @@
 ﻿using ConvNetSharp.Core;
-using ConvNetSharp.Core.Layers;
 using ConvNetSharp.Core.Layers.Double;
 using ConvNetSharp.Core.Serialization;
 using ConvNetSharp.Core.Training;
-using ConvNetSharp.Core.Training.Double;
 using ConvNetSharp.Volume;
-using ConvNetSharp.Volume.Double;
 using System;
-using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -19,7 +14,6 @@ namespace Project.ConvNeuronNet
     class CNN
     {
         Net<double> net;
-        int layersCount;
         int stepCount;
         string loadedJson;
         string JsonToSave;
@@ -34,64 +28,23 @@ namespace Project.ConvNeuronNet
         public CNN()
         {
             net = new Net<double>();
-            layersCount = 0;
         }
         public int createCNN(int inpx = 32, int inpy = 32, int inpd = 1)
         {
-            //net.AddLayer(new InputLayer(inpx, inpy, inpd));
-            //layersCount++;
-            //net.AddLayer(new ConvLayer(28, 28, 12));
-            //layersCount++;
-            //this.net.AddLayer(new ReluLayer());
-            //layersCount++;
-            //net.AddLayer(new PoolLayer(14, 14));
-            //layersCount++;
-            //net.AddLayer(new ConvLayer(10, 10, 24));
-            //layersCount++;
-            //this.net.AddLayer(new ReluLayer());
-            //layersCount++;
-            //net.AddLayer(new PoolLayer(5, 5));
-            //layersCount++;
-            //net.AddLayer(new FullyConnLayer(150));
-            //layersCount++;
-            //net.AddLayer(new DropoutLayer(0.5));
-            //layersCount++;
-            //net.AddLayer(new FullyConnLayer(100));
-            //layersCount++;
-            //net.AddLayer(new DropoutLayer(0.5));
-            //layersCount++;
-            //net.AddLayer(new FullyConnLayer(26));
-            //layersCount++;
-            //net.AddLayer(new SoftmaxLayer(26));
-            //layersCount++;
-            net.AddLayer(new InputLayer(28, 28, 1));
-            layersCount++;
-            net.AddLayer(new ConvLayer(5, 5, 8) { Stride = 1, Pad = 2 });
-            layersCount++;
+            net.AddLayer(new InputLayer(inpx, inpy, inpd));
+            net.AddLayer(new ConvLayer(28, 28, 12));
             net.AddLayer(new ReluLayer());
-            layersCount++;
-            net.AddLayer(new PoolLayer(2, 2) { Stride = 2 });
-            layersCount++;
-            net.AddLayer(new ConvLayer(5, 5, 16) { Stride = 1, Pad = 2 });
-            layersCount++;
+            net.AddLayer(new PoolLayer(14, 14));
+            net.AddLayer(new ConvLayer(10, 10, 24));
             net.AddLayer(new ReluLayer());
-            layersCount++;
-            net.AddLayer(new PoolLayer(3, 3) { Stride = 3 });
-            layersCount++;
-            net.AddLayer(new FullyConnLayer(10));
-            layersCount++;
-            net.AddLayer(new SoftmaxLayer(10));
-            layersCount++;
-
-            return layersCount;
-        }
-        private void Train(Volume<double> x, Volume<double> y, int[] labels)
-        {
-            trainer.Train(x, y);
-
-            Test(x, labels, trainAccWindow, false);
-
-            stepCount += labels.Length;
+            net.AddLayer(new PoolLayer(5, 5));
+            net.AddLayer(new FullyConnLayer(150));
+            net.AddLayer(new DropoutLayer(0.5));
+            net.AddLayer(new FullyConnLayer(100));
+            net.AddLayer(new DropoutLayer(0.5));
+            net.AddLayer(new FullyConnLayer(26));
+            net.AddLayer(new SoftmaxLayer(26));
+            return net.Layers.Count;
         }
 
         private void Test(Volume<double> x, int[] labels, CircularBuffer<double> accuracy, bool forward = true)
@@ -112,18 +65,18 @@ namespace Project.ConvNeuronNet
         public double teachCNN(string pathL, string pathT)
         {
             var datasets = new DataSets(pathL, pathT);
-            if (!datasets.Load(100))
+            if (!datasets.Load(10))
             {
                 return -2;
             }
-            trainer = new SgdTrainer<double>(net)
+            this.trainer = new SgdTrainer<double>(this.net)
             {
                 LearningRate = 0.02,
-                BatchSize = 20,
+                BatchSize = 10,
                 Momentum = 0.9
             };
         
-            if (layersCount > 0)
+            if (net.Layers.Count > 0)
             {
                 stepCount = 0;
                 do
@@ -152,7 +105,7 @@ namespace Project.ConvNeuronNet
 
         public string saveCNN()
         {
-            if (layersCount > 0)
+            if (net.Layers.Count > 0)
             {
                 JsonToSave = net.ToJson();
                 File.WriteAllText(path, JsonToSave);
@@ -175,6 +128,15 @@ namespace Project.ConvNeuronNet
         {
             
             return -1;
+        }
+
+        private void Train(Volume<double> x, Volume<double> y, int[] labels)
+        {
+            this.trainer.Train(x, y);
+
+            Test(x, labels, this.trainAccWindow, false);
+
+            this.stepCount += labels.Length;
         }
 
     }

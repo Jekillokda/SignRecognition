@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Emgu.CV;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -23,42 +25,25 @@ namespace Project.ConvNeuronNet
             return label.Select((t, i) => new ImageEntry { Label = t, Image = images[i] }).ToList();
         }
 
-        private static List<byte[]> LImages(string filePath, int maxItem = -1)
+        private static List<byte[]> LoadImages(string path, int maxItem = -1)
         {
             var result = new List<byte[]>();
-            if (filePath != "")
+            ImageFolder f = new ImageFolder(path);
+
+            foreach (string imgpath in f.getAllImgs())
             {
-
-            }
-            return result;
-        }
-
-        private static List<byte[]> LoadImages(string filename, int maxItem = -1)
-        {
-            var result = new List<byte[]>();
-
-            if (File.Exists(filename))
-            {
-                using (var instream = new GZipStream(File.Open(filename, FileMode.Open), CompressionMode.Decompress))
+                Mat tmp = new Mat(imgpath);
+                tmp = ImgOps.InterpolationResize(tmp, 32, 32);
+                tmp = ImgOps.RGBtoGrey(tmp).Mat;
+                byte[] res = new byte[tmp.Height * tmp.Width];
+                for (int i = 0; i < tmp.Height; i++)
                 {
-                    using (var reader = new BinaryReader(instream))
+                    for (int j = 0; j < tmp.Width; j++)
                     {
-                        var magicNumber = ReverseBytes(reader.ReadInt32());
-                        var numberOfImage = ReverseBytes(reader.ReadInt32());
-                        var rowCount = ReverseBytes(reader.ReadInt32());
-                        var columnCount = ReverseBytes(reader.ReadInt32());
-                        if (maxItem != -1)
-                        {
-                            numberOfImage = Math.Min(numberOfImage, maxItem);
-                        }
-
-                        for (var i = 0; i < numberOfImage; i++)
-                        {
-                            var image = reader.ReadBytes(rowCount * columnCount);
-                            result.Add(image);
-                        }
+                        res[i * tmp.Width + j] = tmp.Bitmap.GetPixel(j,i).R;
                     }
                 }
+                result.Add(res);
             }
 
             return result;
@@ -70,22 +55,21 @@ namespace Project.ConvNeuronNet
 
             if (File.Exists(filename))
             {
-                using (var instream = new GZipStream(File.Open(filename, FileMode.Open), CompressionMode.Decompress))
+                string labels = File.ReadAllText(filename, Encoding.UTF8);
+                string tmp = "";
+                int c = 0;
+                for(int i = 0; i < labels.Length; i++)
                 {
-                    using (var reader = new BinaryReader(instream))
+                    if ((labels[i] != ' ')&&(i<labels.Length-1))
+                        tmp += labels[i];
+                    else
                     {
-                        var magicNumber = ReverseBytes(reader.ReadInt32());
-                        var numberOfItem = ReverseBytes(reader.ReadInt32());
-                        if (maxItem != -1)
-                        {
-                            numberOfItem = Math.Min(numberOfItem, maxItem);
-                        }
-
-                        for (var i = 0; i < numberOfItem; i++)
-                        {
-                            result.Add(reader.ReadByte());
-                        }
+                        result.Add(Int32.Parse(tmp));
+                        tmp = "";
+                        c++;
                     }
+
+
                 }
             }
 

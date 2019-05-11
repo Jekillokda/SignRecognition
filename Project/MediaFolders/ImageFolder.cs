@@ -26,19 +26,19 @@ namespace Project
 
         public int getCount()
         {
-            return this.count;
+            return count;
         }
         public string getPath()
         {
-            return this.path;
+            return path;
         }
         public string[] getAllImgs()
         {
-            return this.imageArray;
+            return imageArray;
         }
         public string getImg(int n)
         {
-            return this.imageArray[n];
+            return imageArray[n];
         }
     }
 }
