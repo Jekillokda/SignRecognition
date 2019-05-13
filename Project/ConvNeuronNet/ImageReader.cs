@@ -58,19 +58,22 @@ namespace Project.ConvNeuronNet
                 string labels = File.ReadAllText(filename, Encoding.UTF8);
                 string tmp = "";
                 int c = 0;
-                for(int i = 0; i < labels.Length; i++)
+                int i = 0;
+                do
                 {
-                    if ((labels[i] != ' ')&&(i<labels.Length-1))
+                    if ((labels[i] != ' '))
                         tmp += labels[i];
                     else
                     {
-                        result.Add(Int32.Parse(tmp));
-                        tmp = "";
-                        c++;
+                        if (tmp.Length > 0)
+                        {
+                            result.Add(Int32.Parse(tmp));
+                            tmp = "";
+                            c++;
+                        }
                     }
-
-
-                }
+                    i++;
+                } while (i < labels.Length);
             }
 
             return result;

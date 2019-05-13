@@ -17,7 +17,7 @@ namespace Project
         {
 
             this.path = path;
-            if (path != "")
+            if ((path != "")&&(path != null))
             {
                 imageArray = System.IO.Directory.GetFiles(path, "*.jpg");
                 count = imageArray.Length;

@@ -116,11 +116,14 @@ namespace Project
 
         private void btn_CNN_learn_Click(object sender, EventArgs e)
         {
-            double d = network.teachCNN(trainFolder.getPath(),testFolder.getPath());
-            if (d!=-1)
-                MessageBox.Show("Loss= " + d);
-            else
-                MessageBox.Show("Please add layers and try again");
+            if ((trainFolder != null) && (testFolder != null))
+            {
+                double d = network.teachCNN(trainFolder.getPath(), testFolder.getPath());
+                if (d != -1)
+                    MessageBox.Show("Loss= " + d);
+                else
+                    MessageBox.Show("Please add layers and try again");
+            }
         }
 
         private void btn_CNN_recognize_Click(object sender, EventArgs e)

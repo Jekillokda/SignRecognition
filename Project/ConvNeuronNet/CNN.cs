@@ -132,11 +132,11 @@ namespace Project.ConvNeuronNet
 
         private void Train(Volume<double> x, Volume<double> y, int[] labels)
         {
-            this.trainer.Train(x, y);
+            trainer.Train(x, y);
 
             Test(x, labels, this.trainAccWindow, false);
 
-            this.stepCount += labels.Length;
+            stepCount += labels.Length;
         }
 
     }
