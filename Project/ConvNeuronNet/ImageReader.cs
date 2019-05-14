@@ -33,10 +33,8 @@ namespace Project.ConvNeuronNet
             var result = new List<byte[]>();
             var f = new ImageFolder();
             f.load(path);
-            int counter = 0;
             foreach (string imgpath in f.getAllImgs())
             {
-                Console.WriteLine(counter++);
                 result.Add(new Image<Gray, byte>(imgpath).Bytes);
             }
             fold = f;

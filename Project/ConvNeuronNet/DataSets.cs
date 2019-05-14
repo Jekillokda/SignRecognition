@@ -40,7 +40,6 @@ namespace Project.ConvNeuronNet
 
         public bool Load(int validationSize = 10)
         {
-            // Load data
             Console.WriteLine("Loading the datasets...");
             var train_images = ImageReader.Load(TrainPath);
             var testing_images = ImageReader.Load(TestPath);

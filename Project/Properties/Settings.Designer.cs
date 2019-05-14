@@ -115,5 +115,17 @@ namespace Project.Properties {
                 this["last_path_to_test_pictures"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\"\"")]
+        public string last_path_to_pictures {
+            get {
+                return ((string)(this["last_path_to_pictures"]));
+            }
+            set {
+                this["last_path_to_pictures"] = value;
+            }
+        }
     }
 }

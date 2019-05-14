@@ -17,6 +17,7 @@ namespace Project
         VideoFolder vidFolder;
         ImageFolder trainFolder;
         ImageFolder testFolder;
+        ImageFolder imageFolder;
 
         CNN network = new CNN();
 
@@ -37,6 +38,15 @@ namespace Project
                 lTest.Text = "Found " + testFolder.getCount();
                 tb_test_imgs_path.Text = testFolder.getPath();
             }
+            if (Properties.Settings.Default.last_path_to_test_pictures != "")
+            {
+                imageFolder = new ImageFolder();
+                imageFolder.load(Properties.Settings.Default.last_path_to_pictures);
+                lImages.Text = "Found " + imageFolder.getCount();
+                tb_imgs_path.Text = imageFolder.getPath();
+            }
+
+            
             //Properties.Settings.Default.is_opened_first_time = true;
             /*if (Properties.Settings.Default.is_opened_first_time)
             {
@@ -130,14 +140,15 @@ namespace Project
 
         private void btn_CNN_recognize_Click(object sender, EventArgs e)
         {
-            Volume<double> x = BuilderInstance.Volume.From(new[] { 0.3, -0.5 }, new Shape(2));
-            double d = network.recognize(x);
-            MessageBox.Show(d.ToString());
+            var s = @"D:\road-video\Training\1\212.jpg";
+            int n = network.recognize(new Image<Gray, byte>(s).Bytes);
+            MessageBox.Show(n.ToString());
         }
 
         private void btn_CNN_load_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(network.loadCNN());
+            int n = network.loadCNN();
+            lLayers_count.Text = n.ToString();
         }
 
         private void btn_CNN_save_Click(object sender, EventArgs e)
@@ -208,6 +219,21 @@ namespace Project
         private void btn_toGrey_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void btn_imgs_open_Click(object sender, EventArgs e)
+        {
+            imageFolder = OpenPictureFolderFileDialog.openFolder();
+            if (imageFolder.getCount() > 0)
+            {
+                lImages.Text = "Found " + imageFolder.getCount();
+                tb_imgs_path.Text = imageFolder.getPath();
+                Properties.Settings.Default.last_path_to_pictures = imageFolder.getPath();
+                Properties.Settings.Default.Save();
+                Properties.Settings.Default.Upgrade();
+            }
+            else
+                lImages.Text = "Not found";
         }
     }
 

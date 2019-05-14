@@ -3,6 +3,7 @@ using ConvNetSharp.Core.Layers.Double;
 using ConvNetSharp.Core.Serialization;
 using ConvNetSharp.Core.Training;
 using ConvNetSharp.Volume;
+using ConvNetSharp.Volume.Double;
 using System;
 using System.IO;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace Project.ConvNeuronNet
         int stepCount;
         string loadedJson;
         string JsonToSave;
-        int Aim = 80;
+        int Aim = 90;
         double Acc = 0;
         private SgdTrainer<double> trainer;
         string path = @"D:\road-video\CNN.txt";
@@ -75,6 +76,10 @@ namespace Project.ConvNeuronNet
 
         public double teachCNN(string pathL, string pathT)
         {
+            if (net.Layers.Count == 0)
+            {
+                this.createCNN();
+            }
             var datasets = new DataSets(pathL, pathT);
             if (!datasets.Load(100))
             {
@@ -123,21 +128,40 @@ namespace Project.ConvNeuronNet
             }
             else return "";
         }
-        public string loadCNN()
+
+        public int loadCNN()
         {
             if (path!= "")
             {
                 loadedJson = File.ReadAllText(path);
                 var deserialized = SerializationExtensions.FromJson<double>(loadedJson);
-                net = deserialized;
-                return loadedJson;
+                this.net = deserialized;
+                return net.Layers.Count;
             }
-            else return "";
+            else return -1;
         }
-        public double recognize(Volume<double> x)
+
+        public int recognize(byte[] image)
         {
-            
-            return -1;
+                if (image.Length != 32 * 32)
+                {
+                    return -1;
+                }
+                var dataShape = new Shape(32, 32, 1, 1);
+                var data = new double[dataShape.TotalLength];
+                var dataVolume = BuilderInstance.Volume.From(data, dataShape);
+
+                var j = 0;
+                for (var y = 0; y < 32; y++)
+                {
+                    for (var x = 0; x < 32; x++)
+                    {
+                        dataVolume.Set(x, y, 0, 0, image[j++]);
+                    }
+                }
+                net.Forward(dataVolume);
+                var prediction = net.GetPrediction();
+                return prediction[0];
         }
 
         private void Train(Volume<double> x, Volume<double> y, int[] labels)

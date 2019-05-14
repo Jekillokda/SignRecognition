@@ -38,6 +38,9 @@
             this.btn_img1_resize = new System.Windows.Forms.Button();
             this.btn_img1_clahe = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_imgs_open = new System.Windows.Forms.Button();
+            this.tb_imgs_path = new System.Windows.Forms.TextBox();
+            this.lLayers_count = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tb_test_imgs_path = new System.Windows.Forms.TextBox();
             this.tb_train_imgs_path = new System.Windows.Forms.TextBox();
@@ -58,10 +61,11 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btn_resize = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btn_toGrey = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btn_autoCompleteAll = new System.Windows.Forms.Button();
-            this.lLayers_count = new System.Windows.Forms.Label();
-            this.btn_toGrey = new System.Windows.Forms.Button();
+            this.lImages = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.gb_haar_cascade.SuspendLayout();
             this.gb_ffmpeg.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -129,6 +133,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.lImages);
+            this.groupBox1.Controls.Add(this.btn_imgs_open);
+            this.groupBox1.Controls.Add(this.tb_imgs_path);
             this.groupBox1.Controls.Add(this.lLayers_count);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.tb_test_imgs_path);
@@ -148,6 +156,23 @@
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            // 
+            // btn_imgs_open
+            // 
+            resources.ApplyResources(this.btn_imgs_open, "btn_imgs_open");
+            this.btn_imgs_open.Name = "btn_imgs_open";
+            this.btn_imgs_open.UseVisualStyleBackColor = true;
+            this.btn_imgs_open.Click += new System.EventHandler(this.btn_imgs_open_Click);
+            // 
+            // tb_imgs_path
+            // 
+            resources.ApplyResources(this.tb_imgs_path, "tb_imgs_path");
+            this.tb_imgs_path.Name = "tb_imgs_path";
+            // 
+            // lLayers_count
+            // 
+            resources.ApplyResources(this.lLayers_count, "lLayers_count");
+            this.lLayers_count.Name = "lLayers_count";
             // 
             // label3
             // 
@@ -277,6 +302,13 @@
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.TabStop = false;
             // 
+            // btn_toGrey
+            // 
+            resources.ApplyResources(this.btn_toGrey, "btn_toGrey");
+            this.btn_toGrey.Name = "btn_toGrey";
+            this.btn_toGrey.UseVisualStyleBackColor = true;
+            this.btn_toGrey.Click += new System.EventHandler(this.btn_toGrey_Click);
+            // 
             // groupBox5
             // 
             resources.ApplyResources(this.groupBox5, "groupBox5");
@@ -290,17 +322,15 @@
             this.btn_autoCompleteAll.UseVisualStyleBackColor = true;
             this.btn_autoCompleteAll.Click += new System.EventHandler(this.btn_autoCompleteAll_Click);
             // 
-            // lLayers_count
+            // lImages
             // 
-            resources.ApplyResources(this.lLayers_count, "lLayers_count");
-            this.lLayers_count.Name = "lLayers_count";
+            resources.ApplyResources(this.lImages, "lImages");
+            this.lImages.Name = "lImages";
             // 
-            // btn_toGrey
+            // label4
             // 
-            resources.ApplyResources(this.btn_toGrey, "btn_toGrey");
-            this.btn_toGrey.Name = "btn_toGrey";
-            this.btn_toGrey.UseVisualStyleBackColor = true;
-            this.btn_toGrey.Click += new System.EventHandler(this.btn_toGrey_Click);
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
             // 
             // MainForm
             // 
@@ -360,6 +390,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lLayers_count;
         private System.Windows.Forms.Button btn_toGrey;
+        private System.Windows.Forms.Button btn_imgs_open;
+        private System.Windows.Forms.TextBox tb_imgs_path;
+        private System.Windows.Forms.Label lImages;
+        private System.Windows.Forms.Label label4;
     }
 }
 
