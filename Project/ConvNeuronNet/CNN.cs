@@ -18,7 +18,7 @@ namespace Project.ConvNeuronNet
         int stepCount;
         string loadedJson;
         string JsonToSave;
-        int Aim = 90;
+        int Aim;
         double Acc = 0;
         int classes;
         bool isNetLearned;
@@ -32,6 +32,7 @@ namespace Project.ConvNeuronNet
         public CNN()
         {
             net = new Net<double>();
+            Aim = 90;
             isNetLearned = false;
         }
         public int createCNN(int inpx = 32, int inpy = 32, int inpd = 1, int classesCount = 10)
