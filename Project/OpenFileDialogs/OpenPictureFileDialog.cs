@@ -7,7 +7,7 @@ namespace Project
 {
     class OpenPictureFileDialog
     {
-        static ImageFolder Imf = new ImageFolder("");
+        static ImageFolder Imf = new ImageFolder();
 
         public static ImageFolder openFolder()
         {
@@ -19,7 +19,8 @@ namespace Project
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 path = dialog.SelectedPath;
-                Imf = new ImageFolder(path);
+                Imf = new ImageFolder();
+                Imf.load(path);
             }
             return Imf;
         }

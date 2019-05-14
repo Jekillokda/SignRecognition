@@ -38,10 +38,16 @@
             this.btn_img1_resize = new System.Windows.Forms.Button();
             this.btn_img1_clahe = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tb_test_imgs_path = new System.Windows.Forms.TextBox();
+            this.tb_train_imgs_path = new System.Windows.Forms.TextBox();
+            this.btn_test_imgs_open = new System.Windows.Forms.Button();
+            this.btn_train_imgs_open = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btn_learn_resize = new System.Windows.Forms.Button();
             this.lTest = new System.Windows.Forms.Label();
             this.lLearn = new System.Windows.Forms.Label();
-            this.btn_load_test = new System.Windows.Forms.Button();
-            this.btn_load_learn = new System.Windows.Forms.Button();
             this.btn_CNN_save = new System.Windows.Forms.Button();
             this.btn_CNN_load = new System.Windows.Forms.Button();
             this.btn_CNN_recognize = new System.Windows.Forms.Button();
@@ -54,7 +60,7 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btn_autoCompleteAll = new System.Windows.Forms.Button();
-            this.btn_learn_resize = new System.Windows.Forms.Button();
+            this.lLayers_count = new System.Windows.Forms.Label();
             this.gb_haar_cascade.SuspendLayout();
             this.gb_ffmpeg.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -122,11 +128,17 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lLayers_count);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.tb_test_imgs_path);
+            this.groupBox1.Controls.Add(this.tb_train_imgs_path);
+            this.groupBox1.Controls.Add(this.btn_test_imgs_open);
+            this.groupBox1.Controls.Add(this.btn_train_imgs_open);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btn_learn_resize);
             this.groupBox1.Controls.Add(this.lTest);
             this.groupBox1.Controls.Add(this.lLearn);
-            this.groupBox1.Controls.Add(this.btn_load_test);
-            this.groupBox1.Controls.Add(this.btn_load_learn);
             this.groupBox1.Controls.Add(this.btn_CNN_save);
             this.groupBox1.Controls.Add(this.btn_CNN_load);
             this.groupBox1.Controls.Add(this.btn_CNN_recognize);
@@ -135,6 +147,54 @@
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
+            // tb_test_imgs_path
+            // 
+            resources.ApplyResources(this.tb_test_imgs_path, "tb_test_imgs_path");
+            this.tb_test_imgs_path.Name = "tb_test_imgs_path";
+            this.tb_test_imgs_path.TextChanged += new System.EventHandler(this.tb_test_imgs_path_TextChanged);
+            // 
+            // tb_train_imgs_path
+            // 
+            resources.ApplyResources(this.tb_train_imgs_path, "tb_train_imgs_path");
+            this.tb_train_imgs_path.Name = "tb_train_imgs_path";
+            this.tb_train_imgs_path.TextChanged += new System.EventHandler(this.tb_train_imgs_path_TextChanged);
+            // 
+            // btn_test_imgs_open
+            // 
+            resources.ApplyResources(this.btn_test_imgs_open, "btn_test_imgs_open");
+            this.btn_test_imgs_open.Name = "btn_test_imgs_open";
+            this.btn_test_imgs_open.UseVisualStyleBackColor = true;
+            this.btn_test_imgs_open.Click += new System.EventHandler(this.btn_test_imgs_open_Click);
+            // 
+            // btn_train_imgs_open
+            // 
+            resources.ApplyResources(this.btn_train_imgs_open, "btn_train_imgs_open");
+            this.btn_train_imgs_open.Name = "btn_train_imgs_open";
+            this.btn_train_imgs_open.UseVisualStyleBackColor = true;
+            this.btn_train_imgs_open.Click += new System.EventHandler(this.btn_train_imgs_open_Click);
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
+            // btn_learn_resize
+            // 
+            resources.ApplyResources(this.btn_learn_resize, "btn_learn_resize");
+            this.btn_learn_resize.Name = "btn_learn_resize";
+            this.btn_learn_resize.UseVisualStyleBackColor = true;
+            this.btn_learn_resize.Click += new System.EventHandler(this.btn_learn_resize_Click);
             // 
             // lTest
             // 
@@ -145,20 +205,6 @@
             // 
             resources.ApplyResources(this.lLearn, "lLearn");
             this.lLearn.Name = "lLearn";
-            // 
-            // btn_load_test
-            // 
-            resources.ApplyResources(this.btn_load_test, "btn_load_test");
-            this.btn_load_test.Name = "btn_load_test";
-            this.btn_load_test.UseVisualStyleBackColor = true;
-            this.btn_load_test.Click += new System.EventHandler(this.btn_load_test_Click);
-            // 
-            // btn_load_learn
-            // 
-            resources.ApplyResources(this.btn_load_learn, "btn_load_learn");
-            this.btn_load_learn.Name = "btn_load_learn";
-            this.btn_load_learn.UseVisualStyleBackColor = true;
-            this.btn_load_learn.Click += new System.EventHandler(this.btn_load_learn_Click);
             // 
             // btn_CNN_save
             // 
@@ -242,12 +288,10 @@
             this.btn_autoCompleteAll.UseVisualStyleBackColor = true;
             this.btn_autoCompleteAll.Click += new System.EventHandler(this.btn_autoCompleteAll_Click);
             // 
-            // btn_learn_resize
+            // lLayers_count
             // 
-            resources.ApplyResources(this.btn_learn_resize, "btn_learn_resize");
-            this.btn_learn_resize.Name = "btn_learn_resize";
-            this.btn_learn_resize.UseVisualStyleBackColor = true;
-            this.btn_learn_resize.Click += new System.EventHandler(this.btn_learn_resize_Click);
+            resources.ApplyResources(this.lLayers_count, "lLayers_count");
+            this.lLayers_count.Name = "lLayers_count";
             // 
             // MainForm
             // 
@@ -295,11 +339,17 @@
         private System.Windows.Forms.Button btn_resize;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btn_autoCompleteAll;
-        private System.Windows.Forms.Button btn_load_test;
-        private System.Windows.Forms.Button btn_load_learn;
         private System.Windows.Forms.Label lTest;
         private System.Windows.Forms.Label lLearn;
         private System.Windows.Forms.Button btn_learn_resize;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btn_test_imgs_open;
+        private System.Windows.Forms.Button btn_train_imgs_open;
+        private System.Windows.Forms.TextBox tb_train_imgs_path;
+        private System.Windows.Forms.TextBox tb_test_imgs_path;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lLayers_count;
     }
 }
 

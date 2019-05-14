@@ -39,11 +39,11 @@ namespace Project.ConvNeuronNet
             net.AddLayer(new ReluLayer());
             net.AddLayer(new PoolLayer(5, 5));
             net.AddLayer(new FullyConnLayer(150));
-            net.AddLayer(new DropoutLayer(0.5));
+            //net.AddLayer(new DropoutLayer(0.5));
             net.AddLayer(new FullyConnLayer(100));
-            net.AddLayer(new DropoutLayer(0.5));
-            net.AddLayer(new FullyConnLayer(26));
-            net.AddLayer(new SoftmaxLayer(26));
+            //net.AddLayer(new DropoutLayer(0.5));
+            net.AddLayer(new FullyConnLayer(5));
+            net.AddLayer(new SoftmaxLayer(5));
             return net.Layers.Count;
         }
 
@@ -71,14 +71,13 @@ namespace Project.ConvNeuronNet
             }
             this.trainer = new SgdTrainer<double>(this.net)
             {
-                LearningRate = 0.02,
+                LearningRate = 0.01,
                 BatchSize = 10,
                 Momentum = 0.9
             };
         
             if (net.Layers.Count > 0)
             {
-                stepCount = 0;
                 do
                 {
                     var trainSample = datasets.Train.NextBatch(trainer.BatchSize);
@@ -132,7 +131,7 @@ namespace Project.ConvNeuronNet
 
         private void Train(Volume<double> x, Volume<double> y, int[] labels)
         {
-            trainer.Train(x, y);
+            this.trainer.Train(x, y);
 
             Test(x, labels, this.trainAccWindow, false);
 

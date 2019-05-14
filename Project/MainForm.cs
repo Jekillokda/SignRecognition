@@ -25,13 +25,17 @@ namespace Project
             InitializeComponent();
             if (Properties.Settings.Default.last_path_to_learn_pictures != "")
             {
-                trainFolder = new ImageFolder(Properties.Settings.Default.last_path_to_learn_pictures);
+                trainFolder = new ImageFolder();
+                trainFolder.load(Properties.Settings.Default.last_path_to_learn_pictures);
                 lLearn.Text = "Found " + trainFolder.getCount();
+                tb_train_imgs_path.Text = trainFolder.getPath();
             }
             if (Properties.Settings.Default.last_path_to_test_pictures != "")
             {
-                testFolder = new ImageFolder(Properties.Settings.Default.last_path_to_test_pictures);
+                testFolder = new ImageFolder();
+                testFolder.load(Properties.Settings.Default.last_path_to_test_pictures);
                 lTest.Text = "Found " + testFolder.getCount();
+                tb_test_imgs_path.Text = testFolder.getPath();
             }
             //Properties.Settings.Default.is_opened_first_time = true;
             /*if (Properties.Settings.Default.is_opened_first_time)
@@ -111,7 +115,7 @@ namespace Project
         private void btn_CNN_create_Click(object sender, EventArgs e)
         {
             int c = network.createCNN(32, 32, 1);
-            MessageBox.Show("Created " + c + " layers network");
+            lLayers_count.Text = c.ToString();
         }
 
         private void btn_CNN_learn_Click(object sender, EventArgs e)
@@ -144,34 +148,6 @@ namespace Project
             MessageBox.Show("Saved");
         }
 
-        private void btn_load_learn_Click(object sender, EventArgs e)
-        {
-            trainFolder = OpenPictureFolderFileDialog.openFolder();
-            if (trainFolder.getCount() > 0)
-            {
-                lLearn.Text = "Found " + trainFolder.getCount();
-                Properties.Settings.Default.last_path_to_learn_pictures = trainFolder.getPath();
-                Properties.Settings.Default.Save();
-                Properties.Settings.Default.Upgrade();
-            }
-            else
-                lLearn.Text = "Not found";
-        }
-
-        private void btn_load_test_Click(object sender, EventArgs e)
-        {
-            testFolder = OpenPictureFolderFileDialog.openFolder();
-            if (testFolder.getCount() > 0)
-            {
-                lTest.Text = "Found " + testFolder.getCount();
-                Properties.Settings.Default.last_path_to_test_pictures = testFolder.getPath();
-                Properties.Settings.Default.Save();
-                Properties.Settings.Default.Upgrade();
-            }
-            else
-                lTest.Text = "Not found";
-        }
-
         private void btn_autoCompleteAll_Click(object sender, EventArgs e)
         {
 
@@ -185,6 +161,50 @@ namespace Project
                 tmp = ImgOps.InterpolationResize(tmp, 32, 32);
                 tmp = ImgOps.RGBtoGrey(tmp).Mat;
             }
+        }
+
+        private void btn_train_imgs_open_Click(object sender, EventArgs e)
+        {
+            trainFolder = OpenPictureFolderFileDialog.openFolder();
+            if (trainFolder.getCount() > 0)
+            {
+                lLearn.Text = "Found " + trainFolder.getCount();
+                tb_train_imgs_path.Text = trainFolder.getPath();
+                Properties.Settings.Default.last_path_to_learn_pictures = trainFolder.getPath();
+                Properties.Settings.Default.Save();
+                Properties.Settings.Default.Upgrade();
+            }
+            else
+                lLearn.Text = "Not found";
+        }
+
+        private void btn_test_imgs_open_Click(object sender, EventArgs e)
+        {
+            testFolder = OpenPictureFolderFileDialog.openFolder();
+            if (testFolder.getCount() > 0)
+            {
+                lTest.Text = "Found " + testFolder.getCount();
+                tb_test_imgs_path.Text = testFolder.getPath();
+                Properties.Settings.Default.last_path_to_test_pictures = testFolder.getPath();
+                Properties.Settings.Default.Save();
+                Properties.Settings.Default.Upgrade();
+            }
+            else
+                lTest.Text = "Not found";
+        }
+
+        private void tb_train_imgs_path_TextChanged(object sender, EventArgs e)
+        {
+            trainFolder.setPath(tb_train_imgs_path.Text);
+            trainFolder.load(tb_train_imgs_path.Text);
+            lLearn.Text = "Found " + trainFolder.getCount();
+        }
+
+        private void tb_test_imgs_path_TextChanged(object sender, EventArgs e)
+        {
+            lTest.Text = "Found " + testFolder.getCount();
+            testFolder.setPath(tb_test_imgs_path.Text);
+            testFolder.load(tb_test_imgs_path.Text);
         }
     }
 

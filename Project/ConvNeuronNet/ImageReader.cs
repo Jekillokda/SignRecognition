@@ -12,10 +12,10 @@ namespace Project.ConvNeuronNet
 {
     public static class ImageReader
     {
-        public static List<ImageEntry> Load(string labelPath, string imagesPath, int maxItem = -1)
+        public static List<ImageEntry> Load(string Path, int maxItem = -1)
         {
-            var label = LoadLabels(labelPath, maxItem);
-            var images = LoadImages(imagesPath, maxItem);
+            var label = LoadLabels(Path, maxItem);
+            var images = LoadImages(Path, maxItem);
 
             if (label.Count == 0 || images.Count == 0)
             {
@@ -28,7 +28,8 @@ namespace Project.ConvNeuronNet
         private static List<byte[]> LoadImages(string path, int maxItem = -1)
         {
             var result = new List<byte[]>();
-            ImageFolder f = new ImageFolder(path);
+            ImageFolder f = new ImageFolder();
+            f.load(path);
 
             foreach (string imgpath in f.getAllImgs())
             {
@@ -49,13 +50,14 @@ namespace Project.ConvNeuronNet
             return result;
         }
 
-        private static List<int> LoadLabels(string filename, int maxItem = -1)
+        private static List<int> LoadLabels(string path, int maxItem = -1)
         {
             var result = new List<int>();
-
-            if (File.Exists(filename))
+            var name = "labels.txt";
+            var filePath = Path.Combine(path, name);
+            if (File.Exists(filePath))
             {
-                string labels = File.ReadAllText(filename, Encoding.UTF8);
+                string labels = File.ReadAllText(filePath, Encoding.UTF8)+ " ";
                 string tmp = "";
                 int c = 0;
                 int i = 0;

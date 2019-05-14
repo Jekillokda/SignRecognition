@@ -24,7 +24,7 @@ namespace Project.ConvNeuronNet
         {
             const int w = 32;
             const int h = 32;
-            const int numClasses = 22;
+            const int numClasses = 5;
 
             var dataShape = new Shape(w, h, 1, batchSize);
             var labelShape = new Shape(1, 1, numClasses, batchSize);

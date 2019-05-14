@@ -13,15 +13,26 @@ namespace Project
         private int count;
         private string[] imageArray;
 
-        public ImageFolder(string path)
+        public ImageFolder()
         {
-
+            path = "";
+            count = 0;
+        }
+        public int load(string path)
+        {
             this.path = path;
-            if ((path != "")&&(path != null))
+            if (Directory.Exists(path))
             {
                 imageArray = System.IO.Directory.GetFiles(path, "*.jpg");
                 count = imageArray.Length;
-            }            
+            }
+            else
+            {
+                imageArray = new string[0];
+                count = 0;
+            }
+                
+            return count;
         }
 
         public int getCount()
@@ -31,6 +42,10 @@ namespace Project
         public string getPath()
         {
             return path;
+        }
+        public void setPath(string path)
+        {
+            this.path = path;
         }
         public string[] getAllImgs()
         {
