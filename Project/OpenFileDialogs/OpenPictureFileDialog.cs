@@ -6,23 +6,22 @@ using System.Windows.Forms;
 namespace Project
 {
     class OpenPictureFileDialog
-    {
-        static ImageFolder Imf = new ImageFolder();
-
-        public static ImageFolder openFolder()
+    { 
+        public static string openFile()
         {
-
-            string[] arr = new string[0];
             string path = "";
-            var dialog = new FolderBrowserDialog();
-            dialog.SelectedPath = path;
-            if (dialog.ShowDialog() == DialogResult.OK)
+            OpenFileDialog dlg = new OpenFileDialog();
+
+            dlg.Title = "Open Image";
+            dlg.Filter = "jpg files (*.jpg)|*.jpg";
+
+            if (dlg.ShowDialog() == DialogResult.OK)
             {
-                path = dialog.SelectedPath;
-                Imf = new ImageFolder();
-                Imf.load(path);
+                path = dlg.FileName;
             }
-            return Imf;
+
+            dlg.Dispose();
+            return path;
         }
     }
 }

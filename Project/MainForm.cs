@@ -124,8 +124,9 @@ namespace Project
 
         private void btn_CNN_create_Click(object sender, EventArgs e)
         {
-            int c = network.createCNN(32, 32, 1);
+            int c = network.createCNN(32, 32, 1, 10);
             lLayers_count.Text = c.ToString();
+            lClasses_count.Text = network.getClassesCount().ToString();
         }
 
         private void btn_CNN_learn_Click(object sender, EventArgs e)
@@ -136,19 +137,23 @@ namespace Project
                 if (d == -1)
                     MessageBox.Show("Please add layers and try again");
             }
+            if(network.isLearned())
+            lLearned.Text = "Learned";
         }
 
         private void btn_CNN_recognize_Click(object sender, EventArgs e)
         {
-            var s = @"D:\road-video\Training\1\212.jpg";
-            int n = network.recognize(new Image<Gray, byte>(s).Bytes);
-            MessageBox.Show(n.ToString());
+            string sign = network.recognize(new Image<Gray, byte>(tb_imgs_path.Text).Bytes);
+            lLayers_count.Text = network.getLayersCount().ToString();
+            MessageBox.Show(sign);
         }
 
         private void btn_CNN_load_Click(object sender, EventArgs e)
         {
             int n = network.loadCNN();
             lLayers_count.Text = n.ToString();
+            if (network.isLearned())
+                lLearned.Text = "Learned";
         }
 
         private void btn_CNN_save_Click(object sender, EventArgs e)
@@ -223,7 +228,13 @@ namespace Project
 
         private void btn_imgs_open_Click(object sender, EventArgs e)
         {
-            imageFolder = OpenPictureFolderFileDialog.openFolder();
+            var path = OpenPictureFileDialog.openFile();
+            tb_imgs_path.Text = path;
+            Properties.Settings.Default.last_path_to_pictures = path;
+            Properties.Settings.Default.Save();
+            Properties.Settings.Default.Upgrade();
+
+            /*imageFolder = OpenPictureFolderFileDialog.openFolder();
             if (imageFolder.getCount() > 0)
             {
                 lImages.Text = "Found " + imageFolder.getCount();
@@ -233,7 +244,7 @@ namespace Project
                 Properties.Settings.Default.Upgrade();
             }
             else
-                lImages.Text = "Not found";
+                lImages.Text = "Not found";*/
         }
     }
 

@@ -38,6 +38,7 @@
             this.btn_img1_resize = new System.Windows.Forms.Button();
             this.btn_img1_clahe = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.btn_imgs_open = new System.Windows.Forms.Button();
             this.tb_imgs_path = new System.Windows.Forms.TextBox();
             this.lLayers_count = new System.Windows.Forms.Label();
@@ -65,7 +66,9 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btn_autoCompleteAll = new System.Windows.Forms.Button();
             this.lImages = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lClasses_count = new System.Windows.Forms.Label();
+            this.lLearned = new System.Windows.Forms.Label();
             this.gb_haar_cascade.SuspendLayout();
             this.gb_ffmpeg.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -133,6 +136,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lLearned);
+            this.groupBox1.Controls.Add(this.lClasses_count);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.lImages);
             this.groupBox1.Controls.Add(this.btn_imgs_open);
@@ -156,6 +162,11 @@
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
             // 
             // btn_imgs_open
             // 
@@ -327,10 +338,20 @@
             resources.ApplyResources(this.lImages, "lImages");
             this.lImages.Name = "lImages";
             // 
-            // label4
+            // label5
             // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
+            // 
+            // lClasses_count
+            // 
+            resources.ApplyResources(this.lClasses_count, "lClasses_count");
+            this.lClasses_count.Name = "lClasses_count";
+            // 
+            // lLearned
+            // 
+            resources.ApplyResources(this.lLearned, "lLearned");
+            this.lLearned.Name = "lLearned";
             // 
             // MainForm
             // 
@@ -392,8 +413,11 @@
         private System.Windows.Forms.Button btn_toGrey;
         private System.Windows.Forms.Button btn_imgs_open;
         private System.Windows.Forms.TextBox tb_imgs_path;
-        private System.Windows.Forms.Label lImages;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lImages;
+        private System.Windows.Forms.Label lClasses_count;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lLearned;
     }
 }
 

@@ -20,6 +20,8 @@ namespace Project.ConvNeuronNet
         string JsonToSave;
         int Aim = 90;
         double Acc = 0;
+        int classes;
+        bool isNetLearned;
         private SgdTrainer<double> trainer;
         string path = @"D:\road-video\CNN.txt";
         private ConvLayer convLayer;
@@ -30,8 +32,9 @@ namespace Project.ConvNeuronNet
         public CNN()
         {
             net = new Net<double>();
+            isNetLearned = false;
         }
-        public int createCNN(int inpx = 32, int inpy = 32, int inpd = 1)
+        public int createCNN(int inpx = 32, int inpy = 32, int inpd = 1, int classesCount = 10)
         {
             //net.AddLayer(new InputLayer(inpx, inpy, inpd));
             //net.AddLayer(new ConvLayer(5, 5, 14) {Stride = 1, Pad = 2});
@@ -96,10 +99,10 @@ namespace Project.ConvNeuronNet
             {
                 do
                 {
-                    var trainSample = datasets.Train.NextBatch(trainer.BatchSize);
+                    var trainSample = datasets.Train.NextBatch(trainer.BatchSize, classes);
                     Train(trainSample.Item1, trainSample.Item2, trainSample.Item3);
 
-                    var testSample = datasets.Test.NextBatch(trainer.BatchSize);
+                    var testSample = datasets.Test.NextBatch(trainer.BatchSize, classes);
                     Test(testSample.Item1, testSample.Item3, testAccWindow);
 
                     Console.WriteLine("Loss: {0} Train accuracy: {1}% Test accuracy: {2}%", trainer.Loss,
@@ -113,8 +116,10 @@ namespace Project.ConvNeuronNet
                 } while (Acc < Aim);
 
                 Console.WriteLine($"{stepCount}");
+                isNetLearned = true;
                 return trainer.Loss;
             }
+            
             else return -1;
         }
 
@@ -136,16 +141,23 @@ namespace Project.ConvNeuronNet
                 loadedJson = File.ReadAllText(path);
                 var deserialized = SerializationExtensions.FromJson<double>(loadedJson);
                 this.net = deserialized;
+                isNetLearned = true;
                 return net.Layers.Count;
             }
             else return -1;
         }
 
-        public int recognize(byte[] image)
+        public string recognize(byte[] image)
         {
+
                 if (image.Length != 32 * 32)
                 {
-                    return -1;
+                    return "ERROR";
+                }
+                if (net.Layers.Count == 0)
+                {
+                    this.createCNN();
+                    loadCNN();
                 }
                 var dataShape = new Shape(32, 32, 1, 1);
                 var data = new double[dataShape.TotalLength];
@@ -161,7 +173,7 @@ namespace Project.ConvNeuronNet
                 }
                 net.Forward(dataVolume);
                 var prediction = net.GetPrediction();
-                return prediction[0];
+                return getClassNameFromNumver(prediction[0]);
         }
 
         private void Train(Volume<double> x, Volume<double> y, int[] labels)
@@ -173,5 +185,50 @@ namespace Project.ConvNeuronNet
             stepCount += labels.Length;
         }
 
+        public int getLayersCount()
+        {
+            return net.Layers.Count;
+        }
+
+        public int getClassesCount()
+        {
+            return this.classes;
+        }
+
+        public bool isLearned()
+        {
+            return this.isNetLearned;
+        }
+
+        public string getClassNameFromNumver(int n)
+        {
+            switch (n)
+            {
+                case 1:
+                    return "60 km/h";
+                case 2:
+                    return "Main road";
+                case 3:
+                    return "Secondary road";
+                case 4:
+                    return "Stop sign";
+                case 5:
+                    return "Road up";
+                case 6:
+                    return "Kirpich";
+                case 7:
+                    return "Warning";
+                case 8:
+                    return "Sleeping policeman";
+                case 9:
+                    return "Road Works";
+                case 10:
+                    return "Only forward";
+                default:
+                    break;
+
+            }
+            return "";  
+        }
     }
 }
