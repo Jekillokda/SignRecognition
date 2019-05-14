@@ -17,10 +17,11 @@ namespace Project.ConvNeuronNet
         int stepCount;
         string loadedJson;
         string JsonToSave;
-        int Aim = 90;
+        int Aim = 80;
         double Acc = 0;
         private SgdTrainer<double> trainer;
         string path = @"D:\road-video\CNN.txt";
+        private ConvLayer convLayer;
 
         private readonly CircularBuffer<double> testAccWindow = new CircularBuffer<double>(100);
         private readonly CircularBuffer<double> trainAccWindow = new CircularBuffer<double>(100);
@@ -31,19 +32,29 @@ namespace Project.ConvNeuronNet
         }
         public int createCNN(int inpx = 32, int inpy = 32, int inpd = 1)
         {
-            net.AddLayer(new InputLayer(inpx, inpy, inpd));
-            net.AddLayer(new ConvLayer(5, 5, 14) { Stride = 1, Pad = 2 });
-            net.AddLayer(new ReluLayer());
-            net.AddLayer(new PoolLayer(2, 2));
-            net.AddLayer(new ConvLayer(5, 5, 28) { Stride = 1, Pad = 2 });
-            net.AddLayer(new ReluLayer());
-            net.AddLayer(new PoolLayer(2, 2));
-            net.AddLayer(new FullyConnLayer(150));
-            //net.AddLayer(new DropoutLayer(0.5));
-            net.AddLayer(new FullyConnLayer(100));
-            //net.AddLayer(new DropoutLayer(0.5));
-            net.AddLayer(new FullyConnLayer(5));
-            net.AddLayer(new SoftmaxLayer(5));
+            //net.AddLayer(new InputLayer(inpx, inpy, inpd));
+            //net.AddLayer(new ConvLayer(5, 5, 14) {Stride = 1, Pad = 2});
+            //net.AddLayer(new ReluLayer());
+            //net.AddLayer(new PoolLayer(2, 2) {Stride = 2});
+            //net.AddLayer(new ConvLayer(5, 5, 28) {Stride = 1, Pad = 2});
+            //net.AddLayer(new ReluLayer());
+            //net.AddLayer(new PoolLayer(2, 2) {Stride = 2});
+            //net.AddLayer(new FullyConnLayer(150));
+            ////net.AddLayer(new DropoutLayer(0.5));
+            //net.AddLayer(new FullyConnLayer(100));
+            ////net.AddLayer(new DropoutLayer(0.5));
+            //net.AddLayer(new FullyConnLayer(10));
+            //net.AddLayer(new SoftmaxLayer(10));
+            this.net.AddLayer(new InputLayer(32, 32, 1));
+            this.convLayer = new ConvLayer(5, 5, 8) { Stride = 1, Pad = 2 };
+            this.net.AddLayer(this.convLayer);
+            this.net.AddLayer(new ReluLayer());
+            this.net.AddLayer(new PoolLayer(2, 2) { Stride = 2 });
+            this.net.AddLayer(new ConvLayer(5, 5, 16) { Stride = 1, Pad = 2 });
+            this.net.AddLayer(new ReluLayer());
+            this.net.AddLayer(new PoolLayer(3, 3) { Stride = 3 });
+            this.net.AddLayer(new FullyConnLayer(10));
+            this.net.AddLayer(new SoftmaxLayer(10));
             return net.Layers.Count;
         }
 
@@ -65,14 +76,14 @@ namespace Project.ConvNeuronNet
         public double teachCNN(string pathL, string pathT)
         {
             var datasets = new DataSets(pathL, pathT);
-            if (!datasets.Load(10))
+            if (!datasets.Load(100))
             {
                 return -2;
             }
             this.trainer = new SgdTrainer<double>(this.net)
             {
                 LearningRate = 0.02,
-                BatchSize = 20,
+                BatchSize = 50,
                 Momentum = 0.9
             };
         

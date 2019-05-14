@@ -123,9 +123,7 @@ namespace Project
             if ((trainFolder != null) && (testFolder != null))
             {
                 double d = network.teachCNN(trainFolder.getPath(), testFolder.getPath());
-                if (d != -1)
-                    MessageBox.Show("Loss= " + d);
-                else
+                if (d == -1)
                     MessageBox.Show("Please add layers and try again");
             }
         }

@@ -36,11 +36,8 @@ namespace Project.ConvNeuronNet
             int counter = 0;
             foreach (string imgpath in f.getAllImgs())
             {
-                counter++;
-                Image<Gray, byte> img = new Image<Gray, byte>(imgpath);
-                byte[] res = img.Bytes;
-                Console.WriteLine(counter);
-                result.Add(res);
+                Console.WriteLine(counter++);
+                result.Add(new Image<Gray, byte>(imgpath).Bytes);
             }
             fold = f;
             return result;
