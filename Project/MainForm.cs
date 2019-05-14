@@ -206,6 +206,11 @@ namespace Project
             testFolder.setPath(tb_test_imgs_path.Text);
             testFolder.load(tb_test_imgs_path.Text);
         }
+
+        private void btn_toGrey_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 
 

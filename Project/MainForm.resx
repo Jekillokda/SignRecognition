@@ -286,7 +286,7 @@
     <value>NoControl</value>
   </data>
   <data name="btn_img1_resize.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 20</value>
+    <value>6, 42</value>
   </data>
   <data name="btn_img1_resize.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -307,10 +307,10 @@
     <value>groupBox4</value>
   </data>
   <data name="&gt;&gt;btn_img1_resize.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="btn_img1_clahe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 49</value>
+    <value>6, 71</value>
   </data>
   <data name="btn_img1_clahe.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -331,25 +331,7 @@
     <value>groupBox4</value>
   </data>
   <data name="&gt;&gt;btn_img1_clahe.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lLayers_count.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lLayers_count.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lLayers_count.Location" type="System.Drawing.Point, System.Drawing">
-    <value>44, 17</value>
-  </data>
-  <data name="lLayers_count.Size" type="System.Drawing.Size, System.Drawing">
-    <value>13, 13</value>
-  </data>
-  <data name="lLayers_count.TabIndex" type="System.Int32, mscorlib">
-    <value>87</value>
-  </data>
-  <data name="lLayers_count.Text" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;lLayers_count.Name" xml:space="preserve">
     <value>lLayers_count</value>
@@ -362,6 +344,210 @@
   </data>
   <data name="&gt;&gt;lLayers_count.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tb_test_imgs_path.Name" xml:space="preserve">
+    <value>tb_test_imgs_path</value>
+  </data>
+  <data name="&gt;&gt;tb_test_imgs_path.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tb_test_imgs_path.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;tb_test_imgs_path.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;tb_train_imgs_path.Name" xml:space="preserve">
+    <value>tb_train_imgs_path</value>
+  </data>
+  <data name="&gt;&gt;tb_train_imgs_path.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tb_train_imgs_path.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;tb_train_imgs_path.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;btn_test_imgs_open.Name" xml:space="preserve">
+    <value>btn_test_imgs_open</value>
+  </data>
+  <data name="&gt;&gt;btn_test_imgs_open.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_test_imgs_open.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;btn_test_imgs_open.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;btn_train_imgs_open.Name" xml:space="preserve">
+    <value>btn_train_imgs_open</value>
+  </data>
+  <data name="&gt;&gt;btn_train_imgs_open.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_train_imgs_open.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;btn_train_imgs_open.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;btn_learn_resize.Name" xml:space="preserve">
+    <value>btn_learn_resize</value>
+  </data>
+  <data name="&gt;&gt;btn_learn_resize.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_learn_resize.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;btn_learn_resize.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;lTest.Name" xml:space="preserve">
+    <value>lTest</value>
+  </data>
+  <data name="&gt;&gt;lTest.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lTest.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;lTest.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;lLearn.Name" xml:space="preserve">
+    <value>lLearn</value>
+  </data>
+  <data name="&gt;&gt;lLearn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lLearn.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;lLearn.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;btn_CNN_save.Name" xml:space="preserve">
+    <value>btn_CNN_save</value>
+  </data>
+  <data name="&gt;&gt;btn_CNN_save.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_CNN_save.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;btn_CNN_save.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;btn_CNN_load.Name" xml:space="preserve">
+    <value>btn_CNN_load</value>
+  </data>
+  <data name="&gt;&gt;btn_CNN_load.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_CNN_load.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;btn_CNN_load.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;btn_CNN_recognize.Name" xml:space="preserve">
+    <value>btn_CNN_recognize</value>
+  </data>
+  <data name="&gt;&gt;btn_CNN_recognize.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_CNN_recognize.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;btn_CNN_recognize.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;btn_CNN_learn.Name" xml:space="preserve">
+    <value>btn_CNN_learn</value>
+  </data>
+  <data name="&gt;&gt;btn_CNN_learn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_CNN_learn.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;btn_CNN_learn.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;btn_CNN_create.Name" xml:space="preserve">
+    <value>btn_CNN_create</value>
+  </data>
+  <data name="&gt;&gt;btn_CNN_create.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_CNN_create.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;btn_CNN_create.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>482, 12</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>255, 437</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>56</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>CNN</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -765,30 +951,6 @@
   <data name="&gt;&gt;btn_CNN_create.ZOrder" xml:space="preserve">
     <value>15</value>
   </data>
-  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>482, 12</value>
-  </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>255, 437</value>
-  </data>
-  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>56</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>CNN</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <data name="&gt;&gt;button3.Name" xml:space="preserve">
     <value>button3</value>
   </data>
@@ -915,11 +1077,38 @@
   <data name="&gt;&gt;btn_resize.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="btn_toGrey.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btn_toGrey.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="btn_toGrey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btn_toGrey.TabIndex" type="System.Int32, mscorlib">
+    <value>72</value>
+  </data>
+  <data name="btn_toGrey.Text" xml:space="preserve">
+    <value>toGrey</value>
+  </data>
+  <data name="&gt;&gt;btn_toGrey.Name" xml:space="preserve">
+    <value>btn_toGrey</value>
+  </data>
+  <data name="&gt;&gt;btn_toGrey.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_toGrey.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;btn_toGrey.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
     <value>376, 11</value>
   </data>
   <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 85</value>
+    <value>90, 99</value>
   </data>
   <data name="groupBox4.TabIndex" type="System.Int32, mscorlib">
     <value>75</value>
@@ -988,6 +1177,36 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_autoCompleteAll.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lLayers_count.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lLayers_count.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lLayers_count.Location" type="System.Drawing.Point, System.Drawing">
+    <value>44, 17</value>
+  </data>
+  <data name="lLayers_count.Size" type="System.Drawing.Size, System.Drawing">
+    <value>13, 13</value>
+  </data>
+  <data name="lLayers_count.TabIndex" type="System.Int32, mscorlib">
+    <value>87</value>
+  </data>
+  <data name="lLayers_count.Text" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lLayers_count.Name" xml:space="preserve">
+    <value>lLayers_count</value>
+  </data>
+  <data name="&gt;&gt;lLayers_count.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lLayers_count.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;lLayers_count.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

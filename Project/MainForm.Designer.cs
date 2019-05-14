@@ -61,6 +61,7 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btn_autoCompleteAll = new System.Windows.Forms.Button();
             this.lLayers_count = new System.Windows.Forms.Label();
+            this.btn_toGrey = new System.Windows.Forms.Button();
             this.gb_haar_cascade.SuspendLayout();
             this.gb_ffmpeg.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -269,6 +270,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.btn_toGrey);
             this.groupBox4.Controls.Add(this.btn_img1_clahe);
             this.groupBox4.Controls.Add(this.btn_img1_resize);
             resources.ApplyResources(this.groupBox4, "groupBox4");
@@ -292,6 +294,13 @@
             // 
             resources.ApplyResources(this.lLayers_count, "lLayers_count");
             this.lLayers_count.Name = "lLayers_count";
+            // 
+            // btn_toGrey
+            // 
+            resources.ApplyResources(this.btn_toGrey, "btn_toGrey");
+            this.btn_toGrey.Name = "btn_toGrey";
+            this.btn_toGrey.UseVisualStyleBackColor = true;
+            this.btn_toGrey.Click += new System.EventHandler(this.btn_toGrey_Click);
             // 
             // MainForm
             // 
@@ -350,6 +359,7 @@
         private System.Windows.Forms.TextBox tb_test_imgs_path;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lLayers_count;
+        private System.Windows.Forms.Button btn_toGrey;
     }
 }
 

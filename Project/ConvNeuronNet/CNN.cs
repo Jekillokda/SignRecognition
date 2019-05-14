@@ -32,12 +32,12 @@ namespace Project.ConvNeuronNet
         public int createCNN(int inpx = 32, int inpy = 32, int inpd = 1)
         {
             net.AddLayer(new InputLayer(inpx, inpy, inpd));
-            net.AddLayer(new ConvLayer(28, 28, 12));
+            net.AddLayer(new ConvLayer(5, 5, 14) { Stride = 1, Pad = 2 });
             net.AddLayer(new ReluLayer());
-            net.AddLayer(new PoolLayer(14, 14));
-            net.AddLayer(new ConvLayer(10, 10, 24));
+            net.AddLayer(new PoolLayer(2, 2));
+            net.AddLayer(new ConvLayer(5, 5, 28) { Stride = 1, Pad = 2 });
             net.AddLayer(new ReluLayer());
-            net.AddLayer(new PoolLayer(5, 5));
+            net.AddLayer(new PoolLayer(2, 2));
             net.AddLayer(new FullyConnLayer(150));
             //net.AddLayer(new DropoutLayer(0.5));
             net.AddLayer(new FullyConnLayer(100));
@@ -71,8 +71,8 @@ namespace Project.ConvNeuronNet
             }
             this.trainer = new SgdTrainer<double>(this.net)
             {
-                LearningRate = 0.01,
-                BatchSize = 10,
+                LearningRate = 0.02,
+                BatchSize = 20,
                 Momentum = 0.9
             };
         

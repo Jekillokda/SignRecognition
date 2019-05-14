@@ -60,7 +60,7 @@ namespace Project.ConvNeuronNet
                         dataVolume.Set(x, y, 0, i, entry.Image[j++] / 255.0);
                     }
                 }
-
+                if(i * numClasses + entry.Label<label.Length)
                 label[i * numClasses + entry.Label] = 1.0;
 
                 start++;
