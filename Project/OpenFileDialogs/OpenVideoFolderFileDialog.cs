@@ -4,7 +4,7 @@ namespace Project
 {
     class OpenVideoFolderFileDialog
     {
-        static VideoFolder Vf = new VideoFolder("");
+        static VideoFolder Vf = new VideoFolder();
         public static VideoFolder openFolder()
         {
             string[] arr = new string[0];
@@ -18,9 +18,8 @@ namespace Project
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     path = dialog.SelectedPath;
-                    Vf = new VideoFolder(path);
-                    Properties.Settings.Default.last_path_to_videos = path;
-                    Properties.Settings.Default.Save(); 
+                    Vf = new VideoFolder();
+                    Vf.load(path);
             }
             return Vf;
         }

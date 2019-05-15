@@ -17,6 +17,7 @@ namespace Project
         {
             path = "";
             count = 0;
+            imageArray = new string[0];
         }
         public int load(string path)
         {

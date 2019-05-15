@@ -18,22 +18,23 @@ namespace Project.ConvNeuronNet
         int stepCount;
         string loadedJson;
         string JsonToSave;
-        int Aim;
+        readonly int Aim;
         double Acc = 0;
         int classes;
         bool isNetLearned;
         private SgdTrainer<double> trainer;
-        string path = @"D:\road-video\CNN.txt";
+        string path; 
         private ConvLayer convLayer;
 
         private readonly CircularBuffer<double> testAccWindow = new CircularBuffer<double>(100);
         private readonly CircularBuffer<double> trainAccWindow = new CircularBuffer<double>(100);
 
-        public CNN()
+        public CNN(int aim, string path)
         {
             net = new Net<double>();
-            Aim = 90;
+            Aim = aim;
             isNetLearned = false;
+            path = @"D:\road-video\CNN.txt";
         }
         public int createCNN(int inpx = 32, int inpy = 32, int inpd = 1, int classesCount = 10)
         {
@@ -60,6 +61,7 @@ namespace Project.ConvNeuronNet
             this.net.AddLayer(new PoolLayer(3, 3) { Stride = 3 });
             this.net.AddLayer(new FullyConnLayer(10));
             this.net.AddLayer(new SoftmaxLayer(10));
+            classes = classesCount;
             return net.Layers.Count;
         }
 
@@ -118,7 +120,7 @@ namespace Project.ConvNeuronNet
 
                 Console.WriteLine($"{stepCount}");
                 isNetLearned = true;
-                return trainer.Loss;
+                return Acc;
             }
             
             else return -1;
@@ -128,14 +130,18 @@ namespace Project.ConvNeuronNet
         {
             if (net.Layers.Count > 0)
             {
+               
                 JsonToSave = net.ToJson();
-                File.WriteAllText(path, JsonToSave);
-                return JsonToSave;
+                var name = "CNN_" + getAccuracy().ToString() + ".txt";
+                var newPath = Path.Combine(Path.GetDirectoryName(path), name);
+
+                File.WriteAllText(newPath, JsonToSave);
+                return newPath;
             }
             else return "";
         }
 
-        public int loadCNN()
+        public int loadCNN(string path)
         {
             if (path!= "")
             {
@@ -143,6 +149,8 @@ namespace Project.ConvNeuronNet
                 var deserialized = SerializationExtensions.FromJson<double>(loadedJson);
                 this.net = deserialized;
                 isNetLearned = true;
+                this.path = path;
+                classes = deserialized.Layers[getLayersCount() - 1].OutputDepth;
                 return net.Layers.Count;
             }
             else return -1;
@@ -150,15 +158,49 @@ namespace Project.ConvNeuronNet
 
         public string recognize(byte[] image)
         {
+            if (image.Length != 32 * 32)
+            {
+                return "Wrong Image Size";
+            }
+            if (net.Layers.Count == 0)
+            {
+                return "Network is not created";
+            }
+            if (!isNetLearned)
+            {
+                return "Network is not learned or not loaded";
+            }
+            var dataShape = new Shape(32, 32, 1, 1);
+            var data = new double[dataShape.TotalLength];
+            var dataVolume = BuilderInstance.Volume.From(data, dataShape);
 
+            var j = 0;
+            for (var y = 0; y < 32; y++)
+            {
+                for (var x = 0; x < 32; x++)
+                {
+                    dataVolume.Set(x, y, 0, 0, image[j++]);
+                }
+            }
+            net.Forward(dataVolume);
+            var prediction = net.GetPrediction();
+            return getClassNameFromNumber(prediction[0]);
+        }
+
+        public string[] recognizeAll( byte[] image)
+        {
+            int count = 10;
+            string[] result = new string[count];
+            for (var i = 0; i < count; i++)
+            {
                 if (image.Length != 32 * 32)
                 {
-                    return "ERROR";
+                    return result;
                 }
                 if (net.Layers.Count == 0)
                 {
                     this.createCNN();
-                    loadCNN();
+                    loadCNN(path);
                 }
                 var dataShape = new Shape(32, 32, 1, 1);
                 var data = new double[dataShape.TotalLength];
@@ -174,7 +216,10 @@ namespace Project.ConvNeuronNet
                 }
                 net.Forward(dataVolume);
                 var prediction = net.GetPrediction();
-                return getClassNameFromNumver(prediction[0]);
+                 
+                result[i] = getClassNameFromNumber(prediction[0]);
+            }
+            return result;
         }
 
         private void Train(Volume<double> x, Volume<double> y, int[] labels)
@@ -196,12 +241,22 @@ namespace Project.ConvNeuronNet
             return this.classes;
         }
 
+        public double getAccuracy()
+        {
+            return Acc;
+        }
+
+        public bool Reset()
+        {
+            return false;
+        }
+
         public bool isLearned()
         {
             return this.isNetLearned;
         }
 
-        public string getClassNameFromNumver(int n)
+        public string getClassNameFromNumber(int n)
         {
             switch (n)
             {

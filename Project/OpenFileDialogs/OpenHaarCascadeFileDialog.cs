@@ -20,8 +20,6 @@ namespace Project
                 {
                     path = openFileDialog.FileName;
                     cascade = new SignsHaarCascade(path);
-                    Properties.Settings.Default.last_path_to_cascade = path;
-                    Properties.Settings.Default.Save();
                 }
             }
             else

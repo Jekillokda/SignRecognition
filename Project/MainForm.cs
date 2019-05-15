@@ -3,6 +3,7 @@ using ConvNetSharp.Volume.Double;
 using Emgu.CV;
 using Emgu.CV.Structure;
 using Project.ConvNeuronNet;
+using Project.OpenFileDialogs;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -18,26 +19,77 @@ namespace Project
         ImageFolder trainFolder;
         ImageFolder testFolder;
         ImageFolder imageFolder;
-
-        CNN network = new CNN();
+        string[] folders_to_detect;
+        string path_to_cutted_images;
+        string path_to_detect_images;
+        int images_count_to_detect;
+        string path_to_cascade;
+        int aim = 80;
+        CNN network; 
 
         public MainForm()
         {
             InitializeComponent();
+
+            if (Properties.Settings.Default.last_path_to_videos != "")
+            {
+                vidFolder = new VideoFolder();
+                vidFolder.load(Properties.Settings.Default.last_path_to_videos);
+                lVideos_count.Text = "Found " + vidFolder.getCount();               
+                tb_videos_path.Text = vidFolder.getPath();   
+            }
+
+            if (Properties.Settings.Default.last_path_for_images_to_save != "")
+            {
+                var path = Properties.Settings.Default.last_path_for_images_to_save;
+                tb_images_to_save_path.Text = path;
+            }
+
+            if (Properties.Settings.Default.last_path_for_images_to_detect != "")
+            {
+                path_to_detect_images = Properties.Settings.Default.last_path_for_images_to_detect;
+                tb_images_to_detect_path.Text = path_to_detect_images;
+                folders_to_detect = Directory.GetDirectories(path_to_detect_images);
+                lFoldersToDetectCount.Text = folders_to_detect.Length.ToString();
+                images_count_to_detect = 0;
+                foreach (string p in folders_to_detect)
+                {
+                    string[] dirs = Directory.GetFiles(p, "*.jpg");
+                    images_count_to_detect += dirs.Length;
+                }
+                lImagesToDetectCount.Text = images_count_to_detect.ToString();
+            }
+
+            if (Properties.Settings.Default.last_path_to_cascade != "")
+            {
+                path_to_cascade = Properties.Settings.Default.last_path_to_cascade;
+                if (File.Exists(path_to_cascade))
+                {
+                    lCascadeLoaded.Text = "loaded";
+                    tb_cascade_path.Text = path_to_cascade;
+                }
+                else
+                {
+                    lCascadeLoaded.Text = "Not loaded";
+                }
+            }
+
             if (Properties.Settings.Default.last_path_to_learn_pictures != "")
             {
                 trainFolder = new ImageFolder();
                 trainFolder.load(Properties.Settings.Default.last_path_to_learn_pictures);
-                lLearn.Text = "Found " + trainFolder.getCount();
+                lLearn_count.Text = "Found " + trainFolder.getCount();
                 tb_train_imgs_path.Text = trainFolder.getPath();
             }
+
             if (Properties.Settings.Default.last_path_to_test_pictures != "")
             {
                 testFolder = new ImageFolder();
                 testFolder.load(Properties.Settings.Default.last_path_to_test_pictures);
-                lTest.Text = "Found " + testFolder.getCount();
+                lTest_count.Text = "Found " + testFolder.getCount();
                 tb_test_imgs_path.Text = testFolder.getPath();
             }
+
             if (Properties.Settings.Default.last_path_to_test_pictures != "")
             {
                 imageFolder = new ImageFolder();
@@ -46,7 +98,22 @@ namespace Project
                 tb_imgs_path.Text = imageFolder.getPath();
             }
 
-            
+            if (Properties.Settings.Default.last_path_to_network != "")
+            {
+                lNetwork.Text = "exists";
+                var path = Properties.Settings.Default.last_path_to_network;
+                tb_network_path.Text = path;
+                network = new CNN(aim, path);
+            }
+            else
+            {
+                network = new CNN(0, "");
+            }
+
+            if((tb_videos_path.Text!= "") && (lVideos_count.Text != ""))
+            {
+                btn_convert_videos.Visible = true;
+            }
             //Properties.Settings.Default.is_opened_first_time = true;
             /*if (Properties.Settings.Default.is_opened_first_time)
             {
@@ -56,16 +123,24 @@ namespace Project
             }*/
         }
 
-        private void btn_load_videos_Click(object sender, EventArgs e)
+        private void btn_videos_open_Click(object sender, EventArgs e)
         {
-            vidFolder = OpenVideoFolderFileDialog.openFolder();
-            if (vidFolder.getCount() > 0)
+            var folder = OpenVideoFolderFileDialog.openFolder();
+            if (folder.getPath() != "")
             {
-                gb_ffmpeg.Text = "Found " + vidFolder.getCount() + " videos";
-                btn_convert_videos.Visible = true;
+                vidFolder = folder;
+                if (vidFolder.getCount() > 0)
+                {
+                    lVideos_count.Text = "Found " + vidFolder.getCount() + " videos";
+
+                    tb_videos_path.Text = vidFolder.getPath();
+                    Properties.Settings.Default.last_path_to_videos = vidFolder.getPath();
+                    Properties.Settings.Default.Save();
+                    Properties.Settings.Default.Upgrade();
+                }
+                else
+                    lVideos_count.Text = "Videos not found";
             }
-            else
-                gb_ffmpeg.Text = "Videos not found";
         }
 
         private void btn_convert_videos_Click(object sender, EventArgs e)
@@ -74,13 +149,75 @@ namespace Project
             foreach (string videopath in vidFolder.videoArray)
             {
                     int fps = 5;
-                    FFMPEGConverter conv = new FFMPEGConverter(videopath, fps);
+                    FFMPEGConverter conv = new FFMPEGConverter(videopath,tb_images_to_save_path.Text, fps);
                     if (conv.convertAll() == false)
                 {
                     MessageBox.Show("Something went wrong with"+ videopath);
                 }
             }
-             
+            lFoldersToDetectCount.Text = folders_to_detect.Length.ToString();
+            images_count_to_detect = 0;
+            foreach (string p in folders_to_detect)
+            {
+                string[] dirs = Directory.GetFiles(p, "*.jpg");
+                images_count_to_detect += dirs.Length;
+            }
+            lImagesToDetectCount.Text = images_count_to_detect.ToString();
+        }
+
+        private void btn_images_to_save_open_Click(object sender, EventArgs e)
+        {
+            var dialog = new FolderBrowserDialog();
+            dialog.SelectedPath = tb_images_to_save_path.Text;
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                path_to_cutted_images = dialog.SelectedPath;
+                tb_images_to_save_path.Text = path_to_cutted_images;
+            }
+            Properties.Settings.Default.last_path_for_images_to_save = path_to_cutted_images;
+            Properties.Settings.Default.Save();
+            Properties.Settings.Default.Upgrade();
+        }
+
+        private void btn_cascade_open_Click(object sender, EventArgs e)
+        { 
+            path_to_cascade = OpenXmlFileDialog.openFile();
+            tb_cascade_path.Text = path_to_cascade;
+            if (File.Exists(path_to_cascade))
+            {
+                lCascadeLoaded.Text = "Loaded";
+            }
+            else
+            {
+                lCascadeLoaded.Text = "Not Exists";
+            }
+            Properties.Settings.Default.last_path_to_cascade = path_to_cascade;
+            Properties.Settings.Default.Save();
+            Properties.Settings.Default.Upgrade();
+        }
+
+        private void btn_images_to_detect_open_Click(object sender, EventArgs e)
+        {
+            var dialog = new FolderBrowserDialog();
+            dialog.SelectedPath = tb_images_to_detect_path.Text;
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                path_to_detect_images = dialog.SelectedPath;
+                tb_images_to_detect_path.Text = path_to_detect_images;
+                folders_to_detect = Directory.GetDirectories(path_to_detect_images);
+                lFoldersToDetectCount.Text = folders_to_detect.Length.ToString();
+                int count = 0;
+                foreach( string p in folders_to_detect)
+                {
+                    string[] dirs = Directory.GetFiles(p, "*.jpg");
+                    count += dirs.Length;
+                }
+                lImagesToDetectCount.Text = count.ToString();
+                
+            }
+            Properties.Settings.Default.last_path_for_images_to_detect = path_to_detect_images;
+            Properties.Settings.Default.Save();
+            Properties.Settings.Default.Upgrade();
         }
 
         private void btn_Haar_Detect_Click(object sender, EventArgs e)
@@ -136,9 +273,12 @@ namespace Project
                 double d = network.teachCNN(trainFolder.getPath(), testFolder.getPath());
                 if (d == -1)
                     MessageBox.Show("Please add layers and try again");
+                else
+                    lAccuracy.Text = d.ToString();
             }
             if(network.isLearned())
             lLearned.Text = "Learned";
+            
         }
 
         private void btn_CNN_recognize_Click(object sender, EventArgs e)
@@ -150,10 +290,14 @@ namespace Project
 
         private void btn_CNN_load_Click(object sender, EventArgs e)
         {
-            int n = network.loadCNN();
+            int n = network.loadCNN(tb_network_path.Text);
             lLayers_count.Text = n.ToString();
+            lClasses_count.Text = network.getClassesCount().ToString();
             if (network.isLearned())
                 lLearned.Text = "Learned";
+            var p = Path.GetFileName(tb_network_path.Text);
+            p = p.Substring(p.IndexOf('_') + 1, p.IndexOf('.') - p.IndexOf('_') - 1);
+            lAccuracy.Text = p;
         }
 
         private void btn_CNN_save_Click(object sender, EventArgs e)
@@ -179,46 +323,61 @@ namespace Project
 
         private void btn_train_imgs_open_Click(object sender, EventArgs e)
         {
-            trainFolder = OpenPictureFolderFileDialog.openFolder();
-            if (trainFolder.getCount() > 0)
+            var folder = OpenPictureFolderFileDialog.openFolder();
+            if (folder.getPath() != "")
             {
-                lLearn.Text = "Found " + trainFolder.getCount();
+                trainFolder = folder;
+                if (trainFolder.getCount() > 0)
+                {
+                lLearn_count.Text = "Found " + trainFolder.getCount();
                 tb_train_imgs_path.Text = trainFolder.getPath();
                 Properties.Settings.Default.last_path_to_learn_pictures = trainFolder.getPath();
                 Properties.Settings.Default.Save();
                 Properties.Settings.Default.Upgrade();
-            }
+                }
             else
-                lLearn.Text = "Not found";
+                lLearn_count.Text = "Not found";
+            }
         }
 
         private void btn_test_imgs_open_Click(object sender, EventArgs e)
         {
-            testFolder = OpenPictureFolderFileDialog.openFolder();
-            if (testFolder.getCount() > 0)
+            var folder = OpenPictureFolderFileDialog.openFolder();
+            if (folder.getPath() != "")
             {
-                lTest.Text = "Found " + testFolder.getCount();
-                tb_test_imgs_path.Text = testFolder.getPath();
-                Properties.Settings.Default.last_path_to_test_pictures = testFolder.getPath();
-                Properties.Settings.Default.Save();
-                Properties.Settings.Default.Upgrade();
+                testFolder = folder;
+                if (testFolder.getCount() > 0)
+                {
+                    lTest_count.Text = "Found " + testFolder.getCount();
+                    tb_test_imgs_path.Text = testFolder.getPath();
+                    Properties.Settings.Default.last_path_to_test_pictures = testFolder.getPath();
+                    Properties.Settings.Default.Save();
+                    Properties.Settings.Default.Upgrade();
+                }
+                else
+                    lTest_count.Text = "Not found";
             }
-            else
-                lTest.Text = "Not found";
+            
         }
 
         private void tb_train_imgs_path_TextChanged(object sender, EventArgs e)
         {
             trainFolder.setPath(tb_train_imgs_path.Text);
             trainFolder.load(tb_train_imgs_path.Text);
-            lLearn.Text = "Found " + trainFolder.getCount();
+            lLearn_count.Text = "Found " + trainFolder.getCount();
+            Properties.Settings.Default.last_path_to_learn_pictures = trainFolder.getPath();
+            Properties.Settings.Default.Save();
+            Properties.Settings.Default.Upgrade();
         }
 
         private void tb_test_imgs_path_TextChanged(object sender, EventArgs e)
         {
-            lTest.Text = "Found " + testFolder.getCount();
+            lTest_count.Text = "Found " + testFolder.getCount();
             testFolder.setPath(tb_test_imgs_path.Text);
             testFolder.load(tb_test_imgs_path.Text);
+            Properties.Settings.Default.last_path_to_test_pictures = testFolder.getPath();
+            Properties.Settings.Default.Save();
+            Properties.Settings.Default.Upgrade();
         }
 
         private void btn_toGrey_Click(object sender, EventArgs e)
@@ -246,6 +405,32 @@ namespace Project
             else
                 lImages.Text = "Not found";*/
         }
+
+        private void btn_network_open_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            string path;
+            dlg.Title = "Open Network";
+            dlg.Filter = "txt files (*.txt)|*.txt";
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                path = dlg.FileName;
+                tb_network_path.Text = path;
+                Properties.Settings.Default.last_path_to_network = path;
+                Properties.Settings.Default.Save();
+                Properties.Settings.Default.Upgrade();
+            }     
+        }
+
+        private void tb_network_path_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        
+
+       
     }
 
 

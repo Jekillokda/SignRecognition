@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 
 namespace Project
 {
    public class FFMPEGConverter
    {
         private string sourcePath;
+        private string savePath;
         private int fps;
 
-    public FFMPEGConverter(string spath, int fps)
+    public FFMPEGConverter(string spath, string svpath, int fps)
         {
             this.sourcePath = spath;
+            this.savePath = svpath;
             this.fps = fps;
         }
 
@@ -30,12 +33,10 @@ namespace Project
                 {
                     var dbf_File = System.IO.Path.GetFileName(sourcePath);
 
-                    string destinationPath = System.IO.Directory.GetParent(sourcePath).FullName + @"\convertedFrom" + dbf_File.Substring(0, dbf_File.LastIndexOf("."));
+                    string destinationPath = savePath + @"\convertedFrom" + dbf_File.Substring(0, dbf_File.LastIndexOf("."));
 
-                    if (!System.IO.Directory.Exists(destinationPath))
-                    {
-                        System.IO.Directory.CreateDirectory(destinationPath);
-                    }
+                    File.Delete(destinationPath);
+                    System.IO.Directory.CreateDirectory(destinationPath);
 
                     string args = " -i " + sourcePath + " -an -vn -map 0:s -c:s copy -f rawvideo " + destinationPath + @"\subs.txt";
 
@@ -63,7 +64,7 @@ namespace Project
                 {
                     var dbf_File = System.IO.Path.GetFileName(sourcePath);
 
-                    string destinationPath = System.IO.Directory.GetParent(sourcePath).FullName + @"\convertedFrom" + dbf_File.Substring(0, dbf_File.LastIndexOf("."));
+                    string destinationPath = savePath + @"\convertedFrom" + dbf_File.Substring(0, dbf_File.LastIndexOf("."));
 
                     if (!System.IO.Directory.Exists(destinationPath))
                     {

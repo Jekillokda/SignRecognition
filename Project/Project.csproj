@@ -124,6 +124,8 @@
     <Compile Include="ConvNeuronNet\ImageReader.cs" />
     <Compile Include="DB_Export\Result.cs" />
     <Compile Include="DB_Export\ResultExport.cs" />
+    <Compile Include="OpenFileDialogs\OpenTextFileDialog.cs" />
+    <Compile Include="OpenFileDialogs\OpenXmlFileDialog.cs" />
     <Compile Include="Utils\FFMPEGConverter.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>

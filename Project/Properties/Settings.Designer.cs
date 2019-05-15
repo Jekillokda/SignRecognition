@@ -37,19 +37,7 @@ namespace Project.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string last_path_to_images {
-            get {
-                return ((string)(this["last_path_to_images"]));
-            }
-            set {
-                this["last_path_to_images"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\"\"")]
         public string last_path_to_cascade {
             get {
                 return ((string)(this["last_path_to_cascade"]));
@@ -125,6 +113,42 @@ namespace Project.Properties {
             }
             set {
                 this["last_path_to_pictures"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\"\"")]
+        public string last_path_to_network {
+            get {
+                return ((string)(this["last_path_to_network"]));
+            }
+            set {
+                this["last_path_to_network"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\"\"")]
+        public string last_path_for_images_to_save {
+            get {
+                return ((string)(this["last_path_for_images_to_save"]));
+            }
+            set {
+                this["last_path_for_images_to_save"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\"\"")]
+        public string last_path_for_images_to_detect {
+            get {
+                return ((string)(this["last_path_for_images_to_detect"]));
+            }
+            set {
+                this["last_path_for_images_to_detect"] = value;
             }
         }
     }
