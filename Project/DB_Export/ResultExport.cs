@@ -14,7 +14,7 @@ namespace Project
             this.login = login;
             this.password = password;
             this.dataSource = dataS;
-            string constr =
+            constr =
             "User Id=" + this.login + ";" +
             "Password=" + this.password + ";" +
             "Data Source=" + this.dataSource;
@@ -24,8 +24,10 @@ namespace Project
         string password;
         string dataSource;
         OracleConnection con;
+        string constr;
         public bool ConnectToDB()
         {
+            con.ConnectionString = constr;
             con.Open();
             return true;
         }

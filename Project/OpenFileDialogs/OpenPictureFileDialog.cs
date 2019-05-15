@@ -10,10 +10,11 @@ namespace Project
         public static string openFile()
         {
             string path = "";
-            OpenFileDialog dlg = new OpenFileDialog();
-
-            dlg.Title = "Open Image";
-            dlg.Filter = "jpg files (*.jpg)|*.jpg";
+            OpenFileDialog dlg = new OpenFileDialog
+            {
+                Title = "Open Image",
+                Filter = "jpg files (*.jpg)|*.jpg"
+            };
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {

@@ -21,10 +21,11 @@ namespace Project
         ImageFolder imageFolder;
         string[] folders_to_detect;
         string path_to_cutted_images;
+        string path_to_save_detected_images;
         string path_to_detect_images;
         int images_count_to_detect;
         string path_to_cascade;
-        int aim = 80;
+        int aim;
         CNN network; 
 
         public MainForm()
@@ -65,13 +66,19 @@ namespace Project
                 path_to_cascade = Properties.Settings.Default.last_path_to_cascade;
                 if (File.Exists(path_to_cascade))
                 {
-                    lCascadeLoaded.Text = "loaded";
+                    lCascadeLoaded.Text = "Loaded";
                     tb_cascade_path.Text = path_to_cascade;
                 }
                 else
                 {
                     lCascadeLoaded.Text = "Not loaded";
                 }
+            }
+
+            if (Properties.Settings.Default.last_path_for_detected_images_to_save != "")
+            {
+                var path = Properties.Settings.Default.last_path_for_detected_images_to_save;
+                tb_detected_images_to_save_path.Text = path;
             }
 
             if (Properties.Settings.Default.last_path_to_learn_pictures != "")
@@ -103,17 +110,18 @@ namespace Project
                 lNetwork.Text = "exists";
                 var path = Properties.Settings.Default.last_path_to_network;
                 tb_network_path.Text = path;
-                network = new CNN(aim, path);
+                network = new CNN(path);
             }
             else
             {
-                network = new CNN(0, "");
+                network = new CNN("");
             }
 
             if((tb_videos_path.Text!= "") && (lVideos_count.Text != ""))
             {
                 btn_convert_videos.Visible = true;
             }
+            aim = Int32.Parse(tb_network_acc.Text);
             //Properties.Settings.Default.is_opened_first_time = true;
             /*if (Properties.Settings.Default.is_opened_first_time)
             {
@@ -167,8 +175,10 @@ namespace Project
 
         private void btn_images_to_save_open_Click(object sender, EventArgs e)
         {
-            var dialog = new FolderBrowserDialog();
-            dialog.SelectedPath = tb_images_to_save_path.Text;
+            var dialog = new FolderBrowserDialog
+            {
+                SelectedPath = tb_images_to_save_path.Text
+            };
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 path_to_cutted_images = dialog.SelectedPath;
@@ -181,7 +191,12 @@ namespace Project
 
         private void btn_cascade_open_Click(object sender, EventArgs e)
         { 
-            path_to_cascade = OpenXmlFileDialog.openFile();
+            string path = OpenXmlFileDialog.openFile();
+            if(path != "")
+            {
+                path_to_cascade = path;
+            }
+            
             tb_cascade_path.Text = path_to_cascade;
             if (File.Exists(path_to_cascade))
             {
@@ -198,8 +213,10 @@ namespace Project
 
         private void btn_images_to_detect_open_Click(object sender, EventArgs e)
         {
-            var dialog = new FolderBrowserDialog();
-            dialog.SelectedPath = tb_images_to_detect_path.Text;
+            var dialog = new FolderBrowserDialog
+            {
+                SelectedPath = tb_images_to_detect_path.Text
+            };
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 path_to_detect_images = dialog.SelectedPath;
@@ -221,35 +238,50 @@ namespace Project
         }
 
         private void btn_Haar_Detect_Click(object sender, EventArgs e)
-        {
-            
-            SignsHaarCascade cascade = OpenHaarCascadeFileDialog.openCascade(); //new SignsHaarCascade(@"D:\road-video\pyHaar\cascade.xml");
-           /* if (imgbox1.Image != null)
+        { 
+            SignsHaarCascade cascade =  new SignsHaarCascade(tb_cascade_path.Text);
+            int count = 0;
+            foreach (string folder_path in folders_to_detect)
             {
-                Mat img = new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat;
-                img = ImgOps.InterpolationResize(img, 50, 50);
-                List<Mat> list = cascade.detectAll((new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat));
-                MessageBox.Show("found " + list.Count);
-                for (int i = 0; i < list.Count; i++)
-                    list[i].Save(@"D:\road-video\haarCascade\" + i + " .jpg");
-           }
-            else
-            {*/
-                MessageBox.Show("Choose some picture for detection");
-            //}
+                foreach(string image_path in Directory.GetFiles(folder_path, "*.jpg"))
+                {
+                   Mat img = new Image<Bgr, byte>(image_path).Mat;
+                    List<Mat> list = cascade.detectAll(img);
+                    count += list.Count;
+                    for (int i = 0; i < list.Count; i++)
+                     list[i].Save(tb_detected_images_to_save_path.Text + i + " .jpg"); 
+                }
+            }
+            MessageBox.Show(count.ToString());
+        }
+
+        private void btn_detected_images_to_save_open_Click(object sender, EventArgs e)
+        {
+            var dialog = new FolderBrowserDialog
+            {
+                SelectedPath = tb_detected_images_to_save_path.Text
+            };
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                path_to_save_detected_images = dialog.SelectedPath;
+                tb_detected_images_to_save_path.Text = path_to_save_detected_images;
+            }
+            Properties.Settings.Default.last_path_for_detected_images_to_save = path_to_save_detected_images;
+            Properties.Settings.Default.Save();
+            Properties.Settings.Default.Upgrade();
         }
 
         private void btn_img1_resize_Click(object sender, EventArgs e)
         {
-        //    if (imgbox1.Image != null)
-        //    {
-        //        int w = Convert.ToInt32(tb_resize_x.Text);
-        //        int h = Convert.ToInt32(tb_resize_y.Text);
-        //        imgbox3.Image = ImgOps.InterpolationResize(new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat, w, h);
-        //    }
-        //    else
-        //    {
-                MessageBox.Show("Plz load img");
+            //    img = ImgOps.InterpolationResize(img, 50, 50);
+            //    {
+            //        int w = Convert.ToInt32(tb_resize_x.Text);
+            //        int h = Convert.ToInt32(tb_resize_y.Text);
+            //        imgbox3.Image = ImgOps.InterpolationResize(new Image<Bgr, byte>(imgbox1.Image.Bitmap).Mat, w, h);
+            //    }
+            //    else
+            //    {
+            MessageBox.Show("Plz load img");
         //    }
         }
 
@@ -261,16 +293,21 @@ namespace Project
 
         private void btn_CNN_create_Click(object sender, EventArgs e)
         {
-            int c = network.createCNN(32, 32, 1, 10);
+            int c = network.createCNN(32, 32, 1, 11);
             lLayers_count.Text = c.ToString();
             lClasses_count.Text = network.getClassesCount().ToString();
+        }
+
+        private void tb_network_acc_TextChanged(object sender, EventArgs e)
+        {
+            aim = Int32.Parse(tb_network_acc.Text);
         }
 
         private void btn_CNN_learn_Click(object sender, EventArgs e)
         {
             if ((trainFolder != null) && (testFolder != null))
             {
-                double d = network.teachCNN(trainFolder.getPath(), testFolder.getPath());
+                double d = network.teachCNN(trainFolder.getPath(), testFolder.getPath(), aim);
                 if (d == -1)
                     MessageBox.Show("Please add layers and try again");
                 else
@@ -283,9 +320,16 @@ namespace Project
 
         private void btn_CNN_recognize_Click(object sender, EventArgs e)
         {
-            string sign = network.recognize(new Image<Gray, byte>(tb_imgs_path.Text).Bytes);
-            lLayers_count.Text = network.getLayersCount().ToString();
-            MessageBox.Show(sign);
+            if (tb_imgs_path.Text != "")
+            {
+                string sign = network.recognize(new Image<Gray, byte>(tb_imgs_path.Text).Bytes);
+                lLayers_count.Text = network.getLayersCount().ToString();
+                MessageBox.Show(sign);
+            }
+            else
+            {
+                MessageBox.Show("Path to image is empty");
+            }
         }
 
         private void btn_CNN_load_Click(object sender, EventArgs e)
@@ -302,8 +346,12 @@ namespace Project
 
         private void btn_CNN_save_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(network.saveCNN());
-            MessageBox.Show("Saved");
+            var path = network.saveCNN(tb_network_path.Text); 
+            Console.WriteLine(path);
+            tb_network_path.Text = path;
+            Properties.Settings.Default.last_path_to_network = path;
+            Properties.Settings.Default.Save();
+            Properties.Settings.Default.Upgrade();
         }
 
         private void btn_autoCompleteAll_Click(object sender, EventArgs e)
@@ -429,10 +477,7 @@ namespace Project
         }
 
         
-
-       
     }
-
 
 }
 

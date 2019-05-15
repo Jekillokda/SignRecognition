@@ -151,5 +151,17 @@ namespace Project.Properties {
                 this["last_path_for_images_to_detect"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\"\"")]
+        public string last_path_for_detected_images_to_save {
+            get {
+                return ((string)(this["last_path_for_detected_images_to_save"]));
+            }
+            set {
+                this["last_path_for_detected_images_to_save"] = value;
+            }
+        }
     }
 }

@@ -56,5 +56,10 @@ namespace Project
         {
             return imageArray[n];
         }
+        public bool sort()
+        {
+            Array.Sort(imageArray);
+            return false;
+        }
     }
 }

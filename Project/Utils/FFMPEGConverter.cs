@@ -6,9 +6,9 @@ namespace Project
 {
    public class FFMPEGConverter
    {
-        private string sourcePath;
-        private string savePath;
-        private int fps;
+        private readonly string sourcePath;
+        private readonly string savePath;
+        private readonly int fps;
 
     public FFMPEGConverter(string spath, string svpath, int fps)
         {

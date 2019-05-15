@@ -35,5 +35,8 @@
     <Setting Name="last_path_for_images_to_detect" Type="System.String" Scope="User">
       <Value Profile="(Default)">""</Value>
     </Setting>
+    <Setting Name="last_path_for_detected_images_to_save" Type="System.String" Scope="User">
+      <Value Profile="(Default)">""</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -14,8 +14,10 @@ namespace Project
                 {
                     path = Properties.Settings.Default.last_path_to_cascade;
                 }
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.Filter = "XML Files|*.xml";
+                OpenFileDialog openFileDialog = new OpenFileDialog
+                {
+                    Filter = "XML Files|*.xml"
+                };
                 if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     path = openFileDialog.FileName;

@@ -119,7 +119,7 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btn_convert_videos.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 102</value>
+    <value>9, 99</value>
   </data>
   <data name="btn_convert_videos.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 23</value>
@@ -147,7 +147,7 @@
     <value>4</value>
   </data>
   <data name="btn_Haar_Detect.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 137</value>
+    <value>6, 146</value>
   </data>
   <data name="btn_Haar_Detect.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -168,17 +168,251 @@
     <value>gb_haar_cascade</value>
   </data>
   <data name="&gt;&gt;btn_Haar_Detect.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;label12.Name" xml:space="preserve">
+    <value>label12</value>
+  </data>
+  <data name="&gt;&gt;label12.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label12.Parent" xml:space="preserve">
+    <value>gb_haar_cascade</value>
+  </data>
+  <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lImagesToDetectCount.Name" xml:space="preserve">
+    <value>lImagesToDetectCount</value>
+  </data>
+  <data name="&gt;&gt;lImagesToDetectCount.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lImagesToDetectCount.Parent" xml:space="preserve">
+    <value>gb_haar_cascade</value>
+  </data>
+  <data name="&gt;&gt;lImagesToDetectCount.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tb_detected_images_to_save_path.Name" xml:space="preserve">
+    <value>tb_detected_images_to_save_path</value>
+  </data>
+  <data name="&gt;&gt;tb_detected_images_to_save_path.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tb_detected_images_to_save_path.Parent" xml:space="preserve">
+    <value>gb_haar_cascade</value>
+  </data>
+  <data name="&gt;&gt;tb_detected_images_to_save_path.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;btn_detected_images_to_save_open.Name" xml:space="preserve">
+    <value>btn_detected_images_to_save_open</value>
+  </data>
+  <data name="&gt;&gt;btn_detected_images_to_save_open.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_detected_images_to_save_open.Parent" xml:space="preserve">
+    <value>gb_haar_cascade</value>
+  </data>
+  <data name="&gt;&gt;btn_detected_images_to_save_open.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;label10.Name" xml:space="preserve">
+    <value>label10</value>
+  </data>
+  <data name="&gt;&gt;label10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label10.Parent" xml:space="preserve">
+    <value>gb_haar_cascade</value>
+  </data>
+  <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;lFoldersToDetectCount.Name" xml:space="preserve">
+    <value>lFoldersToDetectCount</value>
+  </data>
+  <data name="&gt;&gt;lFoldersToDetectCount.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lFoldersToDetectCount.Parent" xml:space="preserve">
+    <value>gb_haar_cascade</value>
+  </data>
+  <data name="&gt;&gt;lFoldersToDetectCount.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;label13.Name" xml:space="preserve">
+    <value>label13</value>
+  </data>
+  <data name="&gt;&gt;label13.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label13.Parent" xml:space="preserve">
+    <value>gb_haar_cascade</value>
+  </data>
+  <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;label14.Name" xml:space="preserve">
+    <value>label14</value>
+  </data>
+  <data name="&gt;&gt;label14.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label14.Parent" xml:space="preserve">
+    <value>gb_haar_cascade</value>
+  </data>
+  <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;tb_images_to_detect_path.Name" xml:space="preserve">
+    <value>tb_images_to_detect_path</value>
+  </data>
+  <data name="&gt;&gt;tb_images_to_detect_path.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tb_images_to_detect_path.Parent" xml:space="preserve">
+    <value>gb_haar_cascade</value>
+  </data>
+  <data name="&gt;&gt;tb_images_to_detect_path.ZOrder" xml:space="preserve">
     <value>8</value>
+  </data>
+  <data name="&gt;&gt;btn_images_to_detect_open.Name" xml:space="preserve">
+    <value>btn_images_to_detect_open</value>
+  </data>
+  <data name="&gt;&gt;btn_images_to_detect_open.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_images_to_detect_open.Parent" xml:space="preserve">
+    <value>gb_haar_cascade</value>
+  </data>
+  <data name="&gt;&gt;btn_images_to_detect_open.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;button1.Name" xml:space="preserve">
+    <value>button1</value>
+  </data>
+  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
+    <value>gb_haar_cascade</value>
+  </data>
+  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;label11.Name" xml:space="preserve">
+    <value>label11</value>
+  </data>
+  <data name="&gt;&gt;label11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label11.Parent" xml:space="preserve">
+    <value>gb_haar_cascade</value>
+  </data>
+  <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;tb_cascade_path.Name" xml:space="preserve">
+    <value>tb_cascade_path</value>
+  </data>
+  <data name="&gt;&gt;tb_cascade_path.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tb_cascade_path.Parent" xml:space="preserve">
+    <value>gb_haar_cascade</value>
+  </data>
+  <data name="&gt;&gt;tb_cascade_path.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;btn_cascade_open.Name" xml:space="preserve">
+    <value>btn_cascade_open</value>
+  </data>
+  <data name="&gt;&gt;btn_cascade_open.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_cascade_open.Parent" xml:space="preserve">
+    <value>gb_haar_cascade</value>
+  </data>
+  <data name="&gt;&gt;btn_cascade_open.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;lCascadeLoaded.Name" xml:space="preserve">
+    <value>lCascadeLoaded</value>
+  </data>
+  <data name="&gt;&gt;lCascadeLoaded.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lCascadeLoaded.Parent" xml:space="preserve">
+    <value>gb_haar_cascade</value>
+  </data>
+  <data name="&gt;&gt;lCascadeLoaded.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="gb_haar_cascade.Location" type="System.Drawing.Point, System.Drawing">
+    <value>381, 12</value>
+  </data>
+  <data name="gb_haar_cascade.Size" type="System.Drawing.Size, System.Drawing">
+    <value>263, 213</value>
+  </data>
+  <data name="gb_haar_cascade.TabIndex" type="System.Int32, mscorlib">
+    <value>55</value>
+  </data>
+  <data name="gb_haar_cascade.Text" xml:space="preserve">
+    <value>Haar Cascade Detector</value>
+  </data>
+  <data name="&gt;&gt;gb_haar_cascade.Name" xml:space="preserve">
+    <value>gb_haar_cascade</value>
+  </data>
+  <data name="&gt;&gt;gb_haar_cascade.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gb_haar_cascade.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gb_haar_cascade.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="label12.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label12.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 172</value>
+  </data>
+  <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 13</value>
+  </data>
+  <data name="label12.TabIndex" type="System.Int32, mscorlib">
+    <value>111</value>
+  </data>
+  <data name="label12.Text" xml:space="preserve">
+    <value>Path for images to save</value>
+  </data>
+  <data name="&gt;&gt;label12.Name" xml:space="preserve">
+    <value>label12</value>
+  </data>
+  <data name="&gt;&gt;label12.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label12.Parent" xml:space="preserve">
+    <value>gb_haar_cascade</value>
+  </data>
+  <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="lImagesToDetectCount.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lImagesToDetectCount.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="lImagesToDetectCount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 94</value>
+    <value>117, 104</value>
   </data>
   <data name="lImagesToDetectCount.Size" type="System.Drawing.Size, System.Drawing">
     <value>13, 13</value>
@@ -199,7 +433,55 @@
     <value>gb_haar_cascade</value>
   </data>
   <data name="&gt;&gt;lImagesToDetectCount.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
+  </data>
+  <data name="tb_detected_images_to_save_path.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 188</value>
+  </data>
+  <data name="tb_detected_images_to_save_path.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 20</value>
+  </data>
+  <data name="tb_detected_images_to_save_path.TabIndex" type="System.Int32, mscorlib">
+    <value>109</value>
+  </data>
+  <data name="&gt;&gt;tb_detected_images_to_save_path.Name" xml:space="preserve">
+    <value>tb_detected_images_to_save_path</value>
+  </data>
+  <data name="&gt;&gt;tb_detected_images_to_save_path.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tb_detected_images_to_save_path.Parent" xml:space="preserve">
+    <value>gb_haar_cascade</value>
+  </data>
+  <data name="&gt;&gt;tb_detected_images_to_save_path.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btn_detected_images_to_save_open.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btn_detected_images_to_save_open.Location" type="System.Drawing.Point, System.Drawing">
+    <value>225, 188</value>
+  </data>
+  <data name="btn_detected_images_to_save_open.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 23</value>
+  </data>
+  <data name="btn_detected_images_to_save_open.TabIndex" type="System.Int32, mscorlib">
+    <value>110</value>
+  </data>
+  <data name="btn_detected_images_to_save_open.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;btn_detected_images_to_save_open.Name" xml:space="preserve">
+    <value>btn_detected_images_to_save_open</value>
+  </data>
+  <data name="&gt;&gt;btn_detected_images_to_save_open.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_detected_images_to_save_open.Parent" xml:space="preserve">
+    <value>gb_haar_cascade</value>
+  </data>
+  <data name="&gt;&gt;btn_detected_images_to_save_open.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="label10.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -208,7 +490,7 @@
     <value>NoControl</value>
   </data>
   <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>185, 137</value>
+    <value>172, 91</value>
   </data>
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
     <value>38, 13</value>
@@ -229,7 +511,7 @@
     <value>gb_haar_cascade</value>
   </data>
   <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
   </data>
   <data name="lFoldersToDetectCount.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -238,7 +520,7 @@
     <value>NoControl</value>
   </data>
   <data name="lFoldersToDetectCount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>163, 137</value>
+    <value>117, 91</value>
   </data>
   <data name="lFoldersToDetectCount.Size" type="System.Drawing.Size, System.Drawing">
     <value>13, 13</value>
@@ -259,7 +541,7 @@
     <value>gb_haar_cascade</value>
   </data>
   <data name="&gt;&gt;lFoldersToDetectCount.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>5</value>
   </data>
   <data name="label13.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -268,7 +550,7 @@
     <value>NoControl</value>
   </data>
   <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>138, 94</value>
+    <value>172, 104</value>
   </data>
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 13</value>
@@ -289,7 +571,7 @@
     <value>gb_haar_cascade</value>
   </data>
   <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>6</value>
   </data>
   <data name="label14.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -298,16 +580,16 @@
     <value>NoControl</value>
   </data>
   <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 93</value>
+    <value>3, 104</value>
   </data>
   <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 13</value>
+    <value>110, 13</value>
   </data>
   <data name="label14.TabIndex" type="System.Int32, mscorlib">
     <value>118</value>
   </data>
   <data name="label14.Text" xml:space="preserve">
-    <value>Path to Images</value>
+    <value>Path to Image Folders</value>
   </data>
   <data name="&gt;&gt;label14.Name" xml:space="preserve">
     <value>label14</value>
@@ -319,10 +601,10 @@
     <value>gb_haar_cascade</value>
   </data>
   <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>7</value>
   </data>
   <data name="tb_images_to_detect_path.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 110</value>
+    <value>6, 120</value>
   </data>
   <data name="tb_images_to_detect_path.Size" type="System.Drawing.Size, System.Drawing">
     <value>213, 20</value>
@@ -340,13 +622,13 @@
     <value>gb_haar_cascade</value>
   </data>
   <data name="&gt;&gt;tb_images_to_detect_path.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>8</value>
   </data>
   <data name="btn_images_to_detect_open.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="btn_images_to_detect_open.Location" type="System.Drawing.Point, System.Drawing">
-    <value>229, 108</value>
+    <value>225, 120</value>
   </data>
   <data name="btn_images_to_detect_open.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 23</value>
@@ -367,13 +649,13 @@
     <value>gb_haar_cascade</value>
   </data>
   <data name="&gt;&gt;btn_images_to_detect_open.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>9</value>
   </data>
   <data name="button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 19</value>
+    <value>6, 20</value>
   </data>
   <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 23</value>
@@ -394,7 +676,7 @@
     <value>gb_haar_cascade</value>
   </data>
   <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>10</value>
   </data>
   <data name="label11.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -403,7 +685,7 @@
     <value>NoControl</value>
   </data>
   <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 48</value>
+    <value>3, 49</value>
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 13</value>
@@ -424,10 +706,10 @@
     <value>gb_haar_cascade</value>
   </data>
   <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>12</value>
   </data>
   <data name="tb_cascade_path.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 65</value>
+    <value>6, 65</value>
   </data>
   <data name="tb_cascade_path.Size" type="System.Drawing.Size, System.Drawing">
     <value>213, 20</value>
@@ -445,13 +727,13 @@
     <value>gb_haar_cascade</value>
   </data>
   <data name="&gt;&gt;tb_cascade_path.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>13</value>
   </data>
   <data name="btn_cascade_open.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="btn_cascade_open.Location" type="System.Drawing.Point, System.Drawing">
-    <value>229, 63</value>
+    <value>225, 62</value>
   </data>
   <data name="btn_cascade_open.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 23</value>
@@ -472,7 +754,7 @@
     <value>gb_haar_cascade</value>
   </data>
   <data name="&gt;&gt;btn_cascade_open.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>14</value>
   </data>
   <data name="lCascadeLoaded.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -481,7 +763,7 @@
     <value>NoControl</value>
   </data>
   <data name="lCascadeLoaded.Location" type="System.Drawing.Point, System.Drawing">
-    <value>163, 49</value>
+    <value>172, 48</value>
   </data>
   <data name="lCascadeLoaded.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 13</value>
@@ -502,31 +784,7 @@
     <value>gb_haar_cascade</value>
   </data>
   <data name="&gt;&gt;lCascadeLoaded.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="gb_haar_cascade.Location" type="System.Drawing.Point, System.Drawing">
-    <value>381, 12</value>
-  </data>
-  <data name="gb_haar_cascade.Size" type="System.Drawing.Size, System.Drawing">
-    <value>263, 181</value>
-  </data>
-  <data name="gb_haar_cascade.TabIndex" type="System.Int32, mscorlib">
-    <value>55</value>
-  </data>
-  <data name="gb_haar_cascade.Text" xml:space="preserve">
-    <value>Haar</value>
-  </data>
-  <data name="&gt;&gt;gb_haar_cascade.Name" xml:space="preserve">
-    <value>gb_haar_cascade</value>
-  </data>
-  <data name="&gt;&gt;gb_haar_cascade.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gb_haar_cascade.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;gb_haar_cascade.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>15</value>
   </data>
   <data name="&gt;&gt;label9.Name" xml:space="preserve">
     <value>label9</value>
@@ -634,7 +892,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gb_ffmpeg.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="label9.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -667,7 +925,7 @@
     <value>0</value>
   </data>
   <data name="tb_images_to_save_path.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 73</value>
+    <value>9, 73</value>
   </data>
   <data name="tb_images_to_save_path.Size" type="System.Drawing.Size, System.Drawing">
     <value>213, 20</value>
@@ -691,7 +949,7 @@
     <value>NoControl</value>
   </data>
   <data name="btn_images_to_save_open.Location" type="System.Drawing.Point, System.Drawing">
-    <value>225, 71</value>
+    <value>228, 71</value>
   </data>
   <data name="btn_images_to_save_open.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 23</value>
@@ -721,7 +979,7 @@
     <value>NoControl</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 17</value>
+    <value>6, 16</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>76, 13</value>
@@ -775,7 +1033,7 @@
     <value>5</value>
   </data>
   <data name="tb_videos_path.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 34</value>
+    <value>9, 34</value>
   </data>
   <data name="tb_videos_path.Size" type="System.Drawing.Size, System.Drawing">
     <value>213, 20</value>
@@ -799,7 +1057,7 @@
     <value>NoControl</value>
   </data>
   <data name="btn_videos_open.Location" type="System.Drawing.Point, System.Drawing">
-    <value>225, 32</value>
+    <value>228, 32</value>
   </data>
   <data name="btn_videos_open.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 23</value>
@@ -826,7 +1084,7 @@
     <value>NoControl</value>
   </data>
   <data name="btn_ROI_resize.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 42</value>
+    <value>24, 42</value>
   </data>
   <data name="btn_ROI_resize.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -850,7 +1108,7 @@
     <value>3</value>
   </data>
   <data name="btn_ROI_clahe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 71</value>
+    <value>24, 71</value>
   </data>
   <data name="btn_ROI_clahe.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -873,377 +1131,29 @@
   <data name="&gt;&gt;btn_ROI_clahe.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;lAccuracy.Name" xml:space="preserve">
-    <value>lAccuracy</value>
+  <data name="tb_network_acc.Location" type="System.Drawing.Point, System.Drawing">
+    <value>87, 20</value>
   </data>
-  <data name="&gt;&gt;lAccuracy.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="tb_network_acc.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 20</value>
   </data>
-  <data name="&gt;&gt;lAccuracy.Parent" xml:space="preserve">
+  <data name="tb_network_acc.TabIndex" type="System.Int32, mscorlib">
+    <value>109</value>
+  </data>
+  <data name="tb_network_acc.Text" xml:space="preserve">
+    <value>80</value>
+  </data>
+  <data name="&gt;&gt;tb_network_acc.Name" xml:space="preserve">
+    <value>tb_network_acc</value>
+  </data>
+  <data name="&gt;&gt;tb_network_acc.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tb_network_acc.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
-  <data name="&gt;&gt;lAccuracy.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;tb_network_acc.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="&gt;&gt;label8.Name" xml:space="preserve">
-    <value>label8</value>
-  </data>
-  <data name="&gt;&gt;label8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
-  </data>
-  <data name="&gt;&gt;label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;lNetwork.Name" xml:space="preserve">
-    <value>lNetwork</value>
-  </data>
-  <data name="&gt;&gt;lNetwork.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lNetwork.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;lNetwork.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;btn_network_open.Name" xml:space="preserve">
-    <value>btn_network_open</value>
-  </data>
-  <data name="&gt;&gt;btn_network_open.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_network_open.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;btn_network_open.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;tb_network_path.Name" xml:space="preserve">
-    <value>tb_network_path</value>
-  </data>
-  <data name="&gt;&gt;tb_network_path.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tb_network_path.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;tb_network_path.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;lLearned.Name" xml:space="preserve">
-    <value>lLearned</value>
-  </data>
-  <data name="&gt;&gt;lLearned.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lLearned.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;lLearned.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;lClasses_count.Name" xml:space="preserve">
-    <value>lClasses_count</value>
-  </data>
-  <data name="&gt;&gt;lClasses_count.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lClasses_count.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;lClasses_count.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
-  </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
-  </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;lImages.Name" xml:space="preserve">
-    <value>lImages</value>
-  </data>
-  <data name="&gt;&gt;lImages.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lImages.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;lImages.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;btn_imgs_open.Name" xml:space="preserve">
-    <value>btn_imgs_open</value>
-  </data>
-  <data name="&gt;&gt;btn_imgs_open.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_imgs_open.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;btn_imgs_open.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;tb_imgs_path.Name" xml:space="preserve">
-    <value>tb_imgs_path</value>
-  </data>
-  <data name="&gt;&gt;tb_imgs_path.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tb_imgs_path.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;tb_imgs_path.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;lLayers_count.Name" xml:space="preserve">
-    <value>lLayers_count</value>
-  </data>
-  <data name="&gt;&gt;lLayers_count.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lLayers_count.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;lLayers_count.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
-  </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;tb_test_imgs_path.Name" xml:space="preserve">
-    <value>tb_test_imgs_path</value>
-  </data>
-  <data name="&gt;&gt;tb_test_imgs_path.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tb_test_imgs_path.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;tb_test_imgs_path.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;tb_train_imgs_path.Name" xml:space="preserve">
-    <value>tb_train_imgs_path</value>
-  </data>
-  <data name="&gt;&gt;tb_train_imgs_path.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tb_train_imgs_path.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;tb_train_imgs_path.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;btn_test_imgs_open.Name" xml:space="preserve">
-    <value>btn_test_imgs_open</value>
-  </data>
-  <data name="&gt;&gt;btn_test_imgs_open.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_test_imgs_open.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;btn_test_imgs_open.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="&gt;&gt;btn_train_imgs_open.Name" xml:space="preserve">
-    <value>btn_train_imgs_open</value>
-  </data>
-  <data name="&gt;&gt;btn_train_imgs_open.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_train_imgs_open.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;btn_train_imgs_open.ZOrder" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>20</value>
-  </data>
-  <data name="&gt;&gt;btn_learn_resize.Name" xml:space="preserve">
-    <value>btn_learn_resize</value>
-  </data>
-  <data name="&gt;&gt;btn_learn_resize.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_learn_resize.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;btn_learn_resize.ZOrder" xml:space="preserve">
-    <value>21</value>
-  </data>
-  <data name="&gt;&gt;lTest_count.Name" xml:space="preserve">
-    <value>lTest_count</value>
-  </data>
-  <data name="&gt;&gt;lTest_count.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lTest_count.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;lTest_count.ZOrder" xml:space="preserve">
-    <value>22</value>
-  </data>
-  <data name="&gt;&gt;lLearn_count.Name" xml:space="preserve">
-    <value>lLearn_count</value>
-  </data>
-  <data name="&gt;&gt;lLearn_count.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lLearn_count.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;lLearn_count.ZOrder" xml:space="preserve">
-    <value>23</value>
-  </data>
-  <data name="&gt;&gt;btn_CNN_save.Name" xml:space="preserve">
-    <value>btn_CNN_save</value>
-  </data>
-  <data name="&gt;&gt;btn_CNN_save.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_CNN_save.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;btn_CNN_save.ZOrder" xml:space="preserve">
-    <value>24</value>
-  </data>
-  <data name="&gt;&gt;btn_CNN_load.Name" xml:space="preserve">
-    <value>btn_CNN_load</value>
-  </data>
-  <data name="&gt;&gt;btn_CNN_load.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_CNN_load.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;btn_CNN_load.ZOrder" xml:space="preserve">
-    <value>25</value>
-  </data>
-  <data name="&gt;&gt;btn_CNN_recognize.Name" xml:space="preserve">
-    <value>btn_CNN_recognize</value>
-  </data>
-  <data name="&gt;&gt;btn_CNN_recognize.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_CNN_recognize.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;btn_CNN_recognize.ZOrder" xml:space="preserve">
-    <value>26</value>
-  </data>
-  <data name="&gt;&gt;btn_CNN_learn.Name" xml:space="preserve">
-    <value>btn_CNN_learn</value>
-  </data>
-  <data name="&gt;&gt;btn_CNN_learn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_CNN_learn.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;btn_CNN_learn.ZOrder" xml:space="preserve">
-    <value>27</value>
-  </data>
-  <data name="&gt;&gt;btn_CNN_create.Name" xml:space="preserve">
-    <value>btn_CNN_create</value>
-  </data>
-  <data name="&gt;&gt;btn_CNN_create.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_CNN_create.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;btn_CNN_create.ZOrder" xml:space="preserve">
-    <value>28</value>
-  </data>
-  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>820, 13</value>
-  </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>255, 306</value>
-  </data>
-  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>56</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>CNN</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
-    <value>5</value>
   </data>
   <data name="lAccuracy.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1273,7 +1183,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lAccuracy.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="label8.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1303,7 +1213,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1333,7 +1243,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="lNetwork.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1342,7 +1252,7 @@
     <value>NoControl</value>
   </data>
   <data name="lNetwork.Location" type="System.Drawing.Point, System.Drawing">
-    <value>112, 233</value>
+    <value>159, 233</value>
   </data>
   <data name="lNetwork.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 13</value>
@@ -1363,7 +1273,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lNetwork.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="btn_network_open.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1390,7 +1300,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;btn_network_open.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="tb_network_path.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 249</value>
@@ -1411,7 +1321,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;tb_network_path.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="lLearned.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1420,7 +1330,7 @@
     <value>NoControl</value>
   </data>
   <data name="lLearned.Location" type="System.Drawing.Point, System.Drawing">
-    <value>63, 12</value>
+    <value>177, 29</value>
   </data>
   <data name="lLearned.Size" type="System.Drawing.Size, System.Drawing">
     <value>66, 13</value>
@@ -1441,7 +1351,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lLearned.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="lClasses_count.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1471,7 +1381,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lClasses_count.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1501,7 +1411,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1531,7 +1441,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="lImages.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1540,7 +1450,7 @@
     <value>NoControl</value>
   </data>
   <data name="lImages.Location" type="System.Drawing.Point, System.Drawing">
-    <value>95, 190</value>
+    <value>159, 190</value>
   </data>
   <data name="lImages.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 13</value>
@@ -1561,7 +1471,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lImages.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="btn_imgs_open.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1588,7 +1498,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;btn_imgs_open.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="tb_imgs_path.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 206</value>
@@ -1609,7 +1519,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;tb_imgs_path.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="lLayers_count.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1639,7 +1549,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lLayers_count.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1669,7 +1579,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="tb_test_imgs_path.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 160</value>
@@ -1690,7 +1600,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;tb_test_imgs_path.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="tb_train_imgs_path.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 118</value>
@@ -1711,7 +1621,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;tb_train_imgs_path.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="btn_test_imgs_open.Location" type="System.Drawing.Point, System.Drawing">
     <value>225, 158</value>
@@ -1735,7 +1645,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;btn_test_imgs_open.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="btn_train_imgs_open.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1762,7 +1672,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;btn_train_imgs_open.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>19</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1792,7 +1702,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>20</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1822,7 +1732,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>21</value>
   </data>
   <data name="btn_learn_resize.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1849,7 +1759,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;btn_learn_resize.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>22</value>
   </data>
   <data name="lTest_count.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1858,7 +1768,7 @@
     <value>NoControl</value>
   </data>
   <data name="lTest_count.Location" type="System.Drawing.Point, System.Drawing">
-    <value>95, 141</value>
+    <value>159, 141</value>
   </data>
   <data name="lTest_count.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 13</value>
@@ -1879,13 +1789,13 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lTest_count.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>23</value>
   </data>
   <data name="lLearn_count.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="lLearn_count.Location" type="System.Drawing.Point, System.Drawing">
-    <value>98, 102</value>
+    <value>159, 102</value>
   </data>
   <data name="lLearn_count.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 13</value>
@@ -1906,7 +1816,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lLearn_count.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>24</value>
   </data>
   <data name="btn_CNN_save.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1933,7 +1843,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;btn_CNN_save.ZOrder" xml:space="preserve">
-    <value>24</value>
+    <value>25</value>
   </data>
   <data name="btn_CNN_load.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1960,7 +1870,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;btn_CNN_load.ZOrder" xml:space="preserve">
-    <value>25</value>
+    <value>26</value>
   </data>
   <data name="btn_CNN_recognize.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1987,7 +1897,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;btn_CNN_recognize.ZOrder" xml:space="preserve">
-    <value>26</value>
+    <value>27</value>
   </data>
   <data name="btn_CNN_learn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -2014,7 +1924,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;btn_CNN_learn.ZOrder" xml:space="preserve">
-    <value>27</value>
+    <value>28</value>
   </data>
   <data name="btn_CNN_create.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -2041,7 +1951,31 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;btn_CNN_create.ZOrder" xml:space="preserve">
-    <value>28</value>
+    <value>29</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>772, 12</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>255, 306</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>56</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>CNN Classificator</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="&gt;&gt;button3.Name" xml:space="preserve">
     <value>button3</value>
@@ -2056,7 +1990,7 @@
     <value>0</value>
   </data>
   <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1187, 13</value>
+    <value>1033, 103</value>
   </data>
   <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
     <value>89, 85</value>
@@ -2077,7 +2011,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="button3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -2119,7 +2053,7 @@
     <value>0</value>
   </data>
   <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1081, 13</value>
+    <value>1033, 12</value>
   </data>
   <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
     <value>91, 85</value>
@@ -2140,7 +2074,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>7</value>
   </data>
   <data name="btn_resize.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -2194,16 +2128,16 @@
     <value>1</value>
   </data>
   <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>714, 12</value>
+    <value>650, 12</value>
   </data>
   <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 130</value>
+    <value>116, 150</value>
   </data>
   <data name="groupBox4.TabIndex" type="System.Int32, mscorlib">
     <value>75</value>
   </data>
   <data name="groupBox4.Text" xml:space="preserve">
-    <value>befClass</value>
+    <value>before Classification</value>
   </data>
   <data name="&gt;&gt;groupBox4.Name" xml:space="preserve">
     <value>groupBox4</value>
@@ -2221,7 +2155,7 @@
     <value>NoControl</value>
   </data>
   <data name="btn_ROI_makeAll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 98</value>
+    <value>24, 110</value>
   </data>
   <data name="btn_ROI_makeAll.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -2248,7 +2182,7 @@
     <value>NoControl</value>
   </data>
   <data name="btn_ROI_toGrey.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 13</value>
+    <value>24, 17</value>
   </data>
   <data name="btn_ROI_toGrey.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -2299,7 +2233,7 @@
     <value>NoControl</value>
   </data>
   <data name="btn_autoCompleteAll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 148</value>
+    <value>21, 148</value>
   </data>
   <data name="btn_autoCompleteAll.Size" type="System.Drawing.Size, System.Drawing">
     <value>57, 23</value>
@@ -2329,7 +2263,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1348, 461</value>
+    <value>1162, 461</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>

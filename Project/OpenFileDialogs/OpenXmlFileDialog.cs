@@ -12,10 +12,11 @@ namespace Project.OpenFileDialogs
         public static string openFile()
         {
             string path = "";
-            OpenFileDialog dlg = new OpenFileDialog();
-
-            dlg.Title = "Open Image";
-            dlg.Filter = "XML files (*.xml)|*.xml";
+            OpenFileDialog dlg = new OpenFileDialog
+            {
+                Title = "Open Image",
+                Filter = "XML files (*.xml)|*.xml"
+            };
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {

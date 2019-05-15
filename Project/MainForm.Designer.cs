@@ -32,6 +32,11 @@
             this.btn_convert_videos = new System.Windows.Forms.Button();
             this.btn_Haar_Detect = new System.Windows.Forms.Button();
             this.gb_haar_cascade = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lImagesToDetectCount = new System.Windows.Forms.Label();
+            this.tb_detected_images_to_save_path = new System.Windows.Forms.TextBox();
+            this.btn_detected_images_to_save_open = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             this.lFoldersToDetectCount = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -91,8 +96,7 @@
             this.btn_ROI_toGrey = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btn_autoCompleteAll = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lImagesToDetectCount = new System.Windows.Forms.Label();
+            this.tb_network_acc = new System.Windows.Forms.TextBox();
             this.gb_haar_cascade.SuspendLayout();
             this.gb_ffmpeg.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -117,7 +121,10 @@
             // 
             // gb_haar_cascade
             // 
+            this.gb_haar_cascade.Controls.Add(this.label12);
             this.gb_haar_cascade.Controls.Add(this.lImagesToDetectCount);
+            this.gb_haar_cascade.Controls.Add(this.tb_detected_images_to_save_path);
+            this.gb_haar_cascade.Controls.Add(this.btn_detected_images_to_save_open);
             this.gb_haar_cascade.Controls.Add(this.label10);
             this.gb_haar_cascade.Controls.Add(this.lFoldersToDetectCount);
             this.gb_haar_cascade.Controls.Add(this.label13);
@@ -133,6 +140,33 @@
             resources.ApplyResources(this.gb_haar_cascade, "gb_haar_cascade");
             this.gb_haar_cascade.Name = "gb_haar_cascade";
             this.gb_haar_cascade.TabStop = false;
+            // 
+            // label12
+            // 
+            resources.ApplyResources(this.label12, "label12");
+            this.label12.Name = "label12";
+            // 
+            // lImagesToDetectCount
+            // 
+            resources.ApplyResources(this.lImagesToDetectCount, "lImagesToDetectCount");
+            this.lImagesToDetectCount.Name = "lImagesToDetectCount";
+            // 
+            // tb_detected_images_to_save_path
+            // 
+            resources.ApplyResources(this.tb_detected_images_to_save_path, "tb_detected_images_to_save_path");
+            this.tb_detected_images_to_save_path.Name = "tb_detected_images_to_save_path";
+            // 
+            // btn_detected_images_to_save_open
+            // 
+            resources.ApplyResources(this.btn_detected_images_to_save_open, "btn_detected_images_to_save_open");
+            this.btn_detected_images_to_save_open.Name = "btn_detected_images_to_save_open";
+            this.btn_detected_images_to_save_open.UseVisualStyleBackColor = true;
+            this.btn_detected_images_to_save_open.Click += new System.EventHandler(this.btn_detected_images_to_save_open_Click);
+            // 
+            // label10
+            // 
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.Name = "label10";
             // 
             // lFoldersToDetectCount
             // 
@@ -258,6 +292,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tb_network_acc);
             this.groupBox1.Controls.Add(this.lAccuracy);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label6);
@@ -521,15 +556,11 @@
             this.btn_autoCompleteAll.UseVisualStyleBackColor = true;
             this.btn_autoCompleteAll.Click += new System.EventHandler(this.btn_autoCompleteAll_Click);
             // 
-            // label10
+            // tb_network_acc
             // 
-            resources.ApplyResources(this.label10, "label10");
-            this.label10.Name = "label10";
-            // 
-            // lImagesToDetectCount
-            // 
-            resources.ApplyResources(this.lImagesToDetectCount, "lImagesToDetectCount");
-            this.lImagesToDetectCount.Name = "lImagesToDetectCount";
+            resources.ApplyResources(this.tb_network_acc, "tb_network_acc");
+            this.tb_network_acc.Name = "tb_network_acc";
+            this.tb_network_acc.TextChanged += new System.EventHandler(this.tb_network_acc_TextChanged);
             // 
             // MainForm
             // 
@@ -538,11 +569,11 @@
             this.Controls.Add(this.btn_autoCompleteAll);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gb_haar_cascade);
             this.Controls.Add(this.gb_ffmpeg);
+            this.Controls.Add(this.groupBox3);
             this.Name = "MainForm";
             this.gb_haar_cascade.ResumeLayout(false);
             this.gb_haar_cascade.PerformLayout();
@@ -622,6 +653,10 @@
         private System.Windows.Forms.Button btn_images_to_detect_open;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lImagesToDetectCount;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox tb_detected_images_to_save_path;
+        private System.Windows.Forms.Button btn_detected_images_to_save_open;
+        private System.Windows.Forms.TextBox tb_network_acc;
     }
 }
 

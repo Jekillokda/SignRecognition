@@ -18,50 +18,54 @@ namespace Project.ConvNeuronNet
         int stepCount;
         string loadedJson;
         string JsonToSave;
-        readonly int Aim;
+        int Aim;
         double Acc = 0;
         int classes;
         bool isNetLearned;
         private SgdTrainer<double> trainer;
-        string path; 
+        string path;
         private ConvLayer convLayer;
 
         private readonly CircularBuffer<double> testAccWindow = new CircularBuffer<double>(100);
         private readonly CircularBuffer<double> trainAccWindow = new CircularBuffer<double>(100);
 
-        public CNN(int aim, string path)
+        public CNN(string path)
         {
             net = new Net<double>();
-            Aim = aim;
+            Aim = 0;
             isNetLearned = false;
             path = @"D:\road-video\CNN.txt";
         }
-        public int createCNN(int inpx = 32, int inpy = 32, int inpd = 1, int classesCount = 10)
+        public int createCNN(int inpx = 32, int inpy = 32, int inpd = 1, int classesCount = 11)
         {
-            //net.AddLayer(new InputLayer(inpx, inpy, inpd));
-            //net.AddLayer(new ConvLayer(5, 5, 14) {Stride = 1, Pad = 2});
-            //net.AddLayer(new ReluLayer());
-            //net.AddLayer(new PoolLayer(2, 2) {Stride = 2});
-            //net.AddLayer(new ConvLayer(5, 5, 28) {Stride = 1, Pad = 2});
-            //net.AddLayer(new ReluLayer());
-            //net.AddLayer(new PoolLayer(2, 2) {Stride = 2});
-            //net.AddLayer(new FullyConnLayer(150));
-            ////net.AddLayer(new DropoutLayer(0.5));
-            //net.AddLayer(new FullyConnLayer(100));
-            ////net.AddLayer(new DropoutLayer(0.5));
-            //net.AddLayer(new FullyConnLayer(10));
-            //net.AddLayer(new SoftmaxLayer(10));
-            this.net.AddLayer(new InputLayer(32, 32, 1));
-            this.convLayer = new ConvLayer(5, 5, 8) { Stride = 1, Pad = 2 };
-            this.net.AddLayer(this.convLayer);
-            this.net.AddLayer(new ReluLayer());
-            this.net.AddLayer(new PoolLayer(2, 2) { Stride = 2 });
-            this.net.AddLayer(new ConvLayer(5, 5, 16) { Stride = 1, Pad = 2 });
-            this.net.AddLayer(new ReluLayer());
-            this.net.AddLayer(new PoolLayer(3, 3) { Stride = 3 });
-            this.net.AddLayer(new FullyConnLayer(10));
-            this.net.AddLayer(new SoftmaxLayer(10));
-            classes = classesCount;
+            if (getLayersCount() == 0)
+            {
+                //net.AddLayer(new InputLayer(inpx, inpy, inpd));
+                //net.AddLayer(new ConvLayer(5, 5, 14) {Stride = 1, Pad = 2});
+                //net.AddLayer(new ReluLayer());
+                //net.AddLayer(new PoolLayer(2, 2) {Stride = 2});
+                //net.AddLayer(new ConvLayer(5, 5, 28) {Stride = 1, Pad = 2});
+                //net.AddLayer(new ReluLayer());
+                //net.AddLayer(new PoolLayer(2, 2) {Stride = 2});
+                //net.AddLayer(new FullyConnLayer(150));
+                ////net.AddLayer(new DropoutLayer(0.5));
+                //net.AddLayer(new FullyConnLayer(100));
+                ////net.AddLayer(new DropoutLayer(0.5));
+                //net.AddLayer(new FullyConnLayer(10));
+                //net.AddLayer(new SoftmaxLayer(10));
+                this.net.AddLayer(new InputLayer(inpx,inpy, 1));
+                this.convLayer = new ConvLayer(3, 3, 4) { Stride = 1, Pad = 2 };
+                this.net.AddLayer(this.convLayer);
+                this.net.AddLayer(new ReluLayer());
+                this.net.AddLayer(new PoolLayer(2, 2) { Stride = 2 });
+                this.net.AddLayer(new ConvLayer(5, 5, 8) { Stride = 1, Pad = 2 });
+                this.net.AddLayer(new ReluLayer());
+                this.net.AddLayer(new PoolLayer(3, 3) { Stride = 3 });
+                this.net.AddLayer(new FullyConnLayer(2*classesCount));
+                this.net.AddLayer(new FullyConnLayer(classesCount));
+                this.net.AddLayer(new SoftmaxLayer(classesCount));
+                classes = classesCount;
+            }
             return net.Layers.Count;
         }
 
@@ -80,7 +84,7 @@ namespace Project.ConvNeuronNet
             }
         }
 
-        public double teachCNN(string pathL, string pathT)
+        public double teachCNN(string pathL, string pathT, int acc)
         {
             if (net.Layers.Count == 0)
             {
@@ -91,6 +95,7 @@ namespace Project.ConvNeuronNet
             {
                 return -2;
             }
+            Aim = acc;
             this.trainer = new SgdTrainer<double>(this.net)
             {
                 LearningRate = 0.02,
@@ -126,15 +131,19 @@ namespace Project.ConvNeuronNet
             else return -1;
         }
 
-        public string saveCNN()
+        public string saveCNN(string tmppath)
         {
             if (net.Layers.Count > 0)
             {
                
                 JsonToSave = net.ToJson();
                 var name = "CNN_" + getAccuracy().ToString() + ".txt";
-                var newPath = Path.Combine(Path.GetDirectoryName(path), name);
-
+                var newPath = Path.Combine(Path.GetDirectoryName(tmppath), name);
+                if (File.Exists(newPath))
+                {
+                    File.Delete(newPath);
+                }
+               // File.Create(newPath);
                 File.WriteAllText(newPath, JsonToSave);
                 return newPath;
             }
@@ -273,13 +282,15 @@ namespace Project.ConvNeuronNet
                 case 6:
                     return "Kirpich";
                 case 7:
-                    return "Warning";
+                    return "Warning Sign";
                 case 8:
                     return "Sleeping policeman";
                 case 9:
                     return "Road Works";
                 case 10:
                     return "Only forward";
+                case 11:
+                    return "Pesh Perehod";
                 default:
                     break;
 
