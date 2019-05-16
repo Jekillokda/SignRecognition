@@ -307,7 +307,7 @@ namespace Project
         {
             if ((trainFolder != null) && (testFolder != null))
             {
-                double d = network.teachCNN(trainFolder.getPath(), testFolder.getPath(), aim);
+                double d = network.teachCNN(trainFolder.getPath(), testFolder.getPath(), aim, 0.02, 50, 0.9);
                 if (d == -1)
                     MessageBox.Show("Please add layers and try again");
                 else

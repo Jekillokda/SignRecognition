@@ -19,7 +19,7 @@ namespace Project.ConvNeuronNet
         string loadedJson;
         string JsonToSave;
         int Aim;
-        double Acc = 0;
+        double Acc;
         int classes;
         bool isNetLearned;
         private SgdTrainer<double> trainer;
@@ -33,8 +33,9 @@ namespace Project.ConvNeuronNet
         {
             net = new Net<double>();
             Aim = 0;
+            Acc = 0;
             isNetLearned = false;
-            path = @"D:\road-video\CNN.txt";
+            path = "";
         }
         public int createCNN(int inpx = 32, int inpy = 32, int inpd = 1, int classesCount = 11)
         {
@@ -84,23 +85,23 @@ namespace Project.ConvNeuronNet
             }
         }
 
-        public double teachCNN(string pathL, string pathT, int acc)
+        public double teachCNN(string pathL, string pathT, int acc, double learnRate,int size, double mom)
         {
             if (net.Layers.Count == 0)
             {
                 this.createCNN();
             }
             var datasets = new DataSets(pathL, pathT);
-            if (!datasets.Load(100))
+            if (!datasets.Load(2*size))
             {
                 return -2;
             }
             Aim = acc;
             this.trainer = new SgdTrainer<double>(this.net)
             {
-                LearningRate = 0.02,
-                BatchSize = 50,
-                Momentum = 0.9
+                LearningRate = learnRate,
+                BatchSize = size,
+                Momentum = mom
             };
         
             if (net.Layers.Count > 0)
@@ -167,7 +168,7 @@ namespace Project.ConvNeuronNet
 
         public string recognize(byte[] image)
         {
-            if (image.Length != 32 * 32)
+            if (image.Length != net.Layers[0].InputWidth * net.Layers[0].InputHeight)
             {
                 return "Wrong Image Size";
             }
@@ -179,14 +180,14 @@ namespace Project.ConvNeuronNet
             {
                 return "Network is not learned or not loaded";
             }
-            var dataShape = new Shape(32, 32, 1, 1);
+            var dataShape = new Shape(net.Layers[0].InputWidth, net.Layers[0].InputHeight, 1, 1);
             var data = new double[dataShape.TotalLength];
             var dataVolume = BuilderInstance.Volume.From(data, dataShape);
 
             var j = 0;
-            for (var y = 0; y < 32; y++)
+            for (var y = 0; y < net.Layers[0].InputWidth; y++)
             {
-                for (var x = 0; x < 32; x++)
+                for (var x = 0; x < net.Layers[0].InputHeight; x++)
                 {
                     dataVolume.Set(x, y, 0, 0, image[j++]);
                 }
