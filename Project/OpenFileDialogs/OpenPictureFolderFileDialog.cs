@@ -14,7 +14,7 @@ namespace Project
                 {
                     path = dialog.SelectedPath;
                     ImF = new ImageFolder();
-                    ImF.load(path);
+                    ImF.Load(path);
                 }
             return ImF;
         }

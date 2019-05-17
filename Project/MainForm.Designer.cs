@@ -58,6 +58,7 @@
             this.btn_ROI_resize = new System.Windows.Forms.Button();
             this.btn_ROI_clahe = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tb_network_acc = new System.Windows.Forms.TextBox();
             this.lAccuracy = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -96,7 +97,7 @@
             this.btn_ROI_toGrey = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btn_autoCompleteAll = new System.Windows.Forms.Button();
-            this.tb_network_acc = new System.Windows.Forms.TextBox();
+            this.btn_subtitles_parse = new System.Windows.Forms.Button();
             this.gb_haar_cascade.SuspendLayout();
             this.gb_ffmpeg.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -225,6 +226,7 @@
             // 
             // gb_ffmpeg
             // 
+            this.gb_ffmpeg.Controls.Add(this.btn_subtitles_parse);
             this.gb_ffmpeg.Controls.Add(this.label9);
             this.gb_ffmpeg.Controls.Add(this.tb_images_to_save_path);
             this.gb_ffmpeg.Controls.Add(this.btn_images_to_save_open);
@@ -325,6 +327,12 @@
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            // 
+            // tb_network_acc
+            // 
+            resources.ApplyResources(this.tb_network_acc, "tb_network_acc");
+            this.tb_network_acc.Name = "tb_network_acc";
+            this.tb_network_acc.TextChanged += new System.EventHandler(this.tb_network_acc_TextChanged);
             // 
             // lAccuracy
             // 
@@ -556,11 +564,12 @@
             this.btn_autoCompleteAll.UseVisualStyleBackColor = true;
             this.btn_autoCompleteAll.Click += new System.EventHandler(this.btn_autoCompleteAll_Click);
             // 
-            // tb_network_acc
+            // btn_subtitles_parse
             // 
-            resources.ApplyResources(this.tb_network_acc, "tb_network_acc");
-            this.tb_network_acc.Name = "tb_network_acc";
-            this.tb_network_acc.TextChanged += new System.EventHandler(this.tb_network_acc_TextChanged);
+            resources.ApplyResources(this.btn_subtitles_parse, "btn_subtitles_parse");
+            this.btn_subtitles_parse.Name = "btn_subtitles_parse";
+            this.btn_subtitles_parse.UseVisualStyleBackColor = true;
+            this.btn_subtitles_parse.Click += new System.EventHandler(this.btn_subtitles_parse_Click);
             // 
             // MainForm
             // 
@@ -657,6 +666,7 @@
         private System.Windows.Forms.TextBox tb_detected_images_to_save_path;
         private System.Windows.Forms.Button btn_detected_images_to_save_open;
         private System.Windows.Forms.TextBox tb_network_acc;
+        private System.Windows.Forms.Button btn_subtitles_parse;
     }
 }
 

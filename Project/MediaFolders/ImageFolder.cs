@@ -19,12 +19,15 @@ namespace Project
             count = 0;
             imageArray = new string[0];
         }
-        public int load(string path)
+        public int Load(string path)
         {
             this.path = path;
+            string[] tmp;
             if (Directory.Exists(path))
             {
                 imageArray = System.IO.Directory.GetFiles(path, "*.jpg");
+                tmp = System.IO.Directory.GetFiles(path, "*.png");
+                imageArray.Concat( tmp);
                 count = imageArray.Length;
             }
             else
@@ -36,29 +39,39 @@ namespace Project
             return count;
         }
 
-        public int getCount()
+        public int GetCount()
         {
             return count;
         }
-        public string getPath()
+        public string GetPath()
         {
             return path;
         }
-        public void setPath(string path)
+        public void SetPath(string path)
         {
             this.path = path;
         }
-        public string[] getAllImgs()
+        public string[] GetAllImgs()
         {
             return imageArray;
         }
-        public string getImg(int n)
+        public string GetImg(int n)
         {
             return imageArray[n];
         }
-        public bool sort()
+        public bool Sort()
         {
-            Array.Sort(imageArray);
+            string[] arr = this.imageArray;
+            for (int i = 0; i < GetCount(); i++)
+            {
+                string tmp = Path.GetFileName(GetImg(i));
+                tmp = tmp.Substring(tmp.LastIndexOf("e")+1, tmp.LastIndexOf(".") - tmp.LastIndexOf("e")-1);
+                int n = 0;
+                string s = GetImg(n);
+                imageArray[n] = imageArray[i];
+                imageArray[i] = s;
+                int.TryParse(tmp,out n);
+            }
             return false;
         }
     }

@@ -37,9 +37,9 @@ namespace Project.ConvNeuronNet
             isNetLearned = false;
             path = "";
         }
-        public int createCNN(int inpx = 32, int inpy = 32, int inpd = 1, int classesCount = 11)
+        public int CreateCNN(int inpx = 32, int inpy = 32, int inpd = 1, int classesCount = 11)
         {
-            if (getLayersCount() == 0)
+            if (GetLayersCount() == 0)
             {
                 //net.AddLayer(new InputLayer(inpx, inpy, inpd));
                 //net.AddLayer(new ConvLayer(5, 5, 14) {Stride = 1, Pad = 2});
@@ -85,11 +85,11 @@ namespace Project.ConvNeuronNet
             }
         }
 
-        public double teachCNN(string pathL, string pathT, int acc, double learnRate,int size, double mom)
+        public double TeachCNN(string pathL, string pathT, int acc, double learnRate,int size, double mom)
         {
             if (net.Layers.Count == 0)
             {
-                this.createCNN();
+                this.CreateCNN();
             }
             var datasets = new DataSets(pathL, pathT);
             if (!datasets.Load(2*size))
@@ -132,13 +132,13 @@ namespace Project.ConvNeuronNet
             else return -1;
         }
 
-        public string saveCNN(string tmppath)
+        public string SaveCNN(string tmppath)
         {
             if (net.Layers.Count > 0)
             {
                
                 JsonToSave = net.ToJson();
-                var name = "CNN_" + getAccuracy().ToString() + ".txt";
+                var name = "CNN_" + GetAccuracy().ToString() + ".txt";
                 var newPath = Path.Combine(Path.GetDirectoryName(tmppath), name);
                 if (File.Exists(newPath))
                 {
@@ -151,7 +151,7 @@ namespace Project.ConvNeuronNet
             else return "";
         }
 
-        public int loadCNN(string path)
+        public int LoadCNN(string path)
         {
             if (path!= "")
             {
@@ -160,13 +160,13 @@ namespace Project.ConvNeuronNet
                 this.net = deserialized;
                 isNetLearned = true;
                 this.path = path;
-                classes = deserialized.Layers[getLayersCount() - 1].OutputDepth;
+                classes = deserialized.Layers[GetLayersCount() - 1].OutputDepth;
                 return net.Layers.Count;
             }
             else return -1;
         }
 
-        public string recognize(byte[] image)
+        public string Recognize(byte[] image)
         {
             if (image.Length != net.Layers[0].InputWidth * net.Layers[0].InputHeight)
             {
@@ -194,10 +194,10 @@ namespace Project.ConvNeuronNet
             }
             net.Forward(dataVolume);
             var prediction = net.GetPrediction();
-            return getClassNameFromNumber(prediction[0]);
+            return GetClassNameFromNumber(prediction[0]);
         }
 
-        public string[] recognizeAll( byte[] image)
+        public string[] RecognizeAll( byte[] image)
         {
             int count = 10;
             string[] result = new string[count];
@@ -209,8 +209,8 @@ namespace Project.ConvNeuronNet
                 }
                 if (net.Layers.Count == 0)
                 {
-                    this.createCNN();
-                    loadCNN(path);
+                    this.CreateCNN();
+                    LoadCNN(path);
                 }
                 var dataShape = new Shape(32, 32, 1, 1);
                 var data = new double[dataShape.TotalLength];
@@ -227,7 +227,7 @@ namespace Project.ConvNeuronNet
                 net.Forward(dataVolume);
                 var prediction = net.GetPrediction();
                  
-                result[i] = getClassNameFromNumber(prediction[0]);
+                result[i] = GetClassNameFromNumber(prediction[0]);
             }
             return result;
         }
@@ -241,17 +241,17 @@ namespace Project.ConvNeuronNet
             stepCount += labels.Length;
         }
 
-        public int getLayersCount()
+        public int GetLayersCount()
         {
             return net.Layers.Count;
         }
 
-        public int getClassesCount()
+        public int GetClassesCount()
         {
             return this.classes;
         }
 
-        public double getAccuracy()
+        public double GetAccuracy()
         {
             return Acc;
         }
@@ -261,12 +261,12 @@ namespace Project.ConvNeuronNet
             return false;
         }
 
-        public bool isLearned()
+        public bool IsLearned()
         {
             return this.isNetLearned;
         }
 
-        public string getClassNameFromNumber(int n)
+        public string GetClassNameFromNumber(int n)
         {
             switch (n)
             {

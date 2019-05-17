@@ -124,6 +124,7 @@
     <Compile Include="ConvNeuronNet\ImageReader.cs" />
     <Compile Include="DB_Export\Result.cs" />
     <Compile Include="DB_Export\ResultExport.cs" />
+    <Compile Include="DetectionHaar\DetectFolder.cs" />
     <Compile Include="OpenFileDialogs\OpenTextFileDialog.cs" />
     <Compile Include="OpenFileDialogs\OpenXmlFileDialog.cs" />
     <Compile Include="Utils\FFMPEGConverter.cs" />
@@ -145,6 +146,10 @@
     <Compile Include="ShapeComparation.cs" />
     <Compile Include="ShapeDetection.cs" />
     <Compile Include="MediaFolders\VideoFolder.cs" />
+    <Compile Include="Utils\MovementPoint.cs" />
+    <Compile Include="Utils\PhCoord_Connect.cs" />
+    <Compile Include="Utils\Photo.cs" />
+    <Compile Include="Utils\PhotoData.cs" />
     <EmbeddedResource Include="MainForm.en.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
