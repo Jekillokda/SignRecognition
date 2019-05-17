@@ -136,21 +136,21 @@ namespace Project.ConvNeuronNet
 
         public string SaveCNN(string tmppath)
         {
-            if (net.Layers.Count > 0)
+            if (net.Layers.Count == 0)
+                return "";
+            if (!isNetLearned)
             {
-               
-                JsonToSave = net.ToJson();
+                return "";
+            }
+            JsonToSave = net.ToJson();
                 var name = "CNN_" + GetAccuracy().ToString() + ".txt";
                 var newPath = Path.Combine(Path.GetDirectoryName(tmppath), name);
                 if (File.Exists(newPath))
                 {
                     File.Delete(newPath);
                 }
-               // File.Create(newPath);
                 File.WriteAllText(newPath, JsonToSave);
                 return newPath;
-            }
-            else return "";
         }
 
         public int LoadCNN(string path)
@@ -170,6 +170,12 @@ namespace Project.ConvNeuronNet
 
         public string Recognize(byte[] image)
         {
+            if (net.Layers.Count < 0)
+                return "Network is not Created";
+            if (!isNetLearned)
+            {
+                return "Network is not learned";
+            }
             if (image.Length != net.Layers[0].InputWidth * net.Layers[0].InputHeight)
             {
                 return "Wrong Image Size";

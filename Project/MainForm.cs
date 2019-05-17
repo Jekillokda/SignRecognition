@@ -253,20 +253,6 @@ namespace Project
             {
                 DetectFolder.DetectAll(path, cascades, tb_detected_images_to_save_path.Text);
             }
-            /*
-            int count = 0;
-            foreach (string folder_path in folders_to_detect)
-            {
-                foreach(string image_path in Directory.GetFiles(folder_path, "*.jpg"))
-                {
-                   Mat img = new Image<Bgr, byte>(image_path).Mat;
-                    List<Mat> list = cascade.detectAll(img);
-                    count += list.Count;
-                    for (int i = 0; i < list.Count; i++)
-                     list[i].Save(tb_detected_images_to_save_path.Text + i + " .jpg"); 
-                }
-            }
-            MessageBox.Show(count.ToString());*/
         }
 
         private void btn_detected_images_to_save_open_Click(object sender, EventArgs e)
@@ -336,7 +322,18 @@ namespace Project
         {
             if (tb_imgs_path.Text != "")
             {
-                string sign = network.Recognize(new Image<Gray, byte>(tb_imgs_path.Text).Bytes);
+                Mat im = new Mat(tb_imgs_path.Text);
+                if (im.NumberOfChannels != 1)
+                {
+                    im = ImgOps.RGBtoGrey(im).Mat;
+                }
+                
+                if (im.Size!= new Size(32, 32))
+                {
+                    im = new Image<Gray, byte>(ImgOps.InterpolationResize(im,32,32).Bitmap).Mat;
+                }
+                Image<Gray, byte> img = new Image<Gray, byte>(im.Bitmap);
+                string sign = network.Recognize(img.Bytes);
                 lLayers_count.Text = network.GetLayersCount().ToString();
                 MessageBox.Show(sign);
             }
@@ -360,12 +357,17 @@ namespace Project
 
         private void btn_CNN_save_Click(object sender, EventArgs e)
         {
-            var path = network.SaveCNN(tb_network_path.Text); 
-            Console.WriteLine(path);
-            tb_network_path.Text = path;
-            Properties.Settings.Default.last_path_to_network = path;
-            Properties.Settings.Default.Save();
-            Properties.Settings.Default.Upgrade();
+            var path = network.SaveCNN(tb_network_path.Text);
+            if (path != "")
+            {
+                Console.WriteLine(path);
+                tb_network_path.Text = path;
+                Properties.Settings.Default.last_path_to_network = path;
+                Properties.Settings.Default.Save();
+                Properties.Settings.Default.Upgrade();
+            }
+            else
+                MessageBox.Show("Error");
         }
 
         private void btn_autoCompleteAll_Click(object sender, EventArgs e)

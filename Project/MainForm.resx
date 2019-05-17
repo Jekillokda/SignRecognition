@@ -147,7 +147,7 @@
     <value>5</value>
   </data>
   <data name="btn_Haar_Detect.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 146</value>
+    <value>9, 113</value>
   </data>
   <data name="btn_Haar_Detect.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -168,7 +168,7 @@
     <value>gb_haar_cascade</value>
   </data>
   <data name="&gt;&gt;btn_Haar_Detect.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>10</value>
   </data>
   <data name="label12.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -178,7 +178,7 @@
     <value>NoControl</value>
   </data>
   <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 172</value>
+    <value>6, 139</value>
   </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 13</value>
@@ -208,7 +208,7 @@
     <value>NoControl</value>
   </data>
   <data name="lImagesToDetectCount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>117, 104</value>
+    <value>120, 71</value>
   </data>
   <data name="lImagesToDetectCount.Size" type="System.Drawing.Size, System.Drawing">
     <value>13, 13</value>
@@ -232,7 +232,7 @@
     <value>1</value>
   </data>
   <data name="tb_detected_images_to_save_path.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 188</value>
+    <value>9, 155</value>
   </data>
   <data name="tb_detected_images_to_save_path.Size" type="System.Drawing.Size, System.Drawing">
     <value>213, 20</value>
@@ -256,7 +256,7 @@
     <value>NoControl</value>
   </data>
   <data name="btn_detected_images_to_save_open.Location" type="System.Drawing.Point, System.Drawing">
-    <value>225, 188</value>
+    <value>228, 155</value>
   </data>
   <data name="btn_detected_images_to_save_open.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 23</value>
@@ -286,7 +286,7 @@
     <value>NoControl</value>
   </data>
   <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>172, 91</value>
+    <value>175, 58</value>
   </data>
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
     <value>38, 13</value>
@@ -316,7 +316,7 @@
     <value>NoControl</value>
   </data>
   <data name="lFoldersToDetectCount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>117, 91</value>
+    <value>120, 58</value>
   </data>
   <data name="lFoldersToDetectCount.Size" type="System.Drawing.Size, System.Drawing">
     <value>13, 13</value>
@@ -346,7 +346,7 @@
     <value>NoControl</value>
   </data>
   <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>172, 104</value>
+    <value>175, 71</value>
   </data>
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 13</value>
@@ -376,7 +376,7 @@
     <value>NoControl</value>
   </data>
   <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 104</value>
+    <value>6, 71</value>
   </data>
   <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
     <value>110, 13</value>
@@ -400,7 +400,7 @@
     <value>7</value>
   </data>
   <data name="tb_images_to_detect_path.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 120</value>
+    <value>9, 87</value>
   </data>
   <data name="tb_images_to_detect_path.Size" type="System.Drawing.Size, System.Drawing">
     <value>213, 20</value>
@@ -424,7 +424,7 @@
     <value>NoControl</value>
   </data>
   <data name="btn_images_to_detect_open.Location" type="System.Drawing.Point, System.Drawing">
-    <value>225, 120</value>
+    <value>228, 87</value>
   </data>
   <data name="btn_images_to_detect_open.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 23</value>
@@ -447,33 +447,6 @@
   <data name="&gt;&gt;btn_images_to_detect_open.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 20</value>
-  </data>
-  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 23</value>
-  </data>
-  <data name="button1.TabIndex" type="System.Int32, mscorlib">
-    <value>55</value>
-  </data>
-  <data name="button1.Text" xml:space="preserve">
-    <value>Load Cascade</value>
-  </data>
-  <data name="&gt;&gt;button1.Name" xml:space="preserve">
-    <value>button1</value>
-  </data>
-  <data name="&gt;&gt;button1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
-    <value>gb_haar_cascade</value>
-  </data>
-  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
   <data name="label11.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -481,7 +454,7 @@
     <value>NoControl</value>
   </data>
   <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 49</value>
+    <value>6, 16</value>
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 13</value>
@@ -502,10 +475,10 @@
     <value>gb_haar_cascade</value>
   </data>
   <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>11</value>
   </data>
   <data name="tb_cascade_path.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 65</value>
+    <value>9, 32</value>
   </data>
   <data name="tb_cascade_path.Size" type="System.Drawing.Size, System.Drawing">
     <value>213, 20</value>
@@ -523,13 +496,13 @@
     <value>gb_haar_cascade</value>
   </data>
   <data name="&gt;&gt;tb_cascade_path.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>12</value>
   </data>
   <data name="btn_cascade_open.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="btn_cascade_open.Location" type="System.Drawing.Point, System.Drawing">
-    <value>225, 62</value>
+    <value>228, 29</value>
   </data>
   <data name="btn_cascade_open.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 23</value>
@@ -550,7 +523,7 @@
     <value>gb_haar_cascade</value>
   </data>
   <data name="&gt;&gt;btn_cascade_open.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>13</value>
   </data>
   <data name="lCascadeLoaded.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -559,7 +532,7 @@
     <value>NoControl</value>
   </data>
   <data name="lCascadeLoaded.Location" type="System.Drawing.Point, System.Drawing">
-    <value>172, 48</value>
+    <value>175, 15</value>
   </data>
   <data name="lCascadeLoaded.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 13</value>
@@ -580,13 +553,13 @@
     <value>gb_haar_cascade</value>
   </data>
   <data name="&gt;&gt;lCascadeLoaded.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>14</value>
   </data>
   <data name="gb_haar_cascade.Location" type="System.Drawing.Point, System.Drawing">
     <value>381, 12</value>
   </data>
   <data name="gb_haar_cascade.Size" type="System.Drawing.Size, System.Drawing">
-    <value>263, 213</value>
+    <value>263, 181</value>
   </data>
   <data name="gb_haar_cascade.TabIndex" type="System.Int32, mscorlib">
     <value>55</value>

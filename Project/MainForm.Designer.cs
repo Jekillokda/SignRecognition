@@ -42,12 +42,12 @@
             this.label14 = new System.Windows.Forms.Label();
             this.tb_images_to_detect_path = new System.Windows.Forms.TextBox();
             this.btn_images_to_detect_open = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.tb_cascade_path = new System.Windows.Forms.TextBox();
             this.btn_cascade_open = new System.Windows.Forms.Button();
             this.lCascadeLoaded = new System.Windows.Forms.Label();
             this.gb_ffmpeg = new System.Windows.Forms.GroupBox();
+            this.btn_subtitles_parse = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.tb_images_to_save_path = new System.Windows.Forms.TextBox();
             this.btn_images_to_save_open = new System.Windows.Forms.Button();
@@ -97,7 +97,6 @@
             this.btn_ROI_toGrey = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btn_autoCompleteAll = new System.Windows.Forms.Button();
-            this.btn_subtitles_parse = new System.Windows.Forms.Button();
             this.gb_haar_cascade.SuspendLayout();
             this.gb_ffmpeg.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -132,7 +131,6 @@
             this.gb_haar_cascade.Controls.Add(this.label14);
             this.gb_haar_cascade.Controls.Add(this.tb_images_to_detect_path);
             this.gb_haar_cascade.Controls.Add(this.btn_images_to_detect_open);
-            this.gb_haar_cascade.Controls.Add(this.button1);
             this.gb_haar_cascade.Controls.Add(this.btn_Haar_Detect);
             this.gb_haar_cascade.Controls.Add(this.label11);
             this.gb_haar_cascade.Controls.Add(this.tb_cascade_path);
@@ -196,12 +194,6 @@
             this.btn_images_to_detect_open.UseVisualStyleBackColor = true;
             this.btn_images_to_detect_open.Click += new System.EventHandler(this.btn_images_to_detect_open_Click);
             // 
-            // button1
-            // 
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // label11
             // 
             resources.ApplyResources(this.label11, "label11");
@@ -238,6 +230,13 @@
             resources.ApplyResources(this.gb_ffmpeg, "gb_ffmpeg");
             this.gb_ffmpeg.Name = "gb_ffmpeg";
             this.gb_ffmpeg.TabStop = false;
+            // 
+            // btn_subtitles_parse
+            // 
+            resources.ApplyResources(this.btn_subtitles_parse, "btn_subtitles_parse");
+            this.btn_subtitles_parse.Name = "btn_subtitles_parse";
+            this.btn_subtitles_parse.UseVisualStyleBackColor = true;
+            this.btn_subtitles_parse.Click += new System.EventHandler(this.btn_subtitles_parse_Click);
             // 
             // label9
             // 
@@ -564,13 +563,6 @@
             this.btn_autoCompleteAll.UseVisualStyleBackColor = true;
             this.btn_autoCompleteAll.Click += new System.EventHandler(this.btn_autoCompleteAll_Click);
             // 
-            // btn_subtitles_parse
-            // 
-            resources.ApplyResources(this.btn_subtitles_parse, "btn_subtitles_parse");
-            this.btn_subtitles_parse.Name = "btn_subtitles_parse";
-            this.btn_subtitles_parse.UseVisualStyleBackColor = true;
-            this.btn_subtitles_parse.Click += new System.EventHandler(this.btn_subtitles_parse_Click);
-            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -611,7 +603,6 @@
         private System.Windows.Forms.Button btn_CNN_learn;
         private System.Windows.Forms.Button btn_CNN_create;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
