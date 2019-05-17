@@ -18,10 +18,10 @@ namespace Project
                 cascadeClassifier = new CascadeClassifier(this.path);
             }
         }
-        public List<Mat> detectAll(Mat img)
+        public List<Mat> detectAll(Mat img, double sFactor = 1.1, int minNeigh = 4)
         {
             List<Mat> list = new List<Mat>();
-            foreach (Rectangle rect in cascadeClassifier.DetectMultiScale(img, 1.1, 4))
+            foreach (Rectangle rect in cascadeClassifier.DetectMultiScale(img, sFactor, minNeigh))
             {
                 list.Add(new Mat(img, rect));
             }

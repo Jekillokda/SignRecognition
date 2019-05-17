@@ -157,6 +157,16 @@ namespace Project
 
         private void btn_convert_videos_Click(object sender, EventArgs e)
         {
+            if (tb_videos_path.Text == "")
+            {
+                MessageBox.Show("Path to videos is empty");
+                return;
+            }
+            if (tb_images_to_save_path.Text == "")
+            {
+                MessageBox.Show("Please choose folder for image save");
+                return;
+            }
             MessageBox.Show("Please wait till the end of conversion");
             foreach (string videopath in vidFolder.videoArray)
             {
@@ -322,6 +332,12 @@ namespace Project
         {
             if (tb_imgs_path.Text != "")
             {
+                if (!File.Exists(tb_imgs_path.Text))
+                {
+                    MessageBox.Show("File not exists");
+                    return;
+                }
+                
                 Mat im = new Mat(tb_imgs_path.Text);
                 if (im.NumberOfChannels != 1)
                 {

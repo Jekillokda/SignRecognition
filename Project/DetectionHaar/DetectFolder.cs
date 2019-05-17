@@ -30,7 +30,7 @@ namespace Project.DetectionHaar
                     {
                         Console.WriteLine(f.GetPath());
                         Console.WriteLine(c++);
-                        List<Mat> list = cascade.detectAll(img);
+                        List<Mat> list = cascade.detectAll(img, 1.1, 4);
                         var n = new DirectoryInfo(f.GetPath()).Name;
                         var newFolderPath = Path.Combine(savePath, n.ToString());
                         var imageName = Path.GetFileNameWithoutExtension(image_path);

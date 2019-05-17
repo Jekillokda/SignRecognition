@@ -13,8 +13,8 @@ namespace Project
             OpenFileDialog dlg = new OpenFileDialog
             {
                 Title = "Open Image",
-                Filter = "jpg files (*.jpg)|*.jpg"
-            };
+                Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png"
+        };
 
             if (dlg.ShowDialog() == DialogResult.OK)
             {
