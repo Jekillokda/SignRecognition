@@ -61,17 +61,16 @@ namespace Project
         }
         public bool Sort()
         {
-            string[] arr = this.imageArray;
+            string[] arr = new string[GetCount()];
             for (int i = 0; i < GetCount(); i++)
             {
                 string tmp = Path.GetFileName(GetImg(i));
                 tmp = tmp.Substring(tmp.LastIndexOf("e")+1, tmp.LastIndexOf(".") - tmp.LastIndexOf("e")-1);
                 int n = 0;
-                string s = GetImg(n);
-                imageArray[n] = imageArray[i];
-                imageArray[i] = s;
-                int.TryParse(tmp,out n);
+                int.TryParse(tmp, out n);
+                arr[n - 1] = GetImg(i);
             }
+            imageArray = arr;
             return false;
         }
     }

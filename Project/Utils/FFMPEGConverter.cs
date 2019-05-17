@@ -13,7 +13,7 @@ namespace Project
    {
         private readonly string sourcePath;
         private readonly string savePath;
-        int timeStepMilliseconds = 500;
+        int timeStepMilliseconds = 5000;
         List<MovementPoint> pointsList = new List<MovementPoint>();
 
     public FFMPEGConverter(string spath, string svpath)
@@ -22,19 +22,26 @@ namespace Project
             savePath = svpath;
         }
 
-      public bool ConvertAll()
+      public bool ConvertAll( bool rewrite)
         {
             bool isOk = true;
             var nPath = System.IO.Path.GetFileName(sourcePath);
             string destinationFolderPath = savePath + @"\convertedFrom" + nPath.Substring(0, nPath.LastIndexOf("."));
-            ConvertVidToImages(destinationFolderPath);
-            var subsPath = ConvertVidToSubs(destinationFolderPath);
+            if ((File.Exists(destinationFolderPath)) && (rewrite = true))
+            {
+                Directory.Delete(destinationFolderPath,true);
+                Directory.CreateDirectory(destinationFolderPath);
+            }
+                //ConvertVidToImages(destinationFolderPath);
+                var subsPath = ConvertVidToSubs(destinationFolderPath);
+
+                pointsList = ParseSubtitleFile(subsPath);
+                ImageFolder f = new ImageFolder();
+                f.Load(destinationFolderPath);
+                f.Sort();
+                List<PhotoData> dataList = PhCoord_Connect.Connect(f, pointsList, timeStepMilliseconds).ToList(); ;
             
-            pointsList = ParseSubtitleFile(subsPath);
-            ImageFolder f = new ImageFolder();
-            f.Load(destinationFolderPath);
-            f.Sort();
-            List<PhotoData> dataList = PhCoord_Connect.Connect(f, pointsList, timeStepMilliseconds).ToList(); ;
+            
             return isOk;
         }
       public string ConvertVidToSubs(string dFolderPath)

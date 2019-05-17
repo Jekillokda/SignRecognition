@@ -162,7 +162,8 @@ namespace Project
             {
                     //int fps = 5;
                     FFMPEGConverter conv = new FFMPEGConverter(videopath,tb_images_to_save_path.Text);
-                    if (conv.ConvertAll() == false)
+                bool rewrite = false;
+                    if (conv.ConvertAll(rewrite) == false)
                 {
                     MessageBox.Show("Something went wrong with"+ videopath);
                 }
