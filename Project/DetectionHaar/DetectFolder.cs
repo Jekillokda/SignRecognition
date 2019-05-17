@@ -33,9 +33,10 @@ namespace Project.DetectionHaar
                         List<Mat> list = cascade.detectAll(img);
                         var n = new DirectoryInfo(f.GetPath()).Name;
                         var newFolderPath = Path.Combine(savePath, n.ToString());
-                        var imageName = Path.GetFileName(image_path);
+                        var imageName = Path.GetFileNameWithoutExtension(image_path);
+                        
                         for (int i = 0; i < list.Count; i++)
-                            list[i].Save(newFolderPath +"_" + i + "_" + imageName);
+                            list[i].Save(newFolderPath +"_" + imageName+ "_" + i + ".jpg");
                     }                  
                 }
 

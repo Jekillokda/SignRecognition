@@ -4,6 +4,8 @@ using ConvNetSharp.Core.Serialization;
 using ConvNetSharp.Core.Training;
 using ConvNetSharp.Volume;
 using ConvNetSharp.Volume.Double;
+using Emgu.CV;
+using Emgu.CV.Structure;
 using System;
 using System.IO;
 using System.Linq;
@@ -185,9 +187,9 @@ namespace Project.ConvNeuronNet
             var dataVolume = BuilderInstance.Volume.From(data, dataShape);
 
             var j = 0;
-            for (var y = 0; y < net.Layers[0].InputWidth; y++)
+            for (var y = 0; y < net.Layers[0].InputHeight; y++)
             {
-                for (var x = 0; x < net.Layers[0].InputHeight; x++)
+                for (var x = 0; x < net.Layers[0].InputWidth; x++)
                 {
                     dataVolume.Set(x, y, 0, 0, image[j++]);
                 }
@@ -197,14 +199,16 @@ namespace Project.ConvNeuronNet
             return GetClassNameFromNumber(prediction[0]);
         }
 
-        public string[] RecognizeAll( byte[] image)
+        public string[] RecognizeAll( ImageFolder imf)
         {
-            int count = 10;
+            int count = imf.GetCount();
             string[] result = new string[count];
-            for (var i = 0; i < count; i++)
-            {
+            for(int i=0;i<count;i++){
+
+                var image = new Image<Gray, byte>(imf.GetImg(i)).Bytes;
                 if (image.Length != 32 * 32)
                 {
+                    result[0] = "wrong image size";
                     return result;
                 }
                 if (net.Layers.Count == 0)
@@ -217,18 +221,18 @@ namespace Project.ConvNeuronNet
                 var dataVolume = BuilderInstance.Volume.From(data, dataShape);
 
                 var j = 0;
-                for (var y = 0; y < 32; y++)
+                for (var y = 0; y < net.Layers[0].InputHeight; y++)
                 {
-                    for (var x = 0; x < 32; x++)
+                    for (var x = 0; x < net.Layers[0].InputWidth; x++)
                     {
                         dataVolume.Set(x, y, 0, 0, image[j++]);
                     }
                 }
                 net.Forward(dataVolume);
                 var prediction = net.GetPrediction();
-                 
                 result[i] = GetClassNameFromNumber(prediction[0]);
             }
+            
             return result;
         }
 

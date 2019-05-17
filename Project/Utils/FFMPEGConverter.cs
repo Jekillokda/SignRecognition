@@ -1,6 +1,7 @@
 ﻿using Project.Utils;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
@@ -27,19 +28,30 @@ namespace Project
             bool isOk = true;
             var nPath = System.IO.Path.GetFileName(sourcePath);
             string destinationFolderPath = savePath + @"\convertedFrom" + nPath.Substring(0, nPath.LastIndexOf("."));
+            string subsPath = "";
             if ((File.Exists(destinationFolderPath)) && (rewrite = true))
             {
                 Directory.Delete(destinationFolderPath,true);
                 Directory.CreateDirectory(destinationFolderPath);
+                ConvertVidToImages(destinationFolderPath);
+                subsPath = ConvertVidToSubs(destinationFolderPath);
             }
-                //ConvertVidToImages(destinationFolderPath);
-                var subsPath = ConvertVidToSubs(destinationFolderPath);
 
                 pointsList = ParseSubtitleFile(subsPath);
                 ImageFolder f = new ImageFolder();
                 f.Load(destinationFolderPath);
                 f.Sort();
-                List<PhotoData> dataList = PhCoord_Connect.Connect(f, pointsList, timeStepMilliseconds).ToList(); ;
+                List<PhotoData> dataList = PhCoord_Connect.Connect(f, pointsList, timeStepMilliseconds).ToList();
+            for (int i = 0; i < dataList.Count; i++)
+            {
+                Console.WriteLine(
+                    dataList[i].Photo.Number.ToString() + " "+
+                    dataList[i].Photo.FileName +" "+
+                    dataList[i].MovementPoint.Lon.ToString() + " " +
+                    dataList[i].MovementPoint.Lat.ToString() + " " +
+                    dataList[i].MovementPoint.Date.ToString() + " " +
+                    dataList[i].MovementPoint.Azimuth);
+            }
             
             
             return isOk;
