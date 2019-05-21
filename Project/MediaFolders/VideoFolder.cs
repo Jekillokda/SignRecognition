@@ -13,7 +13,6 @@ namespace Project
         private int count;
         public string[] videoArray;
 
-
         public VideoFolder()
         {
             path = "";
@@ -21,8 +20,7 @@ namespace Project
             videoArray = new string[0];
         }
 
-
-        public int load(string path)
+        public int Load(string path)
         {
             this.path = path;
             if (Directory.Exists(path))
@@ -54,7 +52,7 @@ namespace Project
         {
             return videoArray;
         }
-        public string getImg(int n)
+        public string getVid(int n)
         {
             return videoArray[n];
         }

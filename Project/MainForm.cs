@@ -36,7 +36,7 @@ namespace Project
             if (Properties.Settings.Default.last_path_to_videos != "")
             {
                 vidFolder = new VideoFolder();
-                vidFolder.load(Properties.Settings.Default.last_path_to_videos);
+                vidFolder.Load(Properties.Settings.Default.last_path_to_videos);
                 lVideos_count.Text = "Found " + vidFolder.getCount();               
                 tb_videos_path.Text = vidFolder.getPath();   
             }
@@ -315,6 +315,11 @@ namespace Project
 
         private void btn_CNN_learn_Click(object sender, EventArgs e)
         {
+            if (network.IsLearned())
+            {
+                lLearned.Text = "Learned";
+                return;
+            }
             if ((trainFolder != null) && (testFolder != null))
             {
                 double d = network.TeachCNN(trainFolder.GetPath(), testFolder.GetPath(), aim, 0.02, 50, 0.9);
@@ -322,9 +327,10 @@ namespace Project
                     MessageBox.Show("Please add layers and try again");
                 else
                     lAccuracy.Text = d.ToString();
+                if (network.IsLearned())
+                    lLearned.Text = "Learned";
             }
-            if(network.IsLearned())
-            lLearned.Text = "Learned";
+            
             
         }
 
@@ -508,10 +514,6 @@ namespace Project
 
         }
 
-        private void btn_subtitles_parse_Click(object sender, EventArgs e)
-        {
-            
-        }
     }
 
 }

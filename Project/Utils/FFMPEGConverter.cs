@@ -53,7 +53,6 @@ namespace Project
                     dataList[i].MovementPoint.Azimuth);
             }
             
-            
             return isOk;
         }
       public string ConvertVidToSubs(string dFolderPath)
@@ -119,7 +118,7 @@ namespace Project
             return isStarted;
         }
 
-        private List<MovementPoint> ParseSubtitleFile(string fileName)
+      private List<MovementPoint> ParseSubtitleFile(string fileName)
         {
             if (!File.Exists(fileName))
             {
@@ -141,7 +140,7 @@ namespace Project
             return en;
         }
 
-        private MovementPoint ParseMovementPoint(string movementPoint)
+      private MovementPoint ParseMovementPoint(string movementPoint)
         {
             var parts = movementPoint.Split(new char[] { ',' });
 
@@ -167,10 +166,9 @@ namespace Project
             };
         }
 
-        // Input format: DDDMM.MMMM
+      // Input format: DDDMM.MMMM
         // Output: DDD.DDDDD
-        private decimal ConvertDegreesAndDecimalMinutesStringToDecimalDegrees(
-            string degreesAndDecimalMinutesString)
+      private decimal ConvertDegreesAndDecimalMinutesStringToDecimalDegrees(string degreesAndDecimalMinutesString)
         {
             decimal degreesAndDecimalMinutes = Convert.ToDecimal(
                 degreesAndDecimalMinutesString.Replace('.', ','),

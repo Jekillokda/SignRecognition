@@ -11,8 +11,7 @@ namespace Project.DetectionHaar
 {
     static class DetectFolder
     {
-
-        public static bool DetectAll(string folderPath, string[] cascadesPath, string savePath)
+        public static void DetectAll(string folderPath, string[] cascadesPath, string savePath)
         {
             List<SignsHaarCascade> cascadesList = new List<SignsHaarCascade>();
             List<ImageFolder> foldersList = new List<ImageFolder>();
@@ -39,8 +38,6 @@ namespace Project.DetectionHaar
                             list[i].Save(newFolderPath +"_" + imageName+ "_" + i + ".jpg");
                     }                  
                 }
-
-            return false;
         }
     }
 }

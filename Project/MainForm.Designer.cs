@@ -47,7 +47,6 @@
             this.btn_cascade_open = new System.Windows.Forms.Button();
             this.lCascadeLoaded = new System.Windows.Forms.Label();
             this.gb_ffmpeg = new System.Windows.Forms.GroupBox();
-            this.btn_subtitles_parse = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.tb_images_to_save_path = new System.Windows.Forms.TextBox();
             this.btn_images_to_save_open = new System.Windows.Forms.Button();
@@ -90,18 +89,15 @@
             this.btn_CNN_create = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btn_resize = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btn_ROI_makeAll = new System.Windows.Forms.Button();
             this.btn_ROI_toGrey = new System.Windows.Forms.Button();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btn_autoCompleteAll = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.gb_haar_cascade.SuspendLayout();
             this.gb_ffmpeg.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -218,7 +214,6 @@
             // 
             // gb_ffmpeg
             // 
-            this.gb_ffmpeg.Controls.Add(this.btn_subtitles_parse);
             this.gb_ffmpeg.Controls.Add(this.label9);
             this.gb_ffmpeg.Controls.Add(this.tb_images_to_save_path);
             this.gb_ffmpeg.Controls.Add(this.btn_images_to_save_open);
@@ -230,13 +225,6 @@
             resources.ApplyResources(this.gb_ffmpeg, "gb_ffmpeg");
             this.gb_ffmpeg.Name = "gb_ffmpeg";
             this.gb_ffmpeg.TabStop = false;
-            // 
-            // btn_subtitles_parse
-            // 
-            resources.ApplyResources(this.btn_subtitles_parse, "btn_subtitles_parse");
-            this.btn_subtitles_parse.Name = "btn_subtitles_parse";
-            this.btn_subtitles_parse.UseVisualStyleBackColor = true;
-            this.btn_subtitles_parse.Click += new System.EventHandler(this.btn_subtitles_parse_Click);
             // 
             // label9
             // 
@@ -503,6 +491,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.button3);
             resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
@@ -513,19 +502,6 @@
             resources.ApplyResources(this.button3, "button3");
             this.button3.Name = "button3";
             this.button3.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.btn_resize);
-            resources.ApplyResources(this.groupBox3, "groupBox3");
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.TabStop = false;
-            // 
-            // btn_resize
-            // 
-            resources.ApplyResources(this.btn_resize, "btn_resize");
-            this.btn_resize.Name = "btn_resize";
-            this.btn_resize.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
@@ -550,12 +526,6 @@
             this.btn_ROI_toGrey.UseVisualStyleBackColor = true;
             this.btn_ROI_toGrey.Click += new System.EventHandler(this.btn_toGrey_Click);
             // 
-            // groupBox5
-            // 
-            resources.ApplyResources(this.groupBox5, "groupBox5");
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.TabStop = false;
-            // 
             // btn_autoCompleteAll
             // 
             resources.ApplyResources(this.btn_autoCompleteAll, "btn_autoCompleteAll");
@@ -563,18 +533,22 @@
             this.btn_autoCompleteAll.UseVisualStyleBackColor = true;
             this.btn_autoCompleteAll.Click += new System.EventHandler(this.btn_autoCompleteAll_Click);
             // 
+            // button1
+            // 
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btn_autoCompleteAll);
-            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gb_haar_cascade);
             this.Controls.Add(this.gb_ffmpeg);
-            this.Controls.Add(this.groupBox3);
             this.Name = "MainForm";
             this.gb_haar_cascade.ResumeLayout(false);
             this.gb_haar_cascade.PerformLayout();
@@ -583,7 +557,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -603,10 +576,7 @@
         private System.Windows.Forms.Button btn_CNN_learn;
         private System.Windows.Forms.Button btn_CNN_create;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Button btn_resize;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btn_autoCompleteAll;
         private System.Windows.Forms.Label lTest_count;
@@ -657,7 +627,7 @@
         private System.Windows.Forms.TextBox tb_detected_images_to_save_path;
         private System.Windows.Forms.Button btn_detected_images_to_save_open;
         private System.Windows.Forms.TextBox tb_network_acc;
-        private System.Windows.Forms.Button btn_subtitles_parse;
+        private System.Windows.Forms.Button button1;
     }
 }
 

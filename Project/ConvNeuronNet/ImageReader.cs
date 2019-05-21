@@ -87,11 +87,5 @@ namespace Project.ConvNeuronNet
             return result;
         }
 
-        private static int ReverseBytes(int v)
-        {
-            var intAsBytes = BitConverter.GetBytes(v);
-            Array.Reverse(intAsBytes);
-            return BitConverter.ToInt32(intAsBytes, 0);
-        }
     }
 }

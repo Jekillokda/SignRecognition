@@ -11,5 +11,4 @@ namespace Project.Utils
         public int Number { get; set; }
         public string FileName { get; set; }
     }
-
 }

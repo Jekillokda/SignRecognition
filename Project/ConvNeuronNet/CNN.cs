@@ -72,21 +72,6 @@ namespace Project.ConvNeuronNet
             return net.Layers.Count;
         }
 
-        private void Test(Volume<double> x, int[] labels, CircularBuffer<double> accuracy, bool forward = true)
-        {
-            if (forward)
-            {
-                net.Forward(x);
-            }
-
-            var prediction = net.GetPrediction();
-
-            for (var i = 0; i < labels.Length; i++)
-            {
-                accuracy.Add(labels[i] == prediction[i] ? 1.0 : 0.0);
-            }
-        }
-
         public double TeachCNN(string pathL, string pathT, int acc, double learnRate,int size, double mom)
         {
             if (net.Layers.Count == 0)
@@ -94,7 +79,7 @@ namespace Project.ConvNeuronNet
                 this.CreateCNN();
             }
             var datasets = new DataSets(pathL, pathT);
-            if (!datasets.Load(2*size))
+            if (!datasets.Load())
             {
                 return -2;
             }
@@ -249,6 +234,21 @@ namespace Project.ConvNeuronNet
             Test(x, labels, this.trainAccWindow, false);
 
             stepCount += labels.Length;
+        }
+
+        private void Test(Volume<double> x, int[] labels, CircularBuffer<double> accuracy, bool forward = true)
+        {
+            if (forward)
+            {
+                net.Forward(x);
+            }
+
+            var prediction = net.GetPrediction();
+
+            for (var i = 0; i < labels.Length; i++)
+            {
+                accuracy.Add(labels[i] == prediction[i] ? 1.0 : 0.0);
+            }
         }
 
         public int GetLayersCount()

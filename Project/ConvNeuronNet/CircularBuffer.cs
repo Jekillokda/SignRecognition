@@ -5,26 +5,26 @@ namespace Project.ConvNeuronNet
 {
     internal class CircularBuffer<T>
     {
-        private readonly T[] _buffer;
-        private int _nextFree;
+        private readonly T[] buffer;
+        private int nextFree;
 
         public CircularBuffer(int capacity)
         {
             this.Capacity = capacity;
             this.Count = 0;
-            this._buffer = new T[capacity];
+            this.buffer = new T[capacity];
         }
 
         public int Capacity { get; }
 
         public int Count { get; private set; }
 
-        public IEnumerable<T> Items => this._buffer;
+        public IEnumerable<T> Items => this.buffer;
 
         public void Add(T o)
         {
-            this._buffer[this._nextFree] = o;
-            this._nextFree = (this._nextFree + 1) % this._buffer.Length;
+            this.buffer[this.nextFree] = o;
+            this.nextFree = (this.nextFree + 1) % this.buffer.Length;
             this.Count = Math.Min(this.Count + 1, this.Capacity);
         }
     }

@@ -19,7 +19,7 @@ namespace Project
                 {
                     path = dialog.SelectedPath;
                     Vf = new VideoFolder();
-                    Vf.load(path);
+                    Vf.Load(path);
             }
             return Vf;
         }

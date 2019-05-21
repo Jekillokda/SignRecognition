@@ -19,6 +19,7 @@ namespace Project
             count = 0;
             imageArray = new string[0];
         }
+
         public int Load(string path)
         {
             this.path = path;
@@ -38,7 +39,6 @@ namespace Project
                 
             return count;
         }
-
         public int GetCount()
         {
             return count;
@@ -50,6 +50,7 @@ namespace Project
         public void SetPath(string path)
         {
             this.path = path;
+            Load(path);
         }
         public string[] GetAllImgs()
         {

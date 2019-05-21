@@ -24,15 +24,16 @@ namespace Project
         string login;
         string password;
         string dataSource;
+        string path;
         OracleConnection con;
         string constr;
-        public bool ConnectToDB()
+        public bool Connect()
         {
             con.ConnectionString = constr;
             con.Open();
             return true;
         }
-        public bool Export(int count,Result[] r)
+        public bool ExporttoDB(int count,Result[] r)
         {
             DataTable dt = new DataTable();
             for (int i = 0; i < count; i++)
@@ -93,7 +94,11 @@ namespace Project
 
             return false;
         }
-        public bool Find()
+        public bool ExportToFile(string path)
+        {
+            return false;
+        }
+        public bool UploadFromFile(string path)
         {
             return false;
         }
