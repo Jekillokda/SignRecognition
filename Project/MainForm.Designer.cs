@@ -88,12 +88,15 @@
             this.btn_CNN_learn = new System.Windows.Forms.Button();
             this.btn_CNN_create = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_results_upload = new System.Windows.Forms.Button();
+            this.btn_results_save = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btn_ROI_makeAll = new System.Windows.Forms.Button();
             this.btn_ROI_toGrey = new System.Windows.Forms.Button();
             this.btn_autoCompleteAll = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.tb_result_save_path = new System.Windows.Forms.TextBox();
+            this.btn_results_to_save_open = new System.Windows.Forms.Button();
             this.gb_haar_cascade.SuspendLayout();
             this.gb_ffmpeg.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -491,17 +494,26 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.btn_results_upload);
+            this.groupBox2.Controls.Add(this.tb_result_save_path);
+            this.groupBox2.Controls.Add(this.btn_results_save);
+            this.groupBox2.Controls.Add(this.btn_results_to_save_open);
             resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
-            // button3
+            // btn_results_upload
             // 
-            resources.ApplyResources(this.button3, "button3");
-            this.button3.Name = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.btn_results_upload, "btn_results_upload");
+            this.btn_results_upload.Name = "btn_results_upload";
+            this.btn_results_upload.UseVisualStyleBackColor = true;
+            // 
+            // btn_results_save
+            // 
+            resources.ApplyResources(this.btn_results_save, "btn_results_save");
+            this.btn_results_save.Name = "btn_results_save";
+            this.btn_results_save.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
@@ -533,11 +545,21 @@
             this.btn_autoCompleteAll.UseVisualStyleBackColor = true;
             this.btn_autoCompleteAll.Click += new System.EventHandler(this.btn_autoCompleteAll_Click);
             // 
-            // button1
+            // label15
             // 
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.label15, "label15");
+            this.label15.Name = "label15";
+            // 
+            // tb_result_save_path
+            // 
+            resources.ApplyResources(this.tb_result_save_path, "tb_result_save_path");
+            this.tb_result_save_path.Name = "tb_result_save_path";
+            // 
+            // btn_results_to_save_open
+            // 
+            resources.ApplyResources(this.btn_results_to_save_open, "btn_results_to_save_open");
+            this.btn_results_to_save_open.Name = "btn_results_to_save_open";
+            this.btn_results_to_save_open.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -557,6 +579,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -577,7 +600,7 @@
         private System.Windows.Forms.Button btn_CNN_create;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_results_save;
         private System.Windows.Forms.Button btn_autoCompleteAll;
         private System.Windows.Forms.Label lTest_count;
         private System.Windows.Forms.Label lLearn_count;
@@ -627,7 +650,10 @@
         private System.Windows.Forms.TextBox tb_detected_images_to_save_path;
         private System.Windows.Forms.Button btn_detected_images_to_save_open;
         private System.Windows.Forms.TextBox tb_network_acc;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_results_upload;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox tb_result_save_path;
+        private System.Windows.Forms.Button btn_results_to_save_open;
     }
 }
 
