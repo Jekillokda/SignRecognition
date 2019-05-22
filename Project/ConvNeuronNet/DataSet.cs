@@ -10,14 +10,14 @@ namespace Project.ConvNeuronNet
 {
     internal class DataSet
     {
-        private readonly List<ImageEntry> trainImages;
+        private readonly List<ImageEntry> ImagesList;
         private readonly Random random = new Random(RandomUtilities.Seed);
         private int start;
         private int epochCompleted;
 
         public DataSet(List<ImageEntry> trainImages)
         {
-            this.trainImages = trainImages;
+            this.ImagesList = trainImages;
         }
 
         public Tuple<Volume<double>, Volume<double>, int[]> NextBatch(int batchSize, int numClasses = 10)
@@ -34,12 +34,12 @@ namespace Project.ConvNeuronNet
             // Shuffle for the first epoch
             if (this.start == 0 && this.epochCompleted == 0)
             {
-                for (var i = this.trainImages.Count - 1; i >= 0; i--)
+                for (var i = this.ImagesList.Count - 1; i >= 0; i--)
                 {
                     var j = random.Next(i);
-                    var temp = trainImages[j];
-                    this.trainImages[j] = this.trainImages[i];
-                    this.trainImages[i] = temp;
+                    var temp = ImagesList[j];
+                    this.ImagesList[j] = this.ImagesList[i];
+                    this.ImagesList[i] = temp;
                 }
             }
 
@@ -47,7 +47,7 @@ namespace Project.ConvNeuronNet
 
             for (var i = 0; i < batchSize; i++)
             {
-                var entry = trainImages[this.start];
+                var entry = ImagesList[this.start];
 
                 labels[i] = entry.Label;
 
@@ -63,7 +63,7 @@ namespace Project.ConvNeuronNet
                 label[i * numClasses + entry.Label] = 1.0;
 
                 start++;
-                if (start == trainImages.Count)
+                if (start == ImagesList.Count)
                 {
                     start = 0;
                     epochCompleted++;

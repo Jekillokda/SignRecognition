@@ -26,7 +26,6 @@ namespace Project.ConvNeuronNet
             if (train_images.Count == 0 || testing_images.Count == 0)
             {
                 Console.WriteLine("Missing training/testing files.");
-                Console.ReadKey();
                 return false;
             }
 
