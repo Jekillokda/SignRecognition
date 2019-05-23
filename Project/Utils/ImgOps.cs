@@ -87,7 +87,7 @@ namespace Project
             return result;
         }
 
-        public static Image<Bgr, Byte> makeSmooth(Image<Bgr, Byte> input, Size size, int sigmaX, int sigmaY)
+        public static Image<Bgr, Byte>  makeSmooth(Image<Bgr, Byte> input, Size size, int sigmaX, int sigmaY)
         {
             CvInvoke.GaussianBlur(input, input, size, sigmaX, sigmaY);
             return input;

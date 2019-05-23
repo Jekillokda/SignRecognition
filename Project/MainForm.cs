@@ -47,7 +47,7 @@ namespace Project
                 tb_images_to_save_path.Text = path;
             }
 
-            if (Properties.Settings.Default.last_path_for_images_to_detect != "")
+            if ((Properties.Settings.Default.last_path_for_images_to_detect != "")&&(Directory.Exists(Properties.Settings.Default.last_path_for_images_to_detect)))
             {
                 path_to_detect_images = Properties.Settings.Default.last_path_for_images_to_detect;
                 tb_images_to_detect_path.Text = path_to_detect_images;

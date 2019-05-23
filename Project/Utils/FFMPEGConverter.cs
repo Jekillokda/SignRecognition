@@ -20,7 +20,7 @@ namespace Project
     public FFMPEGConverter(string spath, string svpath)
         {
             sourcePath = spath;
-            savePath = svpath;
+            savePath = svpath;  
         }
 
       public bool ConvertAll( bool rewrite)
@@ -32,11 +32,10 @@ namespace Project
             if ((File.Exists(destinationFolderPath)) && (rewrite = true))
             {
                 Directory.Delete(destinationFolderPath,true);
-                Directory.CreateDirectory(destinationFolderPath);
+                Directory.CreateDirectory(destinationFolderPath);   
+            }
                 ConvertVidToImages(destinationFolderPath);
                 subsPath = ConvertVidToSubs(destinationFolderPath);
-            }
-
                 pointsList = ParseSubtitleFile(subsPath);
                 ImageFolder f = new ImageFolder();
                 f.Load(destinationFolderPath);
@@ -166,8 +165,6 @@ namespace Project
             };
         }
 
-      // Input format: DDDMM.MMMM
-        // Output: DDD.DDDDD
       private decimal ConvertDegreesAndDecimalMinutesStringToDecimalDegrees(string degreesAndDecimalMinutesString)
         {
             decimal degreesAndDecimalMinutes = Convert.ToDecimal(

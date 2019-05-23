@@ -128,7 +128,7 @@ namespace Project.ConvNeuronNet
                 return "";
             }
             JsonToSave = net.ToJson();
-                var name = "CNN_" + GetAccuracy().ToString() + ".txt";
+                var name = "CNN_" + GetAccuracy().ToString() + /*"[" + GetClassesCount().ToString() + "]" +*/ ".txt";
                 var newPath = Path.Combine(Path.GetDirectoryName(tmppath), name);
                 if (File.Exists(newPath))
                 {
