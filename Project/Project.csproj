@@ -143,8 +143,8 @@
     <Compile Include="Utils\ImgOps.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShapeComparation.cs" />
-    <Compile Include="ShapeDetection.cs" />
+    <Compile Include="Utils\ShapeComparation.cs" />
+    <Compile Include="Utils\ShapeDetection.cs" />
     <Compile Include="MediaFolders\VideoFolder.cs" />
     <Compile Include="Utils\MovementPoint.cs" />
     <Compile Include="Utils\PhCoord_Connect.cs" />

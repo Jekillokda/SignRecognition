@@ -143,7 +143,15 @@ namespace Project.ConvNeuronNet
             if (path!= "")
             {
                 loadedJson = File.ReadAllText(path);
-                var deserialized = SerializationExtensions.FromJson<double>(loadedJson);
+                Net<double> deserialized = new Net<double>();
+                try
+                {
+                    deserialized = SerializationExtensions.FromJson<double>(loadedJson);
+                }
+                catch (Exception)
+                {
+                    return -1;
+                }
                 this.net = deserialized;
                 isNetLearned = true;
                 this.path = path;

@@ -155,6 +155,22 @@ namespace Project
             }
         }
 
+        private void btn_images_to_save_open_Click(object sender, EventArgs e)
+        {
+            var dialog = new FolderBrowserDialog
+            {
+                SelectedPath = tb_images_to_save_path.Text
+            };
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                path_to_cutted_images = dialog.SelectedPath;
+                tb_images_to_save_path.Text = path_to_cutted_images;
+            }
+            Properties.Settings.Default.last_path_for_images_to_save = path_to_cutted_images;
+            Properties.Settings.Default.Save();
+            Properties.Settings.Default.Upgrade();
+        }
+
         private void btn_convert_videos_Click(object sender, EventArgs e)
         {
             if (tb_videos_path.Text == "")
@@ -186,22 +202,6 @@ namespace Project
                 images_count_to_detect += dirs.Length;
             }
             lImagesToDetectCount.Text = images_count_to_detect.ToString();
-        }
-
-        private void btn_images_to_save_open_Click(object sender, EventArgs e)
-        {
-            var dialog = new FolderBrowserDialog
-            {
-                SelectedPath = tb_images_to_save_path.Text
-            };
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                path_to_cutted_images = dialog.SelectedPath;
-                tb_images_to_save_path.Text = path_to_cutted_images;
-            }
-            Properties.Settings.Default.last_path_for_images_to_save = path_to_cutted_images;
-            Properties.Settings.Default.Save();
-            Properties.Settings.Default.Upgrade();
         }
 
         private void btn_cascade_open_Click(object sender, EventArgs e)
@@ -257,7 +257,7 @@ namespace Project
 
         private void btn_Haar_Detect_Click(object sender, EventArgs e)
         {
-            string[] cascades= new string[1];
+            string[] cascades = new string[1];
             cascades[0] = tb_cascade_path.Text;
             foreach (string path in folders_to_detect)
             {
@@ -368,6 +368,11 @@ namespace Project
         private void btn_CNN_load_Click(object sender, EventArgs e)
         {
             int n = network.LoadCNN(tb_network_path.Text);
+            if (n == -1)
+            {
+                MessageBox.Show("Input network file is not correct");
+                return;
+            }
             lLayers_count.Text = n.ToString();
             lClasses_count.Text = network.GetClassesCount().ToString();
             if (network.IsLearned())
