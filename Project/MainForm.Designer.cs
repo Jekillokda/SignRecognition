@@ -54,8 +54,6 @@
             this.lVideos_count = new System.Windows.Forms.Label();
             this.tb_videos_path = new System.Windows.Forms.TextBox();
             this.btn_videos_open = new System.Windows.Forms.Button();
-            this.btn_ROI_resize = new System.Windows.Forms.Button();
-            this.btn_ROI_clahe = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tb_network_acc = new System.Windows.Forms.TextBox();
             this.lAccuracy = new System.Windows.Forms.Label();
@@ -88,20 +86,16 @@
             this.btn_CNN_learn = new System.Windows.Forms.Button();
             this.btn_CNN_create = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btn_results_upload = new System.Windows.Forms.Button();
-            this.btn_results_save = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btn_ROI_makeAll = new System.Windows.Forms.Button();
-            this.btn_ROI_toGrey = new System.Windows.Forms.Button();
-            this.btn_autoCompleteAll = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
+            this.btn_results_upload = new System.Windows.Forms.Button();
             this.tb_result_save_path = new System.Windows.Forms.TextBox();
+            this.btn_results_save = new System.Windows.Forms.Button();
             this.btn_results_to_save_open = new System.Windows.Forms.Button();
+            this.btn_autoCompleteAll = new System.Windows.Forms.Button();
             this.gb_haar_cascade.SuspendLayout();
             this.gb_ffmpeg.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_convert_videos
@@ -267,20 +261,6 @@
             this.btn_videos_open.Name = "btn_videos_open";
             this.btn_videos_open.UseVisualStyleBackColor = true;
             this.btn_videos_open.Click += new System.EventHandler(this.btn_videos_open_Click);
-            // 
-            // btn_ROI_resize
-            // 
-            resources.ApplyResources(this.btn_ROI_resize, "btn_ROI_resize");
-            this.btn_ROI_resize.Name = "btn_ROI_resize";
-            this.btn_ROI_resize.UseVisualStyleBackColor = true;
-            this.btn_ROI_resize.Click += new System.EventHandler(this.btn_img1_resize_Click);
-            // 
-            // btn_ROI_clahe
-            // 
-            resources.ApplyResources(this.btn_ROI_clahe, "btn_ROI_clahe");
-            this.btn_ROI_clahe.Name = "btn_ROI_clahe";
-            this.btn_ROI_clahe.UseVisualStyleBackColor = true;
-            this.btn_ROI_clahe.Click += new System.EventHandler(this.btn_img1_clahe_Click);
             // 
             // groupBox1
             // 
@@ -503,40 +483,36 @@
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
+            // label15
+            // 
+            resources.ApplyResources(this.label15, "label15");
+            this.label15.Name = "label15";
+            // 
             // btn_results_upload
             // 
             resources.ApplyResources(this.btn_results_upload, "btn_results_upload");
             this.btn_results_upload.Name = "btn_results_upload";
             this.btn_results_upload.UseVisualStyleBackColor = true;
+            this.btn_results_upload.Click += new System.EventHandler(this.btn_results_upload_Click);
+            // 
+            // tb_result_save_path
+            // 
+            resources.ApplyResources(this.tb_result_save_path, "tb_result_save_path");
+            this.tb_result_save_path.Name = "tb_result_save_path";
             // 
             // btn_results_save
             // 
             resources.ApplyResources(this.btn_results_save, "btn_results_save");
             this.btn_results_save.Name = "btn_results_save";
             this.btn_results_save.UseVisualStyleBackColor = true;
+            this.btn_results_save.Click += new System.EventHandler(this.btn_results_save_Click);
             // 
-            // groupBox4
+            // btn_results_to_save_open
             // 
-            this.groupBox4.Controls.Add(this.btn_ROI_makeAll);
-            this.groupBox4.Controls.Add(this.btn_ROI_toGrey);
-            this.groupBox4.Controls.Add(this.btn_ROI_clahe);
-            this.groupBox4.Controls.Add(this.btn_ROI_resize);
-            resources.ApplyResources(this.groupBox4, "groupBox4");
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.TabStop = false;
-            // 
-            // btn_ROI_makeAll
-            // 
-            resources.ApplyResources(this.btn_ROI_makeAll, "btn_ROI_makeAll");
-            this.btn_ROI_makeAll.Name = "btn_ROI_makeAll";
-            this.btn_ROI_makeAll.UseVisualStyleBackColor = true;
-            // 
-            // btn_ROI_toGrey
-            // 
-            resources.ApplyResources(this.btn_ROI_toGrey, "btn_ROI_toGrey");
-            this.btn_ROI_toGrey.Name = "btn_ROI_toGrey";
-            this.btn_ROI_toGrey.UseVisualStyleBackColor = true;
-            this.btn_ROI_toGrey.Click += new System.EventHandler(this.btn_toGrey_Click);
+            resources.ApplyResources(this.btn_results_to_save_open, "btn_results_to_save_open");
+            this.btn_results_to_save_open.Name = "btn_results_to_save_open";
+            this.btn_results_to_save_open.UseVisualStyleBackColor = true;
+            this.btn_results_to_save_open.Click += new System.EventHandler(this.btn_results_to_save_open_Click);
             // 
             // btn_autoCompleteAll
             // 
@@ -545,28 +521,11 @@
             this.btn_autoCompleteAll.UseVisualStyleBackColor = true;
             this.btn_autoCompleteAll.Click += new System.EventHandler(this.btn_autoCompleteAll_Click);
             // 
-            // label15
-            // 
-            resources.ApplyResources(this.label15, "label15");
-            this.label15.Name = "label15";
-            // 
-            // tb_result_save_path
-            // 
-            resources.ApplyResources(this.tb_result_save_path, "tb_result_save_path");
-            this.tb_result_save_path.Name = "tb_result_save_path";
-            // 
-            // btn_results_to_save_open
-            // 
-            resources.ApplyResources(this.btn_results_to_save_open, "btn_results_to_save_open");
-            this.btn_results_to_save_open.Name = "btn_results_to_save_open";
-            this.btn_results_to_save_open.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btn_autoCompleteAll);
-            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gb_haar_cascade);
@@ -580,7 +539,6 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -590,8 +548,6 @@
         private System.Windows.Forms.Button btn_Haar_Detect;
         private System.Windows.Forms.GroupBox gb_haar_cascade;
         private System.Windows.Forms.GroupBox gb_ffmpeg;
-        private System.Windows.Forms.Button btn_ROI_resize;
-        private System.Windows.Forms.Button btn_ROI_clahe;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btn_CNN_save;
         private System.Windows.Forms.Button btn_CNN_load;
@@ -599,7 +555,6 @@
         private System.Windows.Forms.Button btn_CNN_learn;
         private System.Windows.Forms.Button btn_CNN_create;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btn_results_save;
         private System.Windows.Forms.Button btn_autoCompleteAll;
         private System.Windows.Forms.Label lTest_count;
@@ -613,7 +568,6 @@
         private System.Windows.Forms.TextBox tb_test_imgs_path;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lLayers_count;
-        private System.Windows.Forms.Button btn_ROI_toGrey;
         private System.Windows.Forms.Button btn_imgs_open;
         private System.Windows.Forms.TextBox tb_imgs_path;
         private System.Windows.Forms.Label label4;
@@ -638,7 +592,6 @@
         private System.Windows.Forms.TextBox tb_cascade_path;
         private System.Windows.Forms.Button btn_cascade_open;
         private System.Windows.Forms.Label lCascadeLoaded;
-        private System.Windows.Forms.Button btn_ROI_makeAll;
         private System.Windows.Forms.Label lFoldersToDetectCount;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;

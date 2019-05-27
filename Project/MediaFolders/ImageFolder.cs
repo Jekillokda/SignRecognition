@@ -52,7 +52,7 @@ namespace Project
             this.path = path;
             Load(path);
         }
-        public string[] GetAllImgs()
+        public string[] GetAll()
         {
             return imageArray;
         }

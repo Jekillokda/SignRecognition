@@ -22,7 +22,7 @@ namespace Project.DetectionHaar
             ImageFolder f = new ImageFolder();
             f.Load(folderPath);
                 int c = 0;
-                foreach (string image_path in f.GetAllImgs())
+                foreach (string image_path in f.GetAll())
                 {
                     Mat img = new Image<Bgr, byte>(image_path).Mat;
                     foreach(SignsHaarCascade cascade in cascadesList)

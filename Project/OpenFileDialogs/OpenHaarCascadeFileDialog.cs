@@ -10,9 +10,9 @@ namespace Project
             string path = "";
             if (defPath == "")
             {
-                if (Properties.Settings.Default.last_path_to_cascade != "")
+                if (Properties.Settings.Default.last_path_to_cascades != "")
                 {
-                    path = Properties.Settings.Default.last_path_to_cascade;
+                    path = Properties.Settings.Default.last_path_to_cascades;
                 }
                 OpenFileDialog openFileDialog = new OpenFileDialog
                 {

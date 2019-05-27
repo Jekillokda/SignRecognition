@@ -33,7 +33,7 @@ namespace Project.ConvNeuronNet
             var result = new List<byte[]>();
             var f = new ImageFolder();
             f.Load(path);
-            foreach (string imgpath in f.GetAllImgs())
+            foreach (string imgpath in f.GetAll())
             {
                 result.Add(new Image<Gray, byte>(imgpath).Bytes);
             }
@@ -55,7 +55,7 @@ namespace Project.ConvNeuronNet
 
             if (!File.Exists(filePath))
             {
-                foreach (string imgpath in f.GetAllImgs())
+                foreach (string imgpath in f.GetAll())
                 {
                     string n = Path.GetFileName(imgpath);
 

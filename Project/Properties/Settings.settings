@@ -5,7 +5,7 @@
     <Setting Name="last_path_to_videos" Type="System.String" Scope="User">
       <Value Profile="(Default)">""</Value>
     </Setting>
-    <Setting Name="last_path_to_cascade" Type="System.String" Scope="User">
+    <Setting Name="last_path_to_cascades" Type="System.String" Scope="User">
       <Value Profile="(Default)">""</Value>
     </Setting>
     <Setting Name="password" Type="System.String" Scope="User">
@@ -36,6 +36,9 @@
       <Value Profile="(Default)">""</Value>
     </Setting>
     <Setting Name="last_path_for_detected_images_to_save" Type="System.String" Scope="User">
+      <Value Profile="(Default)">""</Value>
+    </Setting>
+    <Setting Name="last_path_to_results_save" Type="System.String" Scope="User">
       <Value Profile="(Default)">""</Value>
     </Setting>
   </Settings>

@@ -48,7 +48,7 @@ namespace Project
         {
             this.path = path;
         }
-        public string[] getAllVids()
+        public string[] getAll()
         {
             return videoArray;
         }

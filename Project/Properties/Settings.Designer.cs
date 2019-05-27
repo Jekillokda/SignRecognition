@@ -38,12 +38,12 @@ namespace Project.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("\"\"")]
-        public string last_path_to_cascade {
+        public string last_path_to_cascades {
             get {
-                return ((string)(this["last_path_to_cascade"]));
+                return ((string)(this["last_path_to_cascades"]));
             }
             set {
-                this["last_path_to_cascade"] = value;
+                this["last_path_to_cascades"] = value;
             }
         }
         
@@ -161,6 +161,18 @@ namespace Project.Properties {
             }
             set {
                 this["last_path_for_detected_images_to_save"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\"\"")]
+        public string last_path_to_results_save {
+            get {
+                return ((string)(this["last_path_to_results_save"]));
+            }
+            set {
+                this["last_path_to_results_save"] = value;
             }
         }
     }

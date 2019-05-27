@@ -1,16 +1,19 @@
 ﻿using Oracle.ManagedDataAccess.Client;
+using Project.MediaFolders;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Project
 {
-    class ResultExport
+     class ResultExport
     {
-        ResultExport(string login,string password, string dataS)
+        public ResultExport(string login,string password, string dataS, string fpath)
         {
             this.login = login;
             this.password = password;
@@ -20,12 +23,19 @@ namespace Project
             "Password=" + this.password + ";" +
             "Data Source=" + this.dataSource;
             this.con = new OracleConnection(constr);
+            formatter = new XmlSerializer(typeof(Result[]));
+            folderpath = fpath;
+            xmlFolder = new XmlFolder();
         }
         string login;
         string password;
         string dataSource;
-        string path;
+        string folderpath;
+        XmlFolder xmlFolder;
+        XmlSerializer formatter;
         OracleConnection con;
+        Result[] results;
+        string[] files;
         string constr;
         public bool Connect()
         {
@@ -33,23 +43,32 @@ namespace Project
             con.Open();
             return true;
         }
-        public bool ExporttoDB(int count,Result[] r)
+        public bool ExporttoDB(string path)
         {
-            DataTable dt = new DataTable();
-            for (int i = 0; i < count; i++)
-            {
-                DataRow dr = dt.NewRow();
-                dr["ID"] = r[i].getId();
-                dr["NAME"] = r[i].getSignClass();
-                dr["Data"] = r[i].getDate();
-                dr["Long"] = r[i].getLongitude();
-                dr["Lat"] = r[i].getLattitude();
-                dt.Rows.Add(dr);
-            }
+                UploadFromFile(path);
+                DataTable dt = new DataTable("Signs");
+
+            DataColumn workCol = dt.Columns.Add("ID", typeof(int));
+            workCol.AllowDBNull = false;
+            workCol.Unique = true;
+            dt.Columns.Add("NAME", typeof(string));
+            dt.Columns.Add("DATE", typeof(DateTime));
+            dt.Columns.Add("LONG", typeof(string));
+            dt.Columns.Add("LAT", typeof(string));
+            for (int i = 0; i < results.Length; i++)
+                {
+                    DataRow dr = dt.NewRow();
+                    dr["ID"] = results[i].id;
+                    dr["NAME"] = results[i].signClass;
+                    dr["DATE"] = results[i].date;
+                    dr["LONG"] = results[i].longitude;
+                    dr["LAT"] = results[i].lattitude;
+                    dt.Rows.Add(dr);
+                }  
             //
             try
             {
-                using (var connection = new OracleConnection(con.ConnectionString))
+               /* using (var connection = new OracleConnection(con.ConnectionString))
                 {
                     connection.Open();
                     int[] ids = new int[dt.Rows.Count];
@@ -84,23 +103,52 @@ namespace Project
                     cmd.Parameters.Add(address);
                     cmd.ExecuteNonQuery();
 
-                }
+                }*/
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            //
 
             return false;
         }
-        public bool ExportToFile(string path)
+        public bool ExportToFile(Result[] arr)
         {
-            return false;
+            var name = "123";
+            var filePath = Path.Combine(folderpath, name);
+            filePath += ".xml";
+
+            using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate))
+            {
+            formatter.Serialize(fs, arr);
+            }
+            return true;
         }
+
+        public bool ExportFolder(string path)
+        {
+            xmlFolder.Load(path);
+            files = xmlFolder.GetAll();
+            foreach (string f in files)
+            {
+                ExporttoDB(f);
+            }
+                return true;
+        }
+
         public bool UploadFromFile(string path)
         {
-            return false;
+                using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+                {
+                    results = (Result[])formatter.Deserialize(fs);
+
+                    foreach (Result r in results)
+                    {
+                        Console.WriteLine("id: {0} --- Класс: {1}", r.id, r.signClass);
+                    }
+                    
+                }
+            return true;
         }
         public bool CloseConnection()
         {
