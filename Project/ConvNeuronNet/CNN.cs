@@ -27,7 +27,6 @@ namespace Project.ConvNeuronNet
         private SgdTrainer<double> trainer;
         string path;
         private ConvLayer convLayer;
-        float dr = 0.5f;
 
         private readonly CircularBuffer<double> testAccWindow = new CircularBuffer<double>(100);
         private readonly CircularBuffer<double> trainAccWindow = new CircularBuffer<double>(100);
@@ -57,19 +56,25 @@ namespace Project.ConvNeuronNet
                 ////net.AddLayer(new DropoutLayer(0.5));
                 //net.AddLayer(new FullyConnLayer(10));
                 //net.AddLayer(new SoftmaxLayer(10));
-                this.net.AddLayer(new InputLayer(inpx, inpy, 1));
-                this.convLayer = new ConvLayer (5, 5, 12) { };
-                this.net.AddLayer(this.convLayer);
-                this.net.AddLayer(new PoolLayer(2, 2) {  });//субдискр
-                this.net.AddLayer(new ReluLayer());
-                this.net.AddLayer(new ConvLayer(5, 5, 24) { });
-                this.net.AddLayer(new PoolLayer(2, 2) {  });
-                this.net.AddLayer(new ReluLayer());
-                this.net.AddLayer(new FullyConnLayer(150));
-                this.net.AddLayer(new FullyConnLayer(100));
-                //this.net.AddLayer(new DropoutLayer(dr));
-                this.net.AddLayer(new FullyConnLayer(classesCount));
-                this.net.AddLayer(new SoftmaxLayer(classesCount));
+                net.AddLayer(new InputLayer(inpx, inpy, 1));
+
+                convLayer = new ConvLayer (5, 5, 12) { };
+                net.AddLayer(this.convLayer);
+                net.AddLayer(new LeakyReluLayer(0.3));
+                net.AddLayer(new PoolLayer(2, 2) {  });//субдискр
+               
+                net.AddLayer(new ConvLayer(5, 5, 24) { });
+                net.AddLayer(new LeakyReluLayer(0.3));
+                net.AddLayer(new PoolLayer(2, 2) {  });
+                
+                net.AddLayer(new FullyConnLayer(150));
+                net.AddLayer(new DropoutLayer<double>(0.5));
+
+                net.AddLayer(new FullyConnLayer(100));
+                net.AddLayer(new DropoutLayer<double>(0.5));
+
+                net.AddLayer(new FullyConnLayer(classesCount));
+                net.AddLayer(new SoftmaxLayer(classesCount));
                 classes = classesCount;
                 isNetLearned = false;
             }
@@ -80,7 +85,7 @@ namespace Project.ConvNeuronNet
         {
             if (net.Layers.Count == 0)
             {
-                this.CreateCNN();
+                CreateCNN();
             }
             var datasets = new DataSets(pathL, pathT);
             Console.WriteLine("DataSets Created");
@@ -90,14 +95,14 @@ namespace Project.ConvNeuronNet
             }
             Console.WriteLine("DataSets Loaded");
             Aim = acc;
-            this.trainer = new SgdTrainer<double>(this.net)
+            trainer = new SgdTrainer<double>(net)
             {
                 LearningRate = learnRate,
                 BatchSize = size,
                 Momentum = mom
             };
         
-            if (true/*net.Layers.Count != 0*/)
+            if (net.Layers.Count != 0)
             {
                 do
                 {
@@ -121,7 +126,6 @@ namespace Project.ConvNeuronNet
                 isNetLearned = true;
                 return Acc;
             }
-            
             else return -1;
         }
 
