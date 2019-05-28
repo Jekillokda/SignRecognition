@@ -27,6 +27,7 @@ namespace Project.ConvNeuronNet
         private SgdTrainer<double> trainer;
         string path;
         private ConvLayer convLayer;
+        float dr = 0.5f;
 
         private readonly CircularBuffer<double> testAccWindow = new CircularBuffer<double>(100);
         private readonly CircularBuffer<double> trainAccWindow = new CircularBuffer<double>(100);
@@ -56,33 +57,38 @@ namespace Project.ConvNeuronNet
                 ////net.AddLayer(new DropoutLayer(0.5));
                 //net.AddLayer(new FullyConnLayer(10));
                 //net.AddLayer(new SoftmaxLayer(10));
-                this.net.AddLayer(new InputLayer(inpx,inpy, 1));
-                this.convLayer = new ConvLayer(3, 3, 4) { Stride = 1, Pad = 2 };
+                this.net.AddLayer(new InputLayer(inpx, inpy, 1));
+                this.convLayer = new ConvLayer (5, 5, 12) { };
                 this.net.AddLayer(this.convLayer);
+                this.net.AddLayer(new PoolLayer(2, 2) {  });//субдискр
                 this.net.AddLayer(new ReluLayer());
-                this.net.AddLayer(new PoolLayer(2, 2) { Stride = 2 });
-                this.net.AddLayer(new ConvLayer(5, 5, 8) { Stride = 1, Pad = 2 });
+                this.net.AddLayer(new ConvLayer(5, 5, 24) { });
+                this.net.AddLayer(new PoolLayer(2, 2) {  });
                 this.net.AddLayer(new ReluLayer());
-                this.net.AddLayer(new PoolLayer(3, 3) { Stride = 3 });
-                this.net.AddLayer(new FullyConnLayer(2*classesCount));
+                this.net.AddLayer(new FullyConnLayer(150));
+                this.net.AddLayer(new FullyConnLayer(100));
+                //this.net.AddLayer(new DropoutLayer(dr));
                 this.net.AddLayer(new FullyConnLayer(classesCount));
                 this.net.AddLayer(new SoftmaxLayer(classesCount));
                 classes = classesCount;
+                isNetLearned = false;
             }
             return net.Layers.Count;
         }
 
-        public double TeachCNN(string pathL, string pathT, int acc, double learnRate,int size, double mom)
+        public double TeachCNN(string pathL, string pathT, int acc, double learnRate, int size, double mom)
         {
             if (net.Layers.Count == 0)
             {
                 this.CreateCNN();
             }
             var datasets = new DataSets(pathL, pathT);
+            Console.WriteLine("DataSets Created");
             if (!datasets.Load())
             {
                 return -2;
             }
+            Console.WriteLine("DataSets Loaded");
             Aim = acc;
             this.trainer = new SgdTrainer<double>(this.net)
             {
@@ -91,7 +97,7 @@ namespace Project.ConvNeuronNet
                 Momentum = mom
             };
         
-            if (net.Layers.Count > 0)
+            if (true/*net.Layers.Count != 0*/)
             {
                 do
                 {
@@ -128,7 +134,7 @@ namespace Project.ConvNeuronNet
                 return "";
             }
             JsonToSave = net.ToJson();
-                var name = "CNN_" + GetAccuracy().ToString() + /*"[" + GetClassesCount().ToString() + "]" +*/ ".txt";
+                var name = "CNN"+ GetClassesCount().ToString()+"cl"+GetLayersCount().ToString()+"l_" + GetAccuracy().ToString() + ".txt";
                 var newPath = Path.Combine(Path.GetDirectoryName(tmppath), name);
                 if (File.Exists(newPath))
                 {

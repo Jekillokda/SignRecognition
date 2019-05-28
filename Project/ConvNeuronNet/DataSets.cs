@@ -20,9 +20,12 @@ namespace Project.ConvNeuronNet
         public bool Load()
         {
             Console.WriteLine("Loading the datasets...");
+            Console.WriteLine("Loading train dataset");
             var train_images = ImageReader.Load(TrainPath);
+            Console.WriteLine("Loaded the train dataset...");
+            Console.WriteLine("Loading the test dataset...");
             var testing_images = ImageReader.Load(TestPath);
-
+            Console.WriteLine("Loaded the test dataset...");
             if (train_images.Count == 0 || testing_images.Count == 0)
             {
                 Console.WriteLine("Missing training/testing files.");

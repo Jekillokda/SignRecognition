@@ -328,7 +328,7 @@ namespace Project
 
         private void tb_network_acc_TextChanged(object sender, EventArgs e)
         {
-            aim = Int32.Parse(tb_network_acc.Text);
+            Int32.TryParse(tb_network_acc.Text, out aim);
         }
 
         private void btn_CNN_learn_Click(object sender, EventArgs e)
@@ -340,13 +340,16 @@ namespace Project
             }
             if ((trainFolder != null) && (testFolder != null))
             {
-                double d = network.TeachCNN(trainFolder.GetPath(), testFolder.GetPath(), aim, 0.02, 50, 0.9);
+                double d = network.TeachCNN(trainFolder.GetPath(), testFolder.GetPath(), aim, 0.02, 100, 0.9);
                 if (d == -1)
                     MessageBox.Show("Please add layers and try again");
                 else
                     lAccuracy.Text = d.ToString();
                 if (network.IsLearned())
+                {
                     lLearned.Text = "Learned";
+                    MessageBox.Show("Network is learned acc is " + lAccuracy.Text);
+                }
             }
 
 
