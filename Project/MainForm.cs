@@ -145,10 +145,6 @@ namespace Project
                 network = new CNN("");
             }
 
-            if ((tb_videos_path.Text != "") && (lVideos_count.Text != ""))
-            {
-                btn_convert_videos.Visible = true;
-            }
             aim = Int32.Parse(tb_network_acc.Text);
             //Properties.Settings.Default.is_opened_first_time = true;
             /*if (Properties.Settings.Default.is_opened_first_time)
@@ -200,6 +196,11 @@ namespace Project
             if (tb_videos_path.Text == "")
             {
                 MessageBox.Show("Path to videos is empty");
+                return;
+            }
+            if (vidFolder.getCount() == 0)
+            {
+                MessageBox.Show("Video Folder is empty");
                 return;
             }
             if (tb_images_to_save_path.Text == "")
@@ -485,9 +486,9 @@ namespace Project
 
         private void tb_test_imgs_path_TextChanged(object sender, EventArgs e)
         {
-            lTest_count.Text = "Found " + testFolder.GetCount();
             testFolder.SetPath(tb_test_imgs_path.Text);
             testFolder.Load(tb_test_imgs_path.Text);
+            lTest_count.Text = "Found " + testFolder.GetCount();
             Properties.Settings.Default.last_path_to_test_pictures = testFolder.GetPath();
             Properties.Settings.Default.Save();
             Properties.Settings.Default.Upgrade();
