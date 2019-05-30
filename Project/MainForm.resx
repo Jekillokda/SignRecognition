@@ -2122,7 +2122,7 @@
     <value>72</value>
   </data>
   <data name="btn_CNN_save.Text" xml:space="preserve">
-    <value>Save</value>
+    <value>Sa</value>
   </data>
   <data name="&gt;&gt;btn_CNN_save.Name" xml:space="preserve">
     <value>btn_CNN_save</value>
@@ -2542,7 +2542,7 @@
     <value>2, 2, 2, 2</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>C</value>
+    <value>SignRecognitionApp</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>
