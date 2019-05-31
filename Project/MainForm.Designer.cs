@@ -303,6 +303,7 @@
             resources.ApplyResources(this.tb_network_acc, "tb_network_acc");
             this.tb_network_acc.Name = "tb_network_acc";
             this.tb_network_acc.TextChanged += new System.EventHandler(this.tb_network_acc_TextChanged);
+            this.tb_network_acc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_network_acc_KeyPress);
             // 
             // lAccuracy
             // 

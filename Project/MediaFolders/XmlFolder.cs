@@ -11,13 +11,14 @@ namespace Project.MediaFolders
     {
         private string path;
         private int count;
-        private string[] xmlArray;
+        public string[] xmlArray;
 
         public XmlFolder()
         {
             path = "";
             count = 0;
-            xmlArray = new string[0];
+            xmlArray = new string[1];
+            xmlArray[0] = "";
         }
 
         public int Load(string path)
@@ -59,7 +60,7 @@ namespace Project.MediaFolders
         }
         public string GetFolderPath()
         {
-            return Directory.GetParent(xmlArray[0]).ToString();
+            return path;
         }
     }
 }

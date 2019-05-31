@@ -1,4 +1,5 @@
 ﻿using ConvNetSharp.Core;
+using ConvNetSharp.Core.Layers;
 using ConvNetSharp.Core.Layers.Double;
 using ConvNetSharp.Core.Serialization;
 using ConvNetSharp.Core.Training;
@@ -7,6 +8,7 @@ using ConvNetSharp.Volume.Double;
 using Emgu.CV;
 using Emgu.CV.Structure;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -55,10 +57,10 @@ namespace Project.ConvNeuronNet
                 net.AddLayer(new PoolLayer(2, 2) {  });
                 
                 net.AddLayer(new FullyConnLayer(150));
-                net.AddLayer(new DropoutLayer<double>(0.5));
+               // net.AddLayer(new DropoutLayer<double>(0.5));
 
                 net.AddLayer(new FullyConnLayer(100));
-                net.AddLayer(new DropoutLayer<double>(0.5));
+               // net.AddLayer(new DropoutLayer<double>(0.5));
 
                 net.AddLayer(new FullyConnLayer(classesCount));
                 net.AddLayer(new SoftmaxLayer(classesCount));
@@ -126,33 +128,38 @@ namespace Project.ConvNeuronNet
             }
             JsonToSave = net.ToJson();
                 var name = "CNN"+ GetClassesCount().ToString()+"cl"+GetLayersCount().ToString()+"l_" + GetAccuracy().ToString() + ".txt";
+            string p;
+            if (tmppath.Contains(".txt"))
+            {
                 var newPath = Path.Combine(Path.GetDirectoryName(tmppath), name);
+                p = newPath;
                 if (File.Exists(newPath))
                 {
                     File.Delete(newPath);
                 }
                 File.WriteAllText(newPath, JsonToSave);
-                return newPath;
+            }
+            else
+            {
+                var newPath = Path.Combine(tmppath, name);
+                p = newPath;
+                File.WriteAllText(newPath, JsonToSave);
+            }
+                return p;
         }
 
         public int LoadCNN(string path)
         {
-            if (path!= "")
+            if ((path != "")&&(File.Exists(path)))
             {
+                loadedJson = "";
                 loadedJson = File.ReadAllText(path);
-                Net<double> deserialized = new Net<double>();
-                try
-                {
-                    deserialized = SerializationExtensions.FromJson<double>(loadedJson);
-                }
-                catch (Exception)
-                {
-                    return -1;
-                }
+                var deserialized = SerializationExtensions.FromJson<double>(loadedJson);
                 this.net = deserialized;
+
                 isNetLearned = true;
                 this.path = path;
-                classes = deserialized.Layers[GetLayersCount() - 1].OutputDepth;
+                classes = net.Layers[GetLayersCount() - 1].OutputDepth;
                 return net.Layers.Count;
             }
             else return -1;

@@ -44,6 +44,10 @@ namespace Project
                 lVideos_count.Text = "Found " + vidFolder.getCount();
                 tb_videos_path.Text = vidFolder.getPath();
             }
+            else
+            {
+                vidFolder = new VideoFolder();
+            }
 
             if (Properties.Settings.Default.last_path_for_images_to_save != "")
             {
@@ -92,6 +96,10 @@ namespace Project
                 {
                     lCascadeLoaded.Text = "Not loaded";
                 }
+            }
+            else
+            {
+                xmlFolder = new XmlFolder();
             }
 
             if (Properties.Settings.Default.last_path_for_detected_images_to_save != "")
@@ -195,19 +203,34 @@ namespace Project
         {
             if (tb_videos_path.Text == "")
             {
-                MessageBox.Show("Path to videos is empty");
+                MessageBox.Show("Please choose video folder path","ERROR");
                 return;
             }
+
+            if (!Directory.Exists(tb_videos_path.Text))
+            {
+                MessageBox.Show("Folder does not exists", "ERROR");
+                return;
+            }
+
+            vidFolder.Load(tb_videos_path.Text);
             if (vidFolder.getCount() == 0)
             {
-                MessageBox.Show("Video Folder is empty");
+                MessageBox.Show("Video Folder is empty", "ERROR");
                 return;
             }
+
             if (tb_images_to_save_path.Text == "")
             {
-                MessageBox.Show("Please choose folder for image save");
+                MessageBox.Show("Please choose folder to save images", "ERROR");
                 return;
             }
+            if (!Directory.Exists(tb_images_to_save_path.Text))
+            {
+                MessageBox.Show("Folder for save does not exists", "ERROR");
+                return;
+            }
+
             MessageBox.Show("Please wait till the end of conversion");
             foreach (string videopath in vidFolder.videoArray)
             {
@@ -231,20 +254,22 @@ namespace Project
 
         private void btn_cascade_open_Click(object sender, EventArgs e)
         {
-            xmlFolder = OpenXmlFolderFileDialog.openFolder();
-            path_to_cascades = xmlFolder.GetFolderPath();
-            tb_cascade_path.Text = path_to_cascades;
-            if (xmlFolder.GetCount() > 0)
+            var folder = OpenXmlFolderFileDialog.openFolder();
+            if (folder.GetFolderPath() != "")
             {
-                lCascadeLoaded.Text = "Loaded " + xmlFolder.GetCount().ToString();
+                xmlFolder = folder;
+                if (xmlFolder.GetCount() > 0)
+                {
+                    lCascadeLoaded.Text = "Found " + xmlFolder.GetCount() + " cascades";
+
+                    tb_cascade_path.Text = xmlFolder.GetPath();
+                    Properties.Settings.Default.last_path_to_cascades = xmlFolder.GetPath();
+                    Properties.Settings.Default.Save();
+                    Properties.Settings.Default.Upgrade();
+                }
+                else
+                    lCascadeLoaded.Text = "Cascades not found";
             }
-            else
-            {
-                lCascadeLoaded.Text = "Not Exists";
-            }
-            Properties.Settings.Default.last_path_to_cascades = path_to_cascades;
-            Properties.Settings.Default.Save();
-            Properties.Settings.Default.Upgrade();
         }
 
         private void btn_images_to_detect_open_Click(object sender, EventArgs e)
@@ -278,6 +303,59 @@ namespace Project
 
         private void btn_Haar_Detect_Click(object sender, EventArgs e)
         {
+            if (tb_cascade_path.Text == "")
+            {
+                MessageBox.Show("Please choose path to folder with at least 1 cascade", "ERROR");
+                return;
+            }
+            if (!Directory.Exists(tb_cascade_path.Text))
+            {
+                MessageBox.Show("Cascade Folder does not exists", "ERROR");
+                return;
+            }
+            
+            xmlFolder.Load(tb_cascade_path.Text);
+            if (xmlFolder.GetCount() == 0)
+            {
+                MessageBox.Show("Cascade Folder is empty", "ERROR");
+                return;
+            }
+            if (tb_images_to_detect_path.Text == "")
+            {
+                MessageBox.Show("Please choose path to image folder", "ERROR");
+                return;
+            }
+            if (!Directory.Exists(tb_images_to_detect_path.Text))
+            {
+                MessageBox.Show("Image Folder does not exist", "ERROR");
+                return;
+            }
+            tb_images_to_detect_path.Text = path_to_detect_images;
+            folders_to_detect.Clear();
+            folders_to_detect.Add(path_to_detect_images);
+            foreach (string s in Directory.GetDirectories(path_to_detect_images))
+                folders_to_detect.Add(s);
+            lFoldersToDetectCount.Text = folders_to_detect.Count.ToString();
+            int count = 0;
+            foreach (string p in folders_to_detect)
+            {
+                string[] dirs = Directory.GetFiles(p, "*.jpg");
+                count += dirs.Length;
+            }
+            if (count== 0)
+            {
+                MessageBox.Show("No images to detect found", "ERROR");
+                lImagesToDetectCount.Text = "No images found";
+                return;
+            }
+            lImagesToDetectCount.Text = count.ToString();      
+            
+            if (!Directory.Exists(tb_detected_images_to_save_path.Text))
+            {
+                MessageBox.Show("Save Folder does not exist", "ERROR");
+                return;
+            }
+
             foreach (string path in folders_to_detect)
             {
                 DetectFolder.DetectAll(path, xmlFolder.GetAll(), tb_detected_images_to_save_path.Text);
@@ -329,19 +407,38 @@ namespace Project
 
         private void tb_network_acc_TextChanged(object sender, EventArgs e)
         {
-            Int32.TryParse(tb_network_acc.Text, out aim);
+            int n;
+            Int32.TryParse(tb_network_acc.Text, out n);
+            if (n > 100)
+            {
+                MessageBox.Show("Number is greater than 100", "Wrong Accuracy Number");
+            }
         }
 
         private void btn_CNN_learn_Click(object sender, EventArgs e)
         {
             if (network.IsLearned())
             {
-                lLearned.Text = "Learned";
+                DialogResult result = MessageBox.Show("Network is already teached. Teach again?", "", MessageBoxButtons.YesNo);
+                if (result == DialogResult.No)
+                    return;
+            }
+
+            if (tb_cascade_path.Text == "")
+            {
+                MessageBox.Show("Please choose path to folder with at least 1 cascade", "ERROR");
+                return;
+            }
+            if (!Directory.Exists(tb_cascade_path.Text))
+            {
+                MessageBox.Show("Cascade Folder does not exists", "ERROR");
                 return;
             }
             if ((trainFolder != null) && (testFolder != null))
             {
-                double d = network.TeachCNN(trainFolder.GetPath(), testFolder.GetPath(), aim, 0.02, 100, 0.9);
+                int acc;
+                Int32.TryParse(tb_network_acc.Text, out acc);
+                double d = network.TeachCNN(trainFolder.GetPath(), testFolder.GetPath(), acc, 0.02, 100, 0.9);
                 if (d == -1)
                     MessageBox.Show("Please add layers and try again");
                 else
@@ -353,7 +450,6 @@ namespace Project
                 }
             }
 
-
         }
 
         private void btn_CNN_recognize_Click(object sender, EventArgs e)
@@ -362,7 +458,7 @@ namespace Project
             {
                 if (!File.Exists(tb_imgs_path.Text))
                 {
-                    MessageBox.Show("File not exists");
+                    MessageBox.Show("Folder does not exists");
                     return;
                 }
 
@@ -383,18 +479,29 @@ namespace Project
             }
             else
             {
-                MessageBox.Show("Path to image is empty");
+                MessageBox.Show("Path to images is empty");
             }
         }
 
         private void btn_CNN_load_Click(object sender, EventArgs e)
         {
-            int n = network.LoadCNN(tb_network_path.Text);
-            if (n == -1)
+            string path = tb_network_path.Text;
+            if ((path == null) || (path == ""))
             {
-                MessageBox.Show("Input network file is not correct");
+                MessageBox.Show("Path network file is empty");
                 return;
             }
+            if (!File.Exists(path))
+            {
+                MessageBox.Show("Network doesn't exist");
+                return;
+            }
+            int n = network.LoadCNN(path);
+                if (n < 0)
+                {
+                    MessageBox.Show("Input network file is not correct");
+                    return;
+                }
             lLayers_count.Text = n.ToString();
             lClasses_count.Text = network.GetClassesCount().ToString();
             if (network.IsLearned())
@@ -402,6 +509,7 @@ namespace Project
             var p = Path.GetFileName(tb_network_path.Text);
             p = p.Substring(p.IndexOf('_') + 1, p.IndexOf('.') - p.IndexOf('_') - 1);
             lAccuracy.Text = p;
+            MessageBox.Show("Network Loaded");
         }
 
         private void btn_CNN_save_Click(object sender, EventArgs e)
@@ -414,9 +522,10 @@ namespace Project
                 Properties.Settings.Default.last_path_to_network = path;
                 Properties.Settings.Default.Save();
                 Properties.Settings.Default.Upgrade();
+                MessageBox.Show("Network Saved");
             }
             else
-                MessageBox.Show("Error");
+                MessageBox.Show("Choose path for network save and try again");
         }
 
         private void btn_autoCompleteAll_Click(object sender, EventArgs e)
@@ -544,6 +653,16 @@ namespace Project
 
         private void btn_results_save_Click(object sender, EventArgs e)
         {
+            if (tb_result_save_path.Text== "")
+            {
+                MessageBox.Show("Path for save is empty");
+                return;
+            }
+            if (!Directory.Exists(tb_result_save_path.Text))
+            {
+                MessageBox.Show("Directory does not exists");
+                return;
+            }
             Result[] arr = new Result[10];
             for (int i = 0; i < 10; i++)
             {
@@ -573,6 +692,16 @@ namespace Project
 
         private void btn_results_upload_Click(object sender, EventArgs e)
         {
+            if (tb_result_save_path.Text == "")
+            {
+                MessageBox.Show("Please choose path with results and try again");
+                return;
+            }
+            if (!Directory.Exists(tb_result_save_path.Text))
+            {
+                MessageBox.Show("Chosen directory does not exists");
+                return;
+            }
             exp = new ResultExport("l", "p", "s", tb_result_save_path.Text);
             exp.ExportFolder(tb_result_save_path.Text);
             MessageBox.Show("Successfull");
@@ -581,6 +710,15 @@ namespace Project
         private void btn_ROI_makeAll_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void tb_network_acc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if ((!Char.IsDigit(number))&&(!Char.IsControl(e.KeyChar)))
+            {
+                e.Handled = true;
+            }
         }
     }
 
