@@ -438,7 +438,7 @@ namespace Project
             {
                 int acc;
                 Int32.TryParse(tb_network_acc.Text, out acc);
-                double d = network.TeachCNN(trainFolder.GetPath(), testFolder.GetPath(), acc, 0.02, 100, 0.9);
+                double d = network.TeachCNN(trainFolder.GetPath(), testFolder.GetPath(), acc, 0.01, 100, 0.85);
                 if (d == -1)
                     MessageBox.Show("Please add layers and try again");
                 else

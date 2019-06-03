@@ -63,12 +63,13 @@ namespace Project
         public bool Sort()
         {
             string[] arr = new string[GetCount()];
-            for (int i = 0; i < GetCount(); i++)
+            for (int i = 1; i < GetCount(); i++)
             {
-                string tmp = Path.GetFileName(GetImg(i));
-                tmp = tmp.Substring(tmp.LastIndexOf("e")+1, tmp.LastIndexOf(".") - tmp.LastIndexOf("e")-1);
-                int n = 0;
+                string tmp = Path.GetFileName(GetImg(i-1));
+                tmp = tmp.Substring(tmp.LastIndexOf("_")+1, tmp.LastIndexOf(".") - tmp.LastIndexOf("_")-1);
+                int n = 1;
                 int.TryParse(tmp, out n);
+                Console.WriteLine(i.ToString() + " " + n.ToString());
                 arr[n - 1] = GetImg(i);
             }
             imageArray = arr;

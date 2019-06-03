@@ -47,20 +47,20 @@ namespace Project.ConvNeuronNet
             {
                 net.AddLayer(new InputLayer(inpx, inpy, 1));
 
-                convLayer = new ConvLayer (5, 5, 12) { };
+                convLayer = new ConvLayer (9, 9, 16) { };
                 net.AddLayer(this.convLayer);
                 net.AddLayer(new LeakyReluLayer(0.3));
                 net.AddLayer(new PoolLayer(2, 2) {  });//субдискр
-               
-                net.AddLayer(new ConvLayer(5, 5, 24) { });
-                net.AddLayer(new LeakyReluLayer(0.3));
-                net.AddLayer(new PoolLayer(2, 2) {  });
-                
-                net.AddLayer(new FullyConnLayer(150));
-               // net.AddLayer(new DropoutLayer<double>(0.5));
 
-                net.AddLayer(new FullyConnLayer(100));
-               // net.AddLayer(new DropoutLayer<double>(0.5));
+                net.AddLayer(new ConvLayer(5, 5, 32) { });
+                net.AddLayer(new LeakyReluLayer(0.3));
+                net.AddLayer(new PoolLayer(2, 2) { });
+
+                net.AddLayer(new FullyConnLayer(120));
+                net.AddLayer(new DropoutLayer(0.5));
+
+                net.AddLayer(new FullyConnLayer(50));
+                net.AddLayer(new DropoutLayer(0.5));
 
                 net.AddLayer(new FullyConnLayer(classesCount));
                 net.AddLayer(new SoftmaxLayer(classesCount));
@@ -101,14 +101,16 @@ namespace Project.ConvNeuronNet
                     var testSample = datasets.Test.NextBatch(trainer.BatchSize, classes);
                     Test(testSample.Item1, testSample.Item3, testAccWindow);
 
-                    Console.WriteLine("Loss: {0} Train accuracy: {1}% Test accuracy: {2}%", trainer.Loss,
+                    Console.WriteLine("Loss: {0} Train accuracy: {1}% Test accuracy: {2}% Average: {3}%", trainer.Loss,
                         Math.Round(trainAccWindow.Items.Average() * 100.0, 2),
-                        Math.Round(testAccWindow.Items.Average() * 100.0, 2));
+                        Math.Round(testAccWindow.Items.Average() * 100.0, 2),
+                        (Math.Round(trainAccWindow.Items.Average() * 100.0, 2)+
+                        Math.Round(testAccWindow.Items.Average() * 100.0, 2))/2);
 
                     Console.WriteLine("Example seen: {0} Fwd: {1}ms Bckw: {2}ms", stepCount,
                         Math.Round(trainer.ForwardTimeMs, 2),
                         Math.Round(trainer.BackwardTimeMs, 2));
-                    Acc = Math.Round(testAccWindow.Items.Average() * 100.0, 2);
+                    Acc = (Math.Round(testAccWindow.Items.Average() * 100.0, 2) + Math.Round(trainAccWindow.Items.Average() * 100.0, 2))/2;
                 } while (Acc < Aim);
 
                 Console.WriteLine($"{stepCount}");
