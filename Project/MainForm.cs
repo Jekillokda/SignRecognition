@@ -20,7 +20,7 @@ namespace Project
         VideoFolder vidFolder;
         ImageFolder trainFolder;
         ImageFolder testFolder;
-        ImageFolder imageFolder;
+        ImageFolder recognizeImageFolder;
         XmlFolder xmlFolder;
         List<string> folders_to_detect = new List<string>();
         string path_to_cutted_images;
@@ -124,12 +124,12 @@ namespace Project
                 tb_test_imgs_path.Text = testFolder.GetPath();
             }
 
-            if (Properties.Settings.Default.last_path_to_test_pictures != "")
+            if (Properties.Settings.Default.last_path_to_pictures != "")
             {
-                imageFolder = new ImageFolder();
-                imageFolder.Load(Properties.Settings.Default.last_path_to_pictures);
-                lImages.Text = "Found " + imageFolder.GetCount();
-                tb_imgs_path.Text = imageFolder.GetPath();
+                recognizeImageFolder = new ImageFolder();
+                recognizeImageFolder.Load(Properties.Settings.Default.last_path_to_pictures);
+                lImages.Text = "Found " + recognizeImageFolder.GetCount();
+                tb_imgs_path.Text = recognizeImageFolder.GetPath();
             }
 
             if (Properties.Settings.Default.last_path_to_results_save != "")
@@ -235,7 +235,7 @@ namespace Project
             foreach (string videopath in vidFolder.videoArray)
             {
                 //int fps = 5;
-                FFMPEGConverter conv = new FFMPEGConverter(videopath, tb_images_to_save_path.Text);
+                FFMPEGConverter conv = new FFMPEGConverter(videopath, tb_images_to_save_path.Text, 5000);
                 bool rewrite = false;
                 if (conv.ConvertAll(rewrite) == false)
                 {
@@ -438,7 +438,7 @@ namespace Project
             {
                 int acc;
                 Int32.TryParse(tb_network_acc.Text, out acc);
-                double d = network.TeachCNN(trainFolder.GetPath(), testFolder.GetPath(), acc, 0.01, 100, 0.85);
+                double d = network.TeachCNN(trainFolder.GetPath(), recognizeImageFolder.GetPath(), acc, 0.01, 100, 0.85);
                 if (d == -1)
                     MessageBox.Show("Please add layers and try again");
                 else
@@ -456,26 +456,40 @@ namespace Project
         {
             if (tb_imgs_path.Text != "")
             {
-                if (!File.Exists(tb_imgs_path.Text))
+                if (!Directory.Exists(tb_imgs_path.Text))
                 {
                     MessageBox.Show("Folder does not exists");
                     return;
                 }
-
-                Mat im = new Mat(tb_imgs_path.Text);
-                if (im.NumberOfChannels != 1)
+                
+                recognizeImageFolder.Load(tb_imgs_path.Text);
+                List<string> sarr = new List<string>();
+                foreach (string s in recognizeImageFolder.GetAll())
                 {
-                    im = ImgOps.RGBtoGrey(im).Mat;
-                }
+                    Mat im = new Mat(s);
+                    if (im.NumberOfChannels != 1)
+                    {
+                        im = ImgOps.RGBtoGrey(im).Mat;
+                    }
 
-                if (im.Size != new Size(32, 32))
-                {
-                    im = new Image<Gray, byte>(ImgOps.InterpolationResize(im, 32, 32).Bitmap).Mat;
+                    if (im.Size != new Size(32, 32))
+                    {
+                        im = new Image<Gray, byte>(ImgOps.InterpolationResize(im, 32, 32).Bitmap).Mat;
+                    }
+                    Image<Gray, byte> img = new Image<Gray, byte>(im.Bitmap);
+                    string sign = network.Recognize(img.Bytes);
+                    sarr.Add(sign);
                 }
-                Image<Gray, byte> img = new Image<Gray, byte>(im.Bitmap);
-                string sign = network.Recognize(img.Bytes);
-                lLayers_count.Text = network.GetLayersCount().ToString();
-                MessageBox.Show(sign);
+                string name = "results.txt";
+                string filepath = Path.Combine(recognizeImageFolder.GetPath(), name);
+
+                List<string> res = new List<string>();
+                for (int i = 0; i < sarr.Count; i++)
+                {
+                    res.Add(recognizeImageFolder.GetAll()[i] + "_!_" + sarr[i]); 
+                }
+                File.WriteAllLines(filepath, res);
+
             }
             else
             {
@@ -532,6 +546,9 @@ namespace Project
         {
             btn_convert_videos_Click(sender, e);
             btn_Haar_Detect_Click(sender, e);
+            btn_CNN_load_Click(sender, e);
+            btn_CNN_recognize_Click(sender, e);
+            btn_results_save_Click(sender, e);
         }
 
         private void btn_learn_resize_Click(object sender, EventArgs e)
@@ -610,11 +627,13 @@ namespace Project
 
         private void btn_imgs_open_Click(object sender, EventArgs e)
         {
-            var path = OpenPictureFileDialog.openFile();
-            tb_imgs_path.Text = path;
-            Properties.Settings.Default.last_path_to_pictures = path;
+            var path = OpenPictureFolderFileDialog.openFolder();
+            tb_imgs_path.Text = path.GetPath();
+            recognizeImageFolder.Load(path.GetPath());
+            Properties.Settings.Default.last_path_to_pictures = path.GetPath();
             Properties.Settings.Default.Save();
             Properties.Settings.Default.Upgrade();
+            lImages.Text = "Found " + recognizeImageFolder.GetCount();
 
             /*imageFolder = OpenPictureFolderFileDialog.openFolder();
             if (imageFolder.getCount() > 0)

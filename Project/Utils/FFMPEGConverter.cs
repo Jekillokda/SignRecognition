@@ -14,13 +14,14 @@ namespace Project
    {
         private readonly string sourcePath;
         private readonly string savePath;
-        int timeStepMilliseconds = 5000;
+        int timeStepMilliseconds;
         List<MovementPoint> pointsList = new List<MovementPoint>();
 
-    public FFMPEGConverter(string spath, string svpath)
+    public FFMPEGConverter(string spath, string svpath, int mill)
         {
             sourcePath = spath;
-            savePath = svpath;  
+            savePath = svpath;
+            timeStepMilliseconds = mill;
         }
 
       public bool ConvertAll( bool rewrite)
@@ -39,7 +40,6 @@ namespace Project
                 pointsList = ParseSubtitleFile(subsPath);
                 ImageFolder f = new ImageFolder();
                 f.Load(destinationFolderPath);
-                f.Sort();
                 List<PhotoData> dataList = PhCoord_Connect.Connect(f, pointsList, timeStepMilliseconds).ToList();
             for (int i = 0; i < dataList.Count; i++)
             {
