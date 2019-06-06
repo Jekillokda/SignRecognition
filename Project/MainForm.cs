@@ -37,7 +37,7 @@ namespace Project
         {
             InitializeComponent();
 
-            if (Properties.Settings.Default.last_path_to_videos != "")
+            if ((Properties.Settings.Default.last_path_to_videos != "") && (Directory.Exists(Properties.Settings.Default.last_path_to_videos)))
             {
                 vidFolder = new VideoFolder();
                 vidFolder.Load(Properties.Settings.Default.last_path_to_videos);
@@ -108,7 +108,7 @@ namespace Project
                 tb_detected_images_to_save_path.Text = path;
             }
 
-            if (Properties.Settings.Default.last_path_to_learn_pictures != "")
+            if ((Properties.Settings.Default.last_path_to_learn_pictures != "") && (Directory.Exists(Properties.Settings.Default.last_path_to_learn_pictures)))
             {
                 trainFolder = new ImageFolder();
                 trainFolder.Load(Properties.Settings.Default.last_path_to_learn_pictures);
@@ -116,7 +116,7 @@ namespace Project
                 tb_train_imgs_path.Text = trainFolder.GetPath();
             }
 
-            if (Properties.Settings.Default.last_path_to_test_pictures != "")
+            if ((Properties.Settings.Default.last_path_to_test_pictures != "") && (Directory.Exists(Properties.Settings.Default.last_path_to_test_pictures)))
             {
                 testFolder = new ImageFolder();
                 testFolder.Load(Properties.Settings.Default.last_path_to_test_pictures);
@@ -124,7 +124,7 @@ namespace Project
                 tb_test_imgs_path.Text = testFolder.GetPath();
             }
 
-            if (Properties.Settings.Default.last_path_to_pictures != "")
+            if ((Properties.Settings.Default.last_path_to_pictures != "") && (Directory.Exists(Properties.Settings.Default.last_path_to_pictures)))
             {
                 recognizeImageFolder = new ImageFolder();
                 recognizeImageFolder.Load(Properties.Settings.Default.last_path_to_pictures);
@@ -153,7 +153,6 @@ namespace Project
                 network = new CNN("");
             }
 
-            aim = Int32.Parse(tb_network_acc.Text);
             //Properties.Settings.Default.is_opened_first_time = true;
             /*if (Properties.Settings.Default.is_opened_first_time)
             {
@@ -330,6 +329,7 @@ namespace Project
                 MessageBox.Show("Image Folder does not exist", "ERROR");
                 return;
             }
+            MessageBox.Show("Please Wait");
             tb_images_to_detect_path.Text = path_to_detect_images;
             folders_to_detect.Clear();
             folders_to_detect.Add(path_to_detect_images);
@@ -360,6 +360,7 @@ namespace Project
             {
                 DetectFolder.DetectAll(path, xmlFolder.GetAll(), tb_detected_images_to_save_path.Text);
             }
+            MessageBox.Show("Successfull");
         }
 
         private void btn_detected_images_to_save_open_Click(object sender, EventArgs e)
@@ -438,18 +439,23 @@ namespace Project
             {
                 int acc;
                 Int32.TryParse(tb_network_acc.Text, out acc);
-                double d = network.TeachCNN(trainFolder.GetPath(), recognizeImageFolder.GetPath(), acc, 0.01, 100, 0.85);
+                int BatchSize = 100;
+                float LearnRate = 0.01f;
+                float momentum = 0.85f;
+                double d = network.TeachCNN(trainFolder.GetPath(), recognizeImageFolder.GetPath(), acc, LearnRate, BatchSize, momentum);
                 if (d == -1)
                     MessageBox.Show("Please add layers and try again");
                 else
+                {
                     lAccuracy.Text = d.ToString();
+                    Int32.TryParse(d.ToString(), out aim);
+                }
                 if (network.IsLearned())
                 {
                     lLearned.Text = "Learned";
                     MessageBox.Show("Network is learned acc is " + lAccuracy.Text);
                 }
             }
-
         }
 
         private void btn_CNN_recognize_Click(object sender, EventArgs e)
@@ -597,7 +603,6 @@ namespace Project
                 else
                     lTest_count.Text = "Not found";
             }
-
         }
 
         private void tb_train_imgs_path_TextChanged(object sender, EventArgs e)
@@ -618,11 +623,6 @@ namespace Project
             Properties.Settings.Default.last_path_to_test_pictures = testFolder.GetPath();
             Properties.Settings.Default.Save();
             Properties.Settings.Default.Upgrade();
-        }
-
-        private void btn_toGrey_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btn_imgs_open_Click(object sender, EventArgs e)
@@ -724,11 +724,6 @@ namespace Project
             exp = new ResultExport("l", "p", "s", tb_result_save_path.Text);
             exp.ExportFolder(tb_result_save_path.Text);
             MessageBox.Show("Successfull");
-        }
-
-        private void btn_ROI_makeAll_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void tb_network_acc_KeyPress(object sender, KeyPressEventArgs e)
